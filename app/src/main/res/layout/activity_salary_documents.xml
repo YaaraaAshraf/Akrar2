@@ -229,6 +229,10 @@
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/rounded_button"
                     android:text="تاكيد استلام"/>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/frame_layout"
+                    android:layout_height="wrap_content"/>
             </RelativeLayout>
     </LinearLayout>
     </ScrollView>

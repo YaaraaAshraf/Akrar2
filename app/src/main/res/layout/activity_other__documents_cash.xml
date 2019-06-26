@@ -16,7 +16,7 @@
         app:srcCompat="@drawable/actionbar" />
 
     <TextView
-        android:id="@+id/text_my_product"
+        android:id="@+id/txt_docu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -78,7 +78,7 @@
                 android:textSize="15dp"/>
 
                 <Spinner
-                android:id="@+id/spinner_pay"
+                android:id="@+id/spinner_paytype"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="170dp"
@@ -102,7 +102,7 @@
                 android:textColor="@color/black"
                 android:textSize="15dp" />
                 <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/spinner_deposite"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="255dp"
@@ -199,7 +199,10 @@
                 android:background="@drawable/rounded_button"
                 android:text="ارسال" />
 
-
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/frame"
+                    android:layout_height="wrap_content"/>
 
             </RelativeLayout>
         </LinearLayout>
