@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Update_MyProfile"
+    >
+
+    <ImageView
+        android:id="@+id/image_bar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/actionbar" />
+
+
+    <TextView
+        android:id="@+id/text_my_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="190dp"
+        android:layout_marginTop="40dp"
+        android:text="صفحتى الشخصية"
+        android:textColor="@color/black"/>
+    <ImageView
+        android:id="@+id/image_back_arrow_profile"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="40dp"
+        app:srcCompat="@drawable/arrow" />
+
+    <TextView
+        android:id="@+id/txt_name_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="350dp"
+        android:text="الاسم"
+        android:textSize="15dp"/>
+
+    <EditText
+        android:id="@+id/edtext_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/rounded_edittext"
+        android:inputType="textPersonName"
+        android:paddingRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#000000"
+        android:textColorHint="@color/grey" />
+    <TextView
+        android:id="@+id/txt_mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="350dp"
+        android:text="الاميل"
+        android:textSize="15dp"/>
+
+    <EditText
+        android:id="@+id/edtext_mail_profile"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="230dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/rounded_edittext"
+        android:inputType="textPersonName"
+        android:paddingRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:textColor="#000000"
+        android:textColorHint="@color/grey" />
+    <RelativeLayout
+        android:id="@+id/menuLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt_phone_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="320dp"
+            android:layout_marginTop="290dp"
+            android:text="رقم التليفون"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/edtext_phone_profile"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="320dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@color/grey"
+            android:background="@drawable/rounded_edittext"
+            android:inputType="textPersonName"
+            android:paddingRight="15dp"
+            android:textColor="#000000"
+            android:textColorHint="@color/grey" />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/txt_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="380dp"
+        android:text="كلمة المرور "
+        android:textColor="@color/black"
+        android:textSize="15dp" />
+
+    <EditText
+        android:id="@+id/text_password_profile"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="410dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/rounded_edittext"
+        android:inputType="textPersonName"
+        android:paddingRight="15dp"
+        android:textColor="#000000"
+        android:textColorHint="@color/grey" />
+    <TextView
+        android:id="@+id/txt_retrypass_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="471dp"
+        android:text="اعادة كلمة المرور"
+        android:textColor="@color/black"
+        android:textSize="15dp" />
+
+    <EditText
+        android:id="@+id/edt_retrypass_profile"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/rounded_edittext"
+        android:inputType="textPersonName"
+        android:paddingRight="15dp"
+        android:textColor="@color/black"
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/grey" />
+    <Button
+        android:id="@+id/btn_save_profile"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:layout_marginTop="598dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/rounded_button"
+        android:text="حفظ التعديلات" />
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,119 @@
+<!--<RelativeLayout-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:id="@+id/container"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="@color/white"-->
+    <!--tools:context=".Main_bar">-->
+   <androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <com.google.android.material.bottomnavigation.BottomNavigationView
+ android:id="@+id/bottom_navigation_view"
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content"
+ app:layout_constraintBottom_toBottomOf="parent"
+ app:layout_constraintEnd_toEndOf="parent"
+ app:layout_constraintStart_toStartOf="parent"
+      android:layout_margin="10dp"
+    app:menu="@menu/bottom_navigation_menu"
+app:itemIconTint="@drawable/item_selected"
+    android:background="@drawable/squareshape"
+app:itemTextColor="@drawable/item_selected"
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--<com.google.android.material.bottomnavigation.BottomNavigationView-->
+        <!--android:id="@+id/navigation"-->
+        <!--android:layout_width="432dp"-->
+        <!--android:layout_height="81dp"-->
+        <!--android:layout_gravity="bottom"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:layout_marginTop="640dp"-->
+        <!--android:background="@drawable/squareshape"-->
+        <!--android:foreground="?attr/selectableItemBackground"-->
+        <!--app:itemBackground="@color/grey"-->
+        <!--app:itemIconTint="@android:color/white"-->
+        <!--app:itemTextColor="@android:color/white">-->
+        <!--<FrameLayout-->
+            <!--android:id="@+id/frameLayout"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent" />-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/img_notif"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_marginLeft="70dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:src="@drawable/n"-->
+            <!--tools:ignore="VectorDrawableCompat" />-->
+
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/textView2"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginLeft="70dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginTop="50dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="Notif" />&ndash;&gt;-->
+
+
+        <!--<ImageView-->
+            <!--android:id="@+id/img_home"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_marginLeft="170dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--app:srcCompat="@drawable/h"-->
+            <!--tools:ignore="VectorDrawableCompat" />-->
+
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/textView2r"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginLeft="170dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginTop="50dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="home" />&ndash;&gt;-->
+
+        <!--<de.hdodenhof.circleimageview.CircleImageView-->
+            <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+            <!--android:id="@+id/profile_image"-->
+            <!--android:layout_width="60dp"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:layout_marginLeft="270dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:src="@drawable/p"-->
+            <!--app:civ_border_color="#ffffff"-->
+            <!--app:civ_border_width="5dp" />-->
+
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/textViewe2r"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginLeft="280dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginTop="50dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="profile" />&ndash;&gt;-->
+
+
+    <!--</com.google.android.material.bottomnavigation.BottomNavigationView>-->
+
+<!--</RelativeLayout>-->

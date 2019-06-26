@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.example.akrar.CurvedNavigationBottomView
+            android:id="@+id/customBottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/lin_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_margin="40dp"
+        android:background="@drawable/squareshape">
+
+
+        <ImageView
+            android:id="@+id/fab"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="12dp"
+            android:src="@drawable/ic_launcher_foreground"
+            app:elevation="6dp" />
+
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+<!--<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context=".MainActivity">-->
+
+    <!--<com.google.android.material.bottomnavigation.BottomNavigationView-->
+        <!--android:id="@+id/bar"-->
+        <!--android:layout_gravity="bottom"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/rounded_button"-->
+        <!--style="@style/Widget.MaterialComponents.BottomAppBar.Colored">-->
+    <!--</com.google.android.material.bottomnavigation.BottomNavigationView>-->
+    <!--<com.google.android.material.floatingactionbutton.FloatingActionButton-->
+        <!--android:id="@+id/fabBottom"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:tint="@android:color/white"-->
+        <!--android:src="@mipmap/ic_launcher"-->
+        <!--app:fabSize="normal"-->
+        <!--android:scaleType="center"-->
+        <!--app:layout_anchor="@+id/bar"-->
+        <!--app:layout_anchorGravity="top|end"-->
+        <!--app:useCompatPadding="true"/>-->
+
+    <!--<com.google.android.material.bottomappbar.BottomAppBar-->
+        <!--android:id="@+id/bard"-->
+        <!--style="@style/Widget.MaterialComponents.BottomAppBar.Colored"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:backgroundTint="@color/white"-->
+      <!---->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="bottom">-->
+
+    <!--</com.google.android.material.bottomappbar.BottomAppBar>-->
+    <!--<com.google.android.material.floatingactionbutton.FloatingActionButton-->
+        <!--android:id="@+id/fabTop"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:tint="@color/white"-->
+        <!--android:src="@drawable/h"-->
+        <!--app:backgroundTint="@android:color/white"-->
+        <!--app:fabSize="normal"-->
+        <!--android:scaleType="center"-->
+        <!--android:layout_gravity="top|end"-->
+        <!--app:layout_anchor="@+id/bard"-->
+        <!--app:layout_anchorGravity="top|end"-->
+        <!--android:layout_margin="12dp"/>-->
+

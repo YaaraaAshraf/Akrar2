@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".Other_DocumentsCash">
+
+    <ImageView
+        android:id="@+id/image_bar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/actionbar" />
+
+    <TextView
+        android:id="@+id/text_my_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="-70dp"
+        android:text="سندات قبض نقدي"
+        android:textColor="@color/black"/>
+    <ImageView
+        android:id="@+id/image_document_arrow"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="-10dp"
+        app:srcCompat="@drawable/arrow" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- checkbox -->
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                android:id="@+id/txt_send_to"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="56dp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="330dp"
+                android:text="المرسل الية"
+                android:textSize="15dp"/>
+
+
+                <EditText
+                android:id="@+id/edtext_send_to"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="80dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/rounded_edittext"
+                android:inputType="textPersonName"
+                android:paddingRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="#000000"
+                android:textColorHint="@color/grey" />
+
+                <TextView
+                android:id="@+id/txt_type_of_pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="140dp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="340dp"
+                android:text="نوع الدفع"
+                android:textSize="15dp"/>
+
+                <Spinner
+                android:id="@+id/spinner_pay"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="170dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/rounded_edittext"
+                />
+
+                <RelativeLayout
+                android:id="@+id/menuLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                android:id="@+id/txt_document_pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="350dp"
+                android:layout_marginTop="230dp"
+                android:text="العربون"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+                <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="255dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/rounded_edittext"
+                />
+                </RelativeLayout>
+                <TextView
+                android:id="@+id/txt_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="320dp"
+                android:layout_marginTop="310dp"
+                android:text="قيمة العربون"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+                <EditText
+                android:id="@+id/text_value"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="332dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/rounded_edittext"
+                android:inputType="number"
+                android:paddingRight="15dp"
+                android:textColor="#000000"
+                android:textColorHint="@color/grey" />
+                <TextView
+                android:id="@+id/txt_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="350dp"
+                android:layout_marginTop="390dp"
+                android:text="التاريخ"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/text_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="415dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/rounded_edittext"
+                    android:drawableLeft="@mipmap/calendar"
+                    android:inputType="date"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="15dp"
+                    android:textColor="#000000"
+                    android:textColorHint="@color/grey" />
+
+                <TextView
+                android:id="@+id/txt_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="350dp"
+                android:layout_marginTop="468dp"
+                android:text="الوصف"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+
+                <EditText
+                android:id="@+id/text_description"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="490dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/square_edittext"
+                android:paddingRight="10dp"
+                android:paddingBottom="30dp"
+                android:inputType="textMultiLine"
+                android:text="هناك حقيقة مثبتة منذ زمن طويل و هى ان المحتوى المقروء لصفحة ما ستلهى القارئ"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:ems="100"
+                android:textColorHint="@color/grey" />
+                <Button
+                android:id="@+id/btn_send_to"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginTop="590dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/rounded_button"
+                android:text="ارسال" />
+
+
+
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+    <!--<TextView-->
+        <!--android:id="@+id/txt_send_to"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="110dp"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:layout_marginLeft="330dp"-->
+        <!--android:text="المرسل الية"-->
+        <!--android:textSize="15dp"/>-->
+
+    <!--<EditText-->
+        <!--android:id="@+id/edtext_send_to"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="136dp"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:background="@drawable/rounded_edittext"-->
+        <!--android:inputType="textPersonName"-->
+        <!--android:paddingRight="15dp"-->
+        <!--android:layout_marginLeft="15dp"-->
+        <!--android:textColor="#000000"-->
+        <!--android:textColorHint="@color/grey" />-->
+    <!--<TextView-->
+        <!--android:id="@+id/txt_type_of_pay"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="198dp"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:layout_marginLeft="340dp"-->
+        <!--android:text="نوع الدفع"-->
+        <!--android:textSize="15dp"/>-->
+
+    <!--<Spinner-->
+        <!--android:id="@+id/spinner_pay"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_marginTop="220dp"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:background="@drawable/rounded_edittext"-->
+        <!--/>-->
+
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/menuLayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/txt_document_pay"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="350dp"-->
+            <!--android:layout_marginTop="272dp"-->
+            <!--android:text="العربون"-->
+            <!--android:textColor="@color/black"-->
+            <!--android:textSize="15dp" />-->
+        <!--<Spinner-->
+            <!--android:id="@+id/spinner"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:layout_marginTop="294dp"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:background="@drawable/rounded_edittext"-->
+            <!--/>-->
+    <!--</RelativeLayout>-->
+    <!--<TextView-->
+        <!--android:id="@+id/txt_value"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="320dp"-->
+        <!--android:layout_marginTop="350dp"-->
+        <!--android:text="قيمة العربون"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:textSize="15dp" />-->
+
+    <!--<EditText-->
+        <!--android:id="@+id/text_value"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginLeft="15dp"-->
+        <!--android:layout_marginTop="372dp"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:background="@drawable/rounded_edittext"-->
+        <!--android:inputType="number"-->
+        <!--android:paddingRight="15dp"-->
+        <!--android:textColor="#000000"-->
+        <!--android:textColorHint="@color/grey" />-->
+    <!--<TextView-->
+        <!--android:id="@+id/txt_date"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="350dp"-->
+        <!--android:layout_marginTop="430dp"-->
+        <!--android:text="التاريخ"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:textSize="15dp" />-->
+
+    <!--<EditText-->
+        <!--android:id="@+id/text_date"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginLeft="15dp"-->
+        <!--android:layout_marginTop="454dp"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:background="@drawable/rounded_edittext"-->
+        <!--android:inputType="date"-->
+        <!--android:paddingRight="15dp"-->
+        <!--android:textColor="#000000"-->
+        <!--android:textColorHint="@color/grey" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/txt_description"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="350dp"-->
+        <!--android:layout_marginTop="510dp"-->
+        <!--android:text="الوصف"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:textSize="15dp" />-->
+
+
+    <!--<EditText-->
+        <!--android:id="@+id/text_description"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="90dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginLeft="15dp"-->
+        <!--android:layout_marginTop="529dp"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:background="@drawable/square_edittext"-->
+        <!--android:paddingRight="10dp"-->
+        <!--android:paddingBottom="30dp"-->
+        <!--android:inputType="textMultiLine"-->
+        <!--android:text="هناك حقيقة مثبتة منذ زمن طويل و هى ان المحتوى المقروء لصفحة ما ستلهى القارئ"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:textSize="15dp"-->
+        <!--android:ems="100"-->
+        <!--android:textColorHint="@color/grey" />-->
+    <!--<Button-->
+        <!--android:id="@+id/btn_save"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_marginTop="640dp"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:background="@drawable/rounded_button"-->
+        <!--android:text="حفظ" />-->
+
+
+<!--</ScrollView>-->
+<!--</RelativeLayout>-->
+</LinearLayout>

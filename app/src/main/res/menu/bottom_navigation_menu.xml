@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/navigation_account"
+        android:icon="@drawable/n"
+        android:title="التنبيهات" />
+
+    <item android:id="@+id/navigation_favourite"
+        android:icon="@drawable/h"
+        android:title="الصفحة الرئيسية" />
+
+    <item android:id="@+id/navigation_profile"
+        android:icon="@drawable/p"
+        android:title="الصفحة الشخصية" />
+</menu>
