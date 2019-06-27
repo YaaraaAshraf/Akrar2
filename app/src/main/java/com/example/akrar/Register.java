@@ -46,14 +46,8 @@ public class Register extends AppCompatActivity {
         btn_reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Fragment fragment = Mainpage_details.newInstance();
-//                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//                transaction.replace(R.id.container, fragment).commit();
-//                FragmentManager manager = getSupportFragmentManager();
-//                FragmentTransaction ft = manager.beginTransaction();
-//                ft.replace(R.id.container, Mainpage_details.newInstance(), null);
-//                ft.commit();
-                Intent mainIntent = new Intent(Register.this, Mainpage_details.class);
+//
+                Intent mainIntent = new Intent(Register.this, Main_bar.class);
                 Register.this.startActivity(mainIntent);
                 Register.this.finish();
 

@@ -12,8 +12,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Document_page extends AppCompatActivity   {
-Spinner spinner;
+public class Document_page extends AppCompatActivity {
+    Spinner spinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,10 +29,9 @@ Spinner spinner;
                 "Bolean birch"
 
         };
-
         // Initializing an ArrayAdapter
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
-                this,R.layout.spinner_item,plants
+                this, R.layout.spinner_item, plants
         );
         spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
         spinner.setAdapter(spinnerArrayAdapter);

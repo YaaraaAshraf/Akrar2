@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Add_product">
+    tools:context=".FragmentAdd_product">
 
     <ImageView
         android:id="@+id/image_bar"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        app:srcCompat="@drawable/actionbar"/>
+        app:srcCompat="@drawable/actionbar" />
 
     <TextView
         android:id="@+id/text_my_product"
@@ -20,7 +20,8 @@
         android:layout_marginLeft="190dp"
         android:layout_marginTop="40dp"
         android:text="اضافة منتج"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black" />
+
     <ImageView
         android:id="@+id/image_product_arrow"
         android:layout_width="15dp"
@@ -33,48 +34,50 @@
         android:id="@+id/txt_name_product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:textColor="@color/black"
         android:layout_marginLeft="330dp"
+        android:layout_marginTop="120dp"
         android:text="اسم المنتج"
-        android:textSize="15dp"/>
+        android:textColor="@color/black"
+        android:textSize="15dp" />
 
     <EditText
         android:id="@+id/edtext_name_product"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="160dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/rounded_edittext"
         android:inputType="textPersonName"
         android:paddingRight="15dp"
-        android:layout_marginLeft="15dp"
         android:textColor="#000000"
         android:textColorHint="@color/grey" />
+
     <TextView
         android:id="@+id/txt_unit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
-        android:textColor="@color/black"
         android:layout_marginLeft="340dp"
+        android:layout_marginTop="220dp"
         android:text="الوحدة"
-        android:textSize="15dp"/>
+        android:textColor="@color/black"
+        android:textSize="15dp" />
 
     <EditText
         android:id="@+id/edtext_unit"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="250dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/rounded_edittext"
         android:inputType="textPersonName"
         android:paddingRight="15dp"
-        android:layout_marginLeft="15dp"
         android:textColor="#000000"
         android:textColorHint="@color/grey" />
+
     <RelativeLayout
         android:id="@+id/menuLayout"
         android:layout_width="match_parent"
@@ -109,16 +112,12 @@
         android:id="@+id/btn_save"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_weight="1"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="450dp"
         android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
         android:background="@drawable/rounded_button"
         android:text="اضافة" />
-
-
-
-
 
 
 </RelativeLayout>

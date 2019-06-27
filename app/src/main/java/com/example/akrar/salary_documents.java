@@ -1,11 +1,7 @@
 package com.example.akrar;
-
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
-
-import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,16 +13,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class salary_documents extends Fragment {
- Button btn_deliver;
- ImageView img_arrow;
-    public  salary_documents() {
+    Button btn_deliver;
+    ImageView img_arrow;
+
+    public salary_documents() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_salary_documents, container, false);
-        img_arrow=(ImageView)view.findViewById(R.id.image_document_arrow);
+        img_arrow = (ImageView) view.findViewById(R.id.image_document_arrow);
         img_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,24 +31,25 @@ public class salary_documents extends Fragment {
             }
         });
 
-        btn_deliver=(Button)view.findViewById(R.id.btn_deliver);
+        btn_deliver = (Button) view.findViewById(R.id.btn_deliver);
         btn_deliver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showDialog( getActivity(),"تاكيد استلام سند القبض العينى؟");
+                showDialog(getActivity(), "تاكيد استلام سند القبض العينى؟");
             }
         });
         return view;
     }
+
     private void back(Fragment fragment) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_layout, fragment);
+//        transaction.replace(R.id.frame_layout, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
     }
 
     public void showDialog(FragmentActivity activity, String s) {
-         final Dialog dialog = new Dialog(activity, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
+        final Dialog dialog = new Dialog(activity, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(false);
         dialog.setContentView(R.layout.dialog);

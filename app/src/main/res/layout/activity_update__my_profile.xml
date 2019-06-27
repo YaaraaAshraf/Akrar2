@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Update_MyProfile"
+    tools:context=".Update_MyProfileFragment"
     >
 
     <ImageView
@@ -160,7 +160,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_weight="1"
-        android:layout_marginTop="598dp"
+        android:layout_marginTop="580dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:background="@drawable/rounded_button"

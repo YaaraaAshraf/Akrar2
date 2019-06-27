@@ -19,12 +19,11 @@ RecyclerView recyclerView;
     public NotifFragment() {
 
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_notif, container, false);
-                recyclerView=(RecyclerView)container.findViewById(R.id.recycler_view);
+                recyclerView=(RecyclerView)view.findViewById(R.id.recycler_view);
 
         MyListData[] myListData = new MyListData[]{
                 new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),

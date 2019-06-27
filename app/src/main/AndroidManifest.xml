@@ -11,16 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".Main_bar"></activity>
-        <activity android:name=".Update_MyProfile" />
-        <activity android:name=".products"/>
-
-        <activity android:name=".salary_documents" />
-        <activity android:name=".Other_DocumentsCash" />
+        <activity android:name=".Update_MyProfileFragment" />
+        <activity android:name=".productsFragment"/>
         <activity android:name=".Document_page" />
-        <activity android:name=".Add_product" />
+        <activity android:name=".FragmentAdd_product" />
         <activity android:name=".Document" />
         <activity android:name=".curvedbottomm" />
-        <activity android:name=".Mainpage_profile" />
         <activity android:name=".Forgotpassword" />
         <activity android:name=".Registration" />
         <activity android:name=".Register" />

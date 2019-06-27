@@ -1,179 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="#EBEBEB"
-tools:context=".Main_bar"
-android:orientation="horizontal">
-
-<RelativeLayout
-    android:id="@+id/menuLayout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:background="#EBEBEB"
+    android:orientation="horizontal"
+    tools:context=".Main_bar">
 
-    <TextView
-        android:id="@+id/text_details"
+    <RelativeLayout
+        android:id="@+id/menuLayout"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:paddingRight="20dp"
-        android:textSize="18dp"
-        android:layout_marginTop="60dp"
-        android:text="هناك حقيقة مثبتة منذ زمن طويل وهى ان المحتوى المقروء
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text_details"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="60dp"
+            android:paddingRight="20dp"
+            android:text="هناك حقيقة مثبتة منذ زمن طويل وهى ان المحتوى المقروء
  لصفحة ما سيلهى القارئ"
-        android:textColor="@color/grey"
-        />
-    <ImageView
-        android:id="@+id/image_square"
-        android:layout_width="170dp"
-        android:layout_height="160dp"
-        android:layout_marginLeft="220dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginBottom="30dp"
-        android:layout_weight="1"
-        app:srcCompat="@drawable/squareshape" />
+            android:textColor="@color/grey"
+            android:textSize="18dp" />
 
-    <LinearLayout
-        android:id="@+id/menuLayout_two"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/image_square"
+            android:layout_width="170dp"
+            android:layout_height="160dp"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="140dp"
+            android:layout_marginBottom="30dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/squareshape" />
 
-    <ImageView
-        android:id="@+id/image_gr"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:layout_marginLeft="280dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginBottom="99dp"
-        app:srcCompat="@drawable/gr" />
-    <LinearLayout
-        android:id="@+id/menuLayout_three"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/txt_gr"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignEnd="@+id/menuLayout_three"
-            android:layout_alignRight="@+id/menuLayout_three"
-            android:layout_marginTop="240dp"
-            android:layout_marginLeft="243dp"
-            android:text="سند قبض عينى"
-            android:textColor="@color/grey" />
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/menuLayout_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"></LinearLayout>
+
+        <ImageView
+            android:id="@+id/image_gr"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="280dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginBottom="99dp"
+            app:srcCompat="@drawable/gr" />
+
+        <LinearLayout
+            android:id="@+id/menuLayout_three"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_gr"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignEnd="@+id/menuLayout_three"
+                android:layout_alignRight="@+id/menuLayout_three"
+                android:layout_marginLeft="243dp"
+                android:layout_marginTop="240dp"
+                android:text="سند قبض عينى"
+                android:textColor="@color/grey" />
+        </LinearLayout>
 
 
-    <ImageView
-        android:id="@+id/image_square_gm"
-        android:layout_width="170dp"
-        android:layout_height="160dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginBottom="30dp"
-        android:layout_weight="1"
-        app:srcCompat="@drawable/squareshape" />
+        <ImageView
+            android:id="@+id/image_square_gm"
+            android:layout_width="170dp"
+            android:layout_height="160dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="140dp"
+            android:layout_marginBottom="30dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/squareshape" />
 
-    <LinearLayout
-        android:id="@+id/menuLayout_gm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/menuLayout_gm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"></LinearLayout>
 
-    <ImageView
-        android:id="@+id/img_gm"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginBottom="99dp"
-        app:srcCompat="@drawable/gm" />
-    <LinearLayout
-        android:id="@+id/menuLayoutyte"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/textView22"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignEnd="@+id/menuLayout_gm"
-            android:layout_alignRight="@+id/menuLayout_gm"
-            android:layout_marginTop="240dp"
-            android:layout_marginLeft="50dp"
-            android:text="سند قبض نقدى"
-            android:textColor="@color/grey" />
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/img_gm"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginBottom="99dp"
+            app:srcCompat="@drawable/gm" />
 
-    <ImageView
-        android:id="@+id/imgsquare_pr"
-        android:layout_width="352dp"
-        android:layout_height="130dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="320dp"
-        android:layout_marginBottom="30dp"
-        android:layout_weight="1"
-        app:srcCompat="@drawable/squareshape" />
+        <LinearLayout
+            android:id="@+id/menuLayoutyte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:id="@+id/menuLayout_pr"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    </LinearLayout>
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignEnd="@+id/menuLayout_gm"
+                android:layout_alignRight="@+id/menuLayout_gm"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="240dp"
+                android:text="سند قبض نقدى"
+                android:textColor="@color/grey" />
+        </LinearLayout>
 
-    <ImageView
-        android:id="@+id/img_pr"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:layout_marginLeft="170dp"
-        android:layout_marginTop="350dp"
-        android:layout_marginBottom="90dp"
-        app:srcCompat="@drawable/pr" />
+        <ImageView
+            android:id="@+id/imgsquare_pr"
+            android:layout_width="352dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="320dp"
+            android:layout_marginBottom="30dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/squareshape" />
 
-    <LinearLayout
-        android:id="@+id/menuLayoutytet"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/menuLayout_pr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"></LinearLayout>
 
-        <TextView
-            android:id="@+id/textView22t"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignEnd="@+id/menuLayout_pr"
-            android:layout_alignRight="@+id/menuLayout_pr"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="420dp"
-            android:text="المنتجات"
-            android:textColor="@color/grey" />
-    </LinearLayout>
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/img_pr"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="350dp"
+            android:layout_marginBottom="90dp"
+            app:srcCompat="@drawable/pr" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="640dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/squareshape"
-        app:itemIconTint="@drawable/item_selected"
-        app:itemTextColor="@drawable/item_selected"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_menu" />
-</RelativeLayout>
+        <LinearLayout
+            android:id="@+id/menuLayoutytet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView22t"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignEnd="@+id/menuLayout_pr"
+                android:layout_alignRight="@+id/menuLayout_pr"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="420dp"
+                android:text="المنتجات"
+                android:textColor="@color/grey" />
+        </LinearLayout>
+
+    </RelativeLayout>
 </LinearLayout>
