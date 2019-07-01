@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.example.akrar.FilterActivity">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="تصفية النتائج"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:layout_marginLeft="173dp"
+        android:layout_marginRight="160dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/txt_name-phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="310dp"
+        android:layout_marginTop="60dp"
+        android:text="الاسم او الرقم"
+        android:textColor="@color/black"
+        android:textSize="15dp" />
+
+    <EditText
+        android:id="@+id/edtext_name-phone"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="89dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="6dp"
+        android:background="@drawable/rounded_edittext"
+        android:inputType="number"
+        android:paddingRight="15dp"
+        android:textColor="#000000"
+        android:textColorHint="@color/grey" />
+
+    <TextView
+        android:id="@+id/txt_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="150dp"
+        android:text="التاريخ من"
+        android:textColor="@color/black"
+        android:textSize="15dp" />
+
+    <EditText
+        android:id="@+id/edt_date"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="180dp"
+        android:drawableLeft="@mipmap/calendar"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:drawablePadding="6dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/black"
+        android:background="@drawable/rounded_edittext"
+        android:inputType="textPersonName" />
+    <TextView
+        android:id="@+id/txt_datefrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="240dp"
+        android:text="التاريخ الى"
+        android:textColor="@color/black"
+        android:textSize="15dp" />
+
+    <EditText
+        android:id="@+id/edt_datefrom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:drawableLeft="@mipmap/calendar"
+        android:drawablePadding="6dp"
+        android:textColor="@color/black"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="270dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/rounded_edittext"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/button_search"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="370dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/rounded_button"
+        android:text="بحث" />
+</RelativeLayout>
+

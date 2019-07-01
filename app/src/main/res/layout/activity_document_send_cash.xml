@@ -87,6 +87,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="170dp"
                     android:layout_marginRight="10dp"
+                    android:popupBackground="@color/white"
                     android:background="@drawable/rounded_edittext" />
 
                 <RelativeLayout
@@ -157,10 +158,11 @@
                     android:layout_marginTop="415dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/rounded_edittext"
+                    android:drawablePadding="6dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
                     android:drawableLeft="@mipmap/calendar"
                     android:inputType="date"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="15dp"
                     android:textColor="#000000"
                     android:textColorHint="@color/grey" />
 

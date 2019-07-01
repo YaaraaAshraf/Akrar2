@@ -10,4 +10,6 @@
     <color name="blue">#FF258ADA</color>
     <color name="colorTransparent">#43000000</color>
     <color name="redTransparent">#7ffd0101</color>
+    <color name="fabcolor">#3F51B5</color>
+    <color name="fabcolorxx">#ff0c35</color>
 </resources>

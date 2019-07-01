@@ -24,7 +24,7 @@
         android:textColor="@color/black" />
 
     <ImageView
-        android:id="@+id/image_document_arrow"
+        android:id="@+id/imgarrow"
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_marginLeft="20dp"
@@ -189,7 +189,7 @@
                     android:textColorHint="@color/grey" />
 
                 <ImageView
-                    android:id="@+id/image_calender"
+                    android:id="@+id/img_calender"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
                     android:layout_marginLeft="30dp"

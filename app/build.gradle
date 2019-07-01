@@ -31,7 +31,6 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     //noinspection GradleCompatible
     implementation 'com.android.support:recyclerview-v7:23.3.+'
-
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'

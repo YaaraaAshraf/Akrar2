@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".productsFragment">
+  >
 
     <ImageView
         android:id="@+id/image_bar"
@@ -22,7 +22,7 @@
         android:text="سند قبض عيني"
         android:textColor="@color/black"/>
     <ImageView
-        android:id="@+id/img_arrow_bond"
+        android:id="@+id/img_arrow"
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_marginLeft="27dp"
@@ -71,5 +71,24 @@
         tools:layout_editor_absoluteX="125dp"
         tools:layout_editor_absoluteY="57dp"
         tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/floatingActionButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="550dp"
+        android:layout_gravity="bottom|end"
+        android:backgroundTint="@color/fabcolor"
+        android:clickable="true"
+        android:src="@drawable/circle" />
+
+    <ImageView
+        android:id="@+id/image_filter"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="-10dp"
+        android:src="@drawable/filter"
+        android:layout_marginTop="554dp"/>
 
 </RelativeLayout>

@@ -10,8 +10,6 @@ import android.view.Menu;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         Thread mythread= new Thread(){
             @Override
             public void run() {

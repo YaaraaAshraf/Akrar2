@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -18,6 +19,7 @@ import java.util.Calendar;
 public class FragmentBond extends Fragment {
     ImageView img_back,img_calender;
     EditText txt_date;
+    Button btn_send;
     final Calendar c = Calendar.getInstance();
     final int year = c.get(Calendar.YEAR);
     final int month = c.get(Calendar.MONTH)+1;
@@ -29,6 +31,13 @@ public class FragmentBond extends Fragment {
                              Bundle savedInstanceState) {
         //Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fragment_bond, container, false);
+        btn_send=(Button)view.findViewById(R.id.btn_deliver_bonds);
+        btn_send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                send(new salary_documents());
+            }
+        });
         img_calender=(ImageView)view.findViewById(R.id.image_calender);
         txt_date=(EditText)view.findViewById(R.id.text_date_bonds);
         img_calender.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +62,18 @@ public class FragmentBond extends Fragment {
         });
         return view;
     }
+
+    private boolean send(Fragment fragment) {
+        if (fragment != null) {
+            getFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.frame_container, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
+    }
+
     private boolean back(Fragment fragment) {
         if (fragment != null) {
             getFragmentManager()
