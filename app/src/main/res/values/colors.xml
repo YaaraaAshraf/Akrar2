@@ -12,4 +12,5 @@
     <color name="redTransparent">#7ffd0101</color>
     <color name="fabcolor">#3F51B5</color>
     <color name="fabcolorxx">#ff0c35</color>
+    <color name="dialogcolor">#194582</color>
 </resources>

@@ -3,6 +3,7 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +19,9 @@ import java.util.Calendar;
 
 public class FragmentBond extends Fragment {
     ImageView img_back,img_calender;
-    EditText txt_date;
+    EditText txt_date,edtext_sendto_bonds,edt_address_bonds,edt_name_of_product_bonds,text_quantity_bonds,text_value_bonds,text_date_bonds,text_description_bonds;
     Button btn_send;
+    String st_date,st_sendto,st_address,st_productname,st_quantitiy,st_value,st_datebonds,st_desc;
     final Calendar c = Calendar.getInstance();
     final int year = c.get(Calendar.YEAR);
     final int month = c.get(Calendar.MONTH)+1;
@@ -31,11 +33,40 @@ public class FragmentBond extends Fragment {
                              Bundle savedInstanceState) {
         //Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fragment_bond, container, false);
+        edtext_sendto_bonds=(EditText)view.findViewById(R.id.edtext_sendto_bonds);
+        edt_address_bonds=(EditText)view.findViewById(R.id.edt_address_bonds);
+        edt_name_of_product_bonds=(EditText)view.findViewById(R.id.edt_name_of_product_bonds);
+        text_quantity_bonds=(EditText)view.findViewById(R.id.text_quantity_bonds);
+        text_date_bonds=(EditText)view.findViewById(R.id.text_date_bonds);
+        text_value_bonds=(EditText)view.findViewById(R.id.text_value_bonds);
+        text_description_bonds=(EditText)view.findViewById(R.id.text_description_bonds);
         btn_send=(Button)view.findViewById(R.id.btn_deliver_bonds);
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                send(new salary_documents());
+                st_date=txt_date.getText().toString();
+                 st_sendto=edtext_sendto_bonds.getText().toString();
+                 st_address=edt_address_bonds.getText().toString();
+                 st_productname=edt_name_of_product_bonds.getText().toString();
+                 st_quantitiy=text_quantity_bonds.getText().toString();
+                 st_value=text_value_bonds.getText().toString();
+                 st_desc=text_description_bonds.getText().toString();
+
+                FragmentTransaction transection=getFragmentManager().beginTransaction();
+                salary_documents mfragment=new salary_documents();
+                //using Bundle to send data
+                Bundle bundle=new Bundle();
+                bundle.putString("date",st_date);
+                bundle.putString("name",st_sendto);
+                bundle.putString("address",st_address);
+                bundle.putString("productname",st_productname);
+                bundle.putString("quantity",st_quantitiy);
+                bundle.putString("value",st_value);
+                bundle.putString("des",st_desc);
+                mfragment.setArguments(bundle); //data being send to SecondFragment
+                transection.replace(R.id.frame_container, mfragment);
+                transection.commit();
+//                send(new salary_documents());
             }
         });
         img_calender=(ImageView)view.findViewById(R.id.image_calender);
@@ -48,7 +79,8 @@ public class FragmentBond extends Fragment {
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
                     {
                         txt_date.setText(dayOfMonth + "/" + monthOfYear + "/" + year);
-                    }};
+                    }
+                };
                 DatePickerDialog dpDialog=new DatePickerDialog(getActivity(), listener, year, month, day);
                 dpDialog.show();
             }
@@ -62,7 +94,6 @@ public class FragmentBond extends Fragment {
         });
         return view;
     }
-
     private boolean send(Fragment fragment) {
         if (fragment != null) {
             getFragmentManager()
@@ -73,7 +104,6 @@ public class FragmentBond extends Fragment {
         }
         return false;
     }
-
     private boolean back(Fragment fragment) {
         if (fragment != null) {
             getFragmentManager()

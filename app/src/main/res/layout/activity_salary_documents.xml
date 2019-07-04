@@ -55,7 +55,7 @@
                     android:textColor="@color/black"
                     android:textSize="15dp" />
 
-                <EditText
+                <TextView
                     android:id="@+id/edtext_sendto_docu"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -64,9 +64,11 @@
                     android:layout_marginTop="80dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/rounded_edittext"
-                    android:inputType="number"
+                    android:textColor="@color/black"
                     android:paddingRight="15dp"
-                    android:textColor="#000000"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
                     android:textColorHint="@color/grey" />
 
                 <TextView
@@ -79,15 +81,20 @@
                     android:textColor="@color/black"
                     android:textSize="15dp" />
 
-                <EditText
+                <TextView
                     android:id="@+id/edt_address"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
+                    android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/black"
                     android:layout_marginTop="170dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/rounded_edittext"
-                    android:inputType="textPersonName" />
+                     />
 
                 <RelativeLayout
                     android:id="@+id/menuLayout"
@@ -104,12 +111,17 @@
                         android:textColor="@color/black"
                         android:textSize="15dp" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/edt_name_of_product"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="255dp"
+                        android:paddingRight="15dp"
+                        android:paddingLeft="15dp"
+                        android:textColor="@color/black"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/rounded_edittext" />
                 </RelativeLayout>
@@ -124,7 +136,7 @@
                     android:textColor="@color/black"
                     android:textSize="15dp" />
 
-                <EditText
+                <TextView
                     android:id="@+id/text_quantity"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -132,10 +144,12 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="332dp"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/rounded_edittext"
-                    android:inputType="number"
                     android:paddingRight="15dp"
-                    android:textColor="#000000"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:background="@drawable/rounded_edittext"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/grey" />
 
                 <TextView
@@ -148,7 +162,7 @@
                     android:textColor="@color/black"
                     android:textSize="15dp" />
 
-                <EditText
+                <TextView
                     android:id="@+id/text_value"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -156,10 +170,11 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="415dp"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/rounded_edittext"
-                    android:inputType="date"
-                    android:paddingLeft="10dp"
                     android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:background="@drawable/rounded_edittext"
                     android:textColor="@color/black"
                     android:textColorHint="@color/grey" />
 
@@ -173,7 +188,7 @@
                     android:textColor="@color/black"
                     android:textSize="15dp" />
 
-                <EditText
+                <TextView
                     android:id="@+id/text_date_docu"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -181,10 +196,11 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="489dp"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/rounded_edittext"
-                    android:inputType="date"
-                    android:paddingLeft="10dp"
                     android:paddingRight="15dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:background="@drawable/rounded_edittext"
                     android:textColor="@color/black"
                     android:textColorHint="@color/grey" />
 
@@ -207,7 +223,7 @@
                     android:textSize="15dp" />
 
 
-                <EditText
+                <TextView
                     android:id="@+id/text_description"
                     android:layout_width="match_parent"
                     android:layout_height="90dp"

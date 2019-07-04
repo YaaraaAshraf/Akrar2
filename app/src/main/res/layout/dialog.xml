@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="200dp"
+    android:layout_marginTop="240dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
     android:background="@color/colorTransparent"
     android:gravity="center"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/squareshape"
-        android:layout_margin="20dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/dialog_shape"
         android:orientation="vertical">
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="156dp"
+            android:layout_height="match_parent"
             android:layout_below="@+id/a"
+            android:gravity="center_vertical"
             android:orientation="vertical">
 
             <TextView
@@ -32,7 +35,7 @@
                 android:layout_marginBottom="20dp"
                 android:gravity="center_horizontal"
                 android:text="تاكيد استلام سند القبض العينى؟"
-                android:textColor="#ff000000"
+                android:textColor="@color/black"
                 android:textSize="20sp" />
 
             <LinearLayout
@@ -48,7 +51,7 @@
                     android:layout_height="40dp"
                     android:background="@drawable/rounded_button_dialog"
                     android:text="لا"
-                    android:textColor="#000"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
 
                 <Button
@@ -59,10 +62,18 @@
                     android:background="@drawable/rounded_button_dialog"
                     android:gravity="center_vertical|center_horizontal"
                     android:text="نعم"
-                    android:textColor="#000"
-                    android:textSize="20sp"/>
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
 
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:background="@drawable/shapewithcolors"
+        android:layout_alignParentBottom="true"
+        android:scaleX="-1"/>
+
 </RelativeLayout>

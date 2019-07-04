@@ -16,10 +16,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class DocumentCash_Fragment extends Fragment {
    ImageView image_add_bond,img_arrow;
    ImageView fab;
-    public DocumentCash_Fragment() {
+    public DocumentCash_Fragment(){
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,7 +47,6 @@ public class DocumentCash_Fragment extends Fragment {
         });
         return view;
     }
-
     private boolean back(Fragment fragment) {
         if (fragment != null) {
             getFragmentManager()
@@ -60,7 +57,6 @@ public class DocumentCash_Fragment extends Fragment {
         }
         return false;
     }
-
     private boolean loadBondFragment(Fragment fragment) {
         if (fragment != null) {
             getFragmentManager()

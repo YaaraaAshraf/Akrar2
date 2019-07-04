@@ -25,7 +25,6 @@ public class BottomsheetDialogCash extends BottomSheetDialogFragment  implements
     final int month = c.get(Calendar.MONTH)+1;
     final int day = c.get(Calendar.DAY_OF_MONTH);
     String[] pay_type = {"كاش", "اجل"};
-
     @SuppressLint("RestrictedApi")
     @Override
     public void setupDialog(Dialog dialog, int style) {
@@ -104,17 +103,19 @@ public class BottomsheetDialogCash extends BottomSheetDialogFragment  implements
                 return false;
             }
         });
-
     }
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
          if (spinner_deposite_cash.getSelectedItem().equals("كاش")) {
              edt_datecash.setVisibility(View.GONE);
-             txt_datecash.setVisibility(View.GONE);
-
+//
          }else
              edt_datecash.setVisibility(View.VISIBLE);
-             txt_datecash.setVisibility(View.VISIBLE);
+//
+        if (spinner_deposite_cash.getSelectedItem().equals("كاش")){
+            txt_datecash.setVisibility(View.INVISIBLE);
+        }else
+            txt_datecash.setVisibility(View.VISIBLE);
     }
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {

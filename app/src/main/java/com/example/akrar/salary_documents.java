@@ -21,7 +21,8 @@ import java.util.Calendar;
 public class salary_documents extends Fragment {
     Button btn_deliver;
     ImageView img_arrow,img_calender;
-    EditText text_date_docu;
+    TextView text_date_docu,edtext_sendto_docu,edt_address,edt_name_of_product,text_quantity,text_value,text_description;
+    String name;
     final Calendar c = Calendar.getInstance();
     final int year = c.get(Calendar.YEAR);
     final int month = c.get(Calendar.MONTH)+1;
@@ -33,6 +34,23 @@ public class salary_documents extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_salary_documents, container, false);
         img_arrow = (ImageView) view.findViewById(R.id.imgarrow);
+        text_date_docu=(TextView) view.findViewById(R.id.text_date_docu);
+        edtext_sendto_docu=(TextView) view.findViewById(R.id.edtext_sendto_docu);
+        edt_address=(TextView) view.findViewById(R.id.edt_address);
+        edt_name_of_product=(TextView) view.findViewById(R.id.edt_name_of_product);
+        text_quantity=(TextView) view.findViewById(R.id.text_quantity);
+        text_value=(TextView) view.findViewById(R.id.text_value);
+        text_description=(TextView) view.findViewById(R.id.text_description);
+        //retrieving data using bundle
+        Bundle bundle=getArguments();
+        text_date_docu.setText(String.valueOf(bundle.getString("date")));
+        edtext_sendto_docu.setText(String.valueOf(bundle.getString("name")));
+        edt_address.setText(String.valueOf(bundle.getString("address")));
+        edt_name_of_product.setText(String.valueOf(bundle.getString("productname")));
+        text_quantity.setText(String.valueOf(bundle.getString("quantity")));
+        text_value.setText(String.valueOf(bundle.getString("value")));
+        text_description.setText(String.valueOf(bundle.getString("des")));
+
         img_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,7 +58,7 @@ public class salary_documents extends Fragment {
             }
         });
         img_calender=(ImageView)view.findViewById(R.id.img_calender);
-        text_date_docu=(EditText)view.findViewById(R.id.text_date_docu);
+
         img_calender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
