@@ -3,7 +3,7 @@ package com.example.akrar.model;
 public class ResObj {
 
     private String status;
-    public String getMessage() {
+    public String getStatus() {
         return status;
     }
 

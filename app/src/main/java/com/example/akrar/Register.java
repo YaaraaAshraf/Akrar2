@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.example.akrar.model.ApiUtils;
 import com.example.akrar.model.ResObj;
@@ -88,16 +89,16 @@ public class Register extends AppCompatActivity {
     }
     public void doLogin(final String username,final String password){
         Call call = userService.login(username,password);
-        call.enqueue(new Callback() {
-            @Override
-            public void onResponse(Call call, Response response) {
-                if(response.isSuccessful()){
-                    ResObj resObj= (ResObj) response.body();
-                    if(resObj.getMessage().equals("true")){
-                        //login start main activity
-                        Intent intent = new Intent(Register.this, MainActivity.class);
-                        intent.putExtra("username", username);
-                        startActivity(intent);
+                        call.enqueue(new Callback() {
+                            @Override
+                            public void onResponse(Call call, Response response) {
+                                if(response.isSuccessful()){
+                                    ResObj resObj= (ResObj) response.body();
+                                    if(resObj.getStatus().equals("success")){
+                                        //login start main activity
+                                        Intent intent = new Intent(Register.this, Main_bar.class);
+                                        intent.putExtra("username", username);
+                                        startActivity(intent);
 
                     } else {
                         Toast.makeText(Register.this, "The username or password is incorrect", Toast.LENGTH_SHORT).show();
@@ -106,14 +107,15 @@ public class Register extends AppCompatActivity {
                     Toast.makeText(Register.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call call, Throwable t) {
                 Toast.makeText(Register.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
+
 }
+
 
 
 
