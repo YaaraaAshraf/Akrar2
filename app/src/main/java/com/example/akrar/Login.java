@@ -1,4 +1,5 @@
 package com.example.akrar;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,7 +9,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import com.example.akrar.model.ApiUtils;
 import com.example.akrar.model.ResObj;
@@ -18,15 +18,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Register extends AppCompatActivity {
+public class Login extends AppCompatActivity {
     EditText edt_mail, edt_password;
     Button btn_login;
     TextView txt_create_account, txt_forgetpass;
     UserService userService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.register);
+        setContentView(R.layout.login);
 
         txt_create_account = (TextView) findViewById(R.id.txt_createaccount);
         edt_mail = (EditText) findViewById(R.id.edtext_mailreg);
@@ -37,26 +38,25 @@ public class Register extends AppCompatActivity {
         txt_create_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mainIntent = new Intent(Register.this, Registration.class);
-                Register.this.startActivity(mainIntent);
-                Register.this.finish();
+                Intent mainIntent = new Intent(Login.this, Registration.class);
+                Login.this.startActivity(mainIntent);
+                Login.this.finish();
             }
         });
-
         txt_create_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mainIntent = new Intent(Register.this, Registration.class);
-                Register.this.startActivity(mainIntent);
-                Register.this.finish();
+                Intent mainIntent = new Intent(Login.this, Registration.class);
+                Login.this.startActivity(mainIntent);
+                Login.this.finish();
             }
         });
         txt_forgetpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mainIntent = new Intent(Register.this, Forgotpassword.class);
-                Register.this.startActivity(mainIntent);
-                Register.this.finish();
+                Intent mainIntent = new Intent(Login.this, Forgotpassword.class);
+                Login.this.startActivity(mainIntent);
+                Login.this.finish();
             }
         });
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -68,52 +68,49 @@ public class Register extends AppCompatActivity {
                 if (validateLogin(username, password)) {
                     //do login
                     doLogin(username, password);
-//                Intent mainIntent = new Intent(Register.this, Main_bar.class);
-//                Register.this.startActivity(mainIntent);
-//                Register.this.finish();
+//                Intent mainIntent = new Intent(Login.this, Main_bar.class);
+//                Login.this.startActivity(mainIntent);
+//                Login.this.finish();
                 }
             }
         });
     }
-
-    private boolean validateLogin(String username, String password){
-        if(username == null || username.trim().length() == 0){
+    private boolean validateLogin(String username, String password) {
+        if (username == null || username.trim().length() == 0) {
             Toast.makeText(this, "Username is required", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if(password == null || password.trim().length() == 0){
+        if (password == null || password.trim().length() == 0) {
             Toast.makeText(this, "Password is required", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
     }
-    public void doLogin(final String username,final String password){
-        Call call = userService.login(username,password);
-                        call.enqueue(new Callback() {
-                            @Override
-                            public void onResponse(Call call, Response response) {
-                                if(response.isSuccessful()){
-                                    ResObj resObj= (ResObj) response.body();
-                                    if(resObj.getStatus().equals("success")){
-                                        //login start main activity
-                                        Intent intent = new Intent(Register.this, Main_bar.class);
-                                        intent.putExtra("username", username);
-                                        startActivity(intent);
-
+    public void doLogin(final String username, final String password) {
+        Call call = userService.login(username, password);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                if (response.isSuccessful()) {
+                    ResObj resObj = (ResObj) response.body();
+                    if (resObj.getStatus().equals("success")) {
+                        //login start main activity
+                        Intent intent = new Intent(Login.this, Main_bar.class);
+                        intent.putExtra("username", username);
+                        startActivity(intent);
                     } else {
-                        Toast.makeText(Register.this, "The username or password is incorrect", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login.this, "The username or password is incorrect", Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    Toast.makeText(Register.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
+                } else{
+                    Toast.makeText(Login.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(Call call, Throwable t) {
-                Toast.makeText(Register.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
-
 }
 
 

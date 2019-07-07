@@ -19,7 +19,7 @@
         <activity android:name=".curvedbottomm" />
         <activity android:name=".Forgotpassword" />
         <activity android:name=".Registration" />
-        <activity android:name=".Register" />
+        <activity android:name=".Login" />
         <activity android:name=".Mainpage_details" />
         <activity android:name=".MainActivity">
             <intent-filter>

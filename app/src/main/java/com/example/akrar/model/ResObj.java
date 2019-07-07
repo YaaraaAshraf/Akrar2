@@ -7,7 +7,7 @@ public class ResObj {
         return status;
     }
 
-    public void setMessage(String status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 }

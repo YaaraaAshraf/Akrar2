@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Register">
+    tools:context=".Login">
 
     <TextView
         android:id="@+id/text_reg"
@@ -51,22 +51,40 @@
             android:paddingRight="10dp"
             android:textColor="@color/black"
             android:textColorHint="@color/grey" />
-
+     
         <EditText
             android:id="@+id/edtext_password"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_below="@+id/edtext_mailreg"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="340dp"
             android:layout_marginRight="35dp"
             android:background="@drawable/rounded_edittext"
             android:hint="كلمة المرور"
-            android:inputType="textEmailAddress"
-            android:paddingLeft="10dp"
+            android:inputType="textWebPassword"
             android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="15dp"
+            android:gravity="right"
             android:textColor="@color/black"
-            android:textColorHint="@color/grey" />
+            android:textColorHint="@color/grey"/>
 
+        <!--<EditText-->
+            <!--android:id="@+id/edtext_password"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:layout_below="@+id/edtext_mailreg"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:layout_marginRight="35dp"-->
+            <!--android:background="@drawable/rounded_edittext"-->
+            <!--android:hint="كلمة المرور"-->
+            <!--android:inputType="textPassword"-->
+            <!--android:paddingLeft="260dp"-->
+            <!--android:paddingRight="10dp"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:textColor="@color/black"-->
+            <!--android:textColorHint="@color/grey"-->
+          <!--/>-->
         <Button
             android:id="@+id/btn_reg"
             android:layout_width="match_parent"
@@ -103,5 +121,4 @@
             android:textColor="@color/black"
             android:textSize="15dp" />
     </RelativeLayout>
-
 </LinearLayout>

@@ -2,9 +2,8 @@ package com.example.akrar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.Menu;
-    public class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends AppCompatActivity {
     private final int SPLASH_DISPLAY_LENGTH = 3000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +14,7 @@ import android.view.Menu;
             public void run() {
                 try {
                     sleep(3000);
-                    Intent intent=new Intent(getApplicationContext(),Register.class);
+                    Intent intent=new Intent(getApplicationContext(), Login.class);
                     startActivity(intent);
                     finish();
                 } catch (InterruptedException e) {
