@@ -2,6 +2,8 @@ package com.example.akrar;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -11,7 +13,8 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Main_bar extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
-    private ActionBar toolbar;
+//        ImageView img_notif, img_home, img_profile;
+//        TextView txt_notif, txt_home, txt_profile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,10 +48,8 @@ public class Main_bar extends AppCompatActivity implements BottomNavigationView.
 //                fragment = new ProfileFragment();
 //                break;
         }
-
         return loadFragment(fragment);
     }
-
     public boolean loadFragment(Fragment fragment) {
         //switching fragment
         if (fragment != null) {

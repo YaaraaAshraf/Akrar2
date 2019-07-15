@@ -103,7 +103,6 @@ public class Registration extends AppCompatActivity {
                     Responseclass resObj = (Responseclass) response.body();
                     if (resObj.getStatus().equals("error")) {
                         Toast.makeText(Registration.this, "The email has already been taken", Toast.LENGTH_SHORT).show();
-
                     } else {
                         Toast.makeText(Registration.this, "The email has already been taken", Toast.LENGTH_SHORT).show();
                     }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +20,9 @@ import java.util.Calendar;
 
 public class FragmentBond extends Fragment {
     ImageView img_back,img_calender;
-    EditText txt_date,edtext_sendto_bonds,edt_address_bonds,edt_name_of_product_bonds,text_quantity_bonds,text_value_bonds,text_date_bonds,text_description_bonds;
+    EditText txt_date,edtext_sendto_bonds,edt_address_bonds,
+            edt_name_of_product_bonds,text_quantity_bonds,
+            text_value_bonds,text_date_bonds,text_description_bonds;
     Button btn_send;
     String st_date,st_sendto,st_address,st_productname,st_quantitiy,st_value,st_datebonds,st_desc;
     final Calendar c = Calendar.getInstance();
@@ -51,9 +54,8 @@ public class FragmentBond extends Fragment {
                  st_quantitiy=text_quantity_bonds.getText().toString();
                  st_value=text_value_bonds.getText().toString();
                  st_desc=text_description_bonds.getText().toString();
-
                 FragmentTransaction transection=getFragmentManager().beginTransaction();
-                salary_documents mfragment=new salary_documents();
+                Document_Fragment mfragment=new Document_Fragment();
                 //using Bundle to send data
                 Bundle bundle=new Bundle();
                 bundle.putString("date",st_date);
@@ -66,7 +68,7 @@ public class FragmentBond extends Fragment {
                 mfragment.setArguments(bundle); //data being send to SecondFragment
                 transection.replace(R.id.frame_container, mfragment);
                 transection.commit();
-//                send(new salary_documents());
+//              send(new salary_documents());
             }
         });
         img_calender=(ImageView)view.findViewById(R.id.image_calender);

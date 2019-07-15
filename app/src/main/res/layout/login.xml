@@ -51,7 +51,7 @@
             android:paddingRight="10dp"
             android:textColor="@color/black"
             android:textColorHint="@color/grey" />
-     
+
         <EditText
             android:id="@+id/edtext_password"
             android:layout_width="match_parent"

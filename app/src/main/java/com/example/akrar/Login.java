@@ -1,5 +1,4 @@
 package com.example.akrar;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -84,6 +83,7 @@ public class Login extends AppCompatActivity {
             Toast.makeText(this, "Password is required", Toast.LENGTH_SHORT).show();
             return false;
         }
+
         return true;
     }
     public void doLogin(final String username, final String password) {

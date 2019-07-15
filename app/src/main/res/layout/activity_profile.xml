@@ -52,7 +52,7 @@
         android:textSize="15dp"/>
 
         <EditText
-            android:id="@+id/edtext_name"
+            android:id="@+id/edtext_name_profile"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
@@ -76,7 +76,7 @@
         android:textSize="15dp"/>
 
     <EditText
-        android:id="@+id/edtext_mail"
+        android:id="@+id/edtext_mail_profile"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
@@ -106,7 +106,7 @@
             android:textSize="15dp" />
 
     <EditText
-        android:id="@+id/edtext_phone"
+        android:id="@+id/edtext_phone_profile"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
@@ -131,7 +131,7 @@
         android:textSize="15dp" />
 
     <EditText
-        android:id="@+id/text_password"
+        android:id="@+id/text_password_profile"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"

@@ -31,7 +31,7 @@ public class Mainpage_details extends Fragment {
          image_gr.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 loadBonds(new DocumentCash_Fragment());
+                 loadBonds(new Document_Fragment());
              }
          });
 

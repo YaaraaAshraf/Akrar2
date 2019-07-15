@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="5dp"
     android:background="@color/white">
 
     <ImageView
@@ -30,121 +32,127 @@
         android:layout_marginTop="49dp"
         app:srcCompat="@drawable/arrow" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view"
-        android:layout_width="fill_parent"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginRight="10dp"
-        android:backgroundTint="	#EBEBEB"
-        app:cardCornerRadius="5dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/text_prod_desc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:paddingTop="10dp"
-                android:paddingRight="10dp"
-                android:text="محمد بعتلك سند قبض عينى"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/text_units"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text_prod_desc"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:text="منذ 3 ساعات"
-                android:textColor="@color/grey" />
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/recycler"
         android:layout_width="match_parent"
-        android:layout_marginTop="130dp"
         android:layout_height="match_parent"
-        android:scrollbars="vertical" />
+        android:layout_marginTop="130dp"/>
 
-</RelativeLayout>
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view2"
-        android:layout_width="fill_parent"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="220dp"
-        android:layout_marginRight="10dp"
-        android:backgroundTint="	#EBEBEB"
-        app:cardCornerRadius="5dp">
+    <!--<androidx.cardview.widget.CardView-->
+        <!--android:id="@+id/card_view"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="80dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_marginTop="120dp"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:backgroundTint="#EBEBEB"-->
+        <!--app:cardCornerRadius="5dp">-->
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
 
-            <TextView
-                android:id="@+id/text_prod"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:paddingTop="10dp"
-                android:paddingRight="10dp"
-                android:text="محمد بعتلك سند قبض عينى"
-                android:textColor="@color/black" />
+            <!--<TextView-->
+                <!--android:id="@+id/text_prod_desc"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="50dp"-->
+                <!--android:paddingTop="10dp"-->
+                <!--android:paddingRight="10dp"-->
+                <!--android:text="محمد بعتلك سند قبض عينى"-->
+                <!--android:textColor="@color/black" />-->
 
-            <TextView
-                android:id="@+id/text_unitsd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text_prod"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:text="منذ 3 ساعات"
-                android:textColor="@color/grey" />
-</RelativeLayout>
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view3"
-        android:layout_width="fill_parent"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="320dp"
-        android:layout_marginRight="10dp"
-        android:backgroundTint="	#EBEBEB"
-        app:cardCornerRadius="5dp">
+            <!--<TextView-->
+                <!--android:id="@+id/text_units"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@+id/text_prod_desc"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:text="منذ 3 ساعات"-->
+                <!--android:textColor="@color/grey" />-->
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <!--<androidx.recyclerview.widget.RecyclerView-->
+        <!--android:id="@+id/recycler_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_marginTop="130dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:scrollbars="vertical" />-->
 
-            <TextView
-                android:id="@+id/text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:paddingTop="10dp"
-                android:paddingRight="10dp"
-                android:text="محمد بعتلك سند قبض عينى"
-                android:textColor="@color/black" />
+<!--</RelativeLayout>-->
+    <!--</androidx.cardview.widget.CardView>-->
+    <!--<androidx.cardview.widget.CardView-->
+        <!--android:id="@+id/card_view2"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="80dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_marginTop="220dp"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:backgroundTint="	#EBEBEB"-->
+        <!--app:cardCornerRadius="5dp">-->
 
-            <TextView
-                android:id="@+id/text_time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:text="منذ 3 ساعات"
-                android:textColor="@color/grey" />
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/text_prod"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="50dp"-->
+                <!--android:paddingTop="10dp"-->
+                <!--android:paddingRight="10dp"-->
+                <!--android:text="محمد بعتلك سند قبض عينى"-->
+                <!--android:textColor="@color/black" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/text_unitsd"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@+id/text_prod"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:text="منذ 3 ساعات"-->
+                <!--android:textColor="@color/grey" />-->
+<!--</RelativeLayout>-->
+    <!--</androidx.cardview.widget.CardView>-->
+    <!--<androidx.cardview.widget.CardView-->
+        <!--android:id="@+id/card_view3"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="80dp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_marginTop="320dp"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:backgroundTint="	#EBEBEB"-->
+        <!--app:cardCornerRadius="5dp">-->
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/text"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="50dp"-->
+                <!--android:paddingTop="10dp"-->
+                <!--android:paddingRight="10dp"-->
+                <!--android:text="محمد بعتلك سند قبض عينى"-->
+                <!--android:textColor="@color/black" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/text_time"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@+id/text"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:text="منذ 3 ساعات"-->
+                <!--android:textColor="@color/grey" />-->
+        <!--</RelativeLayout>-->
+    <!--</androidx.cardview.widget.CardView>-->
 </RelativeLayout>
 
