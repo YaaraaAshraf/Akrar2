@@ -19,7 +19,6 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
         this.listdata = listdata;
     }
 
-
     @NonNull
     @Override
     public MyListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -28,21 +27,16 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
         ViewHolder viewHolder = new ViewHolder(listItem);
         return viewHolder;
     }
-
     @Override
     public void onBindViewHolder(@NonNull MyListAdapter.ViewHolder holder, int position) {
         final MyListData myListData = listdata[position];
         holder.txt_notif.setText(listdata[position].getNotiname());
         holder.txt_time.setText(listdata[position].getTime());
-
     }
-
     @Override
     public int getItemCount() {
         return listdata.length;
     }
-
-
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txt_notif,txt_time;
         public ViewHolder(@NonNull View itemView) {
@@ -52,6 +46,5 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
         }
     }
 }
-//jjk
 
 

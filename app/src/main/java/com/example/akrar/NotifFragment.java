@@ -32,14 +32,13 @@ ImageView arrow;
             }
         });
 
-        recyclerView=(RecyclerView)view.findViewById(R.id.recycler_view);
+        recyclerView=(RecyclerView)view.findViewById(R.id.recycler);
         MyListData[] myListData = new MyListData[]{
                 new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
                 new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
                 new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
                 new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
                 new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
-
         };
         MyListAdapter adapter = new MyListAdapter(myListData);
         recyclerView.setHasFixedSize(true);

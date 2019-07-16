@@ -6,7 +6,6 @@ buildscript {
         jcenter()
         
     }
-
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.1'
         
@@ -14,7 +13,6 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
-
 allprojects {
     repositories {
         google()
@@ -22,7 +20,6 @@ allprojects {
         
     }
 }
-
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

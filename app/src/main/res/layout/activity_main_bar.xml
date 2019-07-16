@@ -28,8 +28,9 @@
         app:itemBackground="@drawable/squareshape"
         android:layout_margin="6dp"
         android:foreground="?attr/selectableItemBackground"
-        app:itemIconTint="@drawable/item_selected"
-        app:itemTextColor="@drawable/item_selected"
-        />
+        app:labelVisibilityMode="selected"
+        app:itemIconTint="@color/blue"
+        app:itemIconSize="25dp"
+        app:itemTextColor="@color/blue"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

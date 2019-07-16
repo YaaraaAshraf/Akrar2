@@ -105,7 +105,6 @@ public class Other_DocumentsCash extends Fragment implements AdapterView.OnItemS
         }
         return false;
     }
-
     private boolean loadpage(Fragment fragment) {
         if (fragment != null) {
             getFragmentManager()
@@ -116,7 +115,6 @@ public class Other_DocumentsCash extends Fragment implements AdapterView.OnItemS
         }
         return false;
     }
-
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         if (spinner_paytype.getSelectedItem().equals("اجل")){
