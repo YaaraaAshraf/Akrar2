@@ -30,7 +30,6 @@ public class salary_documents extends Fragment {
 
     public salary_documents() {
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -53,7 +52,6 @@ public class salary_documents extends Fragment {
         text_quantity.setText(String.valueOf(bundle.getString("quantity")));
         text_value.setText(String.valueOf(bundle.getString("value")));
         text_description.setText(String.valueOf(bundle.getString("des")));
-
         img_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

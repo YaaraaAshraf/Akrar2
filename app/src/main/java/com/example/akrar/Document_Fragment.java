@@ -33,6 +33,7 @@ public class Document_Fragment extends Fragment {
         fab=(ImageView) view.findViewById(R.id.floatingActionButton);
         recyclerView=(RecyclerView)view.findViewById(R.id.recycler_view);
         Bundle bundle = getArguments();
+
 //       bundle.putString("date", String.valueOf(bundle));
         MyListData_Bond[] myListData = new MyListData_Bond[]{
                 new MyListData_Bond("محمد بعتلك سند من قبض عيني","4444","011111"),

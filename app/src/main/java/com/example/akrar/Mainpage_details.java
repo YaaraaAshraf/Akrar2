@@ -55,8 +55,6 @@ public class Mainpage_details extends Fragment {
         }
         return false;
     }
-
-
     private boolean loadBonds(Fragment fragment) {
         if (fragment != null) {
             getFragmentManager()
