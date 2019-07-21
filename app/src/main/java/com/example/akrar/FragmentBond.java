@@ -33,7 +33,7 @@ public class FragmentBond extends Fragment {
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState){
         //Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fragment_bond, container, false);
         edtext_sendto_bonds=(EditText)view.findViewById(R.id.edtext_sendto_bonds);
@@ -44,7 +44,7 @@ public class FragmentBond extends Fragment {
         text_value_bonds=(EditText)view.findViewById(R.id.text_value_bonds);
         text_description_bonds=(EditText)view.findViewById(R.id.text_description_bonds);
         btn_send=(Button)view.findViewById(R.id.btn_deliver_bonds);
-        btn_send.setOnClickListener(new View.OnClickListener() {
+        btn_send.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 st_date=txt_date.getText().toString();
@@ -71,6 +71,7 @@ public class FragmentBond extends Fragment {
 //              send(new salary_documents());
             }
         });
+
         img_calender=(ImageView)view.findViewById(R.id.image_calender);
         txt_date=(EditText)view.findViewById(R.id.text_date_bonds);
         img_calender.setOnClickListener(new View.OnClickListener() {

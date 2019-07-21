@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Akrar</string>
+    <string name="text_title">هناك حقيقة مثبتة منذ زمن طويل وهى ان المحتوى المقروء لصفحة ما سيلهى القارئ</string>
+
     <string name="types_pay">كاش</string>
     <string-array name="pays_arrays">
         <item>كاش</item>

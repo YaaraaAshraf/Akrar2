@@ -21,7 +21,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
-
 public class Other_DocumentsCash extends Fragment implements AdapterView.OnItemSelectedListener {
 
     Spinner spinner_paytype, spi_deposite;

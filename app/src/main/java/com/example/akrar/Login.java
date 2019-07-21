@@ -1,4 +1,5 @@
 package com.example.akrar;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -74,6 +75,7 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
     private boolean validateLogin(String username, String password) {
         if (username == null || username.trim().length() == 0) {
             Toast.makeText(this, "Username is required", Toast.LENGTH_SHORT).show();
@@ -83,9 +85,9 @@ public class Login extends AppCompatActivity {
             Toast.makeText(this, "Password is required", Toast.LENGTH_SHORT).show();
             return false;
         }
-
         return true;
     }
+
     public void doLogin(final String username, final String password) {
         Call call = userService.login(username, password);
         call.enqueue(new Callback() {
@@ -101,10 +103,11 @@ public class Login extends AppCompatActivity {
                     } else {
                         Toast.makeText(Login.this, "The username or password is incorrect", Toast.LENGTH_SHORT).show();
                     }
-                } else{
+                } else {
                     Toast.makeText(Login.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
             }
+
             @Override
             public void onFailure(Call call, Throwable t) {
                 Toast.makeText(Login.this, t.getMessage(), Toast.LENGTH_SHORT).show();
