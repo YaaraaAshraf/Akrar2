@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,7 +7,6 @@
     android:background="#EBEBEB"
     android:orientation="vertical"
     tools:context=".Main_bar">
-
     <TextView
         android:id="@+id/text_details"
         android:layout_width="match_parent"
@@ -20,92 +17,99 @@
         android:textColor="@color/grey"
         android:textSize="18dp" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginRight="100dp"
-        android:background="@drawable/squareshape"
-        app:cardBackgroundColor="#e0e0e0"
-        app:cardCornerRadius="4dp"
-        app:cardElevation="3dp">
-
-
-        <ImageView
-            android:id="@+id/img_gm"
-            android:layout_width="90dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/gm" />
-        <TextView
-            android:id="@+id/txt_gm"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignEnd="@+id/menuLayout_gm"
-            android:layout_alignRight="@+id/menuLayout_gm"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="80dp"
-            android:text="سند قبض نقدى"
-            android:textColor="@color/grey" />
-    </androidx.cardview.widget.CardView>
-
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_marginLeft="230dp"
-        android:layout_marginTop="-126dp"
-        android:background="@drawable/squareshape"
-        app:cardBackgroundColor="#e0e0e0"
-        app:cardCornerRadius="4dp"
-        app:cardElevation="3dp">
-        <ImageView
-            android:id="@+id/image_gr"
-            android:layout_width="90dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/gr" />
-        <TextView
-            android:id="@+id/txt_gr"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignEnd="@+id/menuLayout_gm"
-            android:layout_alignRight="@+id/menuLayout_gm"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="80dp"
-            android:text="سند قبض عيني"
-            android:textColor="@color/grey" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="338dp"
-        android:layout_height="109dp"
-        android:layout_marginLeft="30dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginHorizontal="40dp"
         android:layout_marginTop="40dp"
-        android:layout_marginRight="40dp"
-        android:background="@drawable/squareshape"
+        android:layout_marginBottom="40dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/squareshape"
+            app:cardBackgroundColor="#e0e0e0"
+            app:cardCornerRadius="4dp">
+
+            <ImageView
+                android:id="@+id/img_gm"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/gm" />
+            <TextView
+                android:id="@+id/txt_gm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/menuLayout_gm"
+                android:layout_alignRight="@+id/menuLayout_gm"
+                android:gravity="center"
+                android:layout_marginTop="80dp"
+                android:text="سند قبض نقدى"
+                android:textColor="@color/grey" />
+        </androidx.cardview.widget.CardView>
+
+        <Space
+            android:layout_width="40dp"
+            android:layout_height="match_parent" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="10dp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#e0e0e0"
+            app:cardCornerRadius="4dp">
+            <ImageView
+                android:id="@+id/image_gr"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/gr" />
+            <TextView
+                android:id="@+id/txt_gr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/menuLayout_gm"
+                android:layout_alignRight="@+id/menuLayout_gm"
+                android:gravity="center"
+                android:layout_marginTop="80dp"
+                android:text="سند قبض عيني"
+                android:textColor="@color/grey" />
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginHorizontal="40dp"
         app:cardBackgroundColor="#e0e0e0"
-        app:cardCornerRadius="4dp"
-        app:cardElevation="3dp">
+        app:cardCornerRadius="4dp">
 
         <ImageView
             android:id="@+id/img_pr"
             android:layout_width="90dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="120dp"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:src="@drawable/pr" />
 
         <TextView
             android:id="@+id/txt_pr"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/menuLayout_gm"
             android:layout_alignRight="@+id/menuLayout_gm"
-            android:layout_marginLeft="86dp"
+            android:gravity="center"
             android:layout_marginTop="80dp"
             android:text="المنتجات"
             android:textColor="@color/grey" />
