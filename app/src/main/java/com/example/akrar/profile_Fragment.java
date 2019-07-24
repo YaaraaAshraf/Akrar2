@@ -24,7 +24,7 @@ public class profile_Fragment extends Fragment {
         edtext_name.setText(name);
         edtext_mail.setText(mail);
         edtext_phone.setText(phone);
-        text_password.setText(pass);
+//        text_password.setText(pass);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class profile_Fragment extends Fragment {
         name = edtext_name.getText().toString();
         mail =edtext_mail.getText().toString();
         phone=edtext_phone.getText().toString();
-        pass=text_password.getText().toString();
+//        pass=text_password.getText().toString();
     }
     public static profile_Fragment newInstance() {
         profile_Fragment emp = new profile_Fragment();
@@ -46,13 +46,14 @@ public class profile_Fragment extends Fragment {
         edtext_name=(EditText)view.findViewById(R.id.edtext_name_profile);
         edtext_mail=(EditText)view.findViewById(R.id.edtext_mail_profile);
         edtext_phone=(EditText)view.findViewById(R.id.edtext_phone_profile);
-        text_password=(EditText)view.findViewById(R.id.text_password_profile);
+//        text_password=(EditText)view.findViewById(R.id.text_password_profile);
          btnsave=(Button)view.findViewById(R.id.btn_save);
          btnsave.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 Toast.makeText(getContext(),"",Toast.LENGTH_LONG).show();
-                 Toast.makeText(getContext(), "Saved..", Toast.LENGTH_SHORT).show();
+                 loadupdateFragment(new Update_MyProfileFragment());
+//                 Toast.makeText(getContext(),"",Toast.LENGTH_LONG).show();
+//                 Toast.makeText(getContext(), "Saved..", Toast.LENGTH_SHORT).show();
 //                 name=edtext_name.getText().toString();
 //                 mail=edtext_mail.getText().toString();
 //                 phone=edtext_phone.getText().toString();
@@ -74,13 +75,13 @@ public class profile_Fragment extends Fragment {
                 back(new Mainpage_details());
             }
         });
-        txt_update = (TextView) view.findViewById(R.id.text_update);
-        txt_update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loadupdateFragment(new Update_MyProfileFragment());
-            }
-        });
+//        txt_update = (TextView) view.findViewById(R.id.text_update);
+//        txt_update.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                loadupdateFragment(new Update_MyProfileFragment());
+//            }
+//        });
         return view;
     }
     private boolean back(Fragment fragment) {

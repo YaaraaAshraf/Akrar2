@@ -1,160 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    >
-
-    <ImageView
-        android:id="@+id/image_bar"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        app:srcCompat="@drawable/actionbar" />
-
-    <TextView
-        android:id="@+id/text_update"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="330dp"
-        android:text="تعديل "
-        android:textSize="19dp"
-        android:layout_marginTop="40dp"
-        android:textColor="@color/blue" />
-
-    <TextView
-        android:id="@+id/text_my_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="190dp"
-        android:layout_marginTop="40dp"
-        android:text="صفحتى الشخصية"
-        android:textColor="@color/black"/>
-
-    <ImageView
-        android:id="@+id/image_back_arrow"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginLeft="27dp"
-        android:layout_marginTop="40dp"
-        app:srcCompat="@drawable/arrow" />
-
-    <TextView
-        android:id="@+id/txt_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:textColor="@color/black"
-        android:layout_marginLeft="340dp"
-        android:text="الاسم"
-        android:textSize="15dp"/>
-
-        <EditText
-            android:id="@+id/edtext_name_profile"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="160dp"
-            android:layout_marginRight="10dp"
-            android:padding="15dp"
-            android:background="@drawable/rounded_edittext"
-            android:inputType="textPersonName"
-            android:paddingRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/grey" />
-    <TextView
-        android:id="@+id/txt_mail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
-        android:textColor="@color/black"
-        android:layout_marginLeft="340dp"
-        android:text="الاميل"
-        android:textSize="15dp"/>
-
-    <EditText
-        android:id="@+id/edtext_mail_profile"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="250dp"
-        android:padding="15dp"
-
-        android:layout_marginRight="10dp"
-        android:background="@drawable/rounded_edittext"
-        android:inputType="textPersonName"
-        android:paddingRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/grey" />
-    <RelativeLayout
-        android:id="@+id/menuLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:background="@drawable/actionbar">
 
         <TextView
-            android:id="@+id/txt_phone"
+            android:id="@+id/text_my_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="320dp"
-            android:layout_marginTop="320dp"
-            android:text="رقم التليفون"
+            android:text="صفحتى الشخصية"
             android:textColor="@color/black"
-            android:textSize="15dp" />
+            android:layout_centerInParent="true"/>
 
-    <EditText
-        android:id="@+id/edtext_phone_profile"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="350dp"
-        android:layout_marginRight="10dp"
-        android:padding="15dp"
-        android:background="@drawable/rounded_edittext"
-        android:inputType="textPersonName"
-        android:paddingRight="15dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/grey" />
-    </RelativeLayout>
-    <TextView
-        android:id="@+id/txt_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="320dp"
-        android:layout_marginTop="410dp"
-        android:text="كلمة المرور "
-        android:textColor="@color/black"
-        android:textSize="15dp" />
+        <ImageView
+            android:id="@+id/image_back_arrow"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="-20dp"
+            android:layout_marginLeft="27dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/arrow" />
 
-    <EditText
-        android:id="@+id/text_password_profile"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="440dp"
-        android:layout_marginRight="10dp"
-        android:padding="15dp"
-        android:background="@drawable/rounded_edittext"
-        android:inputType="textPassword"
-        android:paddingRight="15dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/grey" />
-    <Button
-        android:id="@+id/btn_save"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_weight="1"
-        android:layout_marginTop="530dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:background="@drawable/rounded_button"
-        android:text="حفظ" />
     </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="right">
+
+
+            <TextView
+                android:id="@+id/txt_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginRight="25dp"
+                android:text="الاسم"
+                android:layout_marginTop="10dp"
+                android:textSize="15dp"/>
+
+            <EditText
+                android:id="@+id/edtext_name_profile"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="10dp"
+                android:padding="15dp"
+                android:background="@drawable/rounded_edittext"
+                android:inputType="textPersonName"
+                android:paddingRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey" />
+            <TextView
+                android:id="@+id/txt_mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginRight="25dp"
+                android:text="الاميل"
+                android:layout_marginTop="10dp"
+                android:textSize="15dp"/>
+
+            <EditText
+                android:id="@+id/edtext_mail_profile"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:padding="15dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/rounded_edittext"
+                android:inputType="textPersonName"
+                android:paddingRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"/>
+                <TextView
+                    android:id="@+id/txt_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="رقم التليفون"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:id="@+id/edtext_phone_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:padding="15dp"
+                    android:background="@drawable/rounded_edittext"
+                    android:inputType="textPersonName"
+                    android:paddingRight="15dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/grey" />
+            <!--<TextView-->
+                <!--android:id="@+id/txt_password"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="كلمة المرور "-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="15dp" />-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/text_password_profile"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_marginLeft="15dp"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:padding="15dp"-->
+                <!--android:background="@drawable/rounded_edittext"-->
+                <!--android:inputType="textPassword"-->
+                <!--android:paddingRight="15dp"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textColorHint="@color/grey" />-->
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/rounded_button"
+                android:text="تعديل" />
+
+
+        </LinearLayout>
+        <!--<ImageView-->
+        <!--android:id="@+id/image_bar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="100dp"-->
+        <!--app:srcCompat="@drawable/actionbar" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/text_update"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="330dp"-->
+        <!--android:text="تعديل "-->
+        <!--android:textSize="19dp"-->
+        <!--android:layout_marginTop="40dp"-->
+        <!--android:textColor="@color/blue" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/text_my_profile"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="190dp"-->
+        <!--android:layout_marginTop="40dp"-->
+        <!--android:text="صفحتى الشخصية"-->
+        <!--android:textColor="@color/black"/>-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/image_back_arrow"-->
+        <!--android:layout_width="15dp"-->
+        <!--android:layout_height="15dp"-->
+        <!--android:layout_marginLeft="27dp"-->
+        <!--android:layout_marginTop="40dp"-->
+        <!--app:srcCompat="@drawable/arrow" />-->
+
+    </ScrollView>
+</LinearLayout>
 
 
 
