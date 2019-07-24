@@ -20,16 +20,16 @@
         android:textColor="@color/grey"
         android:textSize="18dp" />
 
-    <androidx.cardview.widget.CardView
+    <android.support.v7.widget.CardView
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="60dp"
         android:layout_marginRight="100dp"
         android:background="@drawable/squareshape"
-        app:cardBackgroundColor="#e0e0e0"
-        app:cardCornerRadius="4dp"
-        app:cardElevation="3dp">
+        tools:cardBackgroundColor="#e0e0e0"
+        tools:cardCornerRadius="4dp"
+        tools:cardElevation="3dp">
 
 
         <ImageView
@@ -49,10 +49,10 @@
             android:layout_marginTop="80dp"
             android:text="سند قبض نقدى"
             android:textColor="@color/grey" />
-    </androidx.cardview.widget.CardView>
+    </android.support.v7.widget.CardView>
 
 
-    <androidx.cardview.widget.CardView
+    <android.support.v7.widget.CardView
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_marginLeft="230dp"
@@ -78,9 +78,9 @@
             android:layout_marginTop="80dp"
             android:text="سند قبض عيني"
             android:textColor="@color/grey" />
-    </androidx.cardview.widget.CardView>
+    </android.support.v7.widget.CardView>
 
-    <androidx.cardview.widget.CardView
+    <android.support.v7.widget.CardView
         android:layout_width="338dp"
         android:layout_height="109dp"
         android:layout_marginLeft="30dp"
@@ -109,7 +109,7 @@
             android:layout_marginTop="80dp"
             android:text="المنتجات"
             android:textColor="@color/grey" />
-    </androidx.cardview.widget.CardView>
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>
 <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->

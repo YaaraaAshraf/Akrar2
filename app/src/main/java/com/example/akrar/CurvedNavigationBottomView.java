@@ -6,9 +6,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
+import android.support.design.widget.BottomNavigationView;
 import android.util.AttributeSet;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class CurvedNavigationBottomView extends BottomNavigationView {
     private Path mPath;

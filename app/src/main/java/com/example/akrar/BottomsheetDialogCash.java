@@ -3,6 +3,7 @@ package com.example.akrar;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.support.design.widget.BottomSheetDialogFragment;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,11 +13,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+//import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.util.Calendar;
 
-public class BottomsheetDialogCash extends BottomSheetDialogFragment  implements AdapterView.OnItemSelectedListener {
+public class BottomsheetDialogCash extends BottomSheetDialogFragment implements AdapterView.OnItemSelectedListener {
     EditText txt_dateTo,txt_datefrom,edt_datecash;
     Spinner spinner_deposite_cash;
     TextView txt_datecash;
