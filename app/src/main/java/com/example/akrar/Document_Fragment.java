@@ -1,6 +1,4 @@
 package com.example.akrar;
-
-
 import android.os.Bundle;
 
 import android.support.v4.app.Fragment;
@@ -14,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.Switch;
 
 import java.util.ArrayList;
-
 public class Document_Fragment extends Fragment {
    ImageView image_add_bond,img_arrow;
    ImageView fab;

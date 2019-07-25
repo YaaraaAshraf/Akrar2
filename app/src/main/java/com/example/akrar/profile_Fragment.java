@@ -48,7 +48,7 @@ public class profile_Fragment extends Fragment {
         edtext_phone=(EditText)view.findViewById(R.id.edtext_phone_profile);
 //        text_password=(EditText)view.findViewById(R.id.text_password_profile);
          btnsave=(Button)view.findViewById(R.id.btn_save_profile);
-         btnsave.setOnClickListener(new View.OnClickListener() {
+         btnsave.setOnClickListener(new View.OnClickListener(){
              @Override
              public void onClick(View view) {
                  loadupdateFragment(new Update_MyProfileFragment());
@@ -94,7 +94,6 @@ public class profile_Fragment extends Fragment {
         }
         return false;
     }
-
     private boolean loadupdateFragment(Fragment fragment) {
         //switching fragment
         if (fragment != null) {

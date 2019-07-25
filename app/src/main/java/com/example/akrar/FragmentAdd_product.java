@@ -1,6 +1,4 @@
 package com.example.akrar;
-
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -24,7 +22,6 @@ public class FragmentAdd_product extends Fragment {
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
             }
         });
          image_product_arrow=(ImageView)view.findViewById(R.id.image_product_arrow);
@@ -47,3 +44,4 @@ public class FragmentAdd_product extends Fragment {
         return false;
     }
 }
+
