@@ -90,10 +90,16 @@ public class Document_Fragment extends Fragment {
         image_add_bond=(ImageView)view.findViewById(R.id.image_add_bond);
         image_add_bond.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 loadBondFragment(new FragmentBond());
             }
         });
+//        image_add_bond.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                loadBondFragment(new FragmentBond());
+//            }
+//        });
         return view;
     }
 

@@ -20,7 +20,7 @@ public class FragmentAdd_product extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_add_product, container, false);
-        btn_save=(Button)view.findViewById(R.id.btn_save);
+        btn_save=(Button)view.findViewById(R.id.btn_prod);
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,11 +34,8 @@ public class FragmentAdd_product extends Fragment {
                  back(new productsFragment());
              }
          });
-
-
         return view;
     }
-
     private boolean back(Fragment fragment) {
         if (fragment != null) {
             getFragmentManager()
