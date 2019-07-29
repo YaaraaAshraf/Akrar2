@@ -88,26 +88,28 @@ public class Login extends AppCompatActivity {
         return true;
     }
 
-    public void doLogin(final String username, final String password) {
-        Call call = userService.login(username, password);
+    public void doLogin(final String national_id, final String password) {
+        Call call = userService.login(national_id, password);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 if (response.isSuccessful()) {
                     ResObj resObj = (ResObj) response.body();
-                    if (resObj.getStatus().equals("success")) {
+                    if (resObj.getStatus().equals("error")) {
                         //login start main activity
-                        Intent intent = new Intent(Login.this, Main_bar.class);
-                        intent.putExtra("username", username);
-                        startActivity(intent);
+//                        Intent intent = new Intent(Login.this, Main_bar.class);
+//                        intent.putExtra("national_id", national_id);
+//                        startActivity(intent);
                     } else {
                         Toast.makeText(Login.this, "The username or password is incorrect", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(Login.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Login.this, Main_bar.class);
+                    intent.putExtra("national_id", national_id);
+                    startActivity(intent);
+//                    Toast.makeText(Login.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call call, Throwable t) {
                 Toast.makeText(Login.this, t.getMessage(), Toast.LENGTH_SHORT).show();
