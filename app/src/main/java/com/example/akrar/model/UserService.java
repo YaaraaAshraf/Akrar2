@@ -7,7 +7,6 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
-
 public interface UserService {
     @FormUrlEncoded
     @POST("login")
@@ -28,12 +27,8 @@ public interface UserService {
 
     @FormUrlEncoded
     @GET("profile")
-    Call<Responseclass> User(@Field("firstname") String firstname,
-                                   @Field("lastname") String lastname,
-                                   @Field("national_id") String national_id,
-//                                   @Field("email") String email,
-                                   @Field("mobile") String mobile,
-                                   @Field("password") String password,
-                                   @Field("password_confirmation") String password_confirmation);
-
+    Call<Responseclass> user(@Field("firstname") String firstname,
+                             @Field("lastname") String lastname,
+                             @Field("national_id") String national_id,
+                             @Field("mobile") String mobile);
 }
