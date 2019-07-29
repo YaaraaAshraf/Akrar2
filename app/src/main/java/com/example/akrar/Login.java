@@ -87,7 +87,6 @@ public class Login extends AppCompatActivity {
         }
         return true;
     }
-
     public void doLogin(final String national_id, final String password) {
         Call call = userService.login(national_id, password);
         call.enqueue(new Callback() {
