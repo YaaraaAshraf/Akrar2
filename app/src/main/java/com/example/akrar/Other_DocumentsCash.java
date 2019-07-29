@@ -2,8 +2,10 @@ package com.example.akrar;
 
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,7 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
-public class Other_DocumentsCash extends Fragment implements AdapterView.OnItemSelectedListener {
+public class Other_DocumentsCash extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Spinner spinner_paytype, spi_deposite;
     ImageView image_document_arrow;
@@ -33,24 +35,28 @@ public class Other_DocumentsCash extends Fragment implements AdapterView.OnItemS
     final int year = c.get(Calendar.YEAR);
     final int month = c.get(Calendar.MONTH)+1;
     final int day = c.get(Calendar.DAY_OF_MONTH);
-    public Other_DocumentsCash() {
-    }
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_document_send_cash, container, false);
-        txt_document_pay=(TextView)view.findViewById(R.id.txt_document_pay);
-        txt_value=(TextView)view.findViewById(R.id.txt_value);
-        txt_date=(TextView)view.findViewById(R.id.txt_date);
-        edtext_value=(EditText)view.findViewById(R.id.text_value);
-        text_date_deposite=(EditText)view.findViewById(R.id.edt_date);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_document_send_cash);
+//    public Other_DocumentsCash() {
+//    }
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//                             Bundle savedInstanceState) {
+//        View view = inflater.inflate(R.layout.activity_document_send_cash, container, false);
+        txt_document_pay=(TextView)findViewById(R.id.txt_document_pay);
+        txt_value=(TextView)findViewById(R.id.txt_value);
+        txt_date=(TextView)findViewById(R.id.txt_date);
+        edtext_value=(EditText)findViewById(R.id.text_value);
+        text_date_deposite=(EditText)findViewById(R.id.edt_date);
         text_date_deposite.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == MotionEvent.ACTION_UP) {
                     if(event.getRawX() <= text_date_deposite.getTotalPaddingLeft()) {
                         // your action for drawable click event
-                        DatePickerDialog datePicker = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                        DatePickerDialog datePicker = new DatePickerDialog(getApplicationContext(), new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                                 text_date_deposite.setText(year + "/" + monthOfYear + "/" + dayOfMonth);
@@ -64,55 +70,59 @@ public class Other_DocumentsCash extends Fragment implements AdapterView.OnItemS
                 return false;
             }
         });
-        image_document_arrow = (ImageView) view.findViewById(R.id.image_document_arrow);
+        image_document_arrow = (ImageView) findViewById(R.id.image_document_arrow);
         image_document_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                back(new BondCashFragment());
+                Intent intent = new Intent(getApplicationContext(), BondCashFragment.class);
+                startActivity(intent);
+//                back(new BondCashFragment());
             }
         });
-        btn_send = (Button) view.findViewById(R.id.btn_send_to);
+        btn_send = (Button)findViewById(R.id.btn_send_to);
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loadpage(new salary_documents());
+                Intent intent = new Intent(getApplicationContext(), salary_documents.class);
+                startActivity(intent);
+//                loadpage(new salary_documents());
             }
         });
-        spinner_paytype = (Spinner) view.findViewById(R.id.spinner_paytype);
+        spinner_paytype = (Spinner) findViewById(R.id.spinner_paytype);
 
-        spi_deposite = (Spinner) view.findViewById(R.id.spinner_deposite);
+        spi_deposite = (Spinner) findViewById(R.id.spinner_deposite);
         spinner_paytype.setOnItemSelectedListener(this);
         spi_deposite.setOnItemSelectedListener(this);
-        ArrayAdapter aa = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, pay_type);
+        ArrayAdapter aa = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item, pay_type);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //Setting the ArrayAdapter data on the Spinner
         spinner_paytype.setAdapter(aa);
-        ArrayAdapter deposite = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, deposite_type);
+        ArrayAdapter deposite = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item, deposite_type);
         deposite.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spi_deposite.setAdapter(deposite);
-        return view;
+//        return view;
     }
 
-    private boolean back(Fragment fragment) {
-        if (fragment != null) {
-            getFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.frame_container, fragment)
-                    .commit();
-            return true;
-        }
-        return false;
-    }
-    private boolean loadpage(Fragment fragment) {
-        if (fragment != null) {
-            getFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.frame_container, fragment)
-                    .commit();
-            return true;
-        }
-        return false;
-    }
+//    private boolean back(Fragment fragment) {
+//        if (fragment != null) {
+//            getFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.frame_container, fragment)
+//                    .commit();
+//            return true;
+//        }
+//        return false;
+//    }
+//    private boolean loadpage(Fragment fragment) {
+//        if (fragment != null) {
+//            getFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.frame_container, fragment)
+//                    .commit();
+//            return true;
+//        }
+//        return false;
+//    }
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         if (spinner_paytype.getSelectedItem().equals("اجل")){

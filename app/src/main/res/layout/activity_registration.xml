@@ -1,169 +1,245 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/white"
     tools:context=".Registration">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
 
-    <TextView
+        >
+        <TextView
         android:id="@+id/text_regfirst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="170dp"
-        android:layout_marginTop="5dp"
+           android:layout_marginLeft="160dp"
+            android:layout_marginTop="30dp"
         android:text="سجل الان"
         android:textColor="@color/black"
         android:textSize="20dp" />
 
-    <ImageView
-        android:id="@+id/image_arrow"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginLeft="-230dp"
-        android:layout_marginTop="5dp"
-        app:srcCompat="@drawable/arrow" />
-
-    <RelativeLayout
-        android:id="@+id/menuLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
         <ImageView
-            android:id="@+id/image_logo"
-            android:layout_width="300dp"
-            android:layout_height="150dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="25dp"
-            android:layout_weight="1"
+        android:id="@+id/image_logo"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="50dp"
+      android:layout_marginTop="70dp"
             app:srcCompat="@drawable/logo" />
+        <ImageView
+            android:id="@+id/image_back_arrow_profile"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            app:srcCompat="@drawable/arrow" />
 
-        <EditText
-            android:id="@+id/edtext_firstname"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="180dp"
-            android:layout_marginRight="35dp"
-            android:background="@drawable/rounded_edittext"
-            android:hint="الاسم الاول"
-            android:paddingBottom="15dp"
-            android:paddingLeft="15dp"
-            android:paddingTop="15dp"
-            android:paddingRight="15dp"
-            android:inputType="textPersonName"
-            android:textColor="@color/black"
-            android:textColorHint="@color/grey" />
-
-        <EditText
-            android:id="@+id/edtext_lastname"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_below="@+id/edtext_firstname"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="35dp"
-            android:background="@drawable/rounded_edittext"
-            android:hint="الاسم الاخير"
-            android:inputType="textPersonName"
-            android:paddingBottom="15dp"
-            android:paddingLeft="15dp"
-            android:paddingTop="15dp"
-            android:paddingRight="15dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/grey" />
-
-        <EditText
-            android:id="@+id/txtreg_phone"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_below="@+id/edtext_firstname"
-            android:layout_marginTop="80dp"
-            android:layout_marginRight="35dp"
-            android:background="@drawable/rounded_edittext"
-            android:hint="رقم الموبايل"
-            android:inputType="number"
-            android:paddingBottom="15dp"
-            android:paddingLeft="15dp"
-            android:paddingTop="15dp"
-            android:paddingRight="15dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/grey" />
-
-        <EditText
-            android:id="@+id/edtext_email"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_below="@+id/edtext_firstname"
-            android:layout_marginTop="150dp"
-            android:layout_marginRight="35dp"
-            android:paddingBottom="15dp"
-            android:paddingLeft="15dp"
-            android:paddingTop="15dp"
-            android:paddingRight="15dp"
-            android:background="@drawable/rounded_edittext"
-            android:hint="البريد الاكترونى"
-            android:inputType="textEmailAddress"
-            android:textColor="@color/black"
-            android:textColorHint="@color/grey" />
-
-        <EditText
-            android:id="@+id/edtextreg_password"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_below="@+id/edtext_firstname"
-            android:layout_marginTop="220dp"
-            android:layout_marginRight="35dp"
-            android:background="@drawable/rounded_edittext"
-            android:hint="كلمة المرور"
-            android:inputType="textWebPassword"
-            android:paddingRight="10dp"
-            android:paddingLeft="10dp"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:gravity="right"
-            android:textColor="@color/black"
-            android:textColorHint="@color/grey"
-            />
-
-        <EditText
-            android:id="@+id/edtext_retry_password"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_below="@+id/edtext_firstname"
-            android:layout_marginTop="290dp"
-            android:layout_marginRight="35dp"
-            android:background="@drawable/rounded_edittext"
-            android:hint=" اعادة كلمة المرور"
-            android:inputType="textWebPassword"
-            android:paddingRight="10dp"
-            android:paddingLeft="10dp"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:gravity="right"
-            android:textColor="@color/black"
-            android:textColorHint="@color/grey"
-             />
-
-        <Button
-            android:id="@+id/btn_reg_now"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="600dp"
-            android:layout_marginRight="35dp"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_button"
-            android:text="تسجيل دخول" />
-
-        <TextView
-            android:id="@+id/txt_haveaccount"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="1dp"
-            android:layout_marginTop="670dp"
-            android:layout_marginRight="30dp"
-            android:gravity="center"
-            android:text="لدى حساب بالفعل,تسجيل دخول "
-            android:textColor="@color/black"
-            android:textSize="15dp" />
     </RelativeLayout>
+
+    <!--<TextView-->
+    <!--android:id="@+id/text_regfirst"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="170dp"-->
+    <!--android:layout_marginTop="20dp"-->
+    <!--android:text="سجل الان"-->
+    <!--android:textColor="@color/black"-->
+    <!--android:textSize="20dp" />-->
+    <!---->
+    <!--<ImageView-->
+    <!--android:id="@+id/image_arrow"-->
+    <!--android:layout_width="15dp"-->
+    <!--android:layout_height="15dp"-->
+    <!--android:layout_marginLeft="20dp"-->
+    <!--android:layout_marginTop="0dp"-->
+    <!--android:layout_marginBottom="0dp"-->
+    <!--app:srcCompat="@drawable/arrow" />-->
+    <!---->
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/menuLayout"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/image_logo"-->
+    <!--android:layout_width="300dp"-->
+    <!--android:layout_height="150dp"-->
+    <!--android:layout_marginLeft="50dp"-->
+    <!--android:layout_marginTop="17dp"-->
+    <!--app:srcCompat="@drawable/logo" />-->
+    <!--</RelativeLayout>-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="right">
+
+            <EditText
+                android:id="@+id/edtext_firstname"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="الاسم الاول"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:paddingBottom="15dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
+                android:paddingRight="15dp"
+                android:inputType="textPersonName"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey" />
+
+            <EditText
+                android:id="@+id/edtext_lastname"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/edtext_firstname"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="الاسم الاخير"
+                android:inputType="textPersonName"
+                android:paddingBottom="15dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
+                android:paddingRight="15dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey" />
+            <EditText
+                android:id="@+id/edtext_national_id"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/edtext_firstname"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="الرقم القومي"
+                android:inputType="textPersonName"
+                android:paddingBottom="15dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
+                android:paddingRight="15dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey" />
+
+            <EditText
+                android:id="@+id/txtreg_phone"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/edtext_firstname"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="رقم الموبايل"
+                android:inputType="number"
+                android:paddingBottom="15dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
+                android:paddingRight="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey" />
+
+            <EditText
+                android:id="@+id/edtext_email"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@+id/edtext_firstname"
+                android:layout_marginBottom="10dp"
+                android:paddingBottom="15dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
+                android:paddingRight="15dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="البريد الاكترونى"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey" />
+
+            <EditText
+                android:id="@+id/edtextreg_password"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/edtext_firstname"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="كلمة المرور"
+                android:inputType="textWebPassword"
+                android:paddingBottom="15dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
+                android:paddingRight="15dp"
+                android:gravity="right"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                />
+
+            <EditText
+                android:id="@+id/edtext_retry_password"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/edtext_firstname"
+                android:background="@drawable/rounded_edittext"
+                android:hint=" اعادة كلمة المرور"
+                android:inputType="textWebPassword"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:paddingBottom="15dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
+                android:paddingRight="15dp"
+                android:gravity="right"
+                android:textColor="@color/black"
+                android:textColorHint="@color/grey"
+                />
+
+            <Button
+                android:id="@+id/btn_reg_now"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+
+                android:layout_weight="1"
+                android:background="@drawable/rounded_button"
+                android:text="تسجيل دخول" />
+
+            <TextView
+                android:id="@+id/txt_haveaccount"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="لدى حساب بالفعل,تسجيل دخول "
+                android:textColor="@color/black"
+                android:textSize="15dp" />
 </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
+
+
+
+
+
+

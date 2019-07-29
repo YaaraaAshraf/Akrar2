@@ -1,5 +1,6 @@
 package com.example.akrar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -24,14 +25,18 @@ public class Mainpage_details extends Fragment {
           img_gm.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
-                  loadbodnscash(new BondCashFragment());
+                  Intent intent = new Intent(getContext(), BondCashFragment.class);
+                  startActivity(intent);
+//                  loadbodnscash(new BondCashFragment());
               }
           });
          image_gr=(ImageView)view.findViewById(R.id.image_gr);
          image_gr.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 loadBonds(new Document_Fragment());
+                 Intent intent = new Intent(getContext(), Document_Fragment.class);
+                 startActivity(intent);
+//                 loadBonds(new Document_Fragment());
              }
          });
 
@@ -39,22 +44,23 @@ public class Mainpage_details extends Fragment {
            img_prod.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
-                   loadproduct(new productsFragment());
+                   Intent intent = new Intent(getContext(), productsFragment.class);
+                   startActivity(intent);
+//                   loadproduct(new productsFragment());
                }
            });
         return view;
     }
-
-    private boolean loadbodnscash(Fragment fragment) {
-        if (fragment != null) {
-            getFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.frame_container, fragment)
-                    .commit();
-            return true;
-        }
-        return false;
-    }
+//    private boolean loadbodnscash(Fragment fragment) {
+//        if (fragment != null) {
+//            getFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.frame_container, fragment)
+//                    .commit();
+//            return true;
+//        }
+//        return false;
+//    }
     private boolean loadBonds(Fragment fragment) {
         if (fragment != null) {
             getFragmentManager()

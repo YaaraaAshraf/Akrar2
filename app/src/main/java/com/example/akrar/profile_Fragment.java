@@ -1,6 +1,8 @@
 package com.example.akrar;
 
 
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,9 +16,9 @@ import android.widget.Toast;
 public class profile_Fragment extends Fragment {
     TextView txt_update;
     ImageView back_arrow;
-    EditText edtext_name,edtext_mail,edtext_phone,text_password;
+    EditText edtext_name,edtext_mail,edtext_phone,text_national_id;
     String name,mail,phone,pass;
-    Button btnsave;
+    Button btn_update;
     public profile_Fragment() {
     }
     public void onResume() {
@@ -43,15 +45,18 @@ public class profile_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_profile, container, false);
-        edtext_name=(EditText)view.findViewById(R.id.edtext_name);
+        edtext_name=(EditText)view.findViewById(R.id.edtext_name_profile);
         edtext_mail=(EditText)view.findViewById(R.id.edtext_mail_profile);
         edtext_phone=(EditText)view.findViewById(R.id.edtext_phone_profile);
+        text_national_id=(EditText)view.findViewById(R.id.national_id);
 //        text_password=(EditText)view.findViewById(R.id.text_password_profile);
-         btnsave=(Button)view.findViewById(R.id.btn_save_profile);
-         btnsave.setOnClickListener(new View.OnClickListener(){
-             @Override
-             public void onClick(View view) {
-                 loadupdateFragment(new Update_MyProfileFragment());
+        btn_update=(Button)view.findViewById(R.id.btn_save);
+        btn_update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), Update_MyProfileFragment.class);
+                startActivity(intent);
+////                loadupdateFragment(new Update_MyProfileFragment());
 //                 Toast.makeText(getContext(),"",Toast.LENGTH_LONG).show();
 //                 Toast.makeText(getContext(), "Saved..", Toast.LENGTH_SHORT).show();
 //                 name=edtext_name.getText().toString();
@@ -66,9 +71,9 @@ public class profile_Fragment extends Fragment {
 //                 bundle.putString("phone",phone);
 //                 bundle.putString("mail",mail);
 //                 bundle.putString("pass",pass);
-             }
-         });
-        back_arrow=(ImageView)view.findViewById(R.id.image_back_arrow_profile);
+            }
+        });
+        back_arrow=(ImageView)view.findViewById(R.id.image_back_arrow);
         back_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,17 +99,18 @@ public class profile_Fragment extends Fragment {
         }
         return false;
     }
-    private boolean loadupdateFragment(Fragment fragment) {
-        //switching fragment
-        if (fragment != null) {
-            getFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.frame_container, fragment)
-                    .commit();
-            return true;
-        }
-        return false;
-    }
+
+//    private boolean loadupdateFragment(Fragment fragment) {
+//        //switching fragment
+//        if (fragment != null) {
+//            getFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.frame_container, fragment)
+//                    .commit();
+//            return true;
+//        }
+//        return false;
+//    }
 }
 
 

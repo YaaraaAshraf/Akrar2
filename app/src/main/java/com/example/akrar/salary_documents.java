@@ -54,7 +54,7 @@ public class salary_documents extends Fragment {
         img_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                back(new FragmentBond());
+//                back(new FragmentBond());
             }
         });
         img_calender = (ImageView) view.findViewById(R.id.img_calender);

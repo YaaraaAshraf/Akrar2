@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.akrar">
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
     <supports-screens
         android:resizeable="true"
         android:smallScreens="true"
@@ -29,6 +33,13 @@
         <activity android:name=".Registration" />
         <activity android:name=".Login" />
         <activity android:name=".Mainpage_details" />
+        <activity android:name=".Document_Fragment" />
+        <activity android:name=".productsFragment" />
+        <activity android:name=".FragmentBond" />
+        <activity android:name=".BondCashFragment" />
+        <activity android:name=".Other_DocumentsCash" />
+        <activity android:name=".Update_MyProfileFragment" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,5 +48,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
