@@ -10,7 +10,7 @@ package com.example.akrar.model;
 public interface UserService {
     @FormUrlEncoded
     @POST("login")
-    Call<ResObj> login(@Field("national_id") String national_id,
+    Call<ResObj<LoginData>> login(@Field("national_id") String national_id,
                        @Field("password") String password);
 
 
@@ -27,8 +27,7 @@ public interface UserService {
 
 
     @GET("profile")
-    Call<Responseclass> user(@Header("Accept") String accept,
-                             @Header("Authorization") String auth);
+    Call<ResObj<LoginData>> user(@Header("Authorization") String auth);
 //                             @Header("national_id") String national_id,
 //                             @Header("mobile") String mobile);
 }

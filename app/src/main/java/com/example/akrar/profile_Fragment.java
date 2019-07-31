@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.akrar.model.ApiUtils;
+import com.example.akrar.model.LoginData;
 import com.example.akrar.model.ResObj;
 import com.example.akrar.model.UserService;
 
@@ -63,7 +64,7 @@ public class profile_Fragment extends Fragment {
         String mail = edtext_mail.getText().toString();
         String phone = edtext_phone.getText().toString();
         String id = text_national_id.getText().toString();
-        doLogin(name,mail);
+        doLogin();
 
         //validate form
 //        if (validateLogin(name, mail, phone, id)) {
@@ -100,15 +101,18 @@ public class profile_Fragment extends Fragment {
         }
         return view;
       }
-    private void doLogin(String name, String mail) {
-        Call call = userService.user(name,mail);
+    private void doLogin() {
+        UserSharedPreferencesManager userSharedPreferencesManager= UserSharedPreferencesManager.getInstance(this.getActivity().getApplicationContext());
+        Call call = userService.user("Bearer "+userSharedPreferencesManager.getToken());
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 if (response.isSuccessful()) {
-                    ResObj resObj = (ResObj) response.body();
+                    ResObj<LoginData> resObj = (ResObj<LoginData>) response.body();
                     if (resObj.getStatus().equals("success")){
 
+                        //use this user to fill the fields you have
+                        User user = resObj.getData().getUser();
 //                        Intent intent = new Intent(Login.this, Main_bar.class);
 //                        intent.putExtra("national_id", national_id);
 //                        startActivity(intent);
