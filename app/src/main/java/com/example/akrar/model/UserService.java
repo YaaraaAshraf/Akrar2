@@ -1,12 +1,12 @@
 package com.example.akrar.model;
-
-import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.Path;
+        import retrofit2.Call;
+        import retrofit2.http.Body;
+        import retrofit2.http.Field;
+        import retrofit2.http.FormUrlEncoded;
+        import retrofit2.http.GET;
+        import retrofit2.http.Header;
+        import retrofit2.http.POST;
+        import retrofit2.http.Path;
 public interface UserService {
     @FormUrlEncoded
     @POST("login")
@@ -25,10 +25,10 @@ public interface UserService {
                                    @Field("password_confirmation") String password_confirmation);
 
 
-    @FormUrlEncoded
+
     @GET("profile")
-    Call<Responseclass> user(@Field("firstname") String firstname,
-                             @Field("lastname") String lastname,
-                             @Field("national_id") String national_id,
-                             @Field("mobile") String mobile);
+    Call<Responseclass> user(@Header("Accept") String accept,
+                             @Header("Authorization") String auth);
+//                             @Header("national_id") String national_id,
+//                             @Header("mobile") String mobile);
 }
