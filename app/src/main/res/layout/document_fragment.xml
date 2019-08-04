@@ -35,7 +35,7 @@
         android:layout_height="20dp"
         android:layout_marginLeft="350dp"
         android:layout_marginTop="40dp"
-        app:srcCompat="@mipmap/add" />
+        app:srcCompat="@drawable/add" />
 
     <Switch
         android:id="@+id/switch_docu"

@@ -163,7 +163,7 @@
                     android:drawablePadding="6dp"
                     android:paddingLeft="15dp"
                     android:paddingRight="15dp"
-                    android:drawableLeft="@mipmap/calendar"
+                    android:drawableLeft="@drawable/calendar"
                     android:inputType="date"
                     android:textColor="#000000"
                     android:textColorHint="@color/grey" />

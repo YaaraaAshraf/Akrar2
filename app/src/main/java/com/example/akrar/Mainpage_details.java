@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 public class Mainpage_details extends Fragment {
     ImageView img_prod,image_gr,img_gm;
     private Mainpage_details myProjectListFragment;

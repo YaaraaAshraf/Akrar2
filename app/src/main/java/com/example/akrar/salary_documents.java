@@ -82,16 +82,16 @@ public class salary_documents extends Fragment {
         return view;
     }
 
-    private boolean back(Fragment fragment) {
-        if (fragment != null) {
-            getFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.frame_container, fragment)
-                    .commit();
-            return true;
-        }
-        return false;
-    }
+//    private boolean back(Fragment fragment) {
+//        if (fragment != null) {
+//            getFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.frame_container, fragment)
+//                    .commit();
+//            return true;
+//        }
+//        return false;
+//    }
     public void showDialog(FragmentActivity activity, String s) {
         final Dialog dialog = new Dialog(activity, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

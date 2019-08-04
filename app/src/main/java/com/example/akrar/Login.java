@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 
 import com.example.akrar.model.ApiUtils;
+import com.example.akrar.model.LoginData;
 import com.example.akrar.model.ResObj;
 import com.example.akrar.model.UserService;
 
@@ -29,7 +30,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        txt_create_account = (TextView) findViewById(R.id.txt_createaccount);
+        txt_create_account = (TextView) findViewById(R.id.txt_createacc);
         edt_mail = (EditText) findViewById(R.id.edtext_mailreg);
         edt_password = (EditText) findViewById(R.id.edtext_password);
         btn_login = (Button) findViewById(R.id.btn_reg);
@@ -92,20 +93,30 @@ public class Login extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) {
                 if (response.isSuccessful()) {
-                    ResObj resObj = (ResObj) response.body();
-                    if (resObj.getStatus().equals("error")) {
+                    ResObj<LoginData> resObj = (ResObj<LoginData>) response.body();
+                    if (resObj.getStatus().equals("success")) {
+
+//                  Toast.makeText(Login.this, "Token:"+ ((LoginData)resObj.getData()).getToken(), Toast.LENGTH_SHORT).show();
+                        UserSharedPreferencesManager userSharedPreferencesManager= UserSharedPreferencesManager.getInstance(Login.this.getApplicationContext());
+                        userSharedPreferencesManager.saveToken(resObj.getData().getToken());
+
+                        Intent intent = new Intent(Login.this, Main_bar.class);
+                        intent.putExtra("national_id", national_id);
+                        startActivity(intent);
+
                         //login start main activity
 //                        Intent intent = new Intent(Login.this, Main_bar.class);
 //                        intent.putExtra("national_id", national_id);
 //                        startActivity(intent);
+
                     } else {
                         Toast.makeText(Login.this, "The username or password is incorrect", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Intent intent = new Intent(Login.this, Main_bar.class);
-                    intent.putExtra("national_id", national_id);
-                    startActivity(intent);
-//                    Toast.makeText(Login.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
+//                    Intent intent = new Intent(Login.this, Main_bar.class);
+//                    intent.putExtra("national_id", national_id);
+//                    startActivity(intent);
+                    Toast.makeText(Login.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override

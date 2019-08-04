@@ -34,11 +34,10 @@
         <activity android:name=".Login" />
         <activity android:name=".Mainpage_details" />
         <activity android:name=".Document_Fragment" />
-        <activity android:name=".productsFragment" />
         <activity android:name=".FragmentBond" />
         <activity android:name=".BondCashFragment" />
         <activity android:name=".Other_DocumentsCash" />
-        <activity android:name=".Update_MyProfileFragment" />
+
 
         <activity android:name=".MainActivity">
             <intent-filter>

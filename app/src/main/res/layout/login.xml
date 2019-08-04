@@ -45,7 +45,7 @@
             android:layout_marginTop="270dp"
             android:layout_marginRight="35dp"
             android:background="@drawable/rounded_edittext"
-            android:hint="البريد الالكترونى"
+            android:hint="رقم الهوية او الاقامة"
             android:inputType="textEmailAddress"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
@@ -110,13 +110,12 @@
             android:textSize="15dp" />
 
         <TextView
-            android:id="@+id/txt_createaccount"
+            android:id="@+id/txt_createacc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="670dp"
             android:layout_marginRight="20dp"
-            android:layout_weight="1"
             android:gravity="center"
+            android:layout_marginTop="600dp"
             android:text="ليس لدى حساب بالفعل.سجل الان"
             android:textColor="@color/black"
             android:textSize="15dp" />

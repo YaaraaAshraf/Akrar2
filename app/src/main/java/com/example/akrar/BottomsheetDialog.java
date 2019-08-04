@@ -1,5 +1,4 @@
 package com.example.akrar;
-
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -11,7 +10,6 @@ import android.widget.EditText;
 
 
 import java.util.Calendar;
-
 public class BottomsheetDialog extends BottomSheetDialogFragment {
     EditText txt_dateTo,txt_datefrom;
     final Calendar c = Calendar.getInstance();

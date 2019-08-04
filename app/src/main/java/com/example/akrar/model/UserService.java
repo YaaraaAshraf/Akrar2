@@ -1,5 +1,5 @@
 package com.example.akrar.model;
-        import retrofit2.Call;
+import retrofit2.Call;
         import retrofit2.http.Body;
         import retrofit2.http.Field;
         import retrofit2.http.FormUrlEncoded;
@@ -10,8 +10,8 @@ package com.example.akrar.model;
 public interface UserService {
     @FormUrlEncoded
     @POST("login")
-    Call<ResObj> login(@Field("national_id") String national_id,
-                       @Field("password") String password);
+    Call<ResObj<LoginData>> login(@Field("national_id") String national_id,
+                                  @Field("password") String password);
 
 
     @FormUrlEncoded
@@ -27,8 +27,20 @@ public interface UserService {
 
 
     @GET("profile")
-    Call<Responseclass> user(@Header("Accept") String accept,
-                             @Header("Authorization") String auth);
+    Call<ResObj<LoginData>> user(@Header("Authorization") String auth);
 //                             @Header("national_id") String national_id,
 //                             @Header("mobile") String mobile);
+
+
+    
+    @POST("edit_profile")
+    Call<Responseclass> editprofile(@Field("firstname") String firstname,
+                                   @Field("lastname") String lastname,
+                                   @Field("national_id") String national_id,
+                                   @Field("email") String email,
+                                   @Field("mobile") String mobile,
+                                   @Field("password") String password,
+                                   @Field("password_confirmation") String password_confirmation);
+//    Call<ResObj<LoginData>> userupdate(@Header("Authorization") String auth);
 }
+

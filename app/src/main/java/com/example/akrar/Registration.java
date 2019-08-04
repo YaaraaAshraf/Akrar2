@@ -40,14 +40,14 @@ public class Registration extends AppCompatActivity {
         img_arrow = (ImageView) findViewById(R.id.image_arrow);
         userService = ApiUtils.getUserService();
 
-        img_arrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent mainIntent = new Intent(Registration.this, Login.class);
-                Registration.this.startActivity(mainIntent);
-                Registration.this.finish();
-            }
-        });
+//        img_arrow.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent mainIntent = new Intent(Registration.this, Login.class);
+//                Registration.this.startActivity(mainIntent);
+//                Registration.this.finish();
+//            }
+//        });
         btn_regiter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -128,7 +128,7 @@ public class Registration extends AppCompatActivity {
                     intent.putExtra("password", password);
                     intent.putExtra("password_confirmation",password_confirmation);
                     startActivity(intent);
-//                    Toast.makeText(Registration.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
+//                  Toast.makeText(Registration.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
