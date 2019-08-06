@@ -96,77 +96,77 @@
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content">-->
 
-                    <TextView
-                        android:id="@+id/txt_document_pay"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="350dp"
-                        android:layout_marginTop="10dp"
-                        android:text="العربون"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
+                    <!--<TextView-->
+                        <!--android:id="@+id/txt_document_pay"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="350dp"-->
+                        <!--android:layout_marginTop="10dp"-->
+                        <!--android:text="العربون"-->
+                        <!--android:textColor="@color/black"-->
+                        <!--android:textSize="15dp" />-->
 
-                    <Spinner
-                        android:id="@+id/spinner_deposite"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@drawable/rounded_edittext" />
+                    <!--<Spinner-->
+                        <!--android:id="@+id/spinner_deposite"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="50dp"-->
+                        <!--android:layout_marginLeft="10dp"-->
+                        <!--android:layout_marginTop="10dp"-->
+                        <!--android:layout_marginRight="10dp"-->
+                        <!--android:background="@drawable/rounded_edittext" />-->
                 <!--</RelativeLayout>-->
 
-                <TextView
-                    android:id="@+id/txt_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="320dp"
-                    android:layout_marginTop="10dp"
-                    android:text="قيمة العربون"
-                    android:textColor="@color/black"
-                    android:textSize="15dp" />
+                <!--<TextView-->
+                    <!--android:id="@+id/txt_value"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="320dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:text="قيمة العربون"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:textSize="15dp" />-->
 
-                <EditText
-                    android:id="@+id/text_value"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/rounded_edittext"
-                    android:inputType="number"
-                    android:paddingRight="15dp"
-                    android:paddingLeft="15dp"
-                    android:textColor="#000000"
-                    android:textColorHint="@color/grey" />
+                <!--<EditText-->
+                    <!--android:id="@+id/text_value"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:layout_centerHorizontal="true"-->
+                    <!--android:layout_marginLeft="15dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_marginRight="10dp"-->
+                    <!--android:background="@drawable/rounded_edittext"-->
+                    <!--android:inputType="number"-->
+                    <!--android:paddingRight="15dp"-->
+                    <!--android:paddingLeft="15dp"-->
+                    <!--android:textColor="#000000"-->
+                    <!--android:textColorHint="@color/grey" />-->
 
-                <TextView
-                    android:id="@+id/txt_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="350dp"
-                    android:layout_marginTop="10dp"
-                    android:text="التاريخ"
-                    android:textColor="@color/black"
-                    android:textSize="15dp" />
+                <!--<TextView-->
+                    <!--android:id="@+id/txt_date"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="350dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:text="التاريخ"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:textSize="15dp" />-->
 
-                <EditText
-                    android:id="@+id/edt_date"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/rounded_edittext"
-                    android:drawablePadding="6dp"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:drawableLeft="@drawable/calendar"
-                    android:inputType="date"
-                    android:textColor="#000000"
-                    android:textColorHint="@color/grey" />
+                <!--<EditText-->
+                    <!--android:id="@+id/edt_date"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:layout_centerHorizontal="true"-->
+                    <!--android:layout_marginLeft="15dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_marginRight="10dp"-->
+                    <!--android:background="@drawable/rounded_edittext"-->
+                    <!--android:drawablePadding="6dp"-->
+                    <!--android:paddingLeft="15dp"-->
+                    <!--android:paddingRight="15dp"-->
+                    <!--android:drawableLeft="@drawable/calendar"-->
+                    <!--android:inputType="date"-->
+                    <!--android:textColor="#000000"-->
+                    <!--android:textColorHint="@color/grey" />-->
 
                 <TextView
                     android:id="@+id/txt_description"
@@ -197,7 +197,7 @@
                     android:textColorHint="@color/grey"
                     android:textSize="15dp" />
 
-                <Button
+                  <Button
                     android:id="@+id/btn_send_to"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -207,6 +207,20 @@
                     android:layout_weight="1"
                     android:background="@drawable/rounded_button"
                     android:text="ارسال" />
+               <Button
+                android:id="@+id/button_addpayments"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="اضافة دفعات"
+                android:layout_marginLeft="240dp"
+                android:layout_marginRight="10dp"
+                android:drawableRight="@mipmap/add"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="50dp"
+                   android:visibility="gone"
+                android:paddingRight="10dp"
+                android:background="@drawable/rounded_button"/>
+
 
                 <!--<FrameLayout-->
                     <!--android:id="@+id/frame"-->
