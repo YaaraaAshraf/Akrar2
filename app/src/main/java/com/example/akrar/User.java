@@ -58,6 +58,7 @@ public class User {
     public String getNationalID() {
         return nationalID;
     }
+
     public void setNationalID(String nationalID) {
         this.nationalID = nationalID;
     }

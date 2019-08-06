@@ -37,7 +37,7 @@ protected void onCreate(Bundle savedInstanceState) {
             }
         });
         arow = (ImageView) findViewById(R.id.img_arrow);
-        arow.setOnClickListener(new View.OnClickListener() {
+        arow.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Main_bar.class);

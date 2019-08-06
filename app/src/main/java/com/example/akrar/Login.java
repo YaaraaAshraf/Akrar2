@@ -30,7 +30,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        txt_create_account = (TextView) findViewById(R.id.txt_createacc);
+        txt_create_account = (TextView) findViewById(R.id.txt_createaccount);
         edt_mail = (EditText) findViewById(R.id.edtext_mailreg);
         edt_password = (EditText) findViewById(R.id.edtext_password);
         btn_login = (Button) findViewById(R.id.btn_reg);

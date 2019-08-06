@@ -18,8 +18,8 @@ import retrofit2.Response;
 public class Update_MyProfileFragment extends AppCompatActivity {
     ImageView back_arrow;
     Button btn_save;
-    EditText edtext_firstname, edt_lastname, edtext_mail_profile, text_password_profile, edt_retrypass, edt_id;
-    TextView edtext_phone_profile;
+    EditText edtext_firstname, edt_lastname, edtext_mail_profile, text_password_profile, edt_retrypass,edtext_phone_profile;
+    TextView edt_id;
     UserService userService;
 
     @Override
@@ -34,10 +34,10 @@ public class Update_MyProfileFragment extends AppCompatActivity {
         edtext_firstname = (EditText) findViewById(R.id.edtext_firstname);
         edt_lastname = (EditText) findViewById(R.id.lastname);
         edtext_mail_profile = (EditText) findViewById(R.id.mail);
-        edtext_phone_profile = (TextView) findViewById(R.id.edtext_phone_profile);
+        edtext_phone_profile = (EditText) findViewById(R.id.edtext_phone_profile);
         text_password_profile = (EditText) findViewById(R.id.text_password_profile);
         edt_retrypass = (EditText) findViewById(R.id.edt_retrypass_profile);
-        edt_id = (EditText) findViewById(R.id.edtext_id);
+        edt_id = (TextView) findViewById(R.id.edtext_id);
         btn_save = (Button) findViewById(R.id.btn_save_profile);
         back_arrow = (ImageView) findViewById(R.id.image_back_arrow_profile);
         userService = ApiUtils.getUserService();

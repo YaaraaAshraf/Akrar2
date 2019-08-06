@@ -43,9 +43,9 @@ public class FragmentBond extends AppCompatActivity {
         edtext_sendto_bonds=(EditText)findViewById(R.id.edtext_sendto_bonds);
         edt_address_bonds=(EditText)findViewById(R.id.edt_address_bonds);
         edt_name_of_product_bonds=(EditText)findViewById(R.id.edt_name_of_product_bonds);
-        text_quantity_bonds=(EditText)findViewById(R.id.text_quantity_bonds);
-        text_date_bonds=(EditText)findViewById(R.id.text_date_bonds);
-        text_value_bonds=(EditText)findViewById(R.id.text_value_bonds);
+//        text_quantity_bonds=(EditText)findViewById(R.id.text_quantity_bonds);
+//        text_date_bonds=(EditText)findViewById(R.id.text_date_bonds);
+//        text_value_bonds=(EditText)findViewById(R.id.text_value_bonds);
         text_description_bonds=(EditText)findViewById(R.id.text_description_bonds);
         btn_send=(Button)findViewById(R.id.btn_deliver_bonds);
         btn_send.setOnClickListener(new View.OnClickListener(){
@@ -76,22 +76,22 @@ public class FragmentBond extends AppCompatActivity {
             }
         });
 
-        img_calender=(ImageView)findViewById(R.id.image_calender);
-        txt_date=(EditText)findViewById(R.id.text_date_bonds);
-        img_calender.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DatePickerDialog.OnDateSetListener listener=new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
-                    {
-                        txt_date.setText(dayOfMonth + "/" + monthOfYear + "/" + year);
-                    }
-                };
-                DatePickerDialog dpDialog=new DatePickerDialog(getApplicationContext(), listener, year, month, day);
-                dpDialog.show();
-            }
-        });
+//        img_calender=(ImageView)findViewById(R.id.image_calender);
+//        txt_date=(EditText)findViewById(R.id.text_date_bonds);
+//        img_calender.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                DatePickerDialog.OnDateSetListener listener=new DatePickerDialog.OnDateSetListener() {
+//                    @Override
+//                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
+//                    {
+//                        txt_date.setText(dayOfMonth + "/" + monthOfYear + "/" + year);
+//                    }
+//                };
+//                DatePickerDialog dpDialog=new DatePickerDialog(getApplicationContext(), listener, year, month, day);
+//                dpDialog.show();
+//            }
+//        });
         img_back=(ImageView)findViewById(R.id.image_arrow_bond);
         img_back.setOnClickListener(new View.OnClickListener() {
             @Override

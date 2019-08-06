@@ -110,7 +110,7 @@
             android:textSize="15dp" />
 
         <TextView
-            android:id="@+id/txt_createacc"
+            android:id="@+id/txt_createaccount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"

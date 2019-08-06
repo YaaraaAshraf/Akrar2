@@ -60,12 +60,11 @@ public class profile_Fragment extends Fragment {
         text_national_id = (TextView) view.findViewById(R.id.national_id);
         btn_update = (Button) view.findViewById(R.id.btn_save);
         userService = ApiUtils.getUserService();
-//        String name = edtext_name.getText().toString();
-//        String mail = edtext_mail.getText().toString();
-//        String phone = edtext_phone.getText().toString();
-//        String id = text_national_id.getText().toString();
-
-              doLogin();
+        String name = edtext_name.getText().toString();
+        String mail = edtext_mail.getText().toString();
+        String phone = edtext_phone.getText().toString();
+        String id = text_national_id.getText().toString();
+        doLogin();
 
         //validate form
 //        if (validateLogin(name, mail, phone, id)) {
@@ -73,15 +72,8 @@ public class profile_Fragment extends Fragment {
         btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                String firstname = edtext_name.getText().toString();
-//                String mail = edtext_mail.getText().toString();
-//                String national_id = text_national_id.getText().toString();
-//                String phone = edtext_phone.getText().toString();
-
                 Intent intent = new Intent(getContext(), Update_MyProfileFragment.class);
                 startActivity(intent);
-
-
 ////                loadupdateFragment(new Update_MyProfileFragment());
 //                 Toast.makeText(getContext(),"",Toast.LENGTH_LONG).show();
 //                 Toast.makeText(getContext(), "Saved..", Toast.LENGTH_SHORT).show();
@@ -110,24 +102,23 @@ public class profile_Fragment extends Fragment {
         return view;
       }
     private void doLogin() {
-        UserSharedPreferencesManager userSharedPreferencesManager= UserSharedPreferencesManager.getInstance(this.getActivity().getApplicationContext());
-        Call call = userService.user("Bearer "+userSharedPreferencesManager.getToken());
+
+        UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getActivity().getApplicationContext());
+        Call call = userService.user("Bearer " + userSharedPreferencesManager.getToken());
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 if (response.isSuccessful()) {
                     ResObj<LoginData> resObj = (ResObj<LoginData>) response.body();
-                    if (resObj.getStatus().equals("success")){
+                    if (resObj.getStatus().equals("success")) {
                         //use this user to fill the fields you have
                         User user = resObj.getData().getUser();
-                         edtext_name.setText(user.getFirstName());
-                         edtext_mail.setText(user.getEmail());
-                         edtext_phone.setText(user.getMobile());
-                         text_national_id.setText(user.getNationalID());
+                        edtext_name.setText(user.getFirstName());
+                        edtext_mail.setText(user.getEmail());
+                        edtext_phone.setText(user.getMobile());
+                        text_national_id.setText(user.getNationalID());
 
-//                        Intent intent = new Intent(Login.this, Main_bar.class);
-//                        intent.putExtra("national_id", national_id);
-//                        startActivity(intent);
+
                     } else {
                         Toast.makeText(getContext(), "The username or password is incorrect", Toast.LENGTH_SHORT).show();
                     }
@@ -145,6 +136,7 @@ public class profile_Fragment extends Fragment {
             }
         });
     }
+
 
 //    private boolean validateLogin(String username, String mail, String phone, String id) {
 //        if (username == null || username.trim().length() == 0) {
