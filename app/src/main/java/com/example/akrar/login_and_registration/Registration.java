@@ -1,4 +1,4 @@
-package com.example.akrar;
+package com.example.akrar.login_and_registration;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.akrar.Main_bar;
+import com.example.akrar.R;
 import com.example.akrar.model.ApiUtils;
 import com.example.akrar.model.Responseclass;
 import com.example.akrar.model.UserService;
@@ -43,7 +45,7 @@ public class Registration extends AppCompatActivity {
 //        img_arrow.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//                Intent mainIntent = new Intent(Registration.this, Login.class);
+//                Intent mainIntent = new Intent(Registration.this, LoginActivity.class);
 //                Registration.this.startActivity(mainIntent);
 //                Registration.this.finish();
 //            }
@@ -88,7 +90,7 @@ public class Registration extends AppCompatActivity {
         txt_have_account.setOnClickListener(new View.OnClickListener() {
           @Override
               public void onClick(View view) {
-                  Intent mainIntent = new Intent(Registration.this, Login.class);
+                  Intent mainIntent = new Intent(Registration.this, LoginActivity.class);
                   Registration.this.startActivity(mainIntent);
                   Registration.this.finish();
                  }

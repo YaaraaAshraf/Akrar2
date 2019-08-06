@@ -3,6 +3,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.akrar.login_and_registration.LoginActivity;
+
 public class MainActivity extends AppCompatActivity {
     private final int SPLASH_DISPLAY_LENGTH = 3000;
     @Override
@@ -14,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 try {
                     sleep(3000);
-                    Intent intent = new Intent(getApplicationContext(), Login.class);
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);
                     finish();
                 } catch (InterruptedException e) {
