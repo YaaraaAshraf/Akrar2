@@ -270,7 +270,6 @@
                     android:text="السعر:300"
                     android:textColor="#9e9e9e" />
             </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
-
             <Button
                 android:id="@+id/btn_desc"
                 android:layout_width="match_parent"
