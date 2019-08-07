@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".Shipment_invoice"
+    >
+    <ImageView
+        android:id="@+id/image_bar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/actionbar" />
+    <TextView
+        android:id="@+id/txt_docu_bond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="-70dp"
+        android:text="سند قبض عيني"
+        android:textColor="@color/black" />
+    <ImageView
+        android:id="@+id/image_arrow_bond"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="-10dp"
+        app:srcCompat="@drawable/arrow" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_num_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/squareshape_expand"
+                android:backgroundTint="@color/grey"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="70dp"
+                android:drawableLeft="@android:drawable/arrow_down_float"
+                android:onClick="expandableButton1"
+                android:paddingLeft="10dp"
+                android:paddingRight="-160dp"
+                android:text="المرسل الية رقو الهويةاو الاقامة"
+                android:textColor="@color/black"
+                tools:ignore="OnClick"/>
+
+            <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+                android:id="@+id/expandableLayout1_numid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/expandableButton1"
+                android:background="@drawable/squareshape_expand"
+                android:padding="16dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                app:ael_duration="400"
+                android:layout_marginTop="2dp"
+                app:ael_expanded="false"
+                app:ael_interpolator="accelerate"
+                app:ael_orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#9e9e9e"
+                    android:text="111111111"
+                    android:layout_marginLeft="279dp"/>
+            </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+            <Button
+                android:id="@+id/btn_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/squareshape_expand"
+                android:backgroundTint="@color/grey"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:drawableLeft="@android:drawable/arrow_down_float"
+                android:onClick="expandableButton1"
+                android:paddingLeft="10dp"
+                android:paddingRight="-280dp"
+                android:text="العنوان"
+                android:textColor="@color/black"
+                tools:ignore="OnClick"/>
+
+            <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+                android:id="@+id/expandableLayout1_address"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/expandableButton1"
+                android:background="@drawable/squareshape_expand"
+                android:padding="16dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                app:ael_duration="400"
+                android:layout_marginTop="2dp"
+                app:ael_expanded="false"
+                app:ael_interpolator="accelerate"
+                app:ael_orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#9e9e9e"
+                    android:text="steet,11"
+                    android:layout_marginLeft="298dp"/>
+            </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+
+            <Button
+                android:id="@+id/btn_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/squareshape_expand"
+                android:backgroundTint="@color/grey"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:drawableLeft="@android:drawable/arrow_down_float"
+                android:onClick="expandableButton1"
+                android:paddingLeft="10dp"
+                android:paddingRight="-270dp"
+                android:text="القيمة الكلية"
+                android:textColor="@color/black"
+                tools:ignore="OnClick"/>
+
+            <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+                android:id="@+id/expandableLayout1_value"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/expandableButton1"
+                android:background="@drawable/squareshape_expand"
+                android:padding="16dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                app:ael_duration="400"
+                android:layout_marginTop="2dp"
+                app:ael_expanded="false"
+                app:ael_interpolator="accelerate"
+                app:ael_orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#9e9e9e"
+                    android:text="300"
+                    android:layout_marginLeft="330dp"/>
+            </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+
+            <Button
+                android:id="@+id/btn_currency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/squareshape_expand"
+                android:backgroundTint="@color/grey"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:drawableLeft="@android:drawable/arrow_down_float"
+                android:onClick="expandableButton1"
+                android:paddingLeft="10dp"
+                android:paddingRight="-280dp"
+                android:text="العملة"
+                android:textColor="@color/black"
+                tools:ignore="OnClick"/>
+
+            <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+                android:id="@+id/expandableLayout_currrency"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/expandableButton1"
+                android:background="@drawable/squareshape_expand"
+                android:padding="16dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                app:ael_duration="400"
+                android:layout_marginTop="2dp"
+                app:ael_expanded="false"
+                app:ael_interpolator="accelerate"
+                app:ael_orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_currency"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="#9e9e9e"
+                    android:text="ريال"
+                    android:layout_marginLeft="30dp"/>
+            </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+            <Button
+                android:id="@+id/btn_prod_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/squareshape_expand"
+                android:backgroundTint="@color/grey"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:drawableLeft="@android:drawable/arrow_down_float"
+                android:onClick="expandableButton1"
+                android:paddingLeft="10dp"
+                android:paddingRight="-280dp"
+                android:text="المنتج الاول"
+                android:textColor="@color/black"
+                tools:ignore="OnClick"/>
+
+
+            <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+                android:id="@+id/expandableLayout_prod_one"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/expandableButton1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/squareshape_expand"
+                android:padding="16dp"
+                app:ael_duration="400"
+                app:ael_expanded="false"
+                app:ael_interpolator="accelerate"
+                app:ael_orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_prod_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="0dp"
+                    android:text="اسم المنتج:المنتج ا"
+                    android:textColor="#9e9e9e" />
+
+                <TextView
+                    android:id="@+id/text_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="300dp"
+                    android:layout_marginTop="20dp"
+                    android:text="الكمية:3"
+                    android:textColor="#9e9e9e" />
+
+                <TextView
+                    android:id="@+id/text_unit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="300dp"
+                    android:layout_marginTop="40dp"
+                    android:text="الوحدة:10"
+                    android:textColor="#9e9e9e" />
+
+                <TextView
+                    android:id="@+id/text_prod_currency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="300dp"
+                    android:layout_marginTop="60dp"
+                    android:text="السعر:300"
+                    android:textColor="#9e9e9e" />
+            </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+
+            <Button
+                android:id="@+id/btn_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/squareshape_expand"
+                android:backgroundTint="@color/grey"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:drawableLeft="@android:drawable/arrow_down_float"
+                android:onClick="expandableButton1"
+                android:paddingLeft="10dp"
+                android:paddingRight="-280dp"
+                android:text="الوصف"
+                android:textColor="@color/black"
+                tools:ignore="OnClick"/>
+
+            <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+                android:id="@+id/expandableLayout_desc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/expandableButton1"
+                android:background="@drawable/squareshape_expand"
+                android:padding="16dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                app:ael_duration="400"
+                android:layout_marginTop="2dp"
+                app:ael_expanded="false"
+                app:ael_interpolator="accelerate"
+                app:ael_orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="#9e9e9e"
+                    android:layout_marginBottom="30dp"
+                    android:text="هناك حقيقة مثبتة منذ زمن طويل"
+                    android:layout_marginLeft="30dp"/>
+            </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+
+
+            <Button
+                android:id="@+id/btn_deliver"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_button"
+                android:text="تاكيد استلام" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
