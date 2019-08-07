@@ -118,7 +118,6 @@ public class profile_Fragment extends Fragment {
                         edtext_phone.setText(user.getMobile());
                         text_national_id.setText(user.getNationalID());
 
-
                     } else {
                         Toast.makeText(getContext(), "The username or password is incorrect", Toast.LENGTH_SHORT).show();
                     }

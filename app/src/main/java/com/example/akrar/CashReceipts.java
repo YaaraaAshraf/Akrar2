@@ -1,11 +1,9 @@
 package com.example.akrar;
-
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-
 public class CashReceipts extends AppCompatActivity {
 ImageView image_arrow;
     @Override
