@@ -1,24 +1,16 @@
 package com.example.akrar;
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.example.akrar.R;
-
 import java.util.Calendar;
 
-public class FragmentBond extends AppCompatActivity {
+public class AddShimpment_invoice extends AppCompatActivity {
     ImageView img_back,img_calender;
     EditText txt_date,edtext_sendto_bonds,edt_address_bonds,
             edt_name_of_product_bonds,text_quantity_bonds,
@@ -32,14 +24,14 @@ public class FragmentBond extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_fragment_bond);
-//    public FragmentBond(){
+        setContentView(R.layout.add_shipment_invoice);
+//    public AddShimpment_invoice(){
 //    }
 //    @Override
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 //                             Bundle savedInstanceState){
 //        //Inflate the layout for this fragment
-//        View view = inflater.inflate(R.layout.fragment_fragment_bond, container, false);
+//        View view = inflater.inflate(R.layout.add_shipment_invoice, container, false);
         edtext_sendto_bonds=(EditText)findViewById(R.id.edtext_sendto_bonds);
         edt_address_bonds=(EditText)findViewById(R.id.edt_address_bonds);
         edt_name_of_product_bonds=(EditText)findViewById(R.id.edt_name_of_product_bonds);
@@ -59,7 +51,7 @@ public class FragmentBond extends AppCompatActivity {
 //                 st_value=text_value_bonds.getText().toString();
 //                 st_desc=text_description_bonds.getText().toString();
 //                FragmentTransaction transection=getFragmentManager().beginTransaction();
-//                Document_Fragment mfragment=new Document_Fragment();
+//                Document_shipment mfragment=new Document_shipment();
 //                //using Bundle to send data
 //                Bundle bundle=new Bundle();
 //                bundle.putString("date",st_date);
@@ -96,7 +88,7 @@ public class FragmentBond extends AppCompatActivity {
         img_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),  Document_Fragment.class);
+                Intent intent = new Intent(getApplicationContext(),  Document_shipment.class);
                 startActivity(intent);
 //                back(new Mainpage_details());
             }

@@ -55,7 +55,7 @@
                 tools:ignore="OnClick"/>
 
             <com.github.aakira.expandablelayout.ExpandableRelativeLayout
-                android:id="@+id/expandableLayout1_numid"
+                android:id="@+id/expandableLayout_numid"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/expandableButton1"
@@ -95,7 +95,7 @@
                 tools:ignore="OnClick"/>
 
             <com.github.aakira.expandablelayout.ExpandableRelativeLayout
-                android:id="@+id/expandableLayout1_address"
+                android:id="@+id/expandableLayout_address"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/expandableButton1"
@@ -136,7 +136,7 @@
                 tools:ignore="OnClick"/>
 
             <com.github.aakira.expandablelayout.ExpandableRelativeLayout
-                android:id="@+id/expandableLayout1_value"
+                android:id="@+id/expandableLayout_value"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/expandableButton1"
@@ -177,7 +177,7 @@
                 tools:ignore="OnClick"/>
 
             <com.github.aakira.expandablelayout.ExpandableRelativeLayout
-                android:id="@+id/expandableLayout_currrency"
+                android:id="@+id/Layout_currrency"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/expandableButton1"
@@ -218,7 +218,7 @@
 
 
             <com.github.aakira.expandablelayout.ExpandableRelativeLayout
-                android:id="@+id/expandableLayout_prod_one"
+                android:id="@+id/Layout_prod_one"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/expandableButton1"
@@ -287,7 +287,7 @@
                 tools:ignore="OnClick"/>
 
             <com.github.aakira.expandablelayout.ExpandableRelativeLayout
-                android:id="@+id/expandableLayout_desc"
+                android:id="@+id/Layout_desc"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/expandableButton1"

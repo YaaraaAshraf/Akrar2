@@ -2,19 +2,14 @@ package com.example.akrar;
 import android.content.Intent;
 import android.os.Bundle;
 
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 
-import java.util.ArrayList;
-public class Document_Fragment extends AppCompatActivity {
+public class Document_shipment extends AppCompatActivity {
    ImageView image_add_bond,img_arrow;
    ImageView fab;
    Switch aSwitch;
@@ -25,7 +20,7 @@ public class Document_Fragment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.document_fragment);
-//    public Document_Fragment(){
+//    public Document_shipment(){
 //    }
 //
 //    @Override
@@ -58,7 +53,7 @@ public class Document_Fragment extends AppCompatActivity {
 //            @Override
 //            public void onClick(View view) {
 //                if (aSwitch.isChecked()){
-//                    back(new Document_Fragment());
+//                    back(new Document_shipment());
 //                }else {
 //                    loadBondFragment(new BondCashFragment());
 //                }
@@ -68,7 +63,7 @@ public class Document_Fragment extends AppCompatActivity {
 //        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 //            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 //                if (aSwitch.isChecked()) {
-//                    back(new Document_Fragment());
+//                    back(new Document_shipment());
 //
 //                } else
 //                    {
@@ -97,15 +92,15 @@ public class Document_Fragment extends AppCompatActivity {
         image_add_bond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), FragmentBond.class);
+                Intent intent = new Intent(getApplicationContext(), AddShimpment_invoice.class);
                 startActivity(intent);
-//                loadBondFragment(new FragmentBond());
+//                loadBondFragment(new AddShimpment_invoice());
             }
         });
 //        image_add_bond.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//                loadBondFragment(new FragmentBond());
+//                loadBondFragment(new AddShimpment_invoice());
 //            }
 //        });
 //        return view;

@@ -19,8 +19,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <!--<activity android:name="com.example.Akrar.Confirm_shipment_invoice"></activity>-->
-        <!--<activity android:name="com.example.Akrar.Shipment_invoice" />-->
+        <activity android:name="com.example.Akrar.Financial_Invoice"></activity>
+        <!-- <activity android:name="com.example.Akrar.Confirm_shipment_invoice"></activity> -->
+        <!-- <activity android:name="com.example.Akrar.Shipment_invoice" /> -->
         <activity android:name=".CashReceipts" />
         <activity android:name=".FilterActivity" />
         <activity android:name=".Confirm_shipment_invoice" />
@@ -36,15 +37,17 @@
         <activity android:name=".login_and_registration.Registration" />
         <activity android:name=".login_and_registration.LoginActivity" />
         <activity android:name=".BottomAppBar" /> <!-- <activity android:name=".Mainpage_details" /> -->
-        <activity android:name=".Document_Fragment" /> <!-- <activity android:name=".productsFragment" /> -->
-        <activity android:name=".FragmentBond" />
+        <activity android:name=".Document_shipment" /> <!-- <activity android:name=".productsFragment" /> -->
+        <activity android:name=".AddShimpment_invoice" />
         <activity android:name=".BondCashFragment" />
         <activity android:name=".Other_DocumentsCash" /> <!-- <activity android:name=".Update_MyProfileFragment" /> -->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

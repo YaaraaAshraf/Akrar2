@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
+   tools:context=".AddShimpment_invoice"
     >
     <ImageView
         android:id="@+id/image_bar"
@@ -143,21 +144,21 @@
                     android:layout_marginRight="10dp"
                     android:background="@drawable/rounded_edittext" />
 
-                <ImageView
-                    android:id="@+id/img_addproduct"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginTop="390dp"
-                    android:layout_marginLeft="360dp"
-                    app:srcCompat="@drawable/productadd" />
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="390dp"
-                    android:layout_marginLeft="260dp"
-                    android:textColor="@color/black"
-                    android:text="منتج مضاف سابقا" />
+                <!--<ImageView-->
+                    <!--android:id="@+id/img_addproduct"-->
+                    <!--android:layout_width="30dp"-->
+                    <!--android:layout_height="30dp"-->
+                    <!--android:layout_marginTop="390dp"-->
+                    <!--android:layout_marginLeft="360dp"-->
+                    <!--app:srcCompat="@drawable/productadd" />-->
+                <!--<TextView-->
+                    <!--android:id="@+id/textView"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="390dp"-->
+                    <!--android:layout_marginLeft="260dp"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:text="منتج مضاف سابقا" />-->
 
                 <!--<EditText-->
                     <!--android:id="@+id/text_quantity_bonds"-->
@@ -181,19 +182,60 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="330dp"
-                    android:layout_marginTop="430dp"
+                    android:layout_marginTop="390dp"
                     android:text="اسم المنتج"
                     android:textColor="@color/black"
                     android:textSize="15dp" />
 
-                <Spinner
+                <EditText
                     android:id="@+id/spinner_product"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="453dp"
+                    android:layout_marginTop="420dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/rounded_edittext" />
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="430dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="منتج مضاف سابقا"
+                    android:textColor="@color/black"/>
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="430dp"
+                    android:layout_marginLeft="124dp"
+                    app:srcCompat="@drawable/prod_square_shipment"/>
+
+
+                <!--<TextView-->
+                    <!--android:id="@+id/txt_prod_name"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="350dp"-->
+                    <!--android:layout_marginTop="550dp"-->
+                    <!--android:text="الكمية"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:textSize="15dp" />-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/text_prod_name"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:layout_centerHorizontal="true"-->
+                    <!--android:layout_marginLeft="15dp"-->
+                    <!--android:layout_marginTop="5600dp"-->
+                    <!--android:layout_marginRight="10dp"-->
+                    <!--android:background="@drawable/rounded_edittext"-->
+                    <!--android:inputType="date"-->
+                    <!--android:paddingLeft="10dp"-->
+                    <!--android:paddingRight="15dp"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:textColorHint="@color/grey" />-->
 
                 <!--<EditText-->
                     <!--android:id="@+id/text_value_bonds"-->
@@ -217,7 +259,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="350dp"
-                    android:layout_marginTop="510dp"
+                    android:layout_marginTop="480dp"
                     android:text="الكمية"
                     android:textColor="@color/black"
                     android:textSize="15dp" />
@@ -228,7 +270,7 @@
                     android:layout_height="50dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="530dp"
+                    android:layout_marginTop="500dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/rounded_edittext"
                     android:inputType="date"
@@ -242,7 +284,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="350dp"
-                    android:layout_marginTop="580dp"
+                    android:layout_marginTop="568dp"
                     android:text="الوحدة"
                     android:textColor="@color/black"
                     android:textSize="15dp" />
@@ -279,7 +321,7 @@
                     android:layout_height="50dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="680dp"
+                    android:layout_marginTop="690dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/rounded_edittext"
                     android:inputType="date"
@@ -287,43 +329,25 @@
                     android:paddingRight="15dp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/grey" />
-
-                <ImageView
-                    android:id="@+id/img_add_product"
-                    android:layout_width="661dp"
-                    android:layout_height="32dp"
-                    android:layout_marginLeft="250dp"
-                    android:layout_marginTop="740dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_weight="1"
-                    android:paddingRight="20dp"
-                    app:srcCompat="@drawable/rounded_button" />
-                <TextView
-                    android:id="@+id/text_add_product"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="250dp"
-                    android:layout_marginTop="740dp"
+                <Button
+                    android:id="@+id/button_payments"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="اضافة منتج اخر"
+                    android:layout_marginLeft="230dp"
+                    android:layout_marginRight="10dp"
+                    android:drawableRight="@mipmap/add"
+                    android:layout_marginTop="770dp"
                     android:paddingLeft="10dp"
-                    android:paddingTop="8dp"
-                    android:layout_marginRight="20dp"
-                    android:text="اضافة منتج اخر" />
-
-                <ImageView
-                    android:id="@+id/image_add_product"
-                    android:layout_width="20dp"
-                    android:layout_marginLeft="340dp"
-                    android:paddingTop="10dp"
-                    android:layout_marginTop="740dp"
-                    android:layout_height="20dp"
-                    app:srcCompat="@drawable/add" />
+                    android:paddingRight="10dp"
+                    android:background="@drawable/rounded_button"/>
 
                 <TextView
                     android:id="@+id/txt_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="350dp"
-                    android:layout_marginTop="786dp"
+                    android:layout_marginTop="820dp"
                     android:text="الوصف"
                     android:textColor="@color/black"
                     android:textSize="15dp" />
@@ -335,7 +359,7 @@
                     android:layout_height="90dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="820dp"
+                    android:layout_marginTop="840dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/square_edittext"
                     android:ems="100"
@@ -352,7 +376,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="930dp"
+                    android:layout_marginTop="950dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/rounded_button"

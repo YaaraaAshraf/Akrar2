@@ -61,7 +61,7 @@ public class Registration extends AppCompatActivity {
                 String password = edt_password.getText().toString();
                 String verifypass = edt_retrypass.getText().toString();
                 FragmentTransaction transection = getFragmentManager().beginTransaction();
-//                Document_Fragment mfragment=new Document_Fragment();
+//                Document_shipment mfragment=new Document_shipment();
 //                //using Bundle to send data
 //                Bundle bundle=new Bundle();
 //                bundle.putString("date",st_date);
