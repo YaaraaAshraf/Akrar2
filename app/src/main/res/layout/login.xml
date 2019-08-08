@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,137 +7,136 @@
     android:background="@color/white"
     tools:context=".login_and_registration.LoginActivity">
 
-    <ScrollView
+    <RelativeLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
 
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/image_arrow"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            app:srcCompat="@drawable/arrow" />
+
+        <TextView
+            android:id="@+id/text_reg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:orientation="vertical">
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="تسجيل دخول"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
+    </RelativeLayout>
 
-
-                <ImageView
-                    android:id="@+id/image_arrow"
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="20dp"
-                    app:srcCompat="@drawable/arrow" />
-
-                <TextView
-                    android:id="@+id/text_reg"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:gravity="center"
-                    android:text="تسجيل دخول"
-                    android:textColor="@color/black"
-                    android:textSize="20dp" />
-
-            </RelativeLayout>
-
-            <LinearLayout
-                android:id="@+id/menuLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                android:paddingBottom="60dp">
-
-                <ImageView
-                    android:id="@+id/image_logo"
-                    android:layout_width="300dp"
-                    android:layout_height="150dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="40dp"
-                    app:srcCompat="@drawable/logo" />
-
-                <EditText
-                    android:id="@+id/edtext_mailreg"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="50dp"
-                    android:background="@drawable/rounded_edittext"
-                    android:hint="رقم الهوية او الاقامة"
-                    android:inputType="textEmailAddress"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/grey" />
-
-                <EditText
-                    android:id="@+id/edtext_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/rounded_edittext"
-                    android:gravity="right|center"
-                    android:hint="كلمة المرور"
-                    android:inputType="textWebPassword"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/grey" />
-
-                <!--<EditText-->
-                <!--android:id="@+id/edtext_password"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="60dp"-->
-                <!--android:layout_below="@+id/edtext_mailreg"-->
-                <!--android:layout_marginTop="20dp"-->
-                <!--android:layout_marginRight="35dp"-->
-                <!--android:background="@drawable/rounded_edittext"-->
-                <!--android:hint="كلمة المرور"-->
-                <!--android:inputType="textPassword"-->
-                <!--android:paddingLeft="260dp"-->
-                <!--android:paddingRight="10dp"-->
-                <!--android:paddingTop="10dp"-->
-                <!--android:textColor="@color/black"-->
-                <!--android:textColorHint="@color/grey"-->
-                <!--/>-->
-                <Button
-                    android:id="@+id/btn_reg"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/rounded_button"
-                    android:text="تسجيل دخول" />
-
-                <TextView
-                    android:id="@+id/txt_forgotpass"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="هل نسيت كلمة المرور؟"
-                    android:textColor="@color/black"
-                    android:textSize="15dp" />
-
-                <TextView
-                    android:id="@+id/txt_createaccount"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center"
-                    android:text="ليس لدى حساب بالفعل.سجل الان"
-                    android:textColor="@color/black"
-                    android:textSize="15dp" />
-            </LinearLayout>
-        </LinearLayout>
+    <!--<ScrollView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:fillViewport="true">-->
 
 
-    </ScrollView>
+    <LinearLayout
+        android:id="@+id/menuLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_bar"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/image_logo"
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            app:srcCompat="@drawable/logo" />
+
+        <EditText
+            android:id="@+id/edtext_mailreg"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/rounded_edittext"
+            android:hint="رقم الهوية او الاقامة"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey" />
+
+        <EditText
+            android:id="@+id/edtext_password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_edittext"
+            android:gravity="right|center"
+            android:hint="كلمة المرور"
+            android:inputType="textWebPassword"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey" />
+
+        <!--<EditText-->
+        <!--android:id="@+id/edtext_password"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:layout_below="@+id/edtext_mailreg"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:layout_marginRight="35dp"-->
+        <!--android:background="@drawable/rounded_edittext"-->
+        <!--android:hint="كلمة المرور"-->
+        <!--android:inputType="textPassword"-->
+        <!--android:paddingLeft="260dp"-->
+        <!--android:paddingRight="10dp"-->
+        <!--android:paddingTop="10dp"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:textColorHint="@color/grey"-->
+        <!--/>-->
+        <Button
+            android:id="@+id/btn_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_button"
+            android:text="تسجيل دخول" />
+
+        <TextView
+            android:id="@+id/txt_forgotpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="هل نسيت كلمة المرور؟"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_createaccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menuLayout"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="center|bottom"
+        android:text="ليس لدى حساب بالفعل.سجل الان"
+        android:textColor="@color/black"
+        android:textSize="15dp" />
+
+
+    <!--</ScrollView>-->
+
+</RelativeLayout>

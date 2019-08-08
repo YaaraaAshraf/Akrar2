@@ -18,8 +18,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name="com.example.Akrar.Financial_Invoice"></activity>
+        android:theme="@style/AppTheme">
+        <!--android:theme="@style/Theme.AppCompat.NoActionBar">-->
+        <activity android:name=".Financial_Invoice"></activity>
         <!-- <activity android:name="com.example.Akrar.Confirm_shipment_invoice"></activity> -->
         <!-- <activity android:name="com.example.Akrar.Shipment_invoice" /> -->
         <activity android:name=".CashReceipts" />
@@ -36,12 +37,13 @@
         <activity android:name=".login_and_registration.Forgotpassword" />
         <activity android:name=".login_and_registration.Registration" />
         <activity android:name=".login_and_registration.LoginActivity" />
-        <activity android:name=".BottomAppBar" /> <!-- <activity android:name=".Mainpage_details" /> -->
+        <!--<activity android:name=".BottomAppBar" /> &lt;!&ndash; <activity android:name=".Mainpage_details" /> &ndash;&gt;-->
         <activity android:name=".Document_shipment" /> <!-- <activity android:name=".productsFragment" /> -->
         <activity android:name=".AddShimpment_invoice" />
         <activity android:name=".BondCashFragment" />
         <activity android:name=".Other_DocumentsCash" /> <!-- <activity android:name=".Update_MyProfileFragment" /> -->
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
