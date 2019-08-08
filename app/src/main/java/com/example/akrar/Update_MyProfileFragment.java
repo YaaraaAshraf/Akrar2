@@ -45,7 +45,7 @@ public class Update_MyProfileFragment extends AppCompatActivity {
         back_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Main_bar.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -71,7 +71,7 @@ public class Update_MyProfileFragment extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "The username or password is incorrect", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-//                    Intent intent = new Intent(LoginActivity.this, Main_bar.class);
+//                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 //                    intent.putExtra("national_id", national_id);
 //                    startActivity(intent);
                     Toast.makeText(getApplicationContext(), "Error! Please try again!", Toast.LENGTH_SHORT).show();

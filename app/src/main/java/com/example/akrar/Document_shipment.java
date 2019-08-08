@@ -83,7 +83,7 @@ public class Document_shipment extends AppCompatActivity {
         img_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Main_bar.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
 //                back(new Mainpage_details());
             }

@@ -7,11 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.akrar.Main_bar;
+import com.example.akrar.MainActivity;
 import com.example.akrar.R;
 import com.example.akrar.UserSharedPreferencesManager;
 import com.example.akrar.model.ApiUtils;
@@ -29,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView txt_create_account, txt_forgetpass;
     UserService userService;
     AlertDialog loadingDialog;
+    ImageButton img_arrow_back;
 
 
 
@@ -48,28 +50,32 @@ public class LoginActivity extends AppCompatActivity {
         builder.setView(R.layout.loading_dialog_layout);
         loadingDialog = builder.create();
         userService = ApiUtils.getUserService();
-        txt_create_account.setOnClickListener(new View.OnClickListener() {
+
+
+        img_arrow_back = findViewById(R.id.image_arrow);
+        img_arrow_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mainIntent = new Intent(LoginActivity.this, Registration.class);
-                LoginActivity.this.startActivity(mainIntent);
+//                Intent mainIntent = new Intent(ForgotpasswordActivity.this, RegistrationActivity.class);
+//                ForgotpasswordActivity.this.startActivity(mainIntent);
                 LoginActivity.this.finish();
             }
         });
+
         txt_create_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mainIntent = new Intent(LoginActivity.this, Registration.class);
+                Intent mainIntent = new Intent(LoginActivity.this, RegistrationActivity.class);
                 LoginActivity.this.startActivity(mainIntent);
-                LoginActivity.this.finish();
+//                LoginActivity.this.finish();
             }
         });
         txt_forgetpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mainIntent = new Intent(LoginActivity.this, Forgotpassword.class);
+                Intent mainIntent = new Intent(LoginActivity.this, ForgotpasswordActivity.class);
                 LoginActivity.this.startActivity(mainIntent);
-                LoginActivity.this.finish();
+//                LoginActivity.this.finish();
             }
         });
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (validateLogin(username, password)) {
                     //do login
                     doLogin(username, password);
-//                Intent mainIntent = new Intent(LoginActivity.this, Main_bar.class);
+//                Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
 //                LoginActivity.this.startActivity(mainIntent);
 //                LoginActivity.this.finish();
                 }
@@ -116,12 +122,12 @@ public class LoginActivity extends AppCompatActivity {
                         UserSharedPreferencesManager userSharedPreferencesManager= UserSharedPreferencesManager.getInstance(LoginActivity.this.getApplicationContext());
                         userSharedPreferencesManager.saveToken(resObj.getData().getToken());
 
-                        Intent intent = new Intent(LoginActivity.this, Main_bar.class);
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         intent.putExtra("national_id", national_id);
                         startActivity(intent);
 
                         //login start main activity
-//                        Intent intent = new Intent(LoginActivity.this, Main_bar.class);
+//                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 //                        intent.putExtra("national_id", national_id);
 //                        startActivity(intent);
 
@@ -129,7 +135,7 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "The username or password is incorrect", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-//                    Intent intent = new Intent(LoginActivity.this, Main_bar.class);
+//                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 //                    intent.putExtra("national_id", national_id);
 //                    startActivity(intent);
                     Toast.makeText(LoginActivity.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
