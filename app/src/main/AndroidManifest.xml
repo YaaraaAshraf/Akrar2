@@ -34,15 +34,22 @@
         <activity android:name=".FragmentAdd_product" />
         <activity android:name=".Document" />
         <activity android:name=".curvedbottomm" />
-        <activity android:name=".login_and_registration.Forgotpassword" />
-        <activity android:name=".login_and_registration.Registration" />
-        <activity android:name=".login_and_registration.LoginActivity" />
+        <activity
+            android:name=".login_and_registration.Forgotpassword"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".login_and_registration.Registration"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".login_and_registration.LoginActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <!--<activity android:name=".BottomAppBar" /> &lt;!&ndash; <activity android:name=".Mainpage_details" /> &ndash;&gt;-->
         <activity android:name=".Document_shipment" /> <!-- <activity android:name=".productsFragment" /> -->
         <activity android:name=".AddShimpment_invoice" />
         <activity android:name=".BondCashFragment" />
         <activity android:name=".Other_DocumentsCash" /> <!-- <activity android:name=".Update_MyProfileFragment" /> -->
-        <activity android:name=".SplashActivity"
+        <activity
+            android:name=".SplashActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
