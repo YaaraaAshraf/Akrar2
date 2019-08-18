@@ -29,9 +29,9 @@
         <activity android:name=".Shipment_invoice" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Update_MyProfileFragment" />
-        <activity android:name=".products.ProductsFragment" />
+        <activity android:name=".products.ProductsListActivity" />
         <activity android:name=".Document_page" />
-        <activity android:name=".FragmentAdd_product" />
+        <activity android:name=".products.AddProductActivity" />
         <activity android:name=".Document" />
         <activity android:name=".curvedbottomm" />
         <activity
@@ -44,7 +44,7 @@
             android:name=".login_and_registration.LoginActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <!--<activity android:name=".BottomAppBar" /> &lt;!&ndash; <activity android:name=".Mainpage_details" /> &ndash;&gt;-->
-        <activity android:name=".Document_shipment" /> <!-- <activity android:name=".ProductsFragment" /> -->
+        <activity android:name=".Document_shipment" /> <!-- <activity android:name=".ProductsListActivity" /> -->
         <activity android:name=".AddShimpment_invoice" />
         <activity android:name=".BondCashFragment" />
         <activity android:name=".Other_DocumentsCash" /> <!-- <activity android:name=".Update_MyProfileFragment" /> -->

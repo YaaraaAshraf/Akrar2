@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentAdd_product">
+    tools:context=".products.AddProductActivity">
 
     <RelativeLayout
         android:id="@+id/app_bar"

@@ -109,8 +109,6 @@ public class LoginActivity extends AppCompatActivity {
 
         loadingDialog.show();
 
-
-
         Call call = userService.login(national_id, password);
         call.enqueue(new Callback() {
             @Override

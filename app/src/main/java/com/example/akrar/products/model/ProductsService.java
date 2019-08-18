@@ -15,13 +15,13 @@ import retrofit2.http.POST;
 
 public interface ProductsService {
 
-
     @GET("product")
     Call<ResObj<ProductData>> getProducts(@Header("Authorization") String auth);
-//                             @Header("national_id") String national_id,
-//                             @Header("mobile") String mobile);
 
 
+    @FormUrlEncoded
+    @POST("add_product")
+    Call<ResObj> addProduct(@Header("Authorization") String auth, @Field("name") String name);
 
 }
 

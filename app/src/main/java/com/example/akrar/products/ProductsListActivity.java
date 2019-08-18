@@ -3,6 +3,7 @@ package com.example.akrar.products;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,9 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.akrar.FragmentAdd_product;
 import com.example.akrar.MainActivity;
-import com.example.akrar.MyListAdapter;
 import com.example.akrar.R;
 import com.example.akrar.UserSharedPreferencesManager;
 import com.example.akrar.model.ApiUtils;
@@ -27,17 +26,23 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProductsFragment extends AppCompatActivity {
+public class ProductsListActivity extends AppCompatActivity {
     ImageView img_add, img_arrow;
     ProductsService productsService;
     RecyclerView productsRecyclerView;
     ProductsAdapter adapter;
+    AlertDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products);
         productsService = ApiUtils.getProductsService();
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false); // if you want user to wait for some process to finish,
+        builder.setView(R.layout.loading_dialog_layout);
+        loadingDialog = builder.create();
 
         productsRecyclerView = (RecyclerView) findViewById(R.id.products_recycler);
         adapter = new ProductsAdapter(new ArrayList<Product>());
@@ -59,22 +64,28 @@ public class ProductsFragment extends AppCompatActivity {
         img_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), FragmentAdd_product.class);
+                Intent intent = new Intent(getApplicationContext(), AddProductActivity.class);
                 startActivity(intent);
-//                  loadAddProducts(new FragmentAdd_product());
             }
         });
-    getProducts();
-//        return view;
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getProducts();
     }
 
     private void getProducts() {
+        loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
         String token = userSharedPreferencesManager.getToken();
         Call call = productsService.getProducts("Bearer " + token);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
+                loadingDialog.dismiss();
                 if (response.isSuccessful()) {
                     ResObj<ProductData> resObj = (ResObj<ProductData>) response.body();
                     if (resObj.getStatus().equals("success")) {
@@ -87,19 +98,20 @@ public class ProductsFragment extends AppCompatActivity {
 //                        text_national_id.setText(user.getNationalID());
 
                     } else {
-                        Toast.makeText(ProductsFragment.this.getApplicationContext(), "The username or password is incorrect", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ProductsListActivity.this.getApplicationContext(), "The username or password is incorrect", Toast.LENGTH_SHORT).show();
                     }
                 } else {
 //                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 //                    intent.putExtra("national_id", national_id);
 //                    startActivity(intent);
-                    Toast.makeText(ProductsFragment.this.getApplicationContext(), "Error! Please try again!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProductsListActivity.this.getApplicationContext(), "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call call, Throwable t) {
-                Toast.makeText(ProductsFragment.this.getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                loadingDialog.dismiss();
+                Toast.makeText(ProductsListActivity.this.getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
