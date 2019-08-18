@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     tools:context=".products.ProductsFragment">
 
 
@@ -41,11 +40,11 @@
 
         <ImageButton
             android:id="@+id/image_add"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
+            android:padding="15dp"
             android:background="@null"
             android:scaleType="fitXY"
             android:src="@drawable/add" />

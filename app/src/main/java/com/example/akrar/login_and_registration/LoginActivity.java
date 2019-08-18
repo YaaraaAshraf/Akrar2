@@ -141,16 +141,19 @@ public class LoginActivity extends AppCompatActivity {
 //                    intent.putExtra("national_id", national_id);
 //                    startActivity(intent);
                     Toast.makeText(LoginActivity.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.putExtra("national_id", national_id);
+                    startActivity(intent);
                 }
             }
             @Override
             public void onFailure(Call call, Throwable t) {
                 loadingDialog.dismiss();
-//                Toast.makeText(LoginActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        intent.putExtra("national_id", national_id);
-                startActivity(intent);
+//                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//        intent.putExtra("national_id", national_id);
+//                startActivity(intent);
             }
         });
     }
