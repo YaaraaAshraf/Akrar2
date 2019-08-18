@@ -1,13 +1,12 @@
 package com.example.akrar;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.example.akrar.products.ProductsFragment;
 
 public class FragmentAdd_product extends AppCompatActivity {
     ImageView image_product_arrow;
@@ -34,9 +33,9 @@ public class FragmentAdd_product extends AppCompatActivity {
          image_product_arrow.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 Intent intent = new Intent(getApplicationContext(), productsFragment.class);
+                 Intent intent = new Intent(getApplicationContext(), ProductsFragment.class);
                  startActivity(intent);
-//                 back(new productsFragment());
+//                 back(new ProductsFragment());
              }
          });
 //        return view;

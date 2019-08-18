@@ -109,6 +109,8 @@ public class LoginActivity extends AppCompatActivity {
 
         loadingDialog.show();
 
+
+
         Call call = userService.login(national_id, password);
         call.enqueue(new Callback() {
             @Override
@@ -144,7 +146,11 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call call, Throwable t) {
                 loadingDialog.dismiss();
-                Toast.makeText(LoginActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(LoginActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        intent.putExtra("national_id", national_id);
+                startActivity(intent);
             }
         });
     }

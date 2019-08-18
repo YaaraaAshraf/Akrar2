@@ -5,289 +5,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".productsFragment">
+    tools:context=".products.ProductsFragment">
 
-    <ImageView
-        android:id="@+id/image_bar"
+
+    <RelativeLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/actionbar" />
+        android:layout_height="90dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/actionbar"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/text_product"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="190dp"
-        android:layout_marginTop="40dp"
-        android:text=" المنتجات"
-        android:textColor="@color/black" />
 
-    <ImageView
-        android:id="@+id/image_my_productarrow"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginLeft="27dp"
-        android:layout_marginTop="40dp"
-        app:srcCompat="@drawable/arrow" />
+        <ImageButton
+            android:id="@+id/image_my_productarrow"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/arrow" />
 
-    <ImageView
-        android:id="@+id/image_add"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginLeft="350dp"
-        android:layout_marginTop="40dp"
-        app:srcCompat="@drawable/add" />
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view"
-        android:layout_width="fill_parent"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginRight="10dp"
-        app:cardBackgroundColor="@color/greyshade"
-        app:cardCornerRadius="5dp">
-
-        <RelativeLayout
+        <TextView
+            android:id="@+id/text_product"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="المنتجات"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
 
-            <TextView
-                android:id="@+id/text_prod_desc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:paddingTop="10dp"
-                android:paddingRight="10dp"
-                android:text="هناك حقيقة مثبتة منذ زمن طويل"
-                android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/text_units"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text_prod_desc"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="10dp"
-                android:text="الوحدة:كيلو"
-                android:textColor="@color/grey" />
+        <ImageButton
+            android:id="@+id/image_add"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/add" />
 
-            <TextView
-                android:id="@+id/text_price"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text_prod_desc"
-                android:layout_marginRight="10dp"
-                android:text="السعر:750ريال"
-                android:textColor="@color/grey" />
+    </RelativeLayout>
 
-            <!--<ImageView-->
-                <!--android:id="@+id/img_delete"-->
-                <!--android:layout_width="20dp"-->
-                <!--android:layout_height="20dp"-->
-                <!--android:layout_marginLeft="10dp"-->
-                <!--android:layout_marginTop="30dp"-->
-                <!--app:srcCompat="@drawable/delete" />-->
-
-            <!--<ImageView-->
-                <!--android:id="@+id/img_edit"-->
-                <!--android:layout_width="20dp"-->
-                <!--android:layout_height="20dp"-->
-                <!--android:layout_marginLeft="45dp"-->
-                <!--android:layout_marginTop="30dp"-->
-                <!--app:srcCompat="@drawable/edit" />-->
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerview"
+        android:id="@+id/products_recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="120dp"
-        android:scrollbars="vertical" />
-</RelativeLayout>
-    </android.support.v7.widget.CardView>
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view1"
-        android:layout_width="fill_parent"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="220dp"
-        android:layout_marginRight="10dp"
-        app:cardBackgroundColor="@color/greyshade"
-        app:cardCornerRadius="5dp">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_bar"
+        android:layout_marginTop="10dp">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
 
-            <TextView
-                android:id="@+id/text_prod_desc1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:paddingTop="10dp"
-                android:paddingRight="10dp"
-                android:text="هناك حقيقة مثبتة منذ زمن طويل"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/text_units1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text_prod_desc1"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="10dp"
-                android:text="الوحدة:كيلو"
-                android:textColor="@color/grey" />
-
-            <TextView
-                android:id="@+id/text_price1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text_prod_desc1"
-                android:layout_marginRight="10dp"
-                android:text="السعر:750ريال"
-                android:textColor="@color/grey" />
-
-            <!--<ImageView-->
-                <!--android:id="@+id/img_delete1"-->
-                <!--android:layout_width="20dp"-->
-                <!--android:layout_height="20dp"-->
-                <!--android:layout_marginLeft="10dp"-->
-                <!--android:layout_marginTop="30dp"-->
-                <!--app:srcCompat="@drawable/delete" />-->
-
-            <!--<ImageView-->
-                <!--android:id="@+id/img_edit1"-->
-                <!--android:layout_width="20dp"-->
-                <!--android:layout_height="20dp"-->
-                <!--android:layout_marginLeft="45dp"-->
-                <!--android:layout_marginTop="30dp"-->
-                <!--app:srcCompat="@drawable/edit" />-->
-</RelativeLayout>
-    </android.support.v7.widget.CardView>
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view2"
-        android:layout_width="fill_parent"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="220dp"
-        android:layout_marginRight="10dp"
-        app:cardBackgroundColor="@color/greyshade"
-        app:cardCornerRadius="5dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/text_prod_desc2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:paddingTop="10dp"
-                android:paddingRight="10dp"
-                android:text="هناك حقيقة مثبتة منذ زمن طويل"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/text_units2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text_prod_desc2"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="10dp"
-                android:text="الوحدة:كيلو"
-                android:textColor="@color/grey" />
-
-            <TextView
-                android:id="@+id/text_price2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text_prod_desc2"
-                android:layout_marginRight="10dp"
-                android:text="السعر:750ريال"
-                android:layout_marginBottom="20dp"
-                android:textColor="@color/grey" />
-
-            <!--<ImageView-->
-                <!--android:id="@+id/img_delete2"-->
-                <!--android:layout_width="20dp"-->
-                <!--android:layout_height="20dp"-->
-                <!--android:layout_marginLeft="10dp"-->
-                <!--android:layout_marginTop="30dp"-->
-                <!--app:srcCompat="@drawable/delete" />-->
-
-            <!--<ImageView-->
-                <!--android:id="@+id/img_edit2"-->
-                <!--android:layout_width="20dp"-->
-                <!--android:layout_height="20dp"-->
-                <!--android:layout_marginLeft="45dp"-->
-                <!--android:layout_marginTop="30dp"-->
-                <!--app:srcCompat="@drawable/edit" />-->
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view3"
-        android:layout_width="fill_parent"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="320dp"
-        android:layout_marginRight="10dp"
-        app:cardBackgroundColor="@color/greyshade"
-        app:cardCornerRadius="5dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/text_prod_desc3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:paddingTop="10dp"
-                android:paddingRight="10dp"
-                android:text="هناك حقيقة مثبتة منذ زمن طويل"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/text_units3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text_prod_desc3"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="10dp"
-                android:text="الوحدة:كيلو"
-                android:textColor="@color/grey" />
-
-            <TextView
-                android:id="@+id/text_price3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text_prod_desc3"
-                android:layout_marginRight="10dp"
-                android:text="السعر:750ريال"
-                android:layout_marginBottom="20dp"
-                android:textColor="@color/grey" />
-
-            <!--<ImageView-->
-                <!--android:id="@+id/img_delete3"-->
-                <!--android:layout_width="20dp"-->
-                <!--android:layout_height="20dp"-->
-                <!--android:layout_marginLeft="10dp"-->
-                <!--android:layout_marginTop="30dp"-->
-                <!--app:srcCompat="@drawable/delete" />-->
-
-            <!--<ImageView-->
-                <!--android:id="@+id/img_edit3"-->
-                <!--android:layout_width="20dp"-->
-                <!--android:layout_height="20dp"-->
-                <!--android:layout_marginLeft="45dp"-->
-                <!--android:layout_marginTop="30dp"-->
-                <!--app:srcCompat="@drawable/edit" />-->
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
 </RelativeLayout>

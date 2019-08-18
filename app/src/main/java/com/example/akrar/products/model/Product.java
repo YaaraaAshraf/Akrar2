@@ -1,4 +1,4 @@
-package com.example.akrar.products;/*
+package com.example.akrar.products.model;/*
  * Copyright (C) 2008 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,12 +16,6 @@ package com.example.akrar.products;/*
 
 //package com.google.gson.annotations;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
 ///**
 // * An annotation that indicates this member should be serialized to JSON with
 // * the provided name value as its field name.
@@ -30,24 +24,29 @@ import java.lang.annotation.Target;
 // * the default field naming policy, that may have been set on the {@link com.google.gson.Gson}
 // * instance.  A different namin
 
-public class ListProduct {
-    String prod_desc,units,price;
-    int img_edit,img_delete;
+import com.google.gson.annotations.SerializedName;
 
-    public ListProduct(String prod_desc, String units, String price, int img_edit, int img_delete) {
-        this.prod_desc = prod_desc;
+public class Product {
+    @SerializedName("name")
+    private String name;
+    private String units;
+    private String price;
+    private int img_edit, img_delete;
+
+    public Product(String name, String units, String price, int img_edit, int img_delete) {
+        this.name = name;
         this.units = units;
         this.price = price;
         this.img_edit = img_edit;
         this.img_delete = img_delete;
     }
 
-    public String getProd_desc() {
-        return prod_desc;
+    public String getName() {
+        return name;
     }
 
-    public void setProd_desc(String prod_desc) {
-        this.prod_desc = prod_desc;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getUnits() {

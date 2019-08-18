@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.example.akrar.products.ProductsFragment;
+
 public class Mainpage_details extends Fragment {
     ImageView img_prod,image_gr,img_gm;
     private Mainpage_details myProjectListFragment;
@@ -43,9 +46,9 @@ public class Mainpage_details extends Fragment {
            img_prod.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
-                   Intent intent = new Intent(getContext(), productsFragment.class);
+                   Intent intent = new Intent(getContext(), ProductsFragment.class);
                    startActivity(intent);
-//                   loadproduct(new productsFragment());
+//                   loadproduct(new ProductsFragment());
                }
            });
         return view;

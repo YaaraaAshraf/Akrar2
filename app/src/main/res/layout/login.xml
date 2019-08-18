@@ -70,7 +70,8 @@
                 android:layout_marginTop="50dp"
                 android:gravity="right|center"
                 android:hint="رقم الهوية او الاقامة"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:text="123456"/>
 
             <EditText
                 android:id="@+id/edtext_password"
@@ -79,7 +80,8 @@
                 android:layout_marginTop="10dp"
                 android:gravity="right|center"
                 android:hint="كلمة المرور"
-                android:inputType="textWebPassword" />
+                android:inputType="textWebPassword"
+                android:text="123456"/>
 
             <Button
                 android:id="@+id/btn_reg"

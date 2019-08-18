@@ -104,7 +104,8 @@ public class profile_Fragment extends Fragment {
     private void doLogin() {
 
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getActivity().getApplicationContext());
-        Call call = userService.user("Bearer " + userSharedPreferencesManager.getToken());
+        String token = userSharedPreferencesManager.getToken();
+        Call call = userService.user("Bearer " + token);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {

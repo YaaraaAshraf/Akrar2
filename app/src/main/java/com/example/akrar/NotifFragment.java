@@ -39,6 +39,12 @@ ImageView arrow;
                 new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
                 new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
                 new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
+                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
+                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
+                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
+                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
+                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
+                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
         };
         MyListAdapter adapter = new MyListAdapter(myListData);
         recyclerView.setHasFixedSize(true);
