@@ -51,7 +51,7 @@ public class AddShimpment_invoice extends AppCompatActivity {
 //                 st_value=text_value_bonds.getText().toString();
 //                 st_desc=text_description_bonds.getText().toString();
 //                FragmentTransaction transection=getFragmentManager().beginTransaction();
-//                Document_shipment mfragment=new Document_shipment();
+//                DocumentInvoiceListActivity mfragment=new DocumentInvoiceListActivity();
 //                //using Bundle to send data
 //                Bundle bundle=new Bundle();
 //                bundle.putString("date",st_date);
@@ -88,7 +88,7 @@ public class AddShimpment_invoice extends AppCompatActivity {
         img_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),  Document_shipment.class);
+                Intent intent = new Intent(getApplicationContext(),  DocumentInvoiceListActivity.class);
                 startActivity(intent);
 //                back(new Mainpage_details());
             }

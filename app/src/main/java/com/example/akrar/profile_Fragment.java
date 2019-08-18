@@ -6,13 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.akrar.model.ApiUtils;
-import com.example.akrar.model.LoginData;
+import com.example.akrar.login_and_registration.model.LoginData;
 import com.example.akrar.model.ResObj;
 import com.example.akrar.model.UserService;
 

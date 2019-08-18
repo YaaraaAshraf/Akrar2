@@ -1,4 +1,4 @@
-package com.example.akrar.model;
+package com.example.akrar.login_and_registration.model;
 
 import com.example.akrar.User;
 import com.google.gson.annotations.SerializedName;

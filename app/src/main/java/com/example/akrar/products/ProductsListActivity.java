@@ -54,9 +54,7 @@ public class ProductsListActivity extends AppCompatActivity {
         img_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-//                back(new Mainpage_details());
+                ProductsListActivity.this.finish();
             }
         });
 
@@ -90,20 +88,11 @@ public class ProductsListActivity extends AppCompatActivity {
                     ResObj<ProductData> resObj = (ResObj<ProductData>) response.body();
                     if (resObj.getStatus().equals("success")) {
                         adapter.setListdata((ArrayList<Product>) resObj.getData().getProducts());
-                        //use this user to fill the fields you have
-//                        User user = resObj.getData().getUser();
-//                        edtext_name.setText(user.getFirstName());
-//                        edtext_mail.setText(user.getEmail());
-//                        edtext_phone.setText(user.getMobile());
-//                        text_national_id.setText(user.getNationalID());
 
                     } else {
                         Toast.makeText(ProductsListActivity.this.getApplicationContext(), "The username or password is incorrect", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-//                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                    intent.putExtra("national_id", national_id);
-//                    startActivity(intent);
                     Toast.makeText(ProductsListActivity.this.getApplicationContext(), "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
             }
