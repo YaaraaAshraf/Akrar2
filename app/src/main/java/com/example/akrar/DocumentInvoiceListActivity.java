@@ -43,21 +43,12 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
         loadingDialog = builder.create();
         invoicesService = ApiUtils.getInvoicesService();
 
-
         fab = (ImageView) findViewById(R.id.floatingActionButton);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-//        Bundle bundle = getArguments();
-
-//       bundle.putString("date", String.valueOf(bundle));
-//        Invoice[] myListData = new Invoice[]{
-//                new Invoice("محمد بعتلك سند من قبض عيني","4444","011111"),
-//        };
-//        new Invoice("","","");
         adapter = new InvoicesAdapter(new ArrayList<Invoice>());
 //        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-
         aSwitch = (Switch) findViewById(R.id.switch_docu);
 //        aSwitch.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -111,7 +102,6 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
         super.onResume();
         listInvoices();
     }
-
     public void listInvoices() {
         loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
@@ -124,7 +114,6 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     ResObj<InvoicesData> data = (ResObj<InvoicesData>) response.body();
                     if (data.getStatus().equals("success")) {
-
                         adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesSent());
 
 //                  Toast.makeText(LoginActivity.this, "Token:"+ ((LoginData)resObj.getData()).getToken(), Toast.LENGTH_SHORT).show();

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".Other_DocumentsCash">
+    tools:context=".Add_Financial_Invoice">
 
     <ImageView
         android:id="@+id/image_bar"
@@ -100,8 +100,6 @@
                 android:background="@drawable/rounded_edittext"
                 android:popupBackground="@color/grey" />
 
-
-
             <TextView
                 android:id="@+id/txt_description"
                 android:layout_width="wrap_content"
@@ -126,7 +124,7 @@
                 android:inputType="textMultiLine"
                 android:paddingRight="10dp"
                 android:paddingBottom="30dp"
-                android:text="هناك حقيقة مثبتة منذ زمن طويل "
+                android:text="هناك حقيقة مثبتة منذ زمن طويل للمحتوى المقروء "
                 android:textSize="15dp" />
 
             <Button

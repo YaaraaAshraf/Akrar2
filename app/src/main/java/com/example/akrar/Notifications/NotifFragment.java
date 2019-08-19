@@ -1,4 +1,4 @@
-package com.example.akrar;
+package com.example.akrar.Notifications;
 
 
 import android.os.Bundle;
@@ -12,6 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.akrar.Mainpage_details;
+import com.example.akrar.MyListAdapter;
+import com.example.akrar.MyListData;
 import com.example.akrar.R;
 public class NotifFragment extends Fragment {
 RecyclerView recyclerView;

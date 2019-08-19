@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 
 import com.example.akrar.invoices.model.Invoice;
+import com.example.akrar.invoices.model.InvoiceUser;
 
 import java.util.ArrayList;
 
@@ -23,7 +24,6 @@ public class InvoicesAdapter extends RecyclerView.Adapter<InvoicesAdapter.ViewHo
         this.invoices = invoices;
         notifyDataSetChanged();
     }
-
     @NonNull
     @Override
     public InvoicesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -38,7 +38,7 @@ public class InvoicesAdapter extends RecyclerView.Adapter<InvoicesAdapter.ViewHo
         final Invoice myListData = invoices.get(position);
         holder.txt_name.setText(invoices.get(position).getAddress());
         holder.txt_date.setText(invoices.get(position).getDate());
-//        holder.txt_phone.setText(invoices.get(position).getId());
+//          holder.txt_phone.setText(invoices.get(position).getId());
 //        holder.txt_date.setText(invoices[position].getDate());
 //        holder.txt_phone.setText(invoices[position].getPhone());
     }

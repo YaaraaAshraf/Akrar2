@@ -1,4 +1,4 @@
-package com.example.akrar;
+package com.example.akrar.profile;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.akrar.Mainpage_details;
+import com.example.akrar.R;
+import com.example.akrar.User;
+import com.example.akrar.UserSharedPreferencesManager;
 import com.example.akrar.model.ApiUtils;
 import com.example.akrar.login_and_registration.model.LoginData;
 import com.example.akrar.model.ResObj;
@@ -59,10 +63,10 @@ public class profile_Fragment extends Fragment {
         text_national_id = (TextView) view.findViewById(R.id.national_id);
         btn_update = (Button) view.findViewById(R.id.btn_save);
         userService = ApiUtils.getUserService();
-        String name = edtext_name.getText().toString();
-        String mail = edtext_mail.getText().toString();
-        String phone = edtext_phone.getText().toString();
-        String id = text_national_id.getText().toString();
+//        String name = edtext_name.getText().toString();
+//        String mail = edtext_mail.getText().toString();
+//        String phone = edtext_phone.getText().toString();
+//        String id = text_national_id.getText().toString();
         doLogin();
 
         //validate form
@@ -100,7 +104,7 @@ public class profile_Fragment extends Fragment {
         }
         return view;
       }
-    private void doLogin() {
+    private void doLogin(){
 
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getActivity().getApplicationContext());
         String token = userSharedPreferencesManager.getToken();

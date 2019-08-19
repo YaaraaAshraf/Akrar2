@@ -17,10 +17,17 @@ public interface InvoicesService {
     @GET("index_shipment_invoice")
     Call<ResObj<InvoicesData>> listInvoices(@Header("Authorization") String auth);
 
+    @GET("index_financial_invoice")
+    Call<ResObj<InvoicesData>> listFinancialInvoices(@Header("Authorization") String auth);
 
-//    @FormUrlEncoded
-//    @POST("add_product")
-//    Call<ResObj> addProduct(@Header("Authorization") String auth, @Field("name") String name);
+    @FormUrlEncoded
+    @POST("add_financial_invoice")
+    Call<ResObj> add_financial_invoice (@Header("Authorization") String auth,
+                            @Field("shipment_invoice_id") String invoice_id,
+                            @Field("pay_type") String pay_type);
+//                            @Field("description") String desc,
+//                            @Field("date") String date,
+//                            @Field("payment") String payment);
 
 }
 

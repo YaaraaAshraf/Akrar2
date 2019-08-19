@@ -1,36 +1,40 @@
 package com.example.akrar;
 
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Calendar;
-public class Other_DocumentsCash extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+import com.example.akrar.invoices.InvoicesService;
+import com.example.akrar.model.ApiUtils;
+import com.example.akrar.model.ResObj;
 
-    Spinner spinner_paytype, spi_deposite;
+import java.util.Calendar;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class Add_Financial_Invoice extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+    Spinner spinner_paytype;
     ImageView image_document_arrow;
-    EditText text_date_deposite, edt_date, edtext_value;
+    EditText user_id,desc;
     Button btn_send, btn_payments;
     TextView txt_document_pay, txt_value, txt_date;
+    InvoicesService FinancialService;
+    AlertDialog loadingDialog;
     String[] pay_type = {"كاش", "اجل"};
-    //    String[] deposite_type = {"نعم", "لا"};
     final Calendar c = Calendar.getInstance();
     final int year = c.get(Calendar.YEAR);
     final int month = c.get(Calendar.MONTH) + 1;
@@ -39,21 +43,22 @@ public class Other_DocumentsCash extends AppCompatActivity implements AdapterVie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_document_send_cash);
-//    public Other_DocumentsCash() {
-//    }
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//        View view = inflater.inflate(R.layout.activity_document_send_cash, container, false);
+        setContentView(R.layout.add_financial_invoice);
+        FinancialService = ApiUtils.getInvoicesService();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false); // if you want user to wait for some process to finish,
+        builder.setView(R.layout.loading_dialog_layout);
+        loadingDialog = builder.create();
         txt_document_pay = (TextView) findViewById(R.id.txt_document_pay);
         txt_value = (TextView) findViewById(R.id.txt_value);
         txt_date = (TextView) findViewById(R.id.txt_date);
         btn_payments = (Button) findViewById(R.id.button_addpayments);
+        user_id=(EditText)findViewById(R.id.edtext_send_to);
+        desc=(EditText)findViewById(R.id.text_description);
         btn_payments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Other_DocumentsCash.this,CashReceipts.class);
+                Intent intent=new Intent(Add_Financial_Invoice.this, CashReceipts.class);
                 startActivity(intent);
             }
         });
@@ -85,95 +90,68 @@ public class Other_DocumentsCash extends AppCompatActivity implements AdapterVie
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), BondCashFragment.class);
                 startActivity(intent);
-//                back(new BondCashFragment());
             }
         });
         btn_send = (Button) findViewById(R.id.btn_send_to);
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), salary_documents.class);
-                startActivity(intent);
+                addFinancialinvoice();
+//                Intent intent = new Intent(getApplicationContext(), salary_documents.class);
+//                startActivity(intent);
 //                loadpage(new salary_documents());
             }
         });
         spinner_paytype = (Spinner) findViewById(R.id.spinner_paytype);
-
-//        spi_deposite = (Spinner) findViewById(R.id.spinner_deposite);
         spinner_paytype.setOnItemSelectedListener(this);
-//        spi_deposite.setOnItemSelectedListener(this);
         ArrayAdapter aa = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item, pay_type);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //Setting the ArrayAdapter data on the Spinner
         spinner_paytype.setAdapter(aa);
-//        ArrayAdapter deposite = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item, deposite_type);
-//        deposite.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spi_deposite.setAdapter(deposite);
-
-
-//        return view;
     }
-
-    //    private boolean back(Fragment fragment) {
-//        if (fragment != null) {
-//            getFragmentManager()
-//                    .beginTransaction()
-//                    .replace(R.id.frame_container, fragment)
-//                    .commit();
-//            return true;
-//        }
-//        return false;
-//    }
-//    private boolean loadpage(Fragment fragment) {
-//        if (fragment != null) {
-//            getFragmentManager()
-//                    .beginTransaction()
-//                    .replace(R.id.frame_container, fragment)
-//                    .commit();
-//            return true;
-//        }
-//        return false;
-//    }
+    private void addFinancialinvoice() {
+        loadingDialog.show();
+        UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
+        String token = userSharedPreferencesManager.getToken();
+        Call call = FinancialService.add_financial_invoice("Bearer" + token, user_id.getText().toString(),desc.getText().toString());
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                loadingDialog.dismiss();
+                if (response.isSuccessful()) {
+                    ResObj resObj = (ResObj) response.body();
+                    if (resObj.getStatus().equals("success")) {
+                        Toast.makeText(Add_Financial_Invoice.this.getApplicationContext(), " Added successfully!", Toast.LENGTH_SHORT).show();
+                        Add_Financial_Invoice.this.finish();
+                    }
+                    else{
+                        Toast.makeText(Add_Financial_Invoice.this.getApplicationContext(), "Error! Please try again!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                loadingDialog.dismiss();
+                Toast.makeText(Add_Financial_Invoice.this.getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         if (spinner_paytype.getSelectedItem().equals("اجل")) {
             btn_payments.setVisibility(View.VISIBLE);
             btn_send.setVisibility(View.GONE);
-        }else
+        } else
             btn_send.setVisibility(View.VISIBLE);
 
         if (spinner_paytype.getSelectedItem().equals("كاش")) {
             btn_send.setVisibility(View.VISIBLE);
             btn_payments.setVisibility(View.GONE);
-        }else
+        } else
             btn_send.setVisibility(View.GONE);
 
 
-
-
-
-//        }else
-//            txt_document_pay.setVisibility(View.GONE);
-
-//        if (spinner_paytype.getSelectedItem().equals("اجل")){
-//            txt_value.setVisibility(View.VISIBLE);
-//        }else
-//            txt_value.setVisibility(View.GONE);
-//        if (spinner_paytype.getSelectedItem().equals("اجل")){
-//            edtext_value.setVisibility(View.VISIBLE);
-//        }else
-//            edtext_value.setVisibility(View.GONE);
-//        if (spinner_paytype.getSelectedItem().equals("اجل")){
-//            text_date_deposite.setVisibility(View.VISIBLE);
-//        }else
-//        text_date_deposite.setVisibility(View.GONE);
-//        if (spinner_paytype.getSelectedItem().equals("اجل")){
-//            txt_date.setVisibility(View.VISIBLE);
-//        }else
-//        txt_date.setVisibility(View.GONE);
-//    }
-
-        }
+    }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {

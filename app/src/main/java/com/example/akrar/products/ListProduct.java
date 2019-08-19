@@ -1,4 +1,4 @@
-package com.example.akrar;
+package com.example.akrar.products;
 
 public class ListProduct {
     String prod_desc,units,price;

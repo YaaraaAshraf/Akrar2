@@ -17,7 +17,8 @@ public interface ProductsService {
 
     @FormUrlEncoded
     @POST("add_product")
-    Call<ResObj> addProduct(@Header("Authorization") String auth, @Field("name") String name);
+    Call<ResObj> addProduct(@Header("Authorization") String auth,
+                            @Field("name") String name);
 
 }
 

@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.akrar.ListProduct;
 import com.example.akrar.R;
 import com.example.akrar.products.model.Product;
 

@@ -1,4 +1,4 @@
-package com.example.akrar;
+package com.example.akrar.profile;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.akrar.MainActivity;
+import com.example.akrar.R;
+import com.example.akrar.User;
+import com.example.akrar.UserSharedPreferencesManager;
 import com.example.akrar.model.ApiUtils;
 import com.example.akrar.login_and_registration.model.LoginData;
 import com.example.akrar.model.ResObj;
@@ -41,7 +46,7 @@ public class Update_MyProfileFragment extends AppCompatActivity {
         btn_save = (Button) findViewById(R.id.btn_save_profile);
         back_arrow = (ImageView) findViewById(R.id.image_back_arrow_profile);
         userService = ApiUtils.getUserService();
-        doLogin();
+         doLogin();
         back_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

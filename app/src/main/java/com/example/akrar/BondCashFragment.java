@@ -2,28 +2,50 @@ package com.example.akrar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.example.akrar.invoices.InvoicesService;
+import com.example.akrar.invoices.model.Invoice;
+import com.example.akrar.invoices.model.InvoicesData;
+import com.example.akrar.model.ApiUtils;
+import com.example.akrar.model.ResObj;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class BondCashFragment extends AppCompatActivity {
     ImageView image_add_bond_cash, arow;
     ImageView fab;
+    public RecyclerView recyclerView;
+    FinancialAdapter adapter;
+    InvoicesService invoicesService;
+    AlertDialog loadingDialog;
 
-//    public BondCashFragment() {
-//        // Required empty public constructor
-//    }
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.bond_cash_fragment);
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//
-//        View view = inflater.inflate(R.layout.bond_cash_fragment, container, false);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.bond_cash_fragment);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false); // if you want user to wait for some process to finish,
+        builder.setView(R.layout.loading_dialog_layout);
+        loadingDialog = builder.create();
+        invoicesService = ApiUtils.getInvoicesService();
+
         image_add_bond_cash = (ImageView) findViewById(R.id.image_add_bond_cash);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        adapter = new FinancialAdapter(new ArrayList<Invoice>());
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
         fab = (ImageView) findViewById(R.id.floatingActionButton_cash);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,7 +55,7 @@ protected void onCreate(Bundle savedInstanceState) {
             }
         });
         arow = (ImageView) findViewById(R.id.img_arrow);
-        arow.setOnClickListener(new View.OnClickListener(){
+        arow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
@@ -44,34 +66,44 @@ protected void onCreate(Bundle savedInstanceState) {
         image_add_bond_cash.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Other_DocumentsCash.class);
+                Intent intent = new Intent(getApplicationContext(), Add_Financial_Invoice.class);
                 startActivity(intent);
-//                loadcashbond(new Other_DocumentsCash());
+//                loadcashbond(new Add_Financial_Invoice());
             }
         });
-//        return view;
     }
 
-//    private boolean back(Fragment fragment) {
-//        if (fragment != null) {
-//            getFragmentManager()
-//                    .beginTransaction()
-//                    .replace(R.id.frame_container, fragment)
-//                    .commit();
-//            return true;
-//        }
-//        return false;
-//    }
-//
-//    private boolean loadcashbond(Fragment fragment) {
-//        if (fragment != null) {
-//            getFragmentManager()
-//                    .beginTransaction()
-//                    .replace(R.id.frame_container, fragment)
-//                    .commit();
-//            return true;
-//        }
-//        return false;
+    @Override
+    protected void onResume() {
+        super.onResume();
+        listInvoices();
     }
-//}
 
+    private void listInvoices() {
+
+        loadingDialog.show();
+        UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
+        String token = userSharedPreferencesManager.getToken();
+        Call call = invoicesService.listInvoices("Bearer " + token);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                loadingDialog.dismiss();
+                if (response.isSuccessful()) {
+                    ResObj<InvoicesData> data = (ResObj<InvoicesData>) response.body();
+                    if (data.getStatus().equals("success")) {
+                        adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesSent());
+                    } else {
+
+                    }
+    }
+}
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                loadingDialog.dismiss();
+                Toast.makeText(BondCashFragment.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+}
