@@ -3,6 +3,7 @@ package com.example.akrar.invoices;
 import com.example.akrar.invoices.model.Invoice;
 import com.example.akrar.invoices.model.InvoicesData;
 import com.example.akrar.model.ResObj;
+import com.example.akrar.model.Responseclass;
 import com.example.akrar.products.model.ProductData;
 
 import retrofit2.Call;
@@ -20,14 +21,21 @@ public interface InvoicesService {
     @GET("index_financial_invoice")
     Call<ResObj<InvoicesData>> listFinancialInvoices(@Header("Authorization") String auth);
 
+
     @FormUrlEncoded
     @POST("add_financial_invoice")
     Call<ResObj> add_financial_invoice (@Header("Authorization") String auth,
-                            @Field("shipment_invoice_id") String invoice_id,
-                            @Field("pay_type") String pay_type);
+                            @Field("shipment_invoice_id") String invoice_id);
+//                            @Field("pay_type") String pay_type);
 //                            @Field("description") String desc,
 //                            @Field("date") String date,
 //                            @Field("payment") String payment);
 
+    @FormUrlEncoded
+    @POST("filter_shipment_invoice")
+    Call<ResObj> filtershipmentinvoice(@Header("Authorization") String auth,
+                                    @Field("national_id") String national_id,
+                                    @Field("from") String from,
+                                    @Field("to") String to);
 }
 

@@ -113,7 +113,7 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
                 loadingDialog.dismiss();
                 if (response.isSuccessful()) {
                     ResObj<InvoicesData> data = (ResObj<InvoicesData>) response.body();
-                    if (data.getStatus().equals("success")) {
+                    if (data.getStatus().equals("success")){
                         adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesSent());
 
 //                  Toast.makeText(LoginActivity.this, "Token:"+ ((LoginData)resObj.getData()).getToken(), Toast.LENGTH_SHORT).show();

@@ -3,7 +3,6 @@ package com.example.akrar.invoices.model;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
-
 public class InvoicesData {
 
     @SerializedName("invoices_sent")

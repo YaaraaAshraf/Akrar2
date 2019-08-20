@@ -74,7 +74,6 @@ public class ProductsListActivity extends AppCompatActivity {
         super.onResume();
         getProducts();
     }
-
     private void getProducts() {
         loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());

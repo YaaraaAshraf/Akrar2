@@ -60,7 +60,6 @@ public class AddProductActivity extends AppCompatActivity {
             }
         });
     }
-
     private void addProduct() {
         loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
@@ -81,7 +80,6 @@ public class AddProductActivity extends AppCompatActivity {
                     }
                 }
             }
-
             @Override
             public void onFailure(Call call, Throwable t) {
                 loadingDialog.dismiss();

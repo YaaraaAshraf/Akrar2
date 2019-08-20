@@ -45,6 +45,7 @@ public class Add_Financial_Invoice extends AppCompatActivity implements AdapterV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_financial_invoice);
         FinancialService = ApiUtils.getInvoicesService();
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false); // if you want user to wait for some process to finish,
         builder.setView(R.layout.loading_dialog_layout);
@@ -113,7 +114,7 @@ public class Add_Financial_Invoice extends AppCompatActivity implements AdapterV
         loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
         String token = userSharedPreferencesManager.getToken();
-        Call call = FinancialService.add_financial_invoice("Bearer" + token, user_id.getText().toString(),desc.getText().toString());
+        Call call = FinancialService.add_financial_invoice("Bearer" + token, user_id.getText().toString());
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {

@@ -24,12 +24,12 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="310dp"
         android:layout_marginTop="60dp"
-        android:text="الاسم او الرقم"
+        android:text="رقم الهوية"
         android:textColor="@color/black"
         android:textSize="15dp" />
 
     <EditText
-        android:id="@+id/edtext_name-phone"
+        android:id="@+id/txt_userid"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
