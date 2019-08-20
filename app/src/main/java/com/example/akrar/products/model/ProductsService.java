@@ -1,6 +1,10 @@
 package com.example.akrar.products.model;
 
+import com.example.akrar.model.LoginData;
 import com.example.akrar.model.ResObj;
+import com.example.akrar.model.Responseclass;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Field;

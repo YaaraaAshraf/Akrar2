@@ -14,7 +14,7 @@ import com.example.akrar.R;
 import com.example.akrar.User;
 import com.example.akrar.UserSharedPreferencesManager;
 import com.example.akrar.model.ApiUtils;
-import com.example.akrar.login_and_registration.model.LoginData;
+import com.example.akrar.model.LoginData;
 import com.example.akrar.model.ResObj;
 import com.example.akrar.model.UserService;
 import retrofit2.Call;
