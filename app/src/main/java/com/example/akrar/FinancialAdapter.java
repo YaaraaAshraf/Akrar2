@@ -21,6 +21,8 @@ public class FinancialAdapter extends RecyclerView.Adapter<FinancialAdapter.View
     public void setData(ArrayList<Invoice> invoices){
         this.invoices = invoices;
         notifyDataSetChanged();
+
+        
     }
     @NonNull
     @Override
