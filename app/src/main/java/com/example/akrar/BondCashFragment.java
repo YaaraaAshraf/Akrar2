@@ -8,7 +8,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.akrar.invoices.InvoicesService;
@@ -22,11 +21,11 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+
 public class BondCashFragment extends AppCompatActivity {
     ImageView image_add_bond_cash, arow;
     ImageView fab;
-    Switch aSwitch;
-
     public RecyclerView recyclerView;
     FinancialAdapter adapter;
     InvoicesService invoicesService;
@@ -41,18 +40,7 @@ public class BondCashFragment extends AppCompatActivity {
         builder.setView(R.layout.loading_dialog_layout);
         loadingDialog = builder.create();
         invoicesService = ApiUtils.getInvoicesService();
-        aSwitch = (Switch) findViewById(R.id.switch_docu);
-//        aSwitch.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (aSwitch.isChecked()){
-//                    listreceiver();
-//                }else {
-//                    listFinancialInvoices();
-//
-//                }
-//            }
-//        });
+
         image_add_bond_cash = (ImageView) findViewById(R.id.image_add_bond_cash);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         adapter = new FinancialAdapter(new ArrayList<Invoice>());
@@ -72,6 +60,7 @@ public class BondCashFragment extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
+//                back(new Mainpage_details());
             }
         });
         image_add_bond_cash.setOnClickListener(new View.OnClickListener() {
@@ -79,44 +68,23 @@ public class BondCashFragment extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Add_Financial_Invoice.class);
                 startActivity(intent);
+//                loadcashbond(new Add_Financial_Invoice());
             }
         });
     }
-//    private void listreceiver() {
-//            loadingDialog.show();
-//            UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
-//            String token = userSharedPreferencesManager.getToken();
-//            Call call = invoicesService.listFinancialInvoices("Bearer " + token);
-//            call.enqueue(new Callback() {
-//                @Override
-//                public void onResponse(Call call, Response response) {
-//                    loadingDialog.dismiss();
-//                    if (response.isSuccessful()) {
-//                        ResObj<InvoicesData> data = (ResObj<InvoicesData>) response.body();
-//                        if (data.getStatus().equals("success")) {
-//                            adapter.setData((ArrayList<Invoice>) data.getData(). getInvoicesRecieved());
-//                        } else {
-//                            Toast.makeText(BondCashFragment.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                }
-//                @Override
-//                public void onFailure(Call call, Throwable t) {
-//                    loadingDialog.dismiss();
-//                    Toast.makeText(BondCashFragment.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-//                }
-//            });
-//        }
+
     @Override
     protected void onResume() {
         super.onResume();
-        listFinancialInvoices();
+        listInvoices();
     }
-    private void listFinancialInvoices() {
+
+    private void listInvoices() {
+
         loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
         String token = userSharedPreferencesManager.getToken();
-        Call call = invoicesService.listFinancialInvoices("Bearer " + token);
+        Call call = invoicesService.listInvoices("Bearer " + token);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -126,14 +94,15 @@ public class BondCashFragment extends AppCompatActivity {
                     if (data.getStatus().equals("success")) {
                         adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesSent());
                     } else {
-                        Toast.makeText(BondCashFragment.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
+
                     }
-                }
-                }
+    }
+}
             @Override
             public void onFailure(Call call, Throwable t) {
                 loadingDialog.dismiss();
                 Toast.makeText(BondCashFragment.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+
             }
         });
     }
