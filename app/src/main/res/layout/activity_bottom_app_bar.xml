@@ -1,0 +1,127 @@
+<!--<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:app="http://schemas.android.com/apk/res-auto"--><!--xmlns:tools="http://schemas.android.com/tools"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:background="@color/white"--><!--tools:context=".Main_bar">-->
+
+<!--<FrameLayout--><!--android:id="@+id/frame_container"--><!--android:layout_width="match_parent"--><!--android:layout_height="0dp"--><!--android:text="home"--><!--app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view"--><!--app:layout_constraintEnd_toEndOf="parent"--><!--app:layout_constraintStart_toStartOf="parent"--><!--app:layout_constraintTop_toTopOf="parent" />-->
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    ​
+
+    <FrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="home"
+        app:layout_constraintBottom_toTopOf="@+id/bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    ​
+
+    <!--<android.support.design.bottomappbar.BottomAppBar-->
+        <!--android:id="@+id/bar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:layout_gravity="bottom"-->
+        <!--android:gravity="bottom"-->
+        <!--app:fabAlignmentMode="end">-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:weightSum="3">-->
+
+            <!--<TextView-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center"-->
+                <!--android:text="Inbox"-->
+                <!--android:textColor="@color/black" />-->
+
+            <!--<TextView-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center"-->
+                <!--android:text="Home"-->
+                <!--android:textColor="@color/black" />-->
+
+            <!--<TextView-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center"-->
+                <!--android:text="Profile"-->
+                <!--android:textColor="@color/black" />-->
+
+        <!--</LinearLayout>-->
+
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="sadfasdfsaad"&ndash;&gt;-->
+        <!--&lt;!&ndash;/>&ndash;&gt;-->
+    <!--</android.support.design.bottomappbar.BottomAppBar>-->
+
+    <!--app:navigationIcon="@android:drawable/ic_menu_sort_by_size"-->
+    ​
+    <android.support.design.bottomappbar.BottomAppBar
+        android:id="@+id/bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        app:layout_anchorGravity="start"
+        app:hideOnScroll="true"
+        app:fabAlignmentMode="center"
+        app:backgroundTint="@color/colorPrimary">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="5"
+            android:paddingRight="16dp">
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/h"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:tint="@color/white"/>
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/n"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"/>
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/p"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+        </LinearLayout>
+    </android.support.design.bottomappbar.BottomAppBar>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_home_black_24dp"
+        app:layout_anchor="@id/bar"
+        app:layout_anchorGravity="end" />
+
+</android.support.design.widget.CoordinatorLayout>
+
+    <!--<android.support.design.widget.BottomNavigationView--><!--android:id="@+id/bottom_navigation_view"--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content"--><!--app:layout_constraintBottom_toBottomOf="parent"--><!--app:layout_constraintEnd_toEndOf="parent"--><!--app:layout_constraintStart_toStartOf="parent"--><!--app:menu="@menu/bottom_navigation_menu"--><!--android:background="@drawable/squareshape"--><!--app:itemBackground="@drawable/squareshape"--><!--android:layout_margin="6dp"--><!--android:foreground="?attr/selectableItemBackground"--><!--app:labelVisibilityMode="selected"--><!--app:itemIconTint="@color/blue"--><!--app:itemIconSize="25dp"--><!--app:itemTextColor="@color/blue"/>-->
+
+    <!--</android.support.constraint.ConstraintLayout>-->

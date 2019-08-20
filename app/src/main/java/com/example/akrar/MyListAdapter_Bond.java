@@ -1,6 +1,5 @@
 package com.example.akrar;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -28,7 +27,7 @@ public class MyListAdapter_Bond extends RecyclerView.Adapter<MyListAdapter_Bond.
     @Override
     public MyListAdapter_Bond.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View listItem= layoutInflater.inflate(R.layout.list_item_bond, parent, false);
+        View listItem= layoutInflater.inflate(R.layout.invoice_item_layout, parent, false);
         ViewHolder viewHolder = new ViewHolder(listItem);
         return viewHolder;
     }
