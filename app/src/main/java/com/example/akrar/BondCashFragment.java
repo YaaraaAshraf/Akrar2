@@ -50,13 +50,9 @@ public class BondCashFragment extends AppCompatActivity {
 //                }else {
 //                    listFinancialInvoices();
 //
-//
 //                }
 //            }
 //        });
-
-
-
         image_add_bond_cash = (ImageView) findViewById(R.id.image_add_bond_cash);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         adapter = new FinancialAdapter(new ArrayList<Invoice>());
