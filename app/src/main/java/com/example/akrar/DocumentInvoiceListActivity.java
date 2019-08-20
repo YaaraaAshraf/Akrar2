@@ -31,6 +31,7 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
     InvoicesAdapter adapter;
     InvoicesService invoicesService;
     AlertDialog loadingDialog;
+    boolean isRecievedInvoicesSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,7 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
         aSwitch = (Switch) findViewById(R.id.switch_docu);
+//        isRecievedInvoicesSelected = false;
 //        aSwitch.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -61,18 +63,10 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
 //            }
 //        });
 
-//        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if (aSwitch.isChecked()) {
-//                    back(new DocumentInvoiceListActivity());
-//
-//                } else
-//                    {
-//                    loadBondFragment(new BondCashFragment());
-//                }
-//
-//            }
-//        });
+        aSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            isRecievedInvoicesSelected = isChecked;
+            listInvoices();
+        });
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,8 +94,10 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        isRecievedInvoicesSelected = true;
         listInvoices();
     }
+
     public void listInvoices() {
         loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
@@ -114,33 +110,16 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     ResObj<InvoicesData> data = (ResObj<InvoicesData>) response.body();
                     if (data.getStatus().equals("success")) {
-                        adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesSent());
+                        if (isRecievedInvoicesSelected)
+                            adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesRecieved());
+                        else
+                            adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesSent());
 
-//                  Toast.makeText(LoginActivity.this, "Token:"+ ((LoginData)resObj.getData()).getToken(), Toast.LENGTH_SHORT).show();
-//                        UserSharedPreferencesManager userSharedPreferencesManager= UserSharedPreferencesManager.getInstance(LoginActivity.this.getApplicationContext());
-//                        userSharedPreferencesManager.saveToken(resObj.getData().getToken());
-//
-//                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                        intent.putExtra("national_id", national_id);
-//                        startActivity(intent);
-
-                        //login start main activity
-//                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                        intent.putExtra("national_id", national_id);
-//                        startActivity(intent);
-
-//                    } else {
-//                        Toast.makeText(LoginActivity.this, "The username or password is incorrect", Toast.LENGTH_SHORT).show();
-//                    }
                     } else {
-//                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                    intent.putExtra("national_id", national_id);
-//                    startActivity(intent);
-//                    Toast.makeText(LoginActivity.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
-//                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                    intent.putExtra("national_id", national_id);
-//                    startActivity(intent);
+                        Toast.makeText(DocumentInvoiceListActivity.this, "Failed to retrieve data", Toast.LENGTH_SHORT).show();
                     }
+                } else {
+                    Toast.makeText(DocumentInvoiceListActivity.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -149,9 +128,6 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
                 loadingDialog.dismiss();
                 Toast.makeText(DocumentInvoiceListActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
 
-//                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//        intent.putExtra("national_id", national_id);
-//                startActivity(intent);
             }
         });
     }

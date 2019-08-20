@@ -42,8 +42,10 @@ public class Invoice {
 
     @SerializedName("receiver")
     private InvoiceUser receiver;
-//    @SerializedName("sender")
-//    private InvoiceUser sender;
+
+    @SerializedName("sender")
+    private InvoiceUser sender;
+
     @SerializedName("currency")
     private Currency currency;
 
@@ -146,12 +148,12 @@ public class Invoice {
     public InvoiceUser getReceiver() {
         return receiver;
     }
-//    public InvoiceUser getSender() {
-//        return sender;
-//    }
-//    public void setSender(InvoiceUser sender) {
-//        this.sender = receiver;
-//    }
+    public InvoiceUser getSender() {
+        return sender;
+    }
+    public void setSender(InvoiceUser sender) {
+        this.sender = receiver;
+    }
     public void setReceiver(InvoiceUser receiver) {
         this.receiver = receiver;
     }

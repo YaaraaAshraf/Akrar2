@@ -36,7 +36,7 @@ public class Mainpage_details extends Fragment {
          image_gr.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
-                 Intent intent = new Intent(getContext(), Document_shipment.class);
+                 Intent intent = new Intent(getContext(), DocumentInvoiceListActivity.class);
                  startActivity(intent);
 //                 loadBonds(new Document_shipment());
              }

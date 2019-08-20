@@ -109,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
 
         loadingDialog.show();
 
-        Call call = userService.login(national_id, password);
+        Call call = userService.login(national_id, password,"123456789");
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -139,9 +139,9 @@ public class LoginActivity extends AppCompatActivity {
 //                    intent.putExtra("national_id", national_id);
 //                    startActivity(intent);
                     Toast.makeText(LoginActivity.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    intent.putExtra("national_id", national_id);
-                    startActivity(intent);
+//                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//                    intent.putExtra("national_id", national_id);
+//                    startActivity(intent);
                 }
             }
             @Override

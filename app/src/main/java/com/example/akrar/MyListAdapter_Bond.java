@@ -51,7 +51,7 @@ public class MyListAdapter_Bond extends RecyclerView.Adapter<MyListAdapter_Bond.
             super(itemView);
             this.txt_name=(TextView)itemView.findViewById(R.id.txt_name);
             this.txt_date=(TextView)itemView.findViewById(R.id.txt_date);
-            this.txt_phone=(TextView)itemView.findViewById(R.id.txt_phone);
+            this.txt_phone=(TextView)itemView.findViewById(R.id.txt_national_id);
         }
     }
 }

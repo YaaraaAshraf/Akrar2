@@ -95,11 +95,12 @@
 
 
             <TextView
-                android:id="@+id/text_send"
+                android:id="@+id/text_recieve"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="المرسل"
+                android:text="المستلمة"
                 android:textColor="@color/black" />
+
 
             <Switch
                 android:id="@+id/switch_docu"
@@ -111,10 +112,10 @@
                 android:thumb="@drawable/track_selector" />
 
             <TextView
-                android:id="@+id/text_recieve"
+                android:id="@+id/text_send"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="المستلمة"
+                android:text="المرسل"
                 android:textColor="@color/black" />
 
         </LinearLayout>

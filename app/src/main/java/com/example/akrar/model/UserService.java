@@ -11,8 +11,8 @@ public interface UserService {
     @FormUrlEncoded
     @POST("login")
     Call<ResObj<LoginData>> login(@Field("national_id") String national_id,
-
-                                  @Field("password") String password);
+                                  @Field("password") String password,
+                                  @Field("device_id") String deviceId);
 
 //                       @Field("password") String password);
 
