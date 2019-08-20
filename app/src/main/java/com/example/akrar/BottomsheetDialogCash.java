@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -21,6 +22,7 @@ public class BottomsheetDialogCash extends BottomSheetDialogFragment {
     EditText txt_dateTo, txt_datefrom, edt_datecash;
     Spinner spinner_deposite_cash;
     TextView txt_datecash;
+    Button button_search;
     final Calendar c = Calendar.getInstance();
     final int year = c.get(Calendar.YEAR);
     final int month = c.get(Calendar.MONTH) + 1;
@@ -33,7 +35,7 @@ public class BottomsheetDialogCash extends BottomSheetDialogFragment {
         super.setupDialog(dialog, style);
         View contentview = View.inflate(getContext(), R.layout.activity_filter_cash, null);
         dialog.setContentView(contentview);
-        spinner_deposite_cash = (Spinner) contentview.findViewById(R.id.spinner_deposite_cash);
+        spinner_deposite_cash = (Spinner) contentview.findViewById(R.id.spinner);
 //        txt_datecash=(TextView)contentview.findViewById(R.id.txt_datecash);
 //        spinner_deposite_cash.setOnItemSelectedListener(this);
 //        spinner_deposite_cash.setOnItemSelectedListener(this);
