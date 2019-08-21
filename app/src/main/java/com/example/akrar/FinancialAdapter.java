@@ -1,6 +1,8 @@
 package com.example.akrar;
 
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -22,7 +24,6 @@ public class FinancialAdapter extends RecyclerView.Adapter<FinancialAdapter.View
         this.invoices = invoices;
         notifyDataSetChanged();
 
-        
     }
     @NonNull
     @Override
@@ -35,16 +36,37 @@ public class FinancialAdapter extends RecyclerView.Adapter<FinancialAdapter.View
     @Override
     public void onBindViewHolder(@NonNull FinancialAdapter.ViewHolder holder, int position) {
         final Invoice myListData = invoices.get(position);
-        holder.txt_name.setText(invoices.get(position).getReceiver().getFirstName());
-        holder.txt_date.setText(invoices.get(position).getDate());
-        holder.txt_user_id.setText(invoices.get(position).getReceiver().getNationalId());
-        if (invoices.get(position).getReceiver().getStatus()==0){
-            holder.txt_type.setText("كاش");
-        }else {
-            holder.txt_type.setText("اجل");
-            holder.txt_type.setTextColor(Color.RED);
+
+        if(invoices.get(position).getReceiver() !=null) {
+            holder.txt_name.setText(holder.txt_name.getContext().getString(R.string.invoice_from,invoices.get(position).getReceiver().getFirstName()));
+            holder.txt_user_id.setText(invoices.get(position).getReceiver().getNationalId());
         }
+        else if(invoices.get(position).getSender() !=null) {
+            holder.txt_name.setText(holder.txt_name.getContext().getString(R.string.invoice_to,invoices.get(position).getSender().getFirstName()));
+            holder.txt_user_id.setText(invoices.get(position).getSender().getNationalId());
+        }
+        holder.txt_date.setText(invoices.get(position).getDate());
+        holder.txt_date.setVisibility(invoices.get(position).getDate() == null?View.GONE:View.VISIBLE);
+        Drawable color;
+        if(invoices.get(position).getStatus() == 0) {
+            color = new ColorDrawable(holder.txt_type.getContext().getResources().getColor(R.color.green));
+        }
+        else{
+            color = new ColorDrawable(holder.txt_type.getContext().getResources().getColor(R.color.fabcolorxx));
+        }
+        holder.txt_type.setTextColor(((ColorDrawable) color).getColor());
+
     }
+//        holder.txt_name.setText(invoices.get(position).getReceiver().getFirstName());
+//        holder.txt_date.setText(invoices.get(position).getDate());
+//        holder.txt_user_id.setText(invoices.get(position).getReceiver().getNationalId());
+
+//        if (invoices.get(position).getReceiver().getStatus()==0){
+//            holder.txt_type.setText("كاش");
+//        }else {
+//            holder.txt_type.setText("اجل");
+//            holder.txt_type.setTextColor(Color.RED);
+//        }
     @Override
     public int getItemCount() {
         return invoices.size();

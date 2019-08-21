@@ -51,7 +51,8 @@
                 android:paddingTop="10dp"
                 android:paddingRight="10dp"
                 android:textDirection="rtl"
-                android:text="سند قبض الي احمد"
+                android:layout_alignParentRight="true"
+                android:text="@string/invoice_from"
                 android:textColor="@color/black" />
 
             <TextView

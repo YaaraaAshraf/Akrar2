@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.akrar.invoices.InvoicesService;
@@ -21,8 +22,6 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-
 public class BondCashFragment extends AppCompatActivity {
     ImageView image_add_bond_cash, arow;
     ImageView fab;
@@ -30,7 +29,8 @@ public class BondCashFragment extends AppCompatActivity {
     FinancialAdapter adapter;
     InvoicesService invoicesService;
     AlertDialog loadingDialog;
-
+    Switch aSwitch;
+    boolean isRecievedInvoicesSelected;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +46,12 @@ public class BondCashFragment extends AppCompatActivity {
         adapter = new FinancialAdapter(new ArrayList<Invoice>());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+
+        aSwitch = (Switch) findViewById(R.id.switch_fin);
+        aSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            isRecievedInvoicesSelected = isChecked;
+            listInvoices();
+        });
         fab = (ImageView) findViewById(R.id.floatingActionButton_cash);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +66,6 @@ public class BondCashFragment extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
-//                back(new Mainpage_details());
             }
         });
         image_add_bond_cash.setOnClickListener(new View.OnClickListener() {
@@ -68,19 +73,16 @@ public class BondCashFragment extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Add_Financial_Invoice.class);
                 startActivity(intent);
-//                loadcashbond(new Add_Financial_Invoice());
             }
         });
     }
-
     @Override
     protected void onResume() {
         super.onResume();
+        isRecievedInvoicesSelected = true;
         listInvoices();
     }
-
     private void listInvoices() {
-
         loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
         String token = userSharedPreferencesManager.getToken();
@@ -92,12 +94,18 @@ public class BondCashFragment extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     ResObj<InvoicesData> data = (ResObj<InvoicesData>) response.body();
                     if (data.getStatus().equals("success")) {
-                        adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesSent());
+                        if (isRecievedInvoicesSelected)
+                            adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesRecieved());
+                        else
+                            adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesSent());
                     } else {
-
+                        Toast.makeText(BondCashFragment.this, "Failed to retrieve data", Toast.LENGTH_SHORT).show();
                     }
-    }
-}
+                } else {
+                    Toast.makeText(BondCashFragment.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
             @Override
             public void onFailure(Call call, Throwable t) {
                 loadingDialog.dismiss();

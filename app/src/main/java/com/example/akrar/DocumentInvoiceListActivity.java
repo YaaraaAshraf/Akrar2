@@ -51,17 +51,7 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
         aSwitch = (Switch) findViewById(R.id.switch_docu);
-//        isRecievedInvoicesSelected = false;
-//        aSwitch.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (aSwitch.isChecked()){
-//                    back(new DocumentInvoiceListActivity());
-//                }else {
-//                    loadBondFragment(new BondCashFragment());
-//                }
-//            }
-//        });
+
 
         aSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             isRecievedInvoicesSelected = isChecked;
