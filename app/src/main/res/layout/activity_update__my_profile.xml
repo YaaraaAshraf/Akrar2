@@ -41,7 +41,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="right">
+            android:gravity="right"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp">
 
 
             <TextView
@@ -50,24 +52,17 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="25dp"
+                android:layout_marginHorizontal="10dp"
                 android:text="الرقم القومي"
                 android:textSize="15dp"/>
 
-            <TextView
+            <EditText
                 android:id="@+id/edtext_id"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:padding="15dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
                 android:background="@drawable/rounded_edittext"
-                android:inputType="textPersonName"
-                android:paddingRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:textColor="#000000"
-                android:textColorHint="@color/grey" />
+                android:inputType="textPersonName"/>
             <!--</LinearLayout>-->
 
             <TextView
@@ -75,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:layout_marginRight="25dp"
+                android:layout_marginHorizontal="10dp"
                 android:text="الاسم الاول"
                 android:layout_marginTop="10dp"
                 android:textSize="15dp"/>
@@ -83,24 +78,17 @@
             <EditText
                 android:id="@+id/edtext_firstname"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:padding="15dp"
                 android:background="@drawable/rounded_edittext"
-                android:inputType="textPersonName"
-                android:paddingRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:textColor="#000000"
-                android:textColorHint="@color/grey" />
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/text_lastname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:layout_marginRight="25dp"
+                android:layout_marginHorizontal="10dp"
                 android:text="الاسم الاخير"
                 android:layout_marginTop="10dp"
                 android:textSize="15dp"/>
@@ -108,17 +96,10 @@
             <EditText
                 android:id="@+id/lastname"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:padding="15dp"
                 android:background="@drawable/rounded_edittext"
-                android:inputType="textPersonName"
-                android:paddingRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:textColor="#000000"
-                android:textColorHint="@color/grey" />
+                android:inputType="textPersonName" />
             <!--<RelativeLayout-->
             <!--android:id="@+id/menuLayout"-->
             <!--android:layout_width="match_parent"-->
@@ -129,7 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:layout_marginRight="25dp"
+                android:layout_marginHorizontal="10dp"
                 android:text="الاميل"
                 android:layout_marginTop="10dp"
                 android:textSize="15dp"/>
@@ -137,22 +118,15 @@
             <EditText
                 android:id="@+id/mail"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:padding="15dp"
                 android:background="@drawable/rounded_edittext"
-                android:inputType="textPersonName"
-                android:paddingRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:textColor="#000000"
-                android:textColorHint="@color/grey" />
+                android:inputType="textPersonName" />
             <TextView
                 android:id="@+id/txt_phone_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="25dp"
+                android:layout_marginHorizontal="10dp"
                 android:text="رقم التليفون"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/black"
@@ -161,17 +135,10 @@
             <EditText
                 android:id="@+id/edtext_phone_profile"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:padding="15dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/rounded_edittext"
-                android:inputType="textPersonName"
-                android:paddingRight="15dp"
-                android:textColor="#000000"
-                android:textColorHint="@color/grey" />
+                android:inputType="textPersonName"/>
             <!--</RelativeLayout>-->
             <TextView
                 android:id="@+id/txt_password"
@@ -179,24 +146,17 @@
                 android:layout_height="wrap_content"
                 android:text="كلمة المرور "
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="25dp"
+                android:layout_marginHorizontal="10dp"
                 android:textColor="@color/black"
                 android:textSize="15dp" />
 
             <EditText
                 android:id="@+id/text_password_profile"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="15dp"
-                android:padding="15dp"
-                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/rounded_edittext"
-                android:inputType="textPassword"
-                android:paddingRight="15dp"
-                android:textColor="#000000"
-                android:textColorHint="@color/grey" />
+                android:inputType="textPassword" />
 
             <TextView
                 android:id="@+id/txt_retrypass_profile"
@@ -204,30 +164,22 @@
                 android:layout_height="wrap_content"
                 android:text="اعادة كلمة المرور"
                 android:textColor="@color/black"
-                android:layout_marginRight="25dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="10dp"
                 android:textSize="15dp" />
 
             <EditText
                 android:id="@+id/edt_retrypass_profile"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
                 android:padding="15dp"
                 android:background="@drawable/rounded_edittext"
                 android:inputType="textPassword"
-                android:paddingRight="15dp"
-                android:textColor="@color/black"
-                android:paddingLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:textColorHint="@color/grey" />
+                android:layout_marginTop="10dp" />
             <Button
                 android:id="@+id/btn_save_profile"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginHorizontal="15dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/rounded_button"

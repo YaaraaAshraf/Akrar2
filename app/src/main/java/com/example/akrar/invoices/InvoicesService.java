@@ -1,5 +1,6 @@
 package com.example.akrar.invoices;
 
+import com.example.akrar.invoices.model.CurrenciesData;
 import com.example.akrar.invoices.model.Invoice;
 import com.example.akrar.invoices.model.InvoicesData;
 import com.example.akrar.model.ResObj;
@@ -28,6 +29,10 @@ public interface InvoicesService {
 //                            @Field("description") String desc,
 //                            @Field("date") String date,
 //                            @Field("payment") String payment);
+
+
+    @GET("currency")
+    Call<ResObj<CurrenciesData>> listCurrencies(@Header("Authorization") String auth);
 
 }
 

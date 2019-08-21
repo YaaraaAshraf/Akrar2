@@ -75,7 +75,7 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
         image_add_bond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), AddShimpment_invoice.class);
+                Intent intent = new Intent(getApplicationContext(), AddDocumentShipmentInvoiceActivity.class);
                 startActivity(intent);
             }
         });
