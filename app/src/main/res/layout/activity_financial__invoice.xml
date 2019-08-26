@@ -72,8 +72,9 @@
                     android:id="@+id/txt_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="#9e9e9e"
                     android:text="11111111"
+                    android:layout_marginBottom="50dp"
                     android:layout_marginLeft="200dp"/>
             </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
             <Button
@@ -114,6 +115,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#9e9e9e"
                     android:text="steet,11"
+                    android:layout_marginBottom="50dp"
                     android:layout_marginLeft="298dp"/>
             </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
 
@@ -155,6 +157,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#9e9e9e"
                     android:text="300"
+                    android:layout_marginBottom="50dp"
                     android:layout_marginLeft="330dp"/>
             </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
 
@@ -194,9 +197,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="50dp"
                     android:layout_marginRight="20dp"
-                    android:text="اسم المنتج:المنتج ا"
+                    android:text="ريال"
                     android:textColor="#9e9e9e"/>
 
                 <!--<TextView-->
