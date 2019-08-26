@@ -115,15 +115,12 @@ public class BottomsheetDialogCash extends BottomSheetDialogFragment implements 
             }
         });
     }
-
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
     }
 //    @Override
 //    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {

@@ -117,7 +117,6 @@ public class LoginActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     ResObj<LoginData> resObj = (ResObj<LoginData>) response.body();
                     if (resObj.getStatus().equals("success")) {
-
 //                  Toast.makeText(LoginActivity.this, "Token:"+ ((LoginData)resObj.getData()).getToken(), Toast.LENGTH_SHORT).show();
                         UserSharedPreferencesManager userSharedPreferencesManager= UserSharedPreferencesManager.getInstance(LoginActivity.this.getApplicationContext());
                         userSharedPreferencesManager.saveToken(resObj.getData().getToken());

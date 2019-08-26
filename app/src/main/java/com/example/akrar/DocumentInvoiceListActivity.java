@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 public class DocumentInvoiceListActivity extends AppCompatActivity {
     ImageView image_add_bond, img_arrow;
     ImageView fab;
@@ -39,7 +38,7 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
         setContentView(R.layout.document_invoices_activity);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(false); // if you want user to wait for some process to finish,
+        builder.setCancelable(false);// if you want user to wait for some process to finish,
         builder.setView(R.layout.loading_dialog_layout);
         loadingDialog = builder.create();
         invoicesService = ApiUtils.getInvoicesService();
@@ -51,8 +50,6 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
         aSwitch = (Switch) findViewById(R.id.switch_docu);
-
-
         aSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             isRecievedInvoicesSelected = isChecked;
             listInvoices();
@@ -87,7 +84,6 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
         isRecievedInvoicesSelected = true;
         listInvoices();
     }
-
     public void listInvoices() {
         loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
@@ -112,7 +108,6 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
                     Toast.makeText(DocumentInvoiceListActivity.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call call, Throwable t) {
                 loadingDialog.dismiss();

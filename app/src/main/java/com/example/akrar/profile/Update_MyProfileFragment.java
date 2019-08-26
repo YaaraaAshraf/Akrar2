@@ -43,10 +43,16 @@ public class Update_MyProfileFragment extends AppCompatActivity {
         text_password_profile = (EditText) findViewById(R.id.text_password_profile);
         edt_retrypass = (EditText) findViewById(R.id.edt_retrypass_profile);
         edt_id = (TextView) findViewById(R.id.edtext_id);
+        edt_id.setEnabled(false);
         btn_save = (Button) findViewById(R.id.btn_save_profile);
         back_arrow = (ImageView) findViewById(R.id.image_back_arrow_profile);
         userService = ApiUtils.getUserService();
          doLogin();
+         btn_save.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+             }
+         });
         back_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

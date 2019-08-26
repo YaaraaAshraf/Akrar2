@@ -2,9 +2,11 @@ package com.example.akrar;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.graphics.Color;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
@@ -12,6 +14,7 @@ import android.widget.EditText;
 import java.util.Calendar;
 public class BottomsheetDialog extends BottomSheetDialogFragment {
     EditText txt_dateTo,txt_datefrom;
+    Button search;
     final Calendar c = Calendar.getInstance();
     final int year = c.get(Calendar.YEAR);
     final int month = c.get(Calendar.MONTH)+1;
@@ -30,7 +33,7 @@ public class BottomsheetDialog extends BottomSheetDialogFragment {
                 if(event.getAction() == MotionEvent.ACTION_UP) {
                     if(event.getRawX() <= txt_datefrom.getTotalPaddingLeft()) {
                         // your action for drawable click event
-                        DatePickerDialog datePicker = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                        DatePickerDialog datePicker = new DatePickerDialog(getActivity(),new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                                 txt_datefrom.setText(year + "/" + monthOfYear + "/" + dayOfMonth);
@@ -65,6 +68,5 @@ public class BottomsheetDialog extends BottomSheetDialogFragment {
                 return false;
             }
         });
-
     }
 }

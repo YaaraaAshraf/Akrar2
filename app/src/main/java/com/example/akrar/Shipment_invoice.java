@@ -14,37 +14,34 @@ public class Shipment_invoice extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shipment_invoice);
-
-
     }
-
-    public void expandable_layout_numid(View view) {
+    public void expandableButton1(View view) {
         expandableLayout1_numid = (ExpandableRelativeLayout) findViewById(R.id.expandableLayout1_numid);
         expandableLayout1_numid.toggle();
     }
 
-    public void expandable_layout_address(View view) {
-        expandableLayout1_numid = (ExpandableRelativeLayout) findViewById(R.id.expandableLayout1_address);
+    public void expandableButton2(View view) {
+        expandableLayout1_address = (ExpandableRelativeLayout) findViewById(R.id.expandableLayout1_address);
         expandableLayout1_address.toggle();
     }
 
-    public void expandable_value(View view) {
-        expandableLayout1_numid = (ExpandableRelativeLayout) findViewById(R.id.expandableLayout1_value);
+    public void expandableButton3(View view) {
+        expandableLayout1_value = (ExpandableRelativeLayout) findViewById(R.id.expandableLayout1_value);
         expandableLayout1_value.toggle();
     }
 
-    public void expandable_currency(View view) {
+    public void expandableButton4(View view) {
         expandableLayout_currrency = (ExpandableRelativeLayout) findViewById(R.id.expandableLayout_currrency);
         expandableLayout_currrency.toggle();
     }
 
-    public void expandable_prod_one(View view) {
-        expandableLayout1_numid = (ExpandableRelativeLayout) findViewById(R.id.expandableLayout_prod_one);
+    public void expandableButton5(View view) {
+        expandableLayout_prod_one = (ExpandableRelativeLayout) findViewById(R.id.expandableLayout_prod_one);
         expandableLayout_prod_one.toggle();
     }
 
-    public void expandable_desc(View view) {
-        expandableLayout1_numid = (ExpandableRelativeLayout) findViewById(R.id.expandableLayout_desc);
+    public void expandableButton6(View view) {
+        expandableLayout_desc = (ExpandableRelativeLayout) findViewById(R.id.expandableLayout_desc);
         expandableLayout_desc.toggle();
     }
 }

@@ -22,7 +22,6 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
     public ProductsAdapter(List<Product> listdata) {
         this.listdata = listdata;
     }
-
     @NonNull
     @Override
     public ProductsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -41,13 +40,10 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
 //        holder.img_delete.setImageResource(myListData.getImg_delete());
 //        holder.img_edit.setImageResource(myListData.getImg_edit());
 
-
     }
-
     public int getItemCount() {
         return listdata.size();
     }
-
     public void setListdata(ArrayList<Product> productArrayList){
         this.listdata = productArrayList;
         notifyDataSetChanged();
@@ -67,4 +63,3 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
         }
     }
 }
-

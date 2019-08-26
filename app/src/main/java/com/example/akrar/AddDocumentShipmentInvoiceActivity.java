@@ -48,8 +48,6 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
     CurrencySpinnerAdapter currencySpinnerAdapter;
     ProductsSpinnerAdapter productsSpinnerAdapter;
 
-
-
     String st_date, st_sendto, st_address, st_productname, st_quantitiy, st_value, st_datebonds, st_desc;
     final Calendar c = Calendar.getInstance();
     final int year = c.get(Calendar.YEAR);
@@ -84,11 +82,6 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
                 productsSpinner.setVisibility(isChecked?View.VISIBLE:View.GONE);
             }
         });
-
-
-//        text_quantity_bonds=(EditText)findViewById(R.id.text_quantity_bonds);
-//        text_date_bonds=(EditText)findViewById(R.id.text_date_bonds);
-//        text_value_bonds=(EditText)findViewById(R.id.text_value_bonds);
         text_description_bonds = (EditText) findViewById(R.id.text_description_bonds);
         btn_send = (Button) findViewById(R.id.btn_deliver_bonds);
         btn_send.setOnClickListener(new View.OnClickListener() {
@@ -118,13 +111,11 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
 //              send(new salary_documents());
             }
         });
-
         img_back = findViewById(R.id.image_arrow_bond);
         img_back.setOnClickListener(view -> AddDocumentShipmentInvoiceActivity.this.finish());
 
         listCurrencies();
     }
-
     public void listCurrencies() {
         loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
@@ -149,16 +140,13 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
                 }
                 listProducts();
             }
-
             @Override
             public void onFailure(Call call, Throwable t) {
                 loadingDialog.dismiss();
                 Toast.makeText(AddDocumentShipmentInvoiceActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-
             }
         });
     }
-
     public void listProducts() {
 //        loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
@@ -170,26 +158,22 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
                 loadingDialog.dismiss();
                 if (response.isSuccessful()) {
                     ResObj<ProductData> data = (ResObj<ProductData>) response.body();
-                    if (data.getStatus().equals("success")) {
-
+                    if (data.getStatus().equals("success")){
                         productsSpinnerAdapter = new ProductsSpinnerAdapter(AddDocumentShipmentInvoiceActivity.this,
                                 R.layout.spinner_item, "Product");
                         productsSpinnerAdapter.setData((data.getData().getProducts()));
                         productsSpinner.setAdapter(productsSpinnerAdapter);
-                    } else {
+                    }else{
                         Toast.makeText(AddDocumentShipmentInvoiceActivity.this, "Failed to retrieve data", Toast.LENGTH_SHORT).show();
                     }
-                } else {
+                } else{
                     Toast.makeText(AddDocumentShipmentInvoiceActivity.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
-
             }
-
             @Override
             public void onFailure(Call call, Throwable t) {
                 loadingDialog.dismiss();
                 Toast.makeText(AddDocumentShipmentInvoiceActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-
             }
         });
     }

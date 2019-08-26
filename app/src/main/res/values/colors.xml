@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="colorPrimary">#194584</color>
     <color name="colorPrimaryDark">@color/white</color>
     <color name="colorAccent">#194584</color>
@@ -16,4 +17,6 @@
     <color name="green">#FF4CAF50</color>
     <color name="darkgrey">#e0e0e0</color>
     <color name="button_blue">#194584</color>
+
+
 </resources>

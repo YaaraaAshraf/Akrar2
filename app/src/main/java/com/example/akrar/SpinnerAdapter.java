@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class SpinnerAdapter<T> extends ArrayAdapter<T> {
-
     enum ViewType {
         HEADER(0),
         ITEM(1);

@@ -1,5 +1,6 @@
 package com.example.akrar;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -36,7 +37,6 @@ public class FinancialAdapter extends RecyclerView.Adapter<FinancialAdapter.View
     @Override
     public void onBindViewHolder(@NonNull FinancialAdapter.ViewHolder holder, int position) {
         final Invoice myListData = invoices.get(position);
-
         if(invoices.get(position).getReceiver() !=null) {
             holder.txt_name.setText(holder.txt_name.getContext().getString(R.string.invoice_from,invoices.get(position).getReceiver().getFirstName()));
             holder.txt_user_id.setText(invoices.get(position).getReceiver().getNationalId());
@@ -79,6 +79,14 @@ public class FinancialAdapter extends RecyclerView.Adapter<FinancialAdapter.View
             this.txt_date=(TextView)itemView.findViewById(R.id.text_date);
             this.txt_user_id=(TextView)itemView.findViewById(R.id.txt_user_id);
             this.txt_type=(TextView)itemView.findViewById(R.id.text_type);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(),
+                            Financial_Invoice.class);
+                    v.getContext().startActivity(intent);
+                }
+            });
         }
     }
 }

@@ -50,7 +50,6 @@
             android:id="@+id/menuLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:orientation="vertical">
@@ -110,9 +109,5 @@
                 android:textSize="15dp" />
 
         </LinearLayout>
-
-
     </ScrollView>
-
-
 </RelativeLayout>

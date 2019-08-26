@@ -86,12 +86,12 @@ public class BondCashFragment extends AppCompatActivity {
         loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
         String token = userSharedPreferencesManager.getToken();
-        Call call = invoicesService.listInvoices("Bearer " + token);
+        Call call = invoicesService.listFinancialInvoices("Bearer " + token);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 loadingDialog.dismiss();
-                if (response.isSuccessful()) {
+                if (response.isSuccessful()){
                     ResObj<InvoicesData> data = (ResObj<InvoicesData>) response.body();
                     if (data.getStatus().equals("success")) {
                         if (isRecievedInvoicesSelected)
@@ -105,7 +105,6 @@ public class BondCashFragment extends AppCompatActivity {
                     Toast.makeText(BondCashFragment.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call call, Throwable t) {
                 loadingDialog.dismiss();
