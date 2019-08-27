@@ -29,11 +29,12 @@ public class Add_Financial_Invoice extends AppCompatActivity implements AdapterV
 
     Spinner spinner_paytype;
     ImageView image_document_arrow;
-    EditText user_id,desc;
+    EditText desc;
     Button btn_send, btn_payments;
     TextView txt_document_pay, txt_value, txt_date;
     InvoicesService FinancialService;
     AlertDialog loadingDialog;
+    Spinner user_id;
     String[] pay_type = {"كاش", "اجل"};
     final Calendar c = Calendar.getInstance();
     final int year = c.get(Calendar.YEAR);
@@ -53,7 +54,7 @@ public class Add_Financial_Invoice extends AppCompatActivity implements AdapterV
         txt_value = (TextView) findViewById(R.id.txt_value);
         txt_date = (TextView) findViewById(R.id.txt_date);
         btn_payments = (Button) findViewById(R.id.button_addpayments);
-        user_id=(EditText)findViewById(R.id.edtext_send_to);
+        user_id=(Spinner)findViewById(R.id.edtext_send_to);
         desc=(EditText)findViewById(R.id.text_description);
         btn_payments.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +114,7 @@ public class Add_Financial_Invoice extends AppCompatActivity implements AdapterV
         loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
         String token = userSharedPreferencesManager.getToken();
-        Call call = FinancialService.add_financial_invoice("Bearer" + token, user_id.getText().toString(),desc.getText().toString());
+        Call call = FinancialService.add_financial_invoice("Bearer" + token,desc.getText().toString());
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {

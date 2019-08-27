@@ -114,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) {
                 loadingDialog.dismiss();
-                if (response.isSuccessful()) {
+                if (response.isSuccessful()){
                     ResObj<LoginData> resObj = (ResObj<LoginData>) response.body();
                     if (resObj.getStatus().equals("success")) {
 //                  Toast.makeText(LoginActivity.this, "Token:"+ ((LoginData)resObj.getData()).getToken(), Toast.LENGTH_SHORT).show();

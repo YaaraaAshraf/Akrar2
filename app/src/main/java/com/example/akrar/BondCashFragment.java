@@ -1,5 +1,4 @@
 package com.example.akrar;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -77,7 +76,7 @@ public class BondCashFragment extends AppCompatActivity {
         });
     }
     @Override
-    protected void onResume() {
+    protected void onResume(){
         super.onResume();
         isRecievedInvoicesSelected = true;
         listInvoices();

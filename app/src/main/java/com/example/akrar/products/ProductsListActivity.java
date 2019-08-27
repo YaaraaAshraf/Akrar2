@@ -70,7 +70,6 @@ public class ProductsListActivity extends AppCompatActivity {
         });
 
     }
-
     @Override
     protected void onResume() {
         super.onResume();

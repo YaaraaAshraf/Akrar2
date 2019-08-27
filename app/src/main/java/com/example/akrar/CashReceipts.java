@@ -39,9 +39,8 @@ CashListAdapter adapter;
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
         container = (LinearLayout) findViewById(R.id.container);
-
-
         btn_payment.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -51,7 +50,7 @@ CashListAdapter adapter;
                 EditText editText_date= (EditText) addView.findViewById(R.id.editText_date);
                 EditText edit_value = (EditText) addView.findViewById(R.id.edit_value);
 
-                adapter.notifyDataSetChanged();
+
 
 //                    LayoutInflater layoutInflater =
 //                            (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);

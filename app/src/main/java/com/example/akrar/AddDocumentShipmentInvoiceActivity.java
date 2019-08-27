@@ -40,7 +40,6 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
     Spinner productsSpinner;
     Spinner currencySpinner;
     CheckBox existingProductCheckBox;
-
     InvoicesService invoicesService;
     ProductsService productsService;
     AlertDialog loadingDialog;

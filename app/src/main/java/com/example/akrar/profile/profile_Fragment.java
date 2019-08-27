@@ -106,14 +106,13 @@ public class profile_Fragment extends Fragment {
         return view;
       }
     private void doLogin(){
-
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getActivity().getApplicationContext());
         String token = userSharedPreferencesManager.getToken();
         Call call = userService.user("Bearer " + token);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-                if (response.isSuccessful()) {
+                if (response.isSuccessful()){
                     ResObj<LoginData> resObj = (ResObj<LoginData>) response.body();
                     if (resObj.getStatus().equals("success")) {
                         //use this user to fill the fields you have
@@ -122,7 +121,6 @@ public class profile_Fragment extends Fragment {
                         edtext_mail.setText(user.getEmail());
                         edtext_phone.setText(user.getMobile());
                         text_national_id.setText(user.getNationalID());
-
                     } else {
                         Toast.makeText(getContext(), "The username or password is incorrect", Toast.LENGTH_SHORT).show();
                     }
@@ -130,7 +128,6 @@ public class profile_Fragment extends Fragment {
                     Toast.makeText(getContext(), "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call call, Throwable t) {
                 Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();

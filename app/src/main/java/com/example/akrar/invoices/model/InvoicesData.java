@@ -18,13 +18,10 @@ public class InvoicesData {
     public void setInvoicesSent(List<Invoice> invoicesSent) {
         this.invoicesSent = invoicesSent;
     }
-
     public List<Invoice> getInvoicesRecieved() {
         return invoicesRecieved;
     }
-
     public void setInvoicesRecieved(List<Invoice> invoicesRecieved) {
         this.invoicesRecieved = invoicesRecieved;
     }
-
 }
