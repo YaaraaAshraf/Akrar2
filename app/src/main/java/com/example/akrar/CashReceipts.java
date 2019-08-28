@@ -50,8 +50,8 @@ CashListAdapter adapter;
                 EditText editText_date= (EditText) addView.findViewById(R.id.editText_date);
                 EditText edit_value = (EditText) addView.findViewById(R.id.edit_value);
                  container.addView(addView,0);
+
                  {
-                     
                 }
 
 //                    LayoutInflater layoutInflater =

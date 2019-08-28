@@ -73,9 +73,9 @@ public class Financial_Invoice extends AppCompatActivity {
             @Override
             public void onResponse(Call call,Response response){
                 if (response.isSuccessful()){
-                    ResObj<InvoicesData> resObj = (ResObj<InvoicesData>) response.body();
+                    ResObj<Invoice> resObj = (ResObj<Invoice>) response.body();
                     if (resObj.getStatus().equals("success")){
-
+                        InvoiceUser invoiceUser=resObj.getData().getReceiver();
                         txt_id.setText(invoice.getReceiver().getNationalId());
 //                        Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
 //                        F user = resObj.getData().getInvoicesRecieved();

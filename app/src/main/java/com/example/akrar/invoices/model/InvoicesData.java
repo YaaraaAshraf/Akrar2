@@ -1,5 +1,6 @@
 package com.example.akrar.invoices.model;
 
+import com.example.akrar.User;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
