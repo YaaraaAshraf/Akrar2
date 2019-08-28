@@ -120,7 +120,6 @@ public class LoginActivity extends AppCompatActivity {
 //                  Toast.makeText(LoginActivity.this, "Token:"+ ((LoginData)resObj.getData()).getToken(), Toast.LENGTH_SHORT).show();
                         UserSharedPreferencesManager userSharedPreferencesManager= UserSharedPreferencesManager.getInstance(LoginActivity.this.getApplicationContext());
                         userSharedPreferencesManager.saveToken(resObj.getData().getToken());
-
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         intent.putExtra("national_id", national_id);
                         startActivity(intent);

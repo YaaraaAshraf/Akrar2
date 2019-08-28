@@ -92,7 +92,7 @@ public class BondCashFragment extends AppCompatActivity {
                 loadingDialog.dismiss();
                 if (response.isSuccessful()){
                     ResObj<InvoicesData> data = (ResObj<InvoicesData>) response.body();
-                    if (data.getStatus().equals("success")) {
+                    if (data.getStatus().equals("success")){
                         if (isRecievedInvoicesSelected)
                             adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesRecieved());
                         else

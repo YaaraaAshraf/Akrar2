@@ -20,7 +20,7 @@ Button btn_payment,btn_send;
 LinearLayout container;
 RecyclerView recyclerView;
 CashListAdapter adapter;
-    ArrayList<String> listdata_cash;
+    ArrayList<String>listdata_cash;
     final Calendar c = Calendar.getInstance();
     final int year = c.get(Calendar.YEAR);
     final int month = c.get(Calendar.MONTH)+1;
@@ -49,8 +49,10 @@ CashListAdapter adapter;
                     final View addView = layoutInflater.inflate(R.layout.row_cash_receipts, null);
                 EditText editText_date= (EditText) addView.findViewById(R.id.editText_date);
                 EditText edit_value = (EditText) addView.findViewById(R.id.edit_value);
-
-
+                 container.addView(addView,0);
+                 {
+                     
+                }
 
 //                    LayoutInflater layoutInflater =
 //                            (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);

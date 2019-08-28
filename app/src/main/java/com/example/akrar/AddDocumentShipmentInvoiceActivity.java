@@ -43,7 +43,6 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
     InvoicesService invoicesService;
     ProductsService productsService;
     AlertDialog loadingDialog;
-
     CurrencySpinnerAdapter currencySpinnerAdapter;
     ProductsSpinnerAdapter productsSpinnerAdapter;
 
@@ -112,7 +111,6 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
         });
         img_back = findViewById(R.id.image_arrow_bond);
         img_back.setOnClickListener(view -> AddDocumentShipmentInvoiceActivity.this.finish());
-
         listCurrencies();
     }
     public void listCurrencies() {

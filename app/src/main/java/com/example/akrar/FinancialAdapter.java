@@ -28,18 +28,14 @@ import retrofit2.Response;
 
 public class FinancialAdapter extends RecyclerView.Adapter<FinancialAdapter.ViewHolder> {
     private ArrayList<Invoice> invoices;
-
     private Context getActivity;
-
     public FinancialAdapter(ArrayList<Invoice> invoices) {
         this.invoices = invoices;
     }
-
     public void setData(ArrayList<Invoice> invoices) {
         this.invoices = invoices;
         notifyDataSetChanged();
     }
-
     @NonNull
     @Override
     public FinancialAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -48,7 +44,6 @@ public class FinancialAdapter extends RecyclerView.Adapter<FinancialAdapter.View
         ViewHolder viewHolder = new ViewHolder(listItem);
         return viewHolder;
     }
-
     @Override
     public void onBindViewHolder(@NonNull FinancialAdapter.ViewHolder holder, int position) {
         final Invoice myListData = invoices.get(position);
@@ -68,7 +63,6 @@ public class FinancialAdapter extends RecyclerView.Adapter<FinancialAdapter.View
             color = new ColorDrawable(holder.txt_type.getContext().getResources().getColor(R.color.fabcolorxx));
         }
         holder.txt_type.setTextColor(((ColorDrawable) color).getColor());
-
     }
 //        holder.txt_name.setText(invoices.get(position).getReceiver().getFirstName());
 //        holder.txt_date.setText(invoices.get(position).getDate());

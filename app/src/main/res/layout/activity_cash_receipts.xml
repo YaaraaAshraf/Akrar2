@@ -31,18 +31,18 @@ android:background="@color/white">
         android:layout_centerVertical="true"
         app:srcCompat="@drawable/arrow" />
 </RelativeLayout>
-    <!--<ScrollView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_below="@id/app_bar"-->
-        <!--android:fillViewport="true">-->
-        <!--<LinearLayout-->
-            <!--android:id="@+id/menuLayout"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="20dp"-->
-            <!--android:layout_marginRight="20dp"-->
-            <!--android:orientation="vertical">-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/app_bar"
+        android:fillViewport="true">
+        <LinearLayout
+            android:id="@+id/menuLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical">
 
         <TextView
     android:id="@+id/textView3"
@@ -170,4 +170,6 @@ android:background="@color/white">
                 android:text="ارسال" />
 
         </LinearLayout>
+</LinearLayout>
+    </ScrollView>
 </LinearLayout>

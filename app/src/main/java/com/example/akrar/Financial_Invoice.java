@@ -26,7 +26,7 @@ public class Financial_Invoice extends AppCompatActivity {
     TextView txt_id, address, value, currency, product_name, product_unit, product_qantity, product_price, txt_desciption;
     ExpandableRelativeLayout expandableLayout1, expandableLayout2, expandableLayout3, expandableLayout4, expandableLayout5;
     InvoicesService invoicesService;
-
+    Invoice invoice;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,28 +65,28 @@ public class Financial_Invoice extends AppCompatActivity {
         expandableLayout5 = (ExpandableRelativeLayout) findViewById(R.id.expandableLayout_prod_one);
         expandableLayout5.toggle();
     }
-    private void showfinancialinvoice() {
+    private void showfinancialinvoice(){
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
         String token = userSharedPreferencesManager.getToken();
         Call call = invoicesService.showfinancialpayment("Bearer " + token);
-        call.enqueue(new Callback() {
+        call.enqueue(new Callback(){
             @Override
-            public void onResponse(Call call, Response response) {
-                if (response.isSuccessful()) {
-                    ResObj<FinancialinvoicesData> resObj = (ResObj<FinancialinvoicesData>) response.body();
+            public void onResponse(Call call,Response response){
+                if (response.isSuccessful()){
+                    ResObj<InvoicesData> resObj = (ResObj<InvoicesData>) response.body();
                     if (resObj.getStatus().equals("success")){
-                       Financialinvoice user = resObj.getData().getShipmentinvoice();
 
+                        txt_id.setText(invoice.getReceiver().getNationalId());
 //                        Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
 //                        F user = resObj.getData().getInvoicesRecieved();
 //                        txt_id.setText(user.getNationalID());
-                    } else {
+                          }else{
                         Toast.makeText(getApplicationContext(), " incorrect", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
-            }
+        }
             @Override
             public void onFailure(Call call, Throwable t) {
             }

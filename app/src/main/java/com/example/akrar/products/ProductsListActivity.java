@@ -1,6 +1,4 @@
 package com.example.akrar.products;
-
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -25,7 +23,6 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 public class ProductsListActivity extends AppCompatActivity {
     ImageView img_add, img_arrow;
     ProductsService productsService;
@@ -56,7 +53,6 @@ public class ProductsListActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
-//                back(new Mainpage_details());
             }
         });
 
@@ -68,14 +64,12 @@ public class ProductsListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
     @Override
     protected void onResume() {
         super.onResume();
         getProducts();
     }
-
     private void getProducts() {
         loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
@@ -95,7 +89,6 @@ public class ProductsListActivity extends AppCompatActivity {
 //                        edtext_mail.setText(user.getEmail());
 //                        edtext_phone.setText(user.getMobile());
 //                        text_national_id.setText(user.getNationalID());
-
                     } else {
                         Toast.makeText(ProductsListActivity.this.getApplicationContext(), "The username or password is incorrect", Toast.LENGTH_SHORT).show();
                     }
@@ -106,7 +99,6 @@ public class ProductsListActivity extends AppCompatActivity {
                     Toast.makeText(ProductsListActivity.this.getApplicationContext(), "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call call, Throwable t) {
                 loadingDialog.dismiss();

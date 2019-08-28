@@ -1,5 +1,4 @@
 package com.example.akrar.invoices;
-import com.example.akrar.FinancialinvoicesData;
 import com.example.akrar.invoices.model.CurrenciesData;
         import com.example.akrar.invoices.model.Invoice;
         import com.example.akrar.invoices.model.InvoicesData;
@@ -12,7 +11,6 @@ import com.example.akrar.invoices.model.CurrenciesData;
         import retrofit2.http.GET;
         import retrofit2.http.Header;
         import retrofit2.http.POST;
-        
 public interface InvoicesService {
 
     @GET("index_shipment_invoice")
@@ -26,13 +24,13 @@ public interface InvoicesService {
     Call<ResObj> add_financial_invoice (@Header("Authorization") String auth,
                                         @Field("shipment_invoice_id") String invoice_id);
 //                                        @Field("pay_type") String pay_type);
-    //                            @Field("description") String desc,
-//                            @Field("date") String date,
-//                            @Field("payment") String payment);
+    //                                    @Field("description") String desc,
+//                                        @Field("date") String date,
+//                                        @Field("payment") String payment);
     @GET("currency")
     Call<ResObj<CurrenciesData>> listCurrencies(@Header("Authorization") String auth);
 
     @GET("show_financial_invoice/5")
-    Call<ResObj<FinancialinvoicesData>>showfinancialpayment(@Header("Authorization") String auth);
+    Call<ResObj<InvoicesData>>showfinancialpayment(@Header("Authorization") String auth);
 }
 

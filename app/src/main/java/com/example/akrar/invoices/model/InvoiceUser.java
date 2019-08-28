@@ -1,7 +1,6 @@
 package com.example.akrar.invoices.model;
 
 import com.google.gson.annotations.SerializedName;
-
 public class InvoiceUser {
 
     @SerializedName("id")
@@ -30,8 +29,6 @@ public class InvoiceUser {
 
     @SerializedName("created_at")
     private String createdAt;
-
-
     public int getId() {
         return id;
     }
@@ -75,7 +72,6 @@ public class InvoiceUser {
     public String getNationalId() {
         return nationalId;
     }
-
     public void setNationalId(String nationalId) {
         this.nationalId = nationalId;
     }
@@ -103,5 +99,4 @@ public class InvoiceUser {
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
-
 }
