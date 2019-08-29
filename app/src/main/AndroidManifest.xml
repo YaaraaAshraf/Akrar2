@@ -46,6 +46,7 @@
         <!--<activity android:name=".BottomAppBar" /> &lt;!&ndash; <activity android:name=".Mainpage_details" /> &ndash;&gt;-->
         <activity android:name=".Document_shipment" /> <!-- <activity android:name=".ProductsListActivity" /> -->
         <activity android:name=".DocumentInvoiceListActivity" /> <!-- <activity android:name=".ProductsListActivity" /> -->
+        <activity android:name=".DocumentInvoiceDetailsActivity" /> <!-- <activity android:name=".ProductsListActivity" /> -->
         <activity android:name=".AddDocumentShipmentInvoiceActivity" />
         <activity android:name=".BondCashFragment" />
         <activity android:name=".Add_Financial_Invoice" /> <!-- <activity android:name=".Update_MyProfileFragment" /> -->

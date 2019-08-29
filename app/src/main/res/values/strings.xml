@@ -12,4 +12,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="invoice_from">سند قبض من %1$s</string>
     <string name="invoice_to">سند قبض الى %1$s</string>
+    <string name="productName"> اسم المنتج: %1$s</string>
+    <string name="amount"> الكمية: %1$s</string>
+    <string name="unit"> الوحدة: %1$s</string>
+    <string name="price"> السعر: %1$s</string>
+    <string name="product_number"> المنتج رقم: %1$d</string>
 </resources>

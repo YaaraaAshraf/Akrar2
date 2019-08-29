@@ -1,8 +1,10 @@
 package com.example.akrar;
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,15 +69,28 @@ public class InvoicesAdapter extends RecyclerView.Adapter<InvoicesAdapter.ViewHo
         return invoices.size();
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
+        CardView card_view;
         TextView txt_name,txt_date,txt_phone;
         CircleImageView status;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             this.txt_name=(TextView)itemView.findViewById(R.id.txt_name);
+            this.card_view= itemView.findViewById(R.id.card_view);
+            this.card_view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(),DocumentInvoiceDetailsActivity.class);
+                    intent.putExtra("Selected_invoice_id",invoices.get(ViewHolder.this.getAdapterPosition()).getId());
+                    intent.putExtra("Selected_invoice_type_sent",invoices.get(ViewHolder.this.getAdapterPosition()).getSender() !=null);
+                    v.getContext().startActivity(intent);
+//                    ViewHolder.this.getAdapterPosition()
+                }
+            });
             this.txt_date=(TextView)itemView.findViewById(R.id.txt_date);
             this.txt_phone=(TextView)itemView.findViewById(R.id.txt_national_id);
             this.status=itemView.findViewById(R.id.status);
         }
+
     }
 }
 

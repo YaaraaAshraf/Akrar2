@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/actionbar"
+        android:orientation="horizontal">
+
+
+        <ImageButton
+            android:id="@+id/img_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/arrow" />
+
+        <TextView
+            android:id="@+id/text_product"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="سند قبض عيني"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/data_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/national_id_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_frame_rectange">
+
+                <ToggleButton
+                    android:id="@+id/national_id_toggle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/collapsing_list_bg_selector"
+                    android:gravity="right|center_vertical"
+                    android:layout_margin="1dp"
+                    android:textOn="المرسل إليه (رقم الهوية أو الإقامة)"
+                    android:textOff="المرسل إليه (رقم الهوية أو الإقامة)"
+                    android:checked="true"/>
+
+                <TextView
+                    android:id="@+id/national_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    tools:text="67372767368"
+                    android:layout_margin="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/address_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_frame_rectange"
+                android:layout_marginTop="20dp">
+
+                <ToggleButton
+                    android:id="@+id/address_toggle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/collapsing_list_bg_selector"
+                    android:gravity="right|center_vertical"
+                    android:layout_margin="1dp"
+                    android:textOn="العنوان"
+                    android:textOff="العنوان"
+                    android:checked="true"/>
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    tools:text="67372767368"
+                    android:layout_margin="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/total_amount_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_frame_rectange"
+                android:layout_marginTop="20dp">
+
+                <ToggleButton
+                    android:id="@+id/total_amount_toggle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/collapsing_list_bg_selector"
+                    android:gravity="right|center_vertical"
+                    android:layout_margin="1dp"
+                    android:textOn="القيمة الكلية"
+                    android:textOff="القيمة الكلية"
+                    android:checked="true"/>
+
+                <TextView
+                    android:id="@+id/amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    tools:text="67372767368"
+                    android:layout_margin="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/currency_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_frame_rectange"
+                android:layout_marginTop="20dp">
+
+                <ToggleButton
+                    android:id="@+id/currency_toggle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/collapsing_list_bg_selector"
+                    android:gravity="right|center_vertical"
+                    android:layout_margin="1dp"
+                    android:textOn="العملة"
+                    android:textOff="العملة"
+                    android:checked="true"/>
+
+                <TextView
+                    android:id="@+id/currency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    tools:text="ريال سعودي"
+                    android:layout_margin="10dp"/>
+
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/products_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/view_product_list_item">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <LinearLayout
+                android:id="@+id/description_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_frame_rectange"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp">
+
+                <ToggleButton
+                    android:id="@+id/description_toggle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/collapsing_list_bg_selector"
+                    android:gravity="right|center_vertical"
+                    android:layout_margin="1dp"
+                    android:textOn="الوصف"
+                    android:textOff="الوصف"
+                    android:checked="true"/>
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    tools:text="بداية من الأن سوف تقدم الجارديان موضوعتها مترجمة باللغة العربية- ويمكن قراءتها على هذه الصفحة."
+                    android:layout_margin="10dp"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout><!--</androidx.cardview.widget.CardView>--><!--</RelativeLayout>-->

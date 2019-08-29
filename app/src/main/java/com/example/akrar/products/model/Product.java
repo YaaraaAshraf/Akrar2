@@ -29,16 +29,20 @@ import com.google.gson.annotations.SerializedName;
 public class Product {
     @SerializedName("name")
     private String name;
+    @SerializedName("unit")
     private String units;
     private String price;
+    private String quantity;
     private int img_edit, img_delete;
 
-    public Product(String name, String units, String price, int img_edit, int img_delete) {
+    Product product;
+
+
+    public Product(String name, String units, String price, String quantity) {
         this.name = name;
         this.units = units;
         this.price = price;
-        this.img_edit = img_edit;
-        this.img_delete = img_delete;
+        this.quantity = quantity;
     }
 
     public String getName() {
@@ -65,6 +69,14 @@ public class Product {
         this.price = price;
     }
 
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
+
     public int getImg_edit() {
         return img_edit;
     }
@@ -79,5 +91,13 @@ public class Product {
 
     public void setImg_delete(int img_delete) {
         this.img_delete = img_delete;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }
