@@ -33,7 +33,6 @@ import java.util.Locale;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
     ImageView img_back, img_calender;
     EditText txt_date, edtext_sendto_bonds, edt_address_bonds,
@@ -69,7 +68,6 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
 //        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-
 
         edtext_sendto_bonds = findViewById(R.id.edtext_sendto_bonds);
         edt_address_bonds = findViewById(R.id.edt_address_bonds);

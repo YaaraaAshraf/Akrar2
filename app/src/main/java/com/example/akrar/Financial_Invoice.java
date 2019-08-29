@@ -41,7 +41,7 @@ public class Financial_Invoice extends AppCompatActivity {
         product_qantity = (TextView) findViewById(R.id.text_value);
         product_price = (TextView) findViewById(R.id.text_prod_currency);
         txt_desciption = (TextView) findViewById(R.id.txt_description);
-        showfinancialinvoice();
+//        showfinancialinvoice();
     }
 
     public void expandableButton1(View view) {
@@ -65,31 +65,31 @@ public class Financial_Invoice extends AppCompatActivity {
         expandableLayout5 = (ExpandableRelativeLayout) findViewById(R.id.expandableLayout_prod_one);
         expandableLayout5.toggle();
     }
-    private void showfinancialinvoice(){
-        UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
-        String token = userSharedPreferencesManager.getToken();
-        Call call = invoicesService.showfinancialpayment("Bearer " + token);
-        call.enqueue(new Callback(){
-            @Override
-            public void onResponse(Call call,Response response){
-                if (response.isSuccessful()){
-                    ResObj<Invoice> resObj = (ResObj<Invoice>) response.body();
-                    if (resObj.getStatus().equals("success")){
-                        InvoiceUser invoiceUser=resObj.getData().getReceiver();
-                        txt_id.setText(invoice.getReceiver().getNationalId());
-//                        Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
-//                        F user = resObj.getData().getInvoicesRecieved();
-//                        txt_id.setText(user.getNationalID());
-                          }else{
-                        Toast.makeText(getApplicationContext(), " incorrect", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(getApplicationContext(), "Error! Please try again!", Toast.LENGTH_SHORT).show();
-                }
-        }
-            @Override
-            public void onFailure(Call call, Throwable t) {
-            }
-        });
+//    private void showfinancialinvoice(){
+//        UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
+//        String token = userSharedPreferencesManager.getToken();
+//        Call call = invoicesService.showfinancialpayment("Bearer " + token);
+//        call.enqueue(new Callback(){
+//            @Override
+//            public void onResponse(Call call,Response response){
+//                if (response.isSuccessful()){
+//                    ResObj<Invoice> resObj = (ResObj<Invoice>) response.body();
+//                    if (resObj.getStatus().equals("success")){
+//                        InvoiceUser invoiceUser=resObj.getData().getReceiver();
+//                        txt_id.setText(invoice.getReceiver().getNationalId());
+////                        Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+////                        F user = resObj.getData().getInvoicesRecieved();
+////                        txt_id.setText(user.getNationalID());
+//                          }else{
+//                        Toast.makeText(getApplicationContext(), " incorrect", Toast.LENGTH_SHORT).show();
+//                    }
+//                } else {
+//                    Toast.makeText(getApplicationContext(), "Error! Please try again!", Toast.LENGTH_SHORT).show();
+//                }
+//        }
+//            @Override
+//            public void onFailure(Call call, Throwable t) {
+//            }
+//        });
     }
-}
+//}

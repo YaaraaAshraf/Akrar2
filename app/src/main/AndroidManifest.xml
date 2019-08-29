@@ -49,7 +49,8 @@
         <activity android:name=".DocumentInvoiceDetailsActivity" /> <!-- <activity android:name=".ProductsListActivity" /> -->
         <activity android:name=".AddDocumentShipmentInvoiceActivity" />
         <activity android:name=".BondCashFragment" />
-        <activity android:name=".Add_Financial_Invoice" /> <!-- <activity android:name=".Update_MyProfileFragment" /> -->
+        <activity android:name=".Add_Financial_Invoice" />
+        <activity android:name=".FinancialInvoiceDetailsActivity"/><!-- <activity android:name=".Update_MyProfileFragment" /> -->
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">

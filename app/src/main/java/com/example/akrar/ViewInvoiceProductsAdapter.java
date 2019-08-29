@@ -39,7 +39,6 @@ public class ViewInvoiceProductsAdapter extends RecyclerView.Adapter<ViewInvoice
         ViewHolder viewHolder = new ViewHolder(listItem);
         return viewHolder;
     }
-
     @Override
     public void onBindViewHolder(@NonNull ViewInvoiceProductsAdapter.ViewHolder holder, int position) {
 //        final Product myListData = products.get(position);
@@ -51,8 +50,6 @@ public class ViewInvoiceProductsAdapter extends RecyclerView.Adapter<ViewInvoice
         holder.productToggle.setTextOn(holder.txt_name.getContext().getString(R.string.product_number,position+1));
         holder.productToggle.setTextOff(holder.txt_name.getContext().getString(R.string.product_number,position+1));
         holder.productToggle.setText(holder.txt_name.getContext().getString(R.string.product_number,position+1));
-
-
     }
     @Override
     public int getItemCount() {
@@ -68,7 +65,6 @@ public class ViewInvoiceProductsAdapter extends RecyclerView.Adapter<ViewInvoice
             super(itemView);
             this.productToggle=itemView.findViewById(R.id.product_toggle);
             this.product_layout=itemView.findViewById(R.id.product_sub_layout);
-
             this.productToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

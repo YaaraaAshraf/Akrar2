@@ -38,17 +38,13 @@ public class AddInvoiceProductsAdapter extends RecyclerView.Adapter<AddInvoicePr
         ViewHolder viewHolder = new ViewHolder(listItem);
         return viewHolder;
     }
-
     @Override
     public void onBindViewHolder(@NonNull AddInvoiceProductsAdapter.ViewHolder holder, int position) {
 //        final Product myListData = products.get(position);
-
 //        holder.edit_text_product.setText(holder.edit_text_product.getContext().getString(R.string.productName,products.get(position).getProduct().getName()));
 //        holder.txt_price.setText(holder.edit_text_product.getContext().getString(R.string.price,products.get(position).getPrice()));
 //        holder.text_unit.setText(holder.edit_text_product.getContext().getString(R.string.unit,products.get(position).getUnits()));
 //        holder.text_quantity.setText(holder.edit_text_product.getContext().getString(R.string.amount,products.get(position).getQuantity()));
-
-
     }
     @Override
     public int getItemCount() {

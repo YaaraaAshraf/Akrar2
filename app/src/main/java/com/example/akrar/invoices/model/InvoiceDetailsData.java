@@ -9,9 +9,12 @@ public class InvoiceDetailsData {
 
     @SerializedName("shipment_invoice")
     private Invoice shipmentInvoice;
-
+    @SerializedName("financial_invoice")
+    private Invoice financialInvoice;
     @SerializedName("shipment_products")
     private List<Product> products;
+    @SerializedName("products")
+    private List<Product> financialProducts;
 
     public Invoice getShipmentInvoice() {
         return shipmentInvoice;
@@ -27,5 +30,22 @@ public class InvoiceDetailsData {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+
+    public Invoice getFinancialInvoice() {
+        return financialInvoice;
+    }
+
+    public void setFinancialInvoice(Invoice financialInvoice) {
+        this.financialInvoice = financialInvoice;
+    }
+
+    public List<Product> getFinancialProducts() {
+        return financialProducts;
+    }
+
+    public void setFinancialProducts(List<Product> financialProducts) {
+        this.financialProducts = financialProducts;
     }
 }

@@ -49,6 +49,9 @@ public class Invoice {
     @SerializedName("currency")
     private Currency currency;
 
+    @SerializedName("shipment_invoice")
+    private Invoice shipmentInvoice;
+
     public int getId() {
         return id;
     }
@@ -166,4 +169,11 @@ public class Invoice {
     }
 
 
+    public Invoice getShipmentInvoice() {
+        return shipmentInvoice;
+    }
+
+    public void setShipmentInvoice(Invoice shipmentInvoice) {
+        this.shipmentInvoice = shipmentInvoice;
+    }
 }

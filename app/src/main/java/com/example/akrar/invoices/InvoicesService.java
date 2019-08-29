@@ -23,6 +23,9 @@ public interface InvoicesService {
     @GET("show_shipment_invoice/{index}")
     Call<ResObj<InvoiceDetailsData>> getInvoiceDetails(@Header("Authorization") String auth, @Path("index") long id);
 
+    @GET("show_financial_invoice/{index}")
+    Call<ResObj<InvoiceDetailsData>> getInvoiceFinancialDetails(@Header("Authorization") String auth, @Path("index") long id);
+
     @GET("index_financial_invoice")
     Call<ResObj<InvoicesData>> listFinancialInvoices(@Header("Authorization") String auth);
 
