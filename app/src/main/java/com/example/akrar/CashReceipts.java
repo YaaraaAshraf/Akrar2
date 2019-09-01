@@ -1,4 +1,5 @@
 package com.example.akrar;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -7,8 +8,10 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -48,9 +51,7 @@ CashListAdapter adapter;
         invoicesService = ApiUtils.getInvoicesService();
         productsService = ApiUtils.getProductsService();
 
-
-//        editText_date = (EditText) findViewById(R.id.editText_date);
-//        editText_value = (EditText) findViewById(R.id.editText_value);
+        editText_value = (EditText) findViewById(R.id.edittext_value);
         btn_add_payment = (Button) findViewById(R.id.btn_payments);
         btn_send=(Button)findViewById(R.id.btn_send);
          recyclerView=(RecyclerView)findViewById(R.id.cash_recycler);
@@ -59,6 +60,9 @@ CashListAdapter adapter;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
         container = (LinearLayout) findViewById(R.id.container);
+
+        editText_date = (EditText) findViewById(R.id.edittext_date);
+
         btn_add_payment.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

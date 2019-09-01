@@ -32,8 +32,6 @@ public class LoginActivity extends AppCompatActivity {
     AlertDialog loadingDialog;
     ImageButton img_arrow_back;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

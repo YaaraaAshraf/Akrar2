@@ -49,7 +49,7 @@
 
 
         <EditText
-            android:id="@+id/editText_date"
+            android:id="@+id/edittext_date"
             android:layout_width="190dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -63,7 +63,7 @@
             android:layout_height="match_parent" />
 
         <EditText
-            android:id="@+id/edit_value"
+            android:id="@+id/edittext_value"
             android:layout_width="190dp"
             android:layout_height="40dp"
             android:layout_weight="1"

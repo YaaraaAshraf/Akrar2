@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.akrar.Mainpage_details;
-import com.example.akrar.MyListAdapter;
+import com.example.akrar.NofificationAdapter;
 import com.example.akrar.MyListData;
 import com.example.akrar.R;
 public class NotifFragment extends Fragment {
@@ -49,7 +49,7 @@ ImageView arrow;
                 new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
                 new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
         };
-        MyListAdapter adapter = new MyListAdapter(myListData);
+        NofificationAdapter adapter = new NofificationAdapter(myListData);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);

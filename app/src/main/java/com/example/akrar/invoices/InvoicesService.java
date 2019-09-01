@@ -46,6 +46,9 @@ public interface InvoicesService {
     @GET("currency")
     Call<ResObj<CurrenciesData>> listCurrencies(@Header("Authorization") String auth);
 
+    @GET("notification")
+    Call<ResObj>getNotification(@Header("Authorization") String auth);
+
     @GET("show_financial_invoice/5")
     Call<ResObj<InvoicesData>> showfinancialpayment(@Header("Authorization") String auth);
 }

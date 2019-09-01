@@ -192,7 +192,6 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
             }
         });
     }
-
     public void listProducts() {
 //        loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());

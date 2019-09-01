@@ -150,10 +150,7 @@ public class Add_Financial_Invoice extends AppCompatActivity implements AdapterV
             btn_payments.setVisibility(View.GONE);
         } else
             btn_send.setVisibility(View.GONE);
-
-
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
