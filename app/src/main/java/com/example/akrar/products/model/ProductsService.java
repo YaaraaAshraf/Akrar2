@@ -24,5 +24,14 @@ public interface ProductsService {
     Call<ResObj> addProduct(@Header("Authorization") String auth,
                             @Field("name") String name);
 
+
+    @FormUrlEncoded
+    @POST("add_paid_payment/{index}")
+    Call<ResObj> addPayment(@Header("Authorization") String auth,
+                            @Field("date") String date,
+                            @Field("payment") String payment);
+
+
+
 }
 

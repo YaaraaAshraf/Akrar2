@@ -1,8 +1,4 @@
 package com.example.akrar;
-
-import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -26,7 +22,6 @@ public class ViewInvoiceProductsAdapter extends RecyclerView.Adapter<ViewInvoice
     public ViewInvoiceProductsAdapter(ArrayList<Product> products) {
         this.products = products;
     }
-
     public void setData(ArrayList<Product> invoices){
         this.products = invoices;
         notifyDataSetChanged();
@@ -42,7 +37,6 @@ public class ViewInvoiceProductsAdapter extends RecyclerView.Adapter<ViewInvoice
     @Override
     public void onBindViewHolder(@NonNull ViewInvoiceProductsAdapter.ViewHolder holder, int position) {
 //        final Product myListData = products.get(position);
-
         holder.txt_name.setText(holder.txt_name.getContext().getString(R.string.productName,products.get(position).getProduct().getName()));
         holder.txt_price.setText(holder.txt_name.getContext().getString(R.string.price,products.get(position).getPrice()));
         holder.txt_unit.setText(holder.txt_name.getContext().getString(R.string.unit,products.get(position).getUnits()));
@@ -72,14 +66,11 @@ public class ViewInvoiceProductsAdapter extends RecyclerView.Adapter<ViewInvoice
                 }
             });
             this.txt_name=(TextView)itemView.findViewById(R.id.product_name_text_view);
-
             this.txt_amount=(TextView)itemView.findViewById(R.id.amount_text_view);
             this.txt_unit=itemView.findViewById(R.id.unit_text_view);
             this.txt_price=itemView.findViewById(R.id.price_text_view);
         }
-
     }
 }
-
 
 

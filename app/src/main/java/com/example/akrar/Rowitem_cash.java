@@ -1,10 +1,29 @@
 package com.example.akrar;
 
+import com.example.akrar.products.model.Product;
+import com.google.gson.annotations.SerializedName;
+
 public class Rowitem_cash {
-    String payment, date;
 
-    public Rowitem_cash(String payment, String date) {
 
+    @SerializedName("date")
+    private String date;
+    @SerializedName("payment")
+    private String payment;
+    Rowitem_cash rowitem_cash;
+
+    public Rowitem_cash(String date, String payment) {
+        this.date = date;
+        this.payment = payment;
+        this.rowitem_cash = rowitem_cash;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getPayment() {
@@ -15,11 +34,7 @@ public class Rowitem_cash {
         this.payment = payment;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
+    public void setProduct(Rowitem_cash product) {
+        this.rowitem_cash = product;
     }
 }

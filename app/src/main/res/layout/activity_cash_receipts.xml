@@ -10,27 +10,36 @@ tools:context=".CashReceipts"
 android:background="@color/white">
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:background="@drawable/actionbar">
+    android:layout_height="90dp"
+    android:orientation="horizontal"
+android:background="@drawable/actionbar">
+
+    <ImageButton
+        android:id="@+id/image_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_centerVertical="true"
+        android:background="@null"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/arrow" />
 
     <TextView
-        android:id="@+id/text_my_profile"
-        android:layout_width="wrap_content"
+        android:id="@+id/txt_docu_bond"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="سندات قبض نقدي"
-        android:textColor="@color/black"
-        android:layout_centerInParent="true"/>
-
-    <ImageView
-        android:id="@+id/image_arrow"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:layout_marginTop="-20dp"
-        android:layout_marginLeft="27dp"
-        android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        app:srcCompat="@drawable/arrow" />
+        android:gravity="center"
+        android:text="سند قبض نقدي"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
 </RelativeLayout>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
     <!--<ScrollView-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="match_parent"-->
@@ -43,6 +52,12 @@ android:background="@color/white">
             <!--android:layout_marginLeft="20dp"-->
             <!--android:layout_marginRight="20dp"-->
             <!--android:orientation="vertical">-->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
 
         <TextView
     android:id="@+id/textView3"
@@ -58,11 +73,61 @@ android:background="@color/white">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/app_bar"
-        tools:listitem="@layout/row_cash_receipts"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+
+        tools:listitem="@layout/row_cash_receipts">
 
     </android.support.v7.widget.RecyclerView>
-<!--<LinearLayout-->
+
+    <Button
+    android:id="@+id/btn_payments"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="170dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="100dp"
+    android:background="@drawable/rounded_button"
+    android:drawableRight="@mipmap/add"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:text="اضافة دفعات اخري"/>
+
+    <Button
+    android:id="@+id/btn_send"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/rounded_button"
+    android:text="ارسال" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--<LinearLayout-->
     <!--android:layout_width="match_parent"-->
     <!--android:layout_height="140dp"-->
     <!--android:layout_marginHorizontal="40dp"-->
@@ -142,34 +207,33 @@ android:background="@color/white">
                 <!--</LinearLayout>-->
 
             <!--</LinearLayout>-->
-        <LinearLayout
-            android:id="@+id/container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <!--<LinearLayout-->
+            <!--android:id="@+id/container"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical">-->
 
 
-            <Button
-                android:id="@+id/btn_payments"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="170dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="70dp"
-                android:background="@drawable/rounded_button"
-                android:drawableRight="@mipmap/add"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="اضافة دفعات اخري"/>
+            <!--<Button-->
+                <!--android:id="@+id/btn_payments"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="170dp"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:layout_marginBottom="70dp"-->
+                <!--android:background="@drawable/rounded_button"-->
+                <!--android:drawableRight="@mipmap/add"-->
+                <!--android:paddingLeft="10dp"-->
+                <!--android:paddingRight="10dp"-->
+                <!--android:text="اضافة دفعات اخري"/>-->
 
-            <Button
-                android:id="@+id/btn_send"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/rounded_button"
-                android:text="ارسال" />
+            <!--<Button-->
+                <!--android:id="@+id/btn_send"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--android:background="@drawable/rounded_button"-->
+                <!--android:text="ارسال" />-->
 
-        </LinearLayout>
-</LinearLayout>
+
 

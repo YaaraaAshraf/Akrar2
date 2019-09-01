@@ -56,7 +56,7 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_shipment_invoice);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+              AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false); // if you want user to wait for some process to finish,
         builder.setView(R.layout.loading_dialog_layout);
         loadingDialog = builder.create();

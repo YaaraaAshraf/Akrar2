@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.akrar.invoices.model.Invoice;
+import com.example.akrar.products.model.Product;
 
 import java.util.ArrayList;
 public class CashListAdapter extends RecyclerView.Adapter<CashListAdapter.ViewHolder> {
@@ -15,6 +16,15 @@ public class CashListAdapter extends RecyclerView.Adapter<CashListAdapter.ViewHo
     public CashListAdapter(ArrayList<Rowitem_cash>listdata_cash) {
         this.listdata_cash = listdata_cash;
     }
+    public void setData(ArrayList<Rowitem_cash> invoices){
+        this.listdata_cash = invoices;
+        notifyDataSetChanged();
+    }
+    public void addPayment(Rowitem_cash payment){
+        this.listdata_cash.add(payment);
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public CashListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -26,8 +36,8 @@ public class CashListAdapter extends RecyclerView.Adapter<CashListAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull CashListAdapter.ViewHolder holder, int position) {
         final Rowitem_cash myListData = listdata_cash.get(position);
-        holder.edt_payment.setText(listdata_cash.get(position).getPayment());
-        holder.edt_date.setText(listdata_cash.get(position).getDate());
+//        holder.edt_payment.setText(listdata_cash.get(position).getPayment());
+//        holder.edt_date.setText(listdata_cash.get(position).getDate());
 
     }
     @Override
