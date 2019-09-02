@@ -60,16 +60,16 @@ ImageView arrow;
         return view;
     }
 
-    private boolean back(Fragment fragment) {
-        if (fragment != null) {
-            getFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.frame_container, fragment)
-                    .commit();
-            return true;
-        }
-        return false;
-    }
+//    private boolean back(Fragment fragment) {
+//        if (fragment != null) {
+//            getFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.frame_container, fragment)
+//                    .commit();
+//            return true;
+//        }
+//        return false;
+//    }
     }
 
 
