@@ -38,7 +38,7 @@ public interface UserService {
 @POST("logout")
 Call<ResObj> logout(@Header("Authorization") String auth);
     //                        @Field("") String lastname);
-
+    @FormUrlEncoded
     @POST("edit_profile")
     Call<Responseclass> editprofile(@Field("firstname") String firstname,
                                    @Field("lastname") String lastname,

@@ -42,6 +42,15 @@ public interface InvoicesService {
     Call<ResObj> add_financial_invoice(@Header("Authorization") String auth,
                                        @Field("shipment_invoice_id") String invoice_id);
 
+
+    @FormUrlEncoded
+    @POST("filter_shipment_invoice")
+    Call<ResObj> filterinvoice(@Header("Authorization") String auth,
+                                        @Field("national_id") String invoice_id,
+                                        @Field("from") String datefrom,
+                                        @Field("to") String dateto);
+
+
     @FormUrlEncoded
     @POST("add_shipment_invoice")
     Call<ResObj> addShipmentInvoice(@Header("Authorization") String auth,
