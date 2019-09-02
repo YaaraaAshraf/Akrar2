@@ -106,7 +106,6 @@ public class LoginActivity extends AppCompatActivity {
     public void doLogin(final String national_id, final String password) {
 
         loadingDialog.show();
-
         Call call = userService.login(national_id, password,"123456789");
         call.enqueue(new Callback() {
             @Override
@@ -121,6 +120,7 @@ public class LoginActivity extends AppCompatActivity {
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         intent.putExtra("national_id", national_id);
                         startActivity(intent);
+                        LoginActivity.this.finish();
 
                         //login start main activity
 //                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);

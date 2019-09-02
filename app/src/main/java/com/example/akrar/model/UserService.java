@@ -34,9 +34,10 @@ public interface UserService {
 //                             @Header("national_id") String national_id,
 //                             @Header("mobile") String mobile);
 
-    @FormUrlEncoded
-    @POST("logout")
-    Call<ResObj> logout(@Header("Authorization") String auth);
+
+@POST("logout")
+Call<ResObj> logout(@Header("Authorization") String auth);
+    //                        @Field("") String lastname);
 
     @POST("edit_profile")
     Call<Responseclass> editprofile(@Field("firstname") String firstname,
