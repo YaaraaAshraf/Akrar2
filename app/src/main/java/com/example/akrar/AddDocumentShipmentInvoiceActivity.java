@@ -27,21 +27,24 @@ import com.example.akrar.products.model.ProductsService;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
 public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
     ImageView img_back, img_calender;
     EditText txt_date, edtext_sendto_bonds, edt_address_bonds,
             edt_name_of_product_bonds, text_quantity_bonds,
             text_value_bonds, text_date_bonds, text_description_bonds, productNameEditText;
-    Button btn_send,addProductButton;
+    Button btn_send, addProductButton;
     Spinner productsSpinner;
     Spinner currencySpinner;
-    CheckBox existingProductCheckBox;
+    //    CheckBox existingProductCheckBox;
     InvoicesService invoicesService;
     ProductsService productsService;
     AlertDialog loadingDialog;
@@ -51,12 +54,14 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     AddInvoiceProductsAdapter adapter;
 
+    private ArrayList<Product> alreadyExistingProducts;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_shipment_invoice);
 
-              AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false); // if you want user to wait for some process to finish,
         builder.setView(R.layout.loading_dialog_layout);
         loadingDialog = builder.create();
@@ -65,6 +70,7 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.products_recycler_view);
         adapter = new AddInvoiceProductsAdapter(new ArrayList<Product>());
+
 //        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
@@ -73,23 +79,23 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
         edt_address_bonds = findViewById(R.id.edt_address_bonds);
         edt_name_of_product_bonds = findViewById(R.id.edt_name_of_product_bonds);
 //        productsSpinner = findViewById(R.id.spinner_product);
-//        currencySpinner = findViewById(R.id.spinner1_currency);
+        currencySpinner = findViewById(R.id.spinner1_currency);
 //        productNameEditText = findViewById(R.id.edit_text_product);
 
-        existingProductCheckBox = findViewById(R.id.existing_product_checkbox);
-        existingProductCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                productNameEditText.setVisibility(isChecked ? View.GONE : View.VISIBLE);
-//                productsSpinner.setVisibility(isChecked ? View.VISIBLE : View.GONE);
-            }
-        });
+//        existingProductCheckBox = findViewById(R.id.existing_product_checkbox);
+//        existingProductCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+////                productNameEditText.setVisibility(isChecked ? View.GONE : View.VISIBLE);
+////                productsSpinner.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+//            }
+//        });
         text_description_bonds = (EditText) findViewById(R.id.text_description_bonds);
         addProductButton = (Button) findViewById(R.id.button_payments);
         addProductButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                adapter.addProduct(new Product("Testing product","unit","4233","33"));
+                adapter.addProduct(new Product());
 //                st_date=txt_date.getText().toString();
 //                 st_sendto=edtext_sendto_bonds.getText().toString();
 //                 st_address=edt_address_bonds.getText().toString();
@@ -131,25 +137,31 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
         loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
         String token = userSharedPreferencesManager.getToken();
-        Call call = invoicesService.addShipmentInvoice("Bearer " + token,edtext_sendto_bonds.getText().toString(),"1","Company address 1","des","321");
+//        Call call = invoicesService.addShipmentInvoice("Bearer " + token,edtext_sendto_bonds.getText().toString(),"1","Company address 1","des","321",getProductsAsMap());
+        Call call = invoicesService.addShipmentInvoice("Bearer " + token, edtext_sendto_bonds.getText().toString()
+                , ""+((Currency)currencySpinner.getSelectedItem()).getId(), edt_address_bonds.getText().toString()
+                , text_description_bonds.getText().toString(), edt_name_of_product_bonds.getText().toString(), getProductsAsMap());
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
+                loadingDialog.dismiss();
                 if (response.isSuccessful()) {
-//                    ResObj<CurrenciesData> data = (ResObj<CurrenciesData>) response.body();
-//                    if (data.getStatus().equals("success")) {
-//
-////                        currencySpinnerAdapter = new CurrencySpinnerAdapter(AddDocumentShipmentInvoiceActivity.this,
-////                                R.layout.spinner_item, "Dollar");
-////                        currencySpinnerAdapter.setData((data.getData().getCurrencies()));
-////                        currencySpinner.setAdapter(currencySpinnerAdapter);
-//                    } else {
-//                        Toast.makeText(AddDocumentShipmentInvoiceActivity.this, "Failed to retrieve data", Toast.LENGTH_SHORT).show();
-//                    }
+                    ResObj<CurrenciesData> data = (ResObj<CurrenciesData>) response.body();
+                    if (data.getStatus().equals("success")) {
+
+                        Toast.makeText(AddDocumentShipmentInvoiceActivity.this, "Shipment invoice added successfully", Toast.LENGTH_SHORT).show();
+                        AddDocumentShipmentInvoiceActivity.this.finish();
+//                        currencySpinnerAdapter = new CurrencySpinnerAdapter(AddDocumentShipmentInvoiceActivity.this,
+//                                R.layout.spinner_item, "Dollar");
+//                        currencySpinnerAdapter.setData((data.getData().getCurrencies()));
+//                        currencySpinner.setAdapter(currencySpinnerAdapter);
+                    } else {
+                        Toast.makeText(AddDocumentShipmentInvoiceActivity.this, "Failed to retrieve data", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
                     Toast.makeText(AddDocumentShipmentInvoiceActivity.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
-                listProducts();
+//                listProducts();
             }
 
             @Override
@@ -158,6 +170,47 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
                 Toast.makeText(AddDocumentShipmentInvoiceActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private Map<String, String> getProductsAsMap() {
+        HashMap<String, String> productsMap = new HashMap<>();
+        ArrayList<Product> products = adapter.getProducts();
+        Product product = null;
+        for (int i = 0; i < products.size(); i++) {
+            product = products.get(i);
+
+            if (product.getProduct_id() != null) {
+                String productIDKey = "products[" + i + "][product_id]";
+                productsMap.put(productIDKey, product.getProduct_id());
+            } else {
+                String nameKey = "products[" + i + "][name]";
+                productsMap.put(nameKey, product.getName());
+            }
+
+            if (product.getQuantity() != null) {
+                String quantityKey = "products[" + i + "][quantity]";
+                productsMap.put(quantityKey, product.getQuantity());
+            }
+
+            if (product.getUnits() != null) {
+                String unitKey = "products[" + i + "][unit]";
+                productsMap.put(unitKey, product.getUnits());
+            }
+
+            if (product.getPrice() != null) {
+                String priceKey = "products[" + i + "][price]";
+                productsMap.put(priceKey, product.getPrice());
+            }
+
+            if (product.getStatus() != null) {
+                String statusKey = "products[" + i + "][status]";
+                productsMap.put(statusKey, product.getStatus());
+            }
+
+
+        }
+
+        return productsMap;
     }
 
     public void listCurrencies() {
@@ -172,10 +225,10 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
                     ResObj<CurrenciesData> data = (ResObj<CurrenciesData>) response.body();
                     if (data.getStatus().equals("success")) {
 
-//                        currencySpinnerAdapter = new CurrencySpinnerAdapter(AddDocumentShipmentInvoiceActivity.this,
-//                                R.layout.spinner_item, "Dollar");
-//                        currencySpinnerAdapter.setData((data.getData().getCurrencies()));
-//                        currencySpinner.setAdapter(currencySpinnerAdapter);
+                        currencySpinnerAdapter = new CurrencySpinnerAdapter(AddDocumentShipmentInvoiceActivity.this,
+                                R.layout.spinner_item, "Dollar");
+                        currencySpinnerAdapter.setData((data.getData().getCurrencies()));
+                        currencySpinner.setAdapter(currencySpinnerAdapter);
                     } else {
                         Toast.makeText(AddDocumentShipmentInvoiceActivity.this, "Failed to retrieve data", Toast.LENGTH_SHORT).show();
                     }
@@ -192,6 +245,7 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
             }
         });
     }
+
     public void listProducts() {
 //        loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
@@ -206,6 +260,9 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
                     if (data.getStatus().equals("success")) {
 //                        productsSpinnerAdapter = new ProductsSpinnerAdapter(AddDocumentShipmentInvoiceActivity.this,
 //                                R.layout.spinner_item, "Product");
+                        adapter.addProduct(new Product());
+                        alreadyExistingProducts = (ArrayList<Product>) data.getData().getProducts();
+                        adapter.setAlreadyExistingProducts(alreadyExistingProducts);
 //                        productsSpinnerAdapter.setData((data.getData().getProducts()));
 //                        productsSpinner.setAdapter(productsSpinnerAdapter);
                     } else {

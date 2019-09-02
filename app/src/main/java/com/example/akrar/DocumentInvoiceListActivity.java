@@ -49,7 +49,9 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
 //        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+        isRecievedInvoicesSelected = true;
         aSwitch = (Switch) findViewById(R.id.switch_docu);
+        aSwitch.setChecked(false);
         aSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             isRecievedInvoicesSelected = isChecked;
             listInvoices();
@@ -81,8 +83,15 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        isRecievedInvoicesSelected = true;
-        listInvoices();
+
+
+//        aSwitch.performClick();
+        aSwitch.setChecked(isRecievedInvoicesSelected);
+
+        if(aSwitch.isChecked() == isRecievedInvoicesSelected)
+            listInvoices();
+//        isRecievedInvoicesSelected = true;
+//        listInvoices();
     }
     public void listInvoices() {
         loadingDialog.show();
@@ -97,9 +106,9 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
                     ResObj<InvoicesData> data = (ResObj<InvoicesData>) response.body();
                     if (data.getStatus().equals("success")) {
                         if (isRecievedInvoicesSelected)
-                            adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesRecieved());
-                        else
                             adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesSent());
+                        else
+                            adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesRecieved());
 
                     } else {
                         Toast.makeText(DocumentInvoiceListActivity.this, "Failed to retrieve data", Toast.LENGTH_SHORT).show();

@@ -31,18 +31,29 @@ public class Product {
     private String name;
     @SerializedName("unit")
     private String units;
+    @SerializedName("price")
     private String price;
+    @SerializedName("quantity")
     private String quantity;
+
+    @SerializedName("status")
+    private String status;
+    @SerializedName("id")
+    private String product_id;
     private int img_edit, img_delete;
 
     Product product;
 
 
-    public Product(String name, String units, String price, String quantity) {
+    public Product(String name, String units, String price, String quantity, String status) {
         this.name = name;
         this.units = units;
         this.price = price;
         this.quantity = quantity;
+        this.status = status;
+    }
+
+    public Product() {
     }
 
     public String getName() {
@@ -98,5 +109,21 @@ public class Product {
     }
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getProduct_id() {
+        return product_id;
+    }
+
+    public void setProduct_id(String product_id) {
+        this.product_id = product_id;
     }
 }

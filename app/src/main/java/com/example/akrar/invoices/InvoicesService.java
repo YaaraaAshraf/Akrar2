@@ -5,15 +5,23 @@ import com.example.akrar.invoices.model.Invoice;
 import com.example.akrar.invoices.model.InvoiceDetailsData;
 import com.example.akrar.invoices.model.InvoicesData;
 import com.example.akrar.model.ResObj;
+import com.example.akrar.products.model.Product;
 import com.example.akrar.products.model.ProductData;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
+import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 
 public interface InvoicesService {
 
@@ -37,11 +45,12 @@ public interface InvoicesService {
     @FormUrlEncoded
     @POST("add_shipment_invoice")
     Call<ResObj> addShipmentInvoice(@Header("Authorization") String auth,
-                                    @Field("national_id") String national_id,
-                                    @Field("currency_id") String currency_id,
-                                    @Field("address") String address,
-                                    @Field("description") String description,
-                                    @Field("total") String total);
+                                    @Field(value = "national_id",encoded = true) String national_id,
+                                    @Field(value = "currency_id",encoded = true) String currency_id,
+                                    @Field(value = "address",encoded = true) String address,
+                                    @Field(value = "description",encoded = true) String description,
+                                    @Field(value = "total",encoded = true) String total,
+                                    @FieldMap Map<String,String> products);
 
     @GET("currency")
     Call<ResObj<CurrenciesData>> listCurrencies(@Header("Authorization") String auth);

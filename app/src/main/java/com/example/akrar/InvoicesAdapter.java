@@ -42,11 +42,11 @@ public class InvoicesAdapter extends RecyclerView.Adapter<InvoicesAdapter.ViewHo
     public void onBindViewHolder(@NonNull InvoicesAdapter.ViewHolder holder, int position) {
         final Invoice myListData = invoices.get(position);
         if(invoices.get(position).getReceiver() !=null) {
-            holder.txt_name.setText(holder.txt_name.getContext().getString(R.string.invoice_from,invoices.get(position).getReceiver().getFirstName()));
+            holder.txt_name.setText(holder.txt_name.getContext().getString(R.string.invoice_to,invoices.get(position).getReceiver().getFirstName()));
             holder.txt_phone.setText(invoices.get(position).getReceiver().getNationalId());
         }
         else if(invoices.get(position).getSender() !=null) {
-            holder.txt_name.setText(holder.txt_name.getContext().getString(R.string.invoice_to,invoices.get(position).getSender().getFirstName()));
+            holder.txt_name.setText(holder.txt_name.getContext().getString(R.string.invoice_from,invoices.get(position).getSender().getFirstName()));
             holder.txt_phone.setText(invoices.get(position).getSender().getNationalId());
         }
         holder.txt_date.setText(invoices.get(position).getDate());
