@@ -26,7 +26,7 @@ public interface UserService {
                                    @Field("mobile") String mobile,
                                    @Field("password") String password,
                                    @Field("password_confirmation") String password_confirmation,
-                                       @Field("device_id") String deviceId);
+                                   @Field("device_id") String deviceId);
 
 
 

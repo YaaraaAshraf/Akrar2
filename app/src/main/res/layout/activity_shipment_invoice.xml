@@ -308,7 +308,6 @@
                     android:layout_height="match_parent"
                     android:textColor="#9e9e9e"
                     android:layout_marginBottom="30dp"
-                    android:text="هناك حقيقة مثبتة منذ زمن طويل"
                     android:layout_marginLeft="30dp"/>
             </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
 

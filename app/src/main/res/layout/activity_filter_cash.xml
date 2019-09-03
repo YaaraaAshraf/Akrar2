@@ -7,39 +7,40 @@
     android:orientation="vertical"
     tools:context="com.example.akrar.FilterActivity"
     android:background="@color/white">
-    <RelativeLayout
-        android:id="@+id/app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal">
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/app_bar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:orientation="horizontal">-->
         <TextView
             android:id="@+id/text_results"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             android:text="تصفية النتائج"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+           />
 
-    </RelativeLayout>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!--</RelativeLayout>-->
+    <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:orientation="vertical">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="right"-->
+            <!--android:orientation="vertical">-->
 
             <TextView
                 android:id="@+id/txt_name-phone"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="30dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:text="الاسم او الرقم"
                 android:textColor="@color/black"
                 android:textSize="15dp" />
@@ -48,71 +49,77 @@
                 android:id="@+id/edtext_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:inputType="number"
-                android:paddingLeft="6dp"
-                android:paddingRight="15dp"
-                android:textColor="#000000"
                 android:textColorHint="@color/grey" />
 
             <TextView
                 android:id="@+id/txt_date_cash"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="30dp"
-                android:text="التاريخ من"
-                android:textColor="@color/black"
-                android:textSize="15dp" />
-
-            <EditText
-                android:id="@+id/edt_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:drawableLeft="@drawable/calendar"
-                android:drawablePadding="6dp"
-                android:inputType="textPersonName"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:textColor="@color/black" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:text="التاريخ من"
+                android:textColor="@color/black"
+                />
+
+
+    <TextView
+        android:id="@+id/edt_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/calendar"
+        android:drawablePadding="6dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/black"
+        style="@style/Ekrar.EditText"
+        android:clickable="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
 
             <TextView
                 android:id="@+id/txt_datefrom"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
                 android:text="التاريخ الى"
                 android:textColor="@color/black"
-                android:textSize="15dp" />
+               />
 
             <EditText
                 android:id="@+id/edt_datefrom"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/rounded_edittext"
                 android:drawableLeft="@drawable/calendar"
                 android:drawablePadding="6dp"
-                android:inputType="textPersonName"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:textColor="@color/black" />
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/black"
+                style="@style/Ekrar.EditText"
+                android:clickable="true"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
 
             <TextView
                 android:id="@+id/txt_document_pay"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
                 android:text="نوع السند"
                 android:textColor="@color/black"
                 android:textSize="15dp" />
@@ -128,13 +135,12 @@
 
             <Button
                 android:id="@+id/btn_search"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="60dp"
-                android:layout_marginRight="60dp"
+                android:paddingRight="60dp"
+                android:paddingLeft="60dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
                 android:text="بحث" />
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
