@@ -81,6 +81,39 @@ public class FinancialInvoiceListActivity extends AppCompatActivity {
         isRecievedInvoicesSelected = true;
         listInvoices();
     }
+
+    public void applySearch(String name, String from, String to, String paytype){
+        loadingDialog.show();
+        UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
+        String token = userSharedPreferencesManager.getToken();
+        Call call = invoicesService.filterFinancialInvoices("Bearer " + token, isRecievedInvoicesSelected?"0":"1",name,from,to,paytype);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                loadingDialog.dismiss();
+                if (response.isSuccessful()) {
+                    ResObj<InvoicesData> data = (ResObj<InvoicesData>) response.body();
+                    if (data.getStatus().equals("success")) {
+                        if (isRecievedInvoicesSelected)
+                            adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesRecieved());
+                        else
+                            adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesSent());
+                    } else {
+                        Toast.makeText(FinancialInvoiceListActivity.this, "Failed to retrieve data", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(FinancialInvoiceListActivity.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                loadingDialog.dismiss();
+                Toast.makeText(FinancialInvoiceListActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
     private void listInvoices() {
         loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());

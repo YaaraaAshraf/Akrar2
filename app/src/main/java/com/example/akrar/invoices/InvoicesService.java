@@ -36,6 +36,15 @@ public interface InvoicesService {
                                               @Field ("from") String from,
                                               @Field ("to") String to);
 
+    @FormUrlEncoded
+    @POST("filter_financial_invoice")
+    Call<ResObj<InvoicesData>> filterFinancialInvoices(@Header("Authorization") String auth,
+                                              @Field ("status") String status,
+                                              @Field ("national_id") String nationalID,
+                                              @Field ("from") String from,
+                                              @Field ("pay_type") String paytype,
+                                              @Field ("to") String to);
+
     @GET("show_shipment_invoice/{index}")
     Call<ResObj<InvoiceDetailsData>> getInvoiceDetails(@Header("Authorization") String auth, @Path("index") long id);
 
@@ -50,13 +59,13 @@ public interface InvoicesService {
     Call<ResObj> add_financial_invoice(@Header("Authorization") String auth,
                                        @Field("shipment_invoice_id") String invoice_id);
 
-
-    @FormUrlEncoded
-    @POST("filter_shipment_invoice")
-    Call<ResObj> filterinvoice(@Header("Authorization") String auth,
-                                        @Field("national_id") String invoice_id,
-                                        @Field("from") String datefrom,
-                                        @Field("to") String dateto);
+//
+//    @FormUrlEncoded
+//    @POST("filter_shipment_invoice")
+//    Call<ResObj> filterinvoice(@Header("Authorization") String auth,
+//                                        @Field("national_id") String invoice_id,
+//                                        @Field("from") String datefrom,
+//                                        @Field("to") String dateto);
 
 
     @FormUrlEncoded

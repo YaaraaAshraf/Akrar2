@@ -23,11 +23,20 @@ public class BottomsheetDialogCash extends BottomSheetDialogFragment implements 
     EditText txt_dateTo,txt_datefrom,txt_userid;
     Spinner spinner_cash;
     TextView txt_datecash;
+    TextView txtdateTo, txtdatefrom;
+    Button search,clear;
     Button btn_search;
     final Calendar c = Calendar.getInstance();
     final int year = c.get(Calendar.YEAR);
-    final int month = c.get(Calendar.MONTH)+1;
+    final int month = c.get(Calendar.MONTH) + 1;
     final int day = c.get(Calendar.DAY_OF_MONTH);
+
+    EditText name;
+    Calendar from;
+    Calendar to;
+
+    private DatePickerDialog datePickerFrom;
+    private DatePickerDialog datePickerTo;
     String[] pay_type = {"كاش", "اجل"};
     @SuppressLint("RestrictedApi")
     @Override
@@ -35,86 +44,66 @@ public class BottomsheetDialogCash extends BottomSheetDialogFragment implements 
         super.setupDialog(dialog, style);
         View contentview=View.inflate(getContext(),R.layout.activity_filter_cash,null);
         dialog.setContentView(contentview);
-        btn_search=(Button)contentview.findViewById(R.id.button_search);
+        from = Calendar.getInstance();
+        to = Calendar.getInstance();
+        txt_userid=contentview.findViewById(R.id.edtext_id);
+
+       name=(EditText)contentview.findViewById(R.id.edtext_id);
+        btn_search = (Button) contentview.findViewById(R.id.btn_search);
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"gggg",Toast.LENGTH_LONG).show();
+                ((FinancialInvoiceListActivity) getActivity()).applySearch(name.getText().toString(), txt_datefrom.getText().toString(), txt_dateTo.getText().toString(),spinner_cash.getSelectedItem().toString());
+//                getActivity().getIntent().putExtra("name",name.getText().toString());
+//                getActivity().getIntent().putExtra("from",txt_dateTo.getText().toString());
+//                getActivity().getIntent().putExtra("to",txt_dateTo.getText().toString());
+                BottomsheetDialogCash.this.dismiss();
+//                Toast.makeText(getContext(),"gggg",Toast.LENGTH_LONG).show();
             }
         });
-        spinner_cash=(Spinner)contentview.findViewById(R.id.spinner_cash);
-//        txt_datecash=(TextView)contentview.findViewById(R.id.txt_datecash);
-//        spinner_deposite_cash.setOnItemSelectedListener(this);
-        spinner_cash.setOnItemSelectedListener(this);
-        ArrayAdapter aa = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, pay_type);
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //Setting the ArrayAdapter data on the Spinner
-        spinner_cash.setAdapter(aa);
-//        edt_datecash=(EditText)contentview.findViewById(R.id.edt_datecash);
-//        edt_datecash.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                if(event.getAction() == MotionEvent.ACTION_UP) {
-//                    if(event.getRawX() <= edt_datecash.getTotalPaddingLeft()) {
-//                        // your action for drawable click event
-//                        DatePickerDialog datePicker = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
-//                            @Override
-//                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-//                                edt_datecash.setText(year + "/" + monthOfYear + "/" + dayOfMonth);
-//                            }
-//                        }, year, month, day);
-//                        datePicker.setTitle("Choose Date");
-//                        datePicker.show();
-//                        return true;
-//                    }
-//                }
-//                return false;
-//            }
-//        });
-        txt_dateTo=(EditText)contentview.findViewById(R.id.edt_date);
         txt_datefrom=(EditText)contentview.findViewById(R.id.edt_datefrom);
-        txt_datefrom.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == MotionEvent.ACTION_UP) {
-                    if(event.getRawX() <= txt_datefrom.getTotalPaddingLeft()) {
-                        // your action for drawable click event
-                        DatePickerDialog datePicker = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                txt_datefrom.setText(year + "/" + monthOfYear + "/" + dayOfMonth);
-                            }
-                        }, year, month, day);
-                        datePicker.setTitle("Choose Date");
-                        datePicker.show();
-                        return true;
-                    }
+        txt_datefrom.setOnClickListener(v -> {
+            datePickerFrom = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                    txt_datefrom.setText(year + "-" + month + "-" + dayOfMonth);
+                    txt_dateTo.setText("");
+                    to.clear();
+                    from.set(Calendar.YEAR, year);
+                    from.set(Calendar.MONTH, month);
+                    from.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                 }
-                return false;
-            }
+            }, year, month, day);
+            datePickerFrom.setCancelable(true);
+            datePickerFrom.setCanceledOnTouchOutside(true);
+            datePickerFrom.show();
+        });
+        txt_dateTo=(EditText)contentview.findViewById(R.id.edt_date);
+        txt_dateTo.setOnClickListener(v -> {
+            datePickerTo = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                    txt_dateTo.setText(year + "-" + month + "-" + dayOfMonth);
+                    to.set(Calendar.YEAR, year);
+                    to.set(Calendar.MONTH, month);
+                    to.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                }
+            }, year, month, day);
+            datePickerTo.getDatePicker().setMinDate(from.getTimeInMillis());
+            datePickerTo.setCancelable(true);
+            datePickerTo.setCanceledOnTouchOutside(true);
+            datePickerTo.show();
         });
 
-        txt_dateTo.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == MotionEvent.ACTION_UP) {
-                    if(event.getRawX() <= txt_dateTo.getTotalPaddingLeft()) {
-                        // your action for drawable click event
-                        DatePickerDialog datePicker = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                txt_dateTo.setText(year + "/" + monthOfYear + "/" + dayOfMonth);
-                            }
-                        }, year, month, day);
-                        datePicker.setTitle("Choose Date");
-                        datePicker.show();
-                        return true;
-                    }
-                }
-                return false;
+                spinner_cash = (Spinner) contentview.findViewById(R.id.spinner_cash);
+//        txt_datecash=(TextView)contentview.findViewById(R.id.txt_datecash);
+//        spinner_deposite_cash.setOnItemSelectedListener(this);
+                spinner_cash.setOnItemSelectedListener(this);
+                ArrayAdapter aa = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, pay_type);
+                aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                //Setting the ArrayAdapter data on the Spinner
+                spinner_cash.setAdapter(aa);
             }
-        });
-    }
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 

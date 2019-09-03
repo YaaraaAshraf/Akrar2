@@ -28,7 +28,6 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
     ImageView img_back, img_calender;
     EditText txt_date, edtext_sendto_bonds, edt_address_bonds,
@@ -90,7 +89,6 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
             }
         });
     }
-
     public void addShipmentInvoice() {
         loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
@@ -116,7 +114,6 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
                     Toast.makeText(AddDocumentShipmentInvoiceActivity.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call call, Throwable t) {
                 loadingDialog.dismiss();

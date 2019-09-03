@@ -26,6 +26,7 @@ public class BottomsheetDialog extends BottomSheetDialogFragment {
     final int year = c.get(Calendar.YEAR);
     final int month = c.get(Calendar.MONTH) + 1;
     final int day = c.get(Calendar.DAY_OF_MONTH);
+
     EditText name;
 
     Calendar from;
@@ -43,7 +44,6 @@ public class BottomsheetDialog extends BottomSheetDialogFragment {
 
         from = Calendar.getInstance();
         to = Calendar.getInstance();
-
         name = contentview.findViewById(R.id.edtext_namephone);
 
 
@@ -94,7 +94,6 @@ public class BottomsheetDialog extends BottomSheetDialogFragment {
 
             }
         });
-
         search = contentview.findViewById(R.id.button_search);
         search.setOnClickListener(new View.OnClickListener() {
             @Override

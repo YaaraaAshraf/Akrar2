@@ -45,7 +45,7 @@
                 android:textSize="15dp" />
 
             <EditText
-                android:id="@+id/edtext_name-phone"
+                android:id="@+id/edtext_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -127,7 +127,7 @@
                 android:background="@drawable/rounded_edittext" />
 
             <Button
-                android:id="@+id/button_search"
+                android:id="@+id/btn_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
