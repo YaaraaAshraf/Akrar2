@@ -114,7 +114,11 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
                     }
                 } else {
                     try {
-                        Toast.makeText(AddDocumentShipmentInvoiceActivity.this, response.errorBody()!= null?response.errorBody().string():"Error! Please try again!", Toast.LENGTH_SHORT).show();
+                        if(response.code() ==401)
+                            Toast.makeText(AddDocumentShipmentInvoiceActivity.this, response.errorBody()!= null?response.errorBody().string():"Error! Please try again!", Toast.LENGTH_SHORT).show();
+                        else
+                            Toast.makeText(AddDocumentShipmentInvoiceActivity.this, "Error! Please make sure all fields are filled with valid values!", Toast.LENGTH_SHORT).show();
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
