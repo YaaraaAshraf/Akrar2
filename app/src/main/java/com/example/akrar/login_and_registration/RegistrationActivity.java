@@ -122,6 +122,9 @@ public class RegistrationActivity extends AppCompatActivity {
             Toast.makeText(RegistrationActivity.this, "Password is required", Toast.LENGTH_SHORT).show();
             return false;
         }
+        if (national_id.isEmpty()){
+            Toast.makeText(RegistrationActivity.this, "National ID is required", Toast.LENGTH_SHORT).show();
+        }
         return true;
     }
 
