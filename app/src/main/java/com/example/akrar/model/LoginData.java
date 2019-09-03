@@ -10,6 +10,8 @@ public class LoginData {
     @SerializedName("user")
     private User user;
 
+
+
     public String getToken() {
         return token;
     }

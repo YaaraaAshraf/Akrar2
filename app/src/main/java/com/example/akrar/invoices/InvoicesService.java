@@ -57,7 +57,9 @@ public interface InvoicesService {
     @FormUrlEncoded
     @POST("add_financial_invoice")
     Call<ResObj> add_financial_invoice(@Header("Authorization") String auth,
-                                       @Field("shipment_invoice_id") String invoice_id);
+                                       @Field("shipment_invoice_id") String invoice_id,
+                                       @Field("pay_type") String paymentType,
+                                       @Field("description") String description);
 
 //
 //    @FormUrlEncoded

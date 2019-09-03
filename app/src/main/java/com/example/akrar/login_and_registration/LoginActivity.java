@@ -19,6 +19,7 @@ import com.example.akrar.model.ApiUtils;
 import com.example.akrar.model.LoginData;
 import com.example.akrar.model.ResObj;
 import com.example.akrar.model.UserService;
+import com.google.gson.Gson;
 
 import java.io.IOException;
 
@@ -138,7 +139,15 @@ public class LoginActivity extends AppCompatActivity {
 //                    startActivity(intent);
 //                    response.errorBody();
                     try {
-                        Toast.makeText(LoginActivity.this, response.errorBody()!= null?response.errorBody().string():"Failed to Login!", Toast.LENGTH_SHORT).show();
+                        if(response.errorBody()!= null) {
+                            Gson gson = new Gson();
+                            ResObj<String> error = gson.fromJson(response.errorBody().string(), ResObj.class);
+                            Toast.makeText(LoginActivity.this, error.getError(), Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                            Toast.makeText(LoginActivity.this, "Failed to Login!", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(LoginActivity.this, response.errorBody()!= null?response.errorBody().string():"Failed to Login!", Toast.LENGTH_SHORT).show();
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

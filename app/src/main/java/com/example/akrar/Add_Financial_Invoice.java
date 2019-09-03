@@ -16,9 +16,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.akrar.invoices.InvoicesService;
+import com.example.akrar.invoices.model.CurrenciesData;
+import com.example.akrar.invoices.model.Invoice;
+import com.example.akrar.invoices.model.InvoicesData;
 import com.example.akrar.model.ApiUtils;
 import com.example.akrar.model.ResObj;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import retrofit2.Call;
@@ -33,6 +37,7 @@ public class Add_Financial_Invoice extends AppCompatActivity implements AdapterV
     Button btn_send, btn_payments;
     TextView txt_document_pay, txt_value, txt_date;
     InvoicesService FinancialService;
+//    InvoicesService invoicesService;
     AlertDialog loadingDialog;
     Spinner user_id;
     String[] pay_type = {"كاش", "اجل"};
@@ -46,6 +51,8 @@ public class Add_Financial_Invoice extends AppCompatActivity implements AdapterV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_financial_invoice);
         FinancialService = ApiUtils.getInvoicesService();
+//        FinancialService = ApiUtils.getInvoicesService();
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false); // if you want user to wait for some process to finish,
         builder.setView(R.layout.loading_dialog_layout);
@@ -106,28 +113,75 @@ public class Add_Financial_Invoice extends AppCompatActivity implements AdapterV
         spinner_paytype = (Spinner) findViewById(R.id.spinner_paytype);
         spinner_paytype.setOnItemSelectedListener(this);
         ArrayAdapter aa = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_item, pay_type);
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //Setting the ArrayAdapter data on the Spinner
         spinner_paytype.setAdapter(aa);
     }
-    private void addFinancialinvoice() {
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        listShipmentInvoices();
+    }
+
+    public void listShipmentInvoices() {
         loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
         String token = userSharedPreferencesManager.getToken();
-        Call call = FinancialService.add_financial_invoice("Bearer" + token,desc.getText().toString());
+        Call call = FinancialService.listInvoices("Bearer " + token);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 loadingDialog.dismiss();
                 if (response.isSuccessful()) {
-                    ResObj resObj = (ResObj) response.body();
-                    if (resObj.getStatus().equals("success")) {
+                    ResObj<InvoicesData> data = (ResObj<InvoicesData>) response.body();
+                    if (data.getStatus().equals("success")) {
+
+                        ShipmentInvoicesSpinnerAdapter currencySpinnerAdapter = new ShipmentInvoicesSpinnerAdapter(Add_Financial_Invoice.this,
+                                R.layout.spinner_item, "Dollar");
+                        ArrayList<Invoice> invoices = (ArrayList<Invoice>) data.getData().getInvoicesSent();
+                        invoices.addAll(data.getData().getInvoicesRecieved());
+
+                        currencySpinnerAdapter.setData(invoices);
+                        user_id.setAdapter(currencySpinnerAdapter);
+                    } else {
+                        Toast.makeText(Add_Financial_Invoice.this, "Failed to retrieve data", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(Add_Financial_Invoice.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
+                }
+//                listProducts();
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                loadingDialog.dismiss();
+                Toast.makeText(Add_Financial_Invoice.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void addFinancialinvoice() {
+        loadingDialog.show();
+        UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
+        String token = userSharedPreferencesManager.getToken();
+        Call call = FinancialService.add_financial_invoice("Bearer " + token,""+((Invoice)user_id.getSelectedItem()).getId(),""+spinner_paytype.getSelectedItemPosition(),desc.getText().toString());
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                loadingDialog.dismiss();
+                if (response.isSuccessful()) {
+//                    ResObj<InvoicesData> data = (ResObj<InvoicesData>) response.body();
+//                    if (data.getStatus().equals("success")) {
                         Toast.makeText(Add_Financial_Invoice.this.getApplicationContext(), " Added successfully!", Toast.LENGTH_SHORT).show();
                         Add_Financial_Invoice.this.finish();
-                    }
-                    else{
-                        Toast.makeText(Add_Financial_Invoice.this.getApplicationContext(), "Error! Please try again!", Toast.LENGTH_SHORT).show();
-                    }
+//                    }
+//                    else{
+//                        Toast.makeText(Add_Financial_Invoice.this.getApplicationContext(), "Error! Please try again!", Toast.LENGTH_SHORT).show();
+//                    }
+                }
+                else{
+                    Toast.makeText(Add_Financial_Invoice.this.getApplicationContext(), "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
