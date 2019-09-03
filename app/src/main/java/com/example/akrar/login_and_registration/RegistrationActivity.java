@@ -87,8 +87,11 @@ public class RegistrationActivity extends AppCompatActivity {
 
                 //validate form
                 if (validateregister(firstname, password, lastname, phone, mail, verifypass, national_id)) {
-                    //do login
-                    doreg(firstname, password, lastname, phone, mail, verifypass, national_id);
+
+                    if(password != verifypass)
+                        Toast.makeText(RegistrationActivity.this, "Password and confirmation password must be matching", Toast.LENGTH_SHORT).show();
+                    else
+                        doreg(firstname, password, lastname, phone, mail, verifypass, national_id);
 
 //                    Intent mainIntent = new Intent(RegistrationActivity.this, Mainpage_details.class);
 //                    RegistrationActivity.this.startActivity(mainIntent);
