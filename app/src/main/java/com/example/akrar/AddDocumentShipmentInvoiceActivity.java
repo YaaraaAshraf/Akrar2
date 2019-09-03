@@ -20,7 +20,9 @@ import com.example.akrar.model.ResObj;
 import com.example.akrar.products.model.Product;
 import com.example.akrar.products.model.ProductData;
 import com.example.akrar.products.model.ProductsService;
+import com.example.akrar.profile.UpdateProfileActivity;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -111,7 +113,12 @@ public class AddDocumentShipmentInvoiceActivity extends AppCompatActivity {
                         Toast.makeText(AddDocumentShipmentInvoiceActivity.this, "Failed to retrieve data", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(AddDocumentShipmentInvoiceActivity.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
+                    try {
+                        Toast.makeText(AddDocumentShipmentInvoiceActivity.this, response.errorBody()!= null?response.errorBody().string():"Error! Please try again!", Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+//                    Toast.makeText(AddDocumentShipmentInvoiceActivity.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override

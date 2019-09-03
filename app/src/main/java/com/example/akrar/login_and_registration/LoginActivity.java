@@ -20,6 +20,8 @@ import com.example.akrar.model.LoginData;
 import com.example.akrar.model.ResObj;
 import com.example.akrar.model.UserService;
 
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -134,7 +136,12 @@ public class LoginActivity extends AppCompatActivity {
 //                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 //                    intent.putExtra("national_id", national_id);
 //                    startActivity(intent);
-                    Toast.makeText(LoginActivity.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
+//                    response.errorBody();
+                    try {
+                        Toast.makeText(LoginActivity.this, response.errorBody()!= null?response.errorBody().string():"Failed to Login!", Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 //                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 //                    intent.putExtra("national_id", national_id);
 //                    startActivity(intent);

@@ -14,10 +14,14 @@ import com.example.akrar.MainActivity;
 import com.example.akrar.R;
 import com.example.akrar.User;
 import com.example.akrar.UserSharedPreferencesManager;
+import com.example.akrar.login_and_registration.RegistrationActivity;
 import com.example.akrar.model.ApiUtils;
 import com.example.akrar.model.LoginData;
 import com.example.akrar.model.ResObj;
 import com.example.akrar.model.UserService;
+
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -134,7 +138,12 @@ public class UpdateProfileActivity extends AppCompatActivity {
                     }
                 } else {
                     loadingDialog.dismiss();
-                    Toast.makeText(getApplicationContext(), "Error! Please try again!", Toast.LENGTH_SHORT).show();
+                    try {
+                        Toast.makeText(UpdateProfileActivity.this, response.errorBody()!= null?response.errorBody().string():"Error! Please try again!", Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+//                    Toast.makeText(getApplicationContext(), "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
             }
 

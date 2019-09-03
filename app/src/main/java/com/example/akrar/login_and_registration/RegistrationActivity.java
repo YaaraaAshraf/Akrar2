@@ -21,6 +21,8 @@ import com.example.akrar.model.ResObj;
 import com.example.akrar.model.Responseclass;
 import com.example.akrar.model.UserService;
 
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -150,16 +152,12 @@ public class RegistrationActivity extends AppCompatActivity {
 //                    }
                 } else {
 
-//                    Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
-//                    intent.putExtra("firstname", firstname);
-//                    intent.putExtra("lastname", lastname);
-//                    intent.putExtra("national_id", national_id);
-//                    intent.putExtra("email", email);
-//                    intent.putExtra("mobile", mobile);
-//                    intent.putExtra("password", password);
-//                    intent.putExtra("password_confirmation", password_confirmation);
-//                    startActivity(intent);
-                  Toast.makeText(RegistrationActivity.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
+                    try {
+                        Toast.makeText(RegistrationActivity.this, response.errorBody()!= null?response.errorBody().string():"Registration failed! Please try again!", Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+//                  Toast.makeText(RegistrationActivity.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
             }
 
