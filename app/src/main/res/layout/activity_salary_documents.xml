@@ -236,7 +236,6 @@
                     android:inputType="textMultiLine"
                     android:paddingRight="10dp"
                     android:paddingBottom="30dp"
-                    android:text="هناك حقيقة مثبتة منذ زمن طويل و هى ان المحتوى المقروء لصفحة ما ستلهى القارئ"
                     android:textColor="@color/black"
                     android:textColorHint="@color/grey"
                     android:textSize="15dp" />

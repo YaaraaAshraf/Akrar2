@@ -20,9 +20,10 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 public class BottomsheetDialogCash extends BottomSheetDialogFragment implements AdapterView.OnItemSelectedListener {
-    EditText txt_dateTo,txt_datefrom,txt_userid;
+    EditText txt_userid;
     Spinner spinner_cash;
     TextView txt_datecash;
+    TextView txt_dateTo, txt_datefrom;
     TextView txtdateTo, txtdatefrom;
     Button search,clear;
     Button btn_search;
@@ -61,7 +62,7 @@ public class BottomsheetDialogCash extends BottomSheetDialogFragment implements 
 //                Toast.makeText(getContext(),"gggg",Toast.LENGTH_LONG).show();
             }
         });
-        txt_datefrom=(EditText)contentview.findViewById(R.id.edt_datefrom);
+        txt_datefrom=contentview.findViewById(R.id.edt_datefrom);
         txt_datefrom.setOnClickListener(v -> {
             datePickerFrom = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                 @Override
@@ -78,7 +79,7 @@ public class BottomsheetDialogCash extends BottomSheetDialogFragment implements 
             datePickerFrom.setCanceledOnTouchOutside(true);
             datePickerFrom.show();
         });
-        txt_dateTo=(EditText)contentview.findViewById(R.id.edt_date);
+        txt_dateTo=contentview.findViewById(R.id.edt_date);
         txt_dateTo.setOnClickListener(v -> {
             datePickerTo = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                 @Override

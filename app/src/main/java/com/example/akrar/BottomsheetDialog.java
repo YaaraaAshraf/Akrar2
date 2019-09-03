@@ -28,7 +28,6 @@ public class BottomsheetDialog extends BottomSheetDialogFragment {
     final int day = c.get(Calendar.DAY_OF_MONTH);
 
     EditText name;
-
     Calendar from;
     Calendar to;
 
@@ -45,7 +44,6 @@ public class BottomsheetDialog extends BottomSheetDialogFragment {
         from = Calendar.getInstance();
         to = Calendar.getInstance();
         name = contentview.findViewById(R.id.edtext_namephone);
-
 
         txt_datefrom = contentview.findViewById(R.id.edt_date_from);
         txt_datefrom.setOnClickListener(v -> {
@@ -66,7 +64,7 @@ public class BottomsheetDialog extends BottomSheetDialogFragment {
         });
 
         txt_dateTo = contentview.findViewById(R.id.edt_dateto);
-        txt_dateTo.setOnClickListener(v -> {
+        txt_dateTo.setOnClickListener(v ->{
             datePickerTo = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
