@@ -28,7 +28,7 @@
         <activity android:name=".Confirm_shipment_invoice" />
         <activity android:name=".Shipment_invoice" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".profile.Update_MyProfileFragment" />
+        <activity android:name=".profile.UpdateProfileActivity" />
         <activity android:name=".products.ProductsListActivity" />
         <activity android:name=".Document_page" />
         <activity android:name=".products.AddProductActivity" />
@@ -53,7 +53,7 @@
         <activity android:name=".FinancialInvoiceListActivity" />
         <activity android:name=".Add_Financial_Invoice" />
         <activity android:name=".FinancialInvoiceDetailsActivity"></activity>
-        <!--<activity android:name=".FinancialInvoiceDetailsActivity"/>&lt;!&ndash; <activity android:name=".Update_MyProfileFragment" /> &ndash;&gt;-->
+        <!--<activity android:name=".FinancialInvoiceDetailsActivity"/>&lt;!&ndash; <activity android:name=".UpdateProfileActivity" /> &ndash;&gt;-->
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">

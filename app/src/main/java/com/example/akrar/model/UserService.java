@@ -41,8 +41,9 @@ Call<ResObj> logout(@Header("Authorization") String auth);
     //                        @Field("") String lastname);
     @FormUrlEncoded
     @POST("edit_profile")
-    Call<Responseclass> editprofile(@Field("firstname") String firstname,
-                                   @Field("lastname") String lastname,
+    Call<ResObj<LoginData>> editprofile(@Header("Authorization") String auth,
+                                    @Field("first_name") String firstname,
+                                   @Field("last_name") String lastname,
                                    @Field("national_id") String national_id,
                                    @Field("email") String email,
                                    @Field("mobile") String mobile,

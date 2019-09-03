@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".profile.Update_MyProfileFragment">
+    tools:context=".profile.UpdateProfileActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
