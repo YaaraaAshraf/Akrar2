@@ -54,6 +54,7 @@ public class Product {
     }
 
     public Product() {
+        this.status ="1";
     }
 
     public String getName() {

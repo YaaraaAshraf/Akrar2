@@ -9,16 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.akrar.login_and_registration.LoginActivity;
 import com.example.akrar.model.ApiUtils;
 import com.example.akrar.model.UserService;
 import com.example.akrar.products.ProductsListActivity;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class Mainpage_details extends Fragment {
     ImageView img_prod,image_gr,img_gm;
@@ -53,9 +48,9 @@ public class Mainpage_details extends Fragment {
           img_gm.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
-                  Intent intent = new Intent(getContext(), BondCashFragment.class);
+                  Intent intent = new Intent(getContext(), FinancialInvoiceListActivity.class);
                   startActivity(intent);
-//                  loadbodnscash(new BondCashFragment());
+//                  loadbodnscash(new FinancialInvoiceListActivity());
               }
           });
          image_gr=(ImageView)view.findViewById(R.id.image_gr);

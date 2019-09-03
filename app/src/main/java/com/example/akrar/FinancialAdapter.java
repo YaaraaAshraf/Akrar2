@@ -90,10 +90,10 @@ public class FinancialAdapter extends RecyclerView.Adapter<FinancialAdapter.View
 //                    ViewHolder.this.getAdapterPosition()
                 }
             });
-//            this.txt_date=itemView.findViewById(R.id.txt_date_fin);
+            this.txt_date=itemView.findViewById(R.id.txt_date_fin);
             this.txt_user_id= itemView.findViewById(R.id.txt_user_id);
             this.txt_name = itemView.findViewById(R.id.txt_name_fin);
-//            this.txt_type= itemView.findViewById(R.id.txt_type);
+            this.txt_type= itemView.findViewById(R.id.txt_type);
 //            this.status=itemView.findViewById(R.id.status);
         }
 
@@ -164,7 +164,7 @@ public class FinancialAdapter extends RecyclerView.Adapter<FinancialAdapter.View
 //                @Override
 //                public void onClick(View v) {
 //                    Intent intent = new Intent(v.getContext(),
-//                            Financial_Invoice.class);
+//                            FinancialInvoiceActivity.class);
 //                    v.getContext().startActivity(intent);
 //                }
 //            });

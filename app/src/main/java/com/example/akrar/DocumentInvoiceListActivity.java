@@ -2,6 +2,7 @@ package com.example.akrar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -38,7 +39,7 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
         setContentView(R.layout.document_invoices_activity);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(false);// if you want user to wait for some process to finish,
+        builder.setCancelable(false);
         builder.setView(R.layout.loading_dialog_layout);
         loadingDialog = builder.create();
         invoicesService = ApiUtils.getInvoicesService();
@@ -56,12 +57,9 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
             isRecievedInvoicesSelected = isChecked;
             listInvoices();
         });
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                BottomsheetDialog bottomsheetDialog = new BottomsheetDialog();
-                bottomsheetDialog.show(getSupportFragmentManager(), bottomsheetDialog.getTag());
-            }
+        fab.setOnClickListener(view -> {
+            BottomsheetDialog bottomsheetDialog = new BottomsheetDialog();
+            bottomsheetDialog.show(getSupportFragmentManager(), bottomsheetDialog.getTag());
         });
         img_arrow = (ImageView) findViewById(R.id.img_arrow);
         img_arrow.setOnClickListener(new View.OnClickListener() {
@@ -83,16 +81,46 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-
-//        aSwitch.performClick();
         aSwitch.setChecked(isRecievedInvoicesSelected);
 
         if(aSwitch.isChecked() == isRecievedInvoicesSelected)
             listInvoices();
-//        isRecievedInvoicesSelected = true;
-//        listInvoices();
     }
+
+    public void applySearch(String name, String from, String to){
+        loadingDialog.show();
+        UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
+        String token = userSharedPreferencesManager.getToken();
+        Call call = invoicesService.filterInvoices("Bearer " + token, isRecievedInvoicesSelected?"0":"1",name,from,to);
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                loadingDialog.dismiss();
+                if (response.isSuccessful()) {
+                    ResObj<InvoicesData> data = (ResObj<InvoicesData>) response.body();
+                    if (data.getStatus().equals("success")) {
+                        if (isRecievedInvoicesSelected)
+                            adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesRecieved(),false);
+                        else
+                            adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesSent(),true);
+
+
+                    } else {
+                        Toast.makeText(DocumentInvoiceListActivity.this, "Failed to retrieve data", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(DocumentInvoiceListActivity.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                loadingDialog.dismiss();
+                Toast.makeText(DocumentInvoiceListActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
     public void listInvoices() {
         loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
@@ -106,9 +134,9 @@ public class DocumentInvoiceListActivity extends AppCompatActivity {
                     ResObj<InvoicesData> data = (ResObj<InvoicesData>) response.body();
                     if (data.getStatus().equals("success")) {
                         if (isRecievedInvoicesSelected)
-                            adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesSent());
+                            adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesSent(),false);
                         else
-                            adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesRecieved());
+                            adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesRecieved(),true);
 
                     } else {
                         Toast.makeText(DocumentInvoiceListActivity.this, "Failed to retrieve data", Toast.LENGTH_SHORT).show();

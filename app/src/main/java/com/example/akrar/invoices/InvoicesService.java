@@ -28,6 +28,14 @@ public interface InvoicesService {
     @GET("index_shipment_invoice")
     Call<ResObj<InvoicesData>> listInvoices(@Header("Authorization") String auth);
 
+    @FormUrlEncoded
+    @POST("filter_shipment_invoice")
+    Call<ResObj<InvoicesData>> filterInvoices(@Header("Authorization") String auth,
+                                              @Field ("status") String status,
+                                              @Field ("national_id") String nationalID,
+                                              @Field ("from") String from,
+                                              @Field ("to") String to);
+
     @GET("show_shipment_invoice/{index}")
     Call<ResObj<InvoiceDetailsData>> getInvoiceDetails(@Header("Authorization") String auth, @Path("index") long id);
 

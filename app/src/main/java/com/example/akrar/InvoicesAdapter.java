@@ -20,13 +20,15 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class InvoicesAdapter extends RecyclerView.Adapter<InvoicesAdapter.ViewHolder> {
     private ArrayList<Invoice> invoices;
+    boolean isRecievedInvoices;
 
     public InvoicesAdapter(ArrayList<Invoice> invoices) {
         this.invoices = invoices;
     }
 
-    public void setData(ArrayList<Invoice> invoices){
+    public void setData(ArrayList<Invoice> invoices, boolean isRecievedInvoices){
         this.invoices = invoices;
+        this.isRecievedInvoices = isRecievedInvoices;
         notifyDataSetChanged();
     }
     @NonNull
@@ -41,7 +43,7 @@ public class InvoicesAdapter extends RecyclerView.Adapter<InvoicesAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull InvoicesAdapter.ViewHolder holder, int position) {
         final Invoice myListData = invoices.get(position);
-        if(invoices.get(position).getReceiver() !=null) {
+        if(!isRecievedInvoices && invoices.get(position).getReceiver() !=null) {
             holder.txt_name.setText(holder.txt_name.getContext().getString(R.string.invoice_to,invoices.get(position).getReceiver().getFirstName()));
             holder.txt_phone.setText(invoices.get(position).getReceiver().getNationalId());
         }

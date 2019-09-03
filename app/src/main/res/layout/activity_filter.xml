@@ -29,7 +29,7 @@
         android:textSize="15dp" />
 
     <EditText
-        android:id="@+id/edtext_name-phone"
+        android:id="@+id/edtext_namephone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -48,8 +48,8 @@
         android:textColor="@color/black"
         android:textSize="15dp" />
 
-    <EditText
-        android:id="@+id/edt_date"
+    <TextView
+        android:id="@+id/edt_date_from"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -61,7 +61,10 @@
         android:paddingLeft="20dp"
         android:layout_marginRight="10dp"
         android:textColor="@color/black"
-        android:inputType="textPersonName" />
+        style="@style/Ekrar.EditText"
+        android:clickable="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
     <TextView
         android:id="@+id/txt_datefrom"
         android:layout_width="match_parent"
@@ -73,8 +76,8 @@
         android:textColor="@color/black"
         android:textSize="15dp" />
 
-    <EditText
-        android:id="@+id/edt_datefrom"
+    <TextView
+        android:id="@+id/edt_dateto"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="10dp"
@@ -86,7 +89,10 @@
         android:paddingLeft="20dp"
         android:layout_marginRight="10dp"
         android:textColor="@color/black"
-        android:inputType="textPersonName" />
+        style="@style/Ekrar.EditText"
+        android:clickable="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
 
     <Button
         android:id="@+id/button_search"
@@ -96,8 +102,18 @@
         android:paddingRight="60dp"
         android:paddingLeft="60dp"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="100dp"
-        android:background="@drawable/rounded_button"
+        android:layout_marginBottom="20dp"
         android:text="بحث" />
+
+    <Button
+        android:id="@+id/button_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingRight="60dp"
+        android:paddingLeft="60dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="100dp"
+        android:text="حذف معايير البحث" />
 </LinearLayout>
 

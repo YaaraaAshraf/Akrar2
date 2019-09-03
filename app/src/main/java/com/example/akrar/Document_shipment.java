@@ -55,7 +55,7 @@ public class Document_shipment extends AppCompatActivity {
 //                if (aSwitch.isChecked()){
 //                    back(new Document_shipment());
 //                }else {
-//                    loadBondFragment(new BondCashFragment());
+//                    loadBondFragment(new FinancialInvoiceListActivity());
 //                }
 //            }
 //        });
@@ -67,7 +67,7 @@ public class Document_shipment extends AppCompatActivity {
 //
 //                } else
 //                    {
-//                    loadBondFragment(new BondCashFragment());
+//                    loadBondFragment(new FinancialInvoiceListActivity());
 //                }
 //
 //            }

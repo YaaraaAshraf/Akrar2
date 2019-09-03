@@ -23,4 +23,13 @@ public class ProductsSpinnerAdapter extends SpinnerAdapter<Product> {
     public List<Product> getData() {
         return super.getData();
     }
+
+    public int getIndexForProductID(String productID){
+        for (int i=0; i<mData.size();i++) {
+            Product product = mData.get(i);
+            if(product.getProduct_id().equals(productID))
+                return i;
+        }
+        return -1;
+    }
 }

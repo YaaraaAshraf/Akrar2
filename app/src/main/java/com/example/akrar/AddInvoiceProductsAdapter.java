@@ -13,12 +13,10 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.example.akrar.products.model.Product;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class AddInvoiceProductsAdapter extends RecyclerView.Adapter<AddInvoiceProductsAdapter.ViewHolder> {
@@ -44,6 +42,7 @@ public class AddInvoiceProductsAdapter extends RecyclerView.Adapter<AddInvoicePr
     public void addProduct(Product product) {
         this.products.add(product);
         notifyDataSetChanged();
+//        notifyItemChanged(this.products.size()-1);
     }
 
     @NonNull
@@ -57,6 +56,38 @@ public class AddInvoiceProductsAdapter extends RecyclerView.Adapter<AddInvoicePr
 
     @Override
     public void onBindViewHolder(@NonNull AddInvoiceProductsAdapter.ViewHolder holder, int position) {
+
+        holder.productNameEditTextListener.updatePosition(position);
+        holder.productNameEditText.setText(products.get(position).getName());
+
+
+        holder.unitEditTextListener.updatePosition(position);
+        holder.text_unit.setText(products.get(position).getUnits());
+
+
+        holder.priceEditTextListener.updatePosition(position);
+        holder.txt_price.setText(products.get(position).getPrice());
+
+
+        holder.quantityEditTextListener.updatePosition(position);
+        holder.text_quantity.setText(products.get(position).getQuantity());
+
+
+        holder.existingProductCheckBox.setOnCheckedChangeListener(null);
+        holder.existingProductCheckBox.setChecked(products.get(position).getStatus().equals("0"));
+        holder.createOnCheckListener();
+
+        holder.productsSpinner.setOnItemSelectedListener(null);
+        holder.productsSpinner.setSelection(holder.productsSpinnerAdapter.getIndexForProductID(products.get(position).getProduct_id()));
+        holder.createOnItemSelectedListener();
+
+        holder.productNameEditText.setVisibility(products.get(position).getStatus().equals("0") ? View.GONE : View.VISIBLE);
+        if(position == products.size()-1)
+            holder.existingProductCheckBox.requestFocus();
+        holder.productsSpinner.setVisibility(products.get(position).getStatus().equals("0") ? View.VISIBLE : View.GONE);
+
+//        holder.productNameEditText.requestFocus();
+
 //        final Product myListData = products.get(position);
 //        holder.edit_text_product.setText(holder.edit_text_product.getContext().getString(R.string.productName,products.get(position).getProduct().getName()));
 //        holder.txt_price.setText(holder.edit_text_product.getContext().getString(R.string.price,products.get(position).getPrice()));
@@ -83,76 +114,33 @@ public class AddInvoiceProductsAdapter extends RecyclerView.Adapter<AddInvoicePr
         Spinner productsSpinner;
         ProductsSpinnerAdapter productsSpinnerAdapter;
 
+        public EditTextListener productNameEditTextListener;
+        public EditTextListener quantityEditTextListener;
+        public EditTextListener priceEditTextListener;
+        public EditTextListener unitEditTextListener;
+
         //        CircleImageView status;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-//            this.edit_text_product = itemView.findViewById(R.id.edit_text_product);
-//            this.edit_text_product.addTextChangedListener(new TextWatcher() {
-//                @Override
-//                public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-//
-//                @Override
-//                public void onTextChanged(CharSequence s, int start, int before, int count) { }
-//
-//                @Override
-//                public void afterTextChanged(Editable s) {
-//                    products.get(ViewHolder.this.getAdapterPosition()).setName(s.toString());
-//                }
-//            });
+
             this.text_quantity = itemView.findViewById(R.id.text_quantity);
-//            this.text_quantity.addTextChangedListener(new TextWatcher() {
-//                @Override
-//                public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-//
-//                @Override
-//                public void onTextChanged(CharSequence s, int start, int before, int count) { }
-//
-//                @Override
-//                public void afterTextChanged(Editable s) {
-//                    products.get(ViewHolder.this.getAdapterPosition()).setQuantity(s.toString());
-//                }
-//            });
+            this.quantityEditTextListener = new EditTextListener(EditTextListener.QUANTITY);
+            this.text_quantity.addTextChangedListener(quantityEditTextListener);
+
             this.text_unit = itemView.findViewById(R.id.text_unit);
-//            this.text_unit.addTextChangedListener(new TextWatcher() {
-//                @Override
-//                public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-//
-//                @Override
-//                public void onTextChanged(CharSequence s, int start, int before, int count) { }
-//
-//                @Override
-//                public void afterTextChanged(Editable s) {
-//                    products.get(ViewHolder.this.getAdapterPosition()).setUnits(s.toString());
-//                }
-//            });;
+            this.unitEditTextListener = new EditTextListener(EditTextListener.UNIT);
+            this.text_unit.addTextChangedListener(unitEditTextListener);
+
             this.txt_price = itemView.findViewById(R.id.text_price);
-//            this.txt_price.addTextChangedListener(new TextWatcher() {
-//                @Override
-//                public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-//
-//                @Override
-//                public void onTextChanged(CharSequence s, int start, int before, int count) { }
-//
-//                @Override
-//                public void afterTextChanged(Editable s) {
-//                    products.get(ViewHolder.this.getAdapterPosition()).setPrice(s.toString());
-//                }
-//            });
+            this.priceEditTextListener = new EditTextListener(EditTextListener.PRICE);
+            this.txt_price.addTextChangedListener(priceEditTextListener);
+
             this.productNameEditText = itemView.findViewById(R.id.edit_text_product);
-//            this.productNameEditText.addTextChangedListener(new TextWatcher() {
-//                @Override
-//                public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-//
-//                @Override
-//                public void onTextChanged(CharSequence s, int start, int before, int count) { }
-//
-//                @Override
-//                public void afterTextChanged(Editable s) {
-//                    products.get(ViewHolder.this.getAdapterPosition()).setName(s.toString());
-//                    products.get(ViewHolder.this.getAdapterPosition()).setStatus("1");
-//                }
-//            });
+            this.productNameEditTextListener = new EditTextListener(EditTextListener.NAME);
+            this.productNameEditText.addTextChangedListener(productNameEditTextListener);
+
+
             this.existingProductCheckBox = itemView.findViewById(R.id.existing_product_checkbox);
             this.productsSpinner = itemView.findViewById(R.id.spinner_product);
             productsSpinnerAdapter = new ProductsSpinnerAdapter(itemView.getContext(),
@@ -160,32 +148,98 @@ public class AddInvoiceProductsAdapter extends RecyclerView.Adapter<AddInvoicePr
             productsSpinnerAdapter.setData(alreadyExistingProducts);
             productsSpinner.setAdapter(productsSpinnerAdapter);
 
-//            this.productsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//                @Override
-//                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                    products.get(ViewHolder.this.getAdapterPosition()).setProduct_id(productsSpinnerAdapter.getData().get(position).getProduct_id());
-//                    products.get(ViewHolder.this.getAdapterPosition()).setStatus("0");
-//                }
-//
-//                @Override
-//                public void onNothingSelected(AdapterView<?> parent) { }
-//            });
 
 
 
-//            this.existingProductCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//                @Override
-//                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//
-//
-//                    productNameEditText.setVisibility(isChecked ? View.GONE : View.VISIBLE);
-//                    productsSpinner.setVisibility(isChecked ? View.VISIBLE : View.GONE);
-//                }
-//            });
 
-//            this.existingProductCheckBox
         }
 
+        private void createOnItemSelectedListener(){
+            this.productsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    products.get(ViewHolder.this.getAdapterPosition()).setProduct_id(productsSpinnerAdapter.getData().get(position).getProduct_id());
+//                    products.get(ViewHolder.this.getAdapterPosition()).setStatus("0");
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) { }
+            });
+        }
+
+        private void createOnCheckListener()
+        {
+            this.existingProductCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    getProducts().get(ViewHolder.this.getAdapterPosition()).setStatus(isChecked?"0":"1");
+//                    if(isChecked)
+//                        getProducts().get(ViewHolder.this.getAdapterPosition()).setName("");
+//                    else
+//                        getProducts().get(ViewHolder.this.getAdapterPosition()).setProduct_id("");
+                    notifyDataSetChanged();
+
+                }
+            });
+        }
+
+    }
+
+//    private class OnCheckBoxCheckedChange implements new CompoundButton.OnCheckedChangeListener()
+
+    private class EditTextListener implements TextWatcher {
+        private int position;
+        private int updatedField;
+        final static int NAME=1;
+        final static int QUANTITY=2;
+        final static int PRICE=3;
+        final static int PRODUCT_ID=4;
+        final static int UNIT=5;
+
+        public EditTextListener(int updatedField) {
+            this.updatedField = updatedField;
+        }
+
+        public void updatePosition(int position) {
+            this.position = position;
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            // no op
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            switch (this.updatedField){
+                case NAME:
+                    products.get(position).setName(charSequence.toString());
+                    break;
+
+//                case PRODUCT_ID:
+//                    products.get(position).setProduct_id(productsSpinnerAdapter.getData().get(position).getProduct_id());
+//                    break;
+
+                case UNIT:
+                    products.get(position).setUnits(charSequence.toString());
+                    break;
+
+                case QUANTITY:
+                    products.get(position).setQuantity(charSequence.toString());
+                    break;
+
+                case PRICE:
+                    products.get(position).setPrice(charSequence.toString());
+                    break;
+            }
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+//            products.get(position).setName(editable.toString());
+            // no op
+        }
     }
 }
 

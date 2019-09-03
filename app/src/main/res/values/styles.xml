@@ -7,6 +7,9 @@
         <item name="android:windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
+        <item name="android:timePickerDialogTheme" tools:targetApi="lollipop">@style/AlertDialogCustom</item>
+        <item name="android:datePickerDialogTheme" tools:targetApi="lollipop">@style/AlertDialogCustom</item>
+        <item name="android:alertDialogTheme">@style/AlertDialogCustom</item>
     </style>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar.FullScreen">
@@ -24,6 +27,11 @@
 
         <item name="android:buttonStyle">@style/Ekrar.Button</item>
         <item name="buttonStyle">@style/Ekrar.Button</item>
+
+        <item name="android:timePickerDialogTheme" tools:targetApi="lollipop">@style/AlertDialogCustom</item>
+        <!--<item name="timePickerDialogTheme">@style/AlertDialogCustom</item>-->
+        <item name="android:datePickerDialogTheme" tools:targetApi="lollipop">@style/AlertDialogCustom</item>
+        <item name="android:alertDialogTheme">@style/AlertDialogCustom</item>
 
     </style>
     <style name="Ekrar.EditText" parent="@style/Widget.AppCompat.EditText">
@@ -57,4 +65,21 @@
         <!--<item name="android:layout_marginTop">10dp</item>-->
     </style>
 
+    <style name="Ekrar.PickerButton" parent="@style/Widget.AppCompat.Button.Borderless.Colored">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <!--<item name="android:layout_marginTop">10dp</item>-->
+    </style>
+
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <!--<item name="colorAccent">@color/black</item>-->
+        <item name="android:buttonStyle">@style/Ekrar.PickerButton</item>
+        <item name="buttonStyle">@style/Ekrar.PickerButton</item>
+    </style>
+
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:colorPrimary" tools:targetApi="lollipop">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
 </resources>

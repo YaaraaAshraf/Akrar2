@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-public class BondCashFragment extends AppCompatActivity {
+public class FinancialInvoiceListActivity extends AppCompatActivity {
     ImageView image_add_bond_cash, arow;
     ImageView fab;
     public RecyclerView recyclerView;
@@ -98,16 +98,16 @@ public class BondCashFragment extends AppCompatActivity {
                         else
                             adapter.setData((ArrayList<Invoice>) data.getData().getInvoicesSent());
                     } else {
-                        Toast.makeText(BondCashFragment.this, "Failed to retrieve data", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FinancialInvoiceListActivity.this, "Failed to retrieve data", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(BondCashFragment.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FinancialInvoiceListActivity.this, "Error! Please try again!", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
             public void onFailure(Call call, Throwable t) {
                 loadingDialog.dismiss();
-                Toast.makeText(BondCashFragment.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(FinancialInvoiceListActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });

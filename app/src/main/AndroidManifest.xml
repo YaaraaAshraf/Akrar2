@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <!--android:theme="@style/Theme.AppCompat.NoActionBar">-->
-        <activity android:name=".Financial_Invoice"></activity>
+        <activity android:name=".FinancialInvoiceActivity"></activity>
         <!-- <activity android:name="com.example.Akrar.Confirm_shipment_invoice"></activity> -->
         <!-- <activity android:name="com.example.Akrar.Shipment_invoice" /> -->
         <activity android:name=".CashReceipts" />
@@ -47,8 +47,10 @@
         <activity android:name=".Document_shipment" /> <!-- <activity android:name=".ProductsListActivity" /> -->
         <activity android:name=".DocumentInvoiceListActivity" /> <!-- <activity android:name=".ProductsListActivity" /> -->
         <activity android:name=".DocumentInvoiceDetailsActivity" /> <!-- <activity android:name=".ProductsListActivity" /> -->
-        <activity android:name=".AddDocumentShipmentInvoiceActivity" />
-        <activity android:name=".BondCashFragment" />
+        <activity
+            android:name=".AddDocumentShipmentInvoiceActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity android:name=".FinancialInvoiceListActivity" />
         <activity android:name=".Add_Financial_Invoice" />
         <!--<activity android:name=".FinancialInvoiceDetailsActivity"/>&lt;!&ndash; <activity android:name=".Update_MyProfileFragment" /> &ndash;&gt;-->
         <activity

@@ -89,7 +89,7 @@ public class Add_Financial_Invoice extends AppCompatActivity implements AdapterV
         image_document_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), BondCashFragment.class);
+                Intent intent = new Intent(getApplicationContext(), FinancialInvoiceListActivity.class);
                 startActivity(intent);
             }
         });

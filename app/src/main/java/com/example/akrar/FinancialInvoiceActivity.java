@@ -22,7 +22,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Financial_Invoice extends AppCompatActivity {
+public class FinancialInvoiceActivity extends AppCompatActivity {
     TextView txt_id, address, value, currency, product_name, product_unit, product_qantity, product_price, txt_desciption;
     ExpandableRelativeLayout expandableLayout1, expandableLayout2, expandableLayout3, expandableLayout4, expandableLayout5;
     InvoicesService invoicesService;
