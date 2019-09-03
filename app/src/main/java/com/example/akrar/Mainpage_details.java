@@ -42,15 +42,15 @@ public class Mainpage_details extends Fragment {
         builder.setView(R.layout.loading_dialog_layout);
         loadingDialog = builder.create();
         userService = ApiUtils.getUserService();
-        btn_log = (Button) view.findViewById(R.id.logout);
-        btn_log.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                logout();
+//        btn_log = (Button) view.findViewById(R.id.logout);
+//        btn_log.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                logout();
 //                 Intent intent=new Intent(getActivity(), LoginActivity.class);
 //                 startActivity(intent);
-            }
-        });
+//            }
+//        });
         img_gm = (ImageView) view.findViewById(R.id.img_gm);
         img_gm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,21 +81,21 @@ public class Mainpage_details extends Fragment {
         return view;
          }
                private void logout() {
-                Call call = userService.logout("Bearer");
-                call.enqueue(new Callback() {
-                    @Override
-                    public void onResponse(Call call, Response response) {
-//                            ResObj resObj = (ResObj) response.body();
-                                Intent intent = new Intent(getActivity(), LoginActivity.class);
-                                startActivity(intent);
-                                Mainpage_details.this.getActivity().finish();
-                            }
-            @Override
-            public void onFailure(Call call, Throwable t) {
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
-                startActivity(intent);
-                Mainpage_details.this.getActivity().finish();
-            }
+//                Call call = userService.logout("Bearer");
+//                call.enqueue(new Callback() {
+//                    @Override
+//                    public void onResponse(Call call, Response response) {
+////                            ResObj resObj = (ResObj) response.body();
+//                                Intent intent = new Intent(getActivity(), LoginActivity.class);
+//                                startActivity(intent);
+//                                Mainpage_details.this.getActivity().finish();
+//                            }
+//            @Override
+//            public void onFailure(Call call, Throwable t) {
+//                Intent intent = new Intent(getActivity(), LoginActivity.class);
+//                startActivity(intent);
+//                Mainpage_details.this.getActivity().finish();
+//            }
 
 //            private boolean load(Fragment fragment) {
 //                if (fragment != null) {
@@ -129,6 +129,5 @@ public class Mainpage_details extends Fragment {
 //                }
 //                return false;
 //            }
-        });
     }
 }

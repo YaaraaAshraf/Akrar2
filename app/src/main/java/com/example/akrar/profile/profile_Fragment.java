@@ -12,9 +12,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.akrar.MainActivity;
+import com.example.akrar.Mainpage_details;
 import com.example.akrar.R;
 import com.example.akrar.User;
 import com.example.akrar.UserSharedPreferencesManager;
+import com.example.akrar.login_and_registration.LoginActivity;
 import com.example.akrar.model.ApiUtils;
 import com.example.akrar.model.LoginData;
 import com.example.akrar.model.ResObj;
@@ -26,7 +28,7 @@ import retrofit2.Response;
 public class profile_Fragment extends Fragment {
     TextView txt_update;
     ImageView back_arrow;
-    TextView edtext_name, edtext_mail, edtext_phone, text_national_id;
+    TextView edtext_name, edtext_mail, edtext_phone, text_national_id,txt_logout;
     String name, mail, phone,id;
     Button btn_update;
     UserService userService;
@@ -75,16 +77,22 @@ public class profile_Fragment extends Fragment {
 //        String mail = edtext_mail.getText().toString();
 //        String phone = edtext_phone.getText().toString();
 //        String id = text_national_id.getText().toString();
-
+       txt_logout=(TextView)view.findViewById(R.id.txt_logout);
+       txt_logout.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               logout();
+           }
+       });
 
         //validate form
 //        if (validateLogin(name, mail, phone, id)) {
         {
-        btn_update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), UpdateProfileActivity.class);
-                startActivity(intent);
+            btn_update.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getContext(), UpdateProfileActivity.class);
+                    startActivity(intent);
 ////                loadupdateFragment(new UpdateProfileActivity());
 //                 Toast.makeText(getContext(),"",Toast.LENGTH_LONG).show();
 //                 Toast.makeText(getContext(), "Saved..", Toast.LENGTH_SHORT).show();
@@ -100,20 +108,42 @@ public class profile_Fragment extends Fragment {
 //                 bundle.putString("phone",phone);
 //                 bundle.putString("mail",mail);
 //                 bundle.putString("pass",pass);
-            }
-        });
-        back_arrow = (ImageView) view.findViewById(R.id.image_back_arrow);
-        back_arrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
-//                back(new Mainpage_details());
-            }
-        });
+                }
+            });
+//        back_arrow = (ImageView) view.findViewById(R.id.image_back_arrow);
+//        back_arrow.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent(getActivity(), MainActivity.class);
+//                startActivity(intent);
+////                back(new Mainpage_details());
+//            }
+//        });
+//        }
         }
         return view;
       }
+
+    private void logout() {
+        Call call = userService.logout("Bearer");
+        call.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+//                            ResObj resObj = (ResObj) response.body();
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+                profile_Fragment.this.getActivity().finish();
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+                profile_Fragment.this.getActivity().finish();
+            }
+        });
+    }
+
     private void doLogin(){
         loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getActivity().getApplicationContext());
