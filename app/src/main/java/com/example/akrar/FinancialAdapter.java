@@ -83,11 +83,11 @@ public class FinancialAdapter extends RecyclerView.Adapter<FinancialAdapter.View
             this.card_view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Intent intent = new Intent(v.getContext(),FinancialInvoiceDetailsActivity.class);
-//                    intent.putExtra("Selected_invoice_id",invoices.get(FinancialAdapter.ViewHolder.this.getAdapterPosition()).getId());
-//                    intent.putExtra("Selected_invoice_type_sent",invoices.get(FinancialAdapter.ViewHolder.this.getAdapterPosition()).getSender() !=null);
-//                    v.getContext().startActivity(intent);
-//                    ViewHolder.this.getAdapterPosition()
+                    Intent intent = new Intent(v.getContext(),FinancialInvoiceDetailsActivity.class);
+                    intent.putExtra("Selected_invoice_id",invoices.get(FinancialAdapter.ViewHolder.this.getAdapterPosition()).getId());
+                    intent.putExtra("Selected_invoice_type_sent",invoices.get(FinancialAdapter.ViewHolder.this.getAdapterPosition()).getSender() !=null);
+                    v.getContext().startActivity(intent);
+                    ViewHolder.this.getAdapterPosition();
                 }
             });
             this.txt_date=itemView.findViewById(R.id.txt_date_fin);

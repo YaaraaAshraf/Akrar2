@@ -11,10 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.akrar.MainActivity;
 import com.example.akrar.Mainpage_details;
 import com.example.akrar.R;
 import com.example.akrar.User;
 import com.example.akrar.UserSharedPreferencesManager;
+import com.example.akrar.login_and_registration.LoginActivity;
 import com.example.akrar.model.ApiUtils;
 import com.example.akrar.model.LoginData;
 import com.example.akrar.model.ResObj;
@@ -99,7 +101,9 @@ public class profile_Fragment extends Fragment {
         back_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                back(new Mainpage_details());
+                Intent intent=new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+//                back(new Mainpage_details());
             }
         });
         }

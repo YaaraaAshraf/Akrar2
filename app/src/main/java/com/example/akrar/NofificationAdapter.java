@@ -6,8 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-
 public class NofificationAdapter extends RecyclerView.Adapter<NofificationAdapter.ViewHolder> {
     private MyListData[] listdata;
 

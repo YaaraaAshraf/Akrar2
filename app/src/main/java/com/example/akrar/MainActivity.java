@@ -9,7 +9,6 @@ import android.view.MenuItem;
 
 import com.example.akrar.Notifications.NotifFragment;
 import com.example.akrar.profile.profile_Fragment;
-
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 //        ImageView img_notif, img_home, img_profile;
 //        TextView txt_notif, txt_home, txt_profile;

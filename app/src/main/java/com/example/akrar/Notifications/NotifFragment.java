@@ -1,6 +1,7 @@
 package com.example.akrar.Notifications;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.akrar.MainActivity;
 import com.example.akrar.Mainpage_details;
 import com.example.akrar.NofificationAdapter;
 import com.example.akrar.MyListData;
@@ -31,7 +33,9 @@ ImageView arrow;
         arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                back(new Mainpage_details());
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+//                back(new Mainpage_details());
             }
         });
 
@@ -56,16 +60,16 @@ ImageView arrow;
         return view;
     }
 
-    private boolean back(Fragment fragment) {
-        if (fragment != null) {
-            getFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.frame_container, fragment)
-                    .commit();
-            return true;
-        }
-        return false;
-    }
+//    private boolean back(Fragment fragment) {
+//        if (fragment != null) {
+//            getFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.frame_container, fragment)
+//                    .commit();
+//            return true;
+//        }
+//        return false;
+//    }
     }
 
 
