@@ -19,13 +19,14 @@ public interface UserService {
 
     @FormUrlEncoded
     @POST("register")
-    Call<Responseclass> createuser(@Field("firstname") String firstname,
-                                   @Field("lastname") String lastname,
+    Call<ResObj<LoginData>> createuser(@Field("first_name") String firstname,
+                                   @Field("last_name") String lastname,
                                    @Field("national_id") String national_id,
                                    @Field("email") String email,
                                    @Field("mobile") String mobile,
                                    @Field("password") String password,
-                                   @Field("password_confirmation") String password_confirmation);
+                                   @Field("password_confirmation") String password_confirmation,
+                                       @Field("device_id") String deviceId);
 
 
 
