@@ -55,7 +55,7 @@ public class Mainpage_details extends Fragment {
         img_gm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), BondCashFragment.class);
+                Intent intent = new Intent(getContext(), FinancialInvoiceListActivity.class);
                 startActivity(intent);
 //                  loadbodnscash(new BondCashFragment());
             }
