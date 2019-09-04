@@ -33,12 +33,13 @@ class ViewInvoicePaymentAdapter extends RecyclerView.Adapter<ViewInvoicePaymentA
     @Override
     public void onBindViewHolder(@NonNull ViewInvoicePaymentAdapter.ViewHolder holder, int position) {
 //        final Product myListData = products.get(position);
-        holder.txt_name.setText(holder.txt_name.getContext().getString(R.string.paymentName,products.get(position).getProduct().getPaid()));
-        holder.txt_price.setText(holder.txt_name.getContext().getString(R.string.paymentpaid,products.get(position).getPaid()));
-        holder.txt_unit.setText(holder.txt_name.getContext().getString(R.string.paymentrest,products.get(position).getRest()));
+        holder.txt_name.setText(holder.txt_name.getContext().getString(R.string.paymentName,products.get(position).getPayment()));
+        holder.txt_amount.setText(holder.txt_name.getContext().getString(R.string.paymentpaid,products.get(position).getPaid()));
+        holder.txt_unit.setText(holder.txt_name.getContext().getString(R.string.paymentrest,""+products.get(position).getRest()));
+
         holder.productToggle.setTextOn(holder.txt_name.getContext().getString(R.string.payment_number,position+1));
         holder.productToggle.setTextOff(holder.txt_name.getContext().getString(R.string.payment_number,position+1));
-        holder.productToggle.setText(holder.txt_name.getContext().getString(R.string.payment_number,position+1));
+        holder.productToggle.setText(holder.txt_name.getContext().getString(R.string.payment_number,(position+1)));
     }
     @Override
     public int getItemCount() {
@@ -53,6 +54,7 @@ class ViewInvoicePaymentAdapter extends RecyclerView.Adapter<ViewInvoicePaymentA
         //        CircleImageView status;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+//            this.txt_price=itemView.findViewById(R.id.product_name_text_view);
             this.productToggle=itemView.findViewById(R.id.product_toggle);
             this.product_layout=itemView.findViewById(R.id.product_sub_layout);
             this.productToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

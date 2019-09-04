@@ -18,6 +18,9 @@ public class Rowitem_cash {
         this.rowitem_cash = rowitem_cash;
     }
 
+    public Rowitem_cash() {
+    }
+
     public String getDate() {
         return date;
     }

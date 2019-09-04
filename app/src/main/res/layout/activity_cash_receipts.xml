@@ -1,57 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-tools:context=".CashReceipts"
-android:background="@color/white">
-<RelativeLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="90dp"
-    android:orientation="horizontal"
-android:background="@drawable/actionbar">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".CashReceipts">
 
-    <ImageButton
-        android:id="@+id/image_arrow"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_centerVertical="true"
-        android:background="@null"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/arrow" />
-
-    <TextView
-        android:id="@+id/txt_docu_bond"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:gravity="center"
-        android:text="سند قبض نقدي"
-        android:textColor="@color/black"
-        android:textSize="20dp" />
-</RelativeLayout>
+        android:layout_height="90dp"
+        android:background="@drawable/actionbar"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/image_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/arrow" />
+
+        <TextView
+            android:id="@+id/txt_docu_bond"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="سند قبض نقدي"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fillViewport="true">
 
-    <!--<ScrollView-->
+        <!--<ScrollView-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="match_parent"-->
         <!--android:layout_below="@id/app_bar"-->
         <!--android:fillViewport="true">-->
         <!--<LinearLayout-->
-            <!--android:id="@+id/menuLayout"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginLeft="20dp"-->
-            <!--android:layout_marginRight="20dp"-->
-            <!--android:orientation="vertical">-->
+        <!--android:id="@+id/menuLayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--android:orientation="vertical">-->
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -59,181 +60,82 @@ android:background="@drawable/actionbar">
             android:layout_marginRight="10dp"
             android:orientation="vertical">
 
-        <TextView
-    android:id="@+id/textView3"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    android:layout_marginRight="10dp"
-    android:textSize="15dp"
-    android:text="يمكنك اضافة دفعات حتي 12 دفعة"
-    android:textColor="@color/blue"/>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/cash_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/app_bar"
-        android:layout_marginTop="10dp"
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:text="يمكنك اضافة دفعات حتي 12 دفعة"
+                android:textColor="@color/blue"
+                android:textSize="15dp" />
 
-        tools:listitem="@layout/row_cash_receipts">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/cash_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/app_bar"
+                android:layout_marginTop="10dp"
 
-    </android.support.v7.widget.RecyclerView>
+                tools:listitem="@layout/row_cash_receipts">
 
-    <Button
-    android:id="@+id/btn_payments"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="170dp"
-    android:layout_marginRight="10dp"
-    android:layout_marginBottom="100dp"
-    android:background="@drawable/rounded_button"
-    android:drawableRight="@mipmap/add"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:text="اضافة دفعات اخري"/>
+            </android.support.v7.widget.RecyclerView>
 
-    <Button
-    android:id="@+id/btn_send"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
-    android:background="@drawable/rounded_button"
-    android:text="ارسال" />
+            <Button
+                android:id="@+id/btn_payments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/rounded_button"
+                android:drawableRight="@mipmap/add"
+                android:drawableTint="@color/white"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="right"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="اضافة دفعات اخري" />
+
+            <Button
+                android:id="@+id/btn_send"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_button"
+                android:text="ارسال" />
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </LinearLayout>
 
 
+    <!--<LinearLayout--><!--android:layout_width="match_parent"--><!--android:layout_height="140dp"--><!--android:layout_marginHorizontal="40dp"--><!--android:layout_marginTop="40dp"--><!--android:layout_marginBottom="40dp"--><!--android:orientation="horizontal"--><!--android:weightSum="2">-->
 
+    <!--<LinearLayout--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content"--><!--android:orientation="horizontal"--><!--android:gravity="right">-->
 
+    <!--<TextView--><!--android:id="@+id/txt_name"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:textColor="@color/black"--><!--android:layout_marginRight="40dp"--><!--android:text="التاريخ"--><!--android:layout_marginTop="10dp"--><!--android:textSize="15dp"/>-->
 
+    <!--<Space--><!--android:layout_width="100dp"--><!--android:layout_height="match_parent" />--><!--<TextView--><!--android:id="@+id/txt_namep"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:textColor="@color/black"--><!--android:layout_marginRight="40dp"--><!--android:text="القيمة"--><!--android:layout_marginTop="10dp"--><!--android:textSize="15dp"/>-->
 
+    <!--</LinearLayout>--><!--</LinearLayout>-->
 
+    <!--<LinearLayout--><!--android:layout_width="match_parent"--><!--android:layout_height="63dp"--><!--android:layout_marginHorizontal="40dp"--><!--android:layout_marginTop="-150dp"--><!--android:orientation="horizontal"--><!--android:weightSum="2">-->
 
+    <!--<LinearLayout--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content"--><!--android:gravity="right"--><!--android:orientation="horizontal">-->
 
+    <!--<EditText--><!--android:id="@+id/editText_date"--><!--android:layout_width="190dp"--><!--android:layout_height="40dp"--><!--android:layout_weight="1"--><!--android:background="@drawable/rounded_edittext"--><!--android:drawableLeft="@mipmap/calendar"--><!--android:ems="10"--><!--android:paddingLeft="10dp" />-->
 
+    <!--<Space--><!--android:layout_width="50dp"--><!--android:layout_height="match_parent" />-->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="140dp"-->
-    <!--android:layout_marginHorizontal="40dp"-->
-    <!--android:layout_marginTop="40dp"-->
-    <!--android:layout_marginBottom="40dp"-->
-    <!--android:orientation="horizontal"-->
-    <!--android:weightSum="2">-->
-
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="horizontal"-->
-        <!--android:gravity="right">-->
-
-        <!--<TextView-->
-            <!--android:id="@+id/txt_name"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:textColor="@color/black"-->
-            <!--android:layout_marginRight="40dp"-->
-            <!--android:text="التاريخ"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:textSize="15dp"/>-->
-
-        <!--<Space-->
-            <!--android:layout_width="100dp"-->
-            <!--android:layout_height="match_parent" />-->
-        <!--<TextView-->
-            <!--android:id="@+id/txt_namep"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:textColor="@color/black"-->
-            <!--android:layout_marginRight="40dp"-->
-            <!--android:text="القيمة"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:textSize="15dp"/>-->
+    <!--<EditText--><!--android:id="@+id/editText_value"--><!--android:layout_width="190dp"--><!--android:layout_height="40dp"--><!--android:layout_weight="1"--><!--android:background="@drawable/rounded_edittext"--><!--android:ems="10" />-->
 
     <!--</LinearLayout>-->
-     <!--</LinearLayout>-->
 
-            <!--<LinearLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="63dp"-->
-                <!--android:layout_marginHorizontal="40dp"-->
-                <!--android:layout_marginTop="-150dp"-->
-                <!--android:orientation="horizontal"-->
-                <!--android:weightSum="2">-->
-
-                <!--<LinearLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:gravity="right"-->
-                    <!--android:orientation="horizontal">-->
-
-                    <!--<EditText-->
-                        <!--android:id="@+id/editText_date"-->
-                        <!--android:layout_width="190dp"-->
-                        <!--android:layout_height="40dp"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:background="@drawable/rounded_edittext"-->
-                        <!--android:drawableLeft="@mipmap/calendar"-->
-                        <!--android:ems="10"-->
-                        <!--android:paddingLeft="10dp" />-->
-
-                    <!--<Space-->
-                        <!--android:layout_width="50dp"-->
-                        <!--android:layout_height="match_parent" />-->
-
-                    <!--<EditText-->
-                        <!--android:id="@+id/editText_value"-->
-                        <!--android:layout_width="190dp"-->
-                        <!--android:layout_height="40dp"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:background="@drawable/rounded_edittext"-->
-                        <!--android:ems="10" />-->
-
-                <!--</LinearLayout>-->
-
-            <!--</LinearLayout>-->
-        <!--<LinearLayout-->
-            <!--android:id="@+id/container"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="vertical">-->
+    <!--</LinearLayout>--><!--<LinearLayout--><!--android:id="@+id/container"--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content"--><!--android:orientation="vertical">-->
 
 
-            <!--<Button-->
-                <!--android:id="@+id/btn_payments"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginLeft="170dp"-->
-                <!--android:layout_marginRight="10dp"-->
-                <!--android:layout_marginBottom="70dp"-->
-                <!--android:background="@drawable/rounded_button"-->
-                <!--android:drawableRight="@mipmap/add"-->
-                <!--android:paddingLeft="10dp"-->
-                <!--android:paddingRight="10dp"-->
-                <!--android:text="اضافة دفعات اخري"/>-->
+    <!--<Button--><!--android:id="@+id/btn_payments"--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content"--><!--android:layout_marginLeft="170dp"--><!--android:layout_marginRight="10dp"--><!--android:layout_marginBottom="70dp"--><!--android:background="@drawable/rounded_button"--><!--android:drawableRight="@mipmap/add"--><!--android:paddingLeft="10dp"--><!--android:paddingRight="10dp"--><!--android:text="اضافة دفعات اخري"/>-->
 
-            <!--<Button-->
-                <!--android:id="@+id/btn_send"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginBottom="10dp"-->
-                <!--android:background="@drawable/rounded_button"-->
-                <!--android:text="ارسال" />-->
+    <!--<Button--><!--android:id="@+id/btn_send"--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content"--><!--android:layout_marginBottom="10dp"--><!--android:background="@drawable/rounded_button"--><!--android:text="ارسال" />-->
 
 
 

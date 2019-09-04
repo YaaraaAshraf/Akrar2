@@ -2,7 +2,9 @@ package com.example.akrar.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Currency {
+import java.io.Serializable;
+
+public class Currency implements Serializable {
     @SerializedName("id")
     private int id;
 

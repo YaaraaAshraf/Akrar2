@@ -44,7 +44,8 @@ public class AddPayment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_payment);
-        selectedInvoiceID = getIntent().getIntExtra("Selected_invoice_id", 0);
+
+        selectedInvoiceID = getIntent().getLongExtra("Selected_invoice_id", 0);
         isSentInvoice = getIntent().getBooleanExtra("Selected_invoice_type_sent", false);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -106,8 +107,8 @@ public class AddPayment extends AppCompatActivity {
     }
 
     private void fillInvoiceData(InvoicepaymentData invoiceDetailsData, boolean isSentInvoice) {
-            InvoicepaymentData invoice = (InvoicepaymentData) invoiceDetailsData.getPayment();
-        List<paymentobject> products = invoice.getPayment();
+//            InvoicepaymentData invoice = (InvoicepaymentData) invoiceDetailsData.getPayment();
+        List<paymentobject> products = invoiceDetailsData.getPayment();
 //        if (isSentInvoice)
 //            nationalIDText.setText(invoice.getSender().getNationalId());
 //        else

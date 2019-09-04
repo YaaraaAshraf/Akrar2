@@ -1,14 +1,17 @@
 package com.example.akrar.invoices;
 
+import com.example.akrar.InvoicepaymentData;
 import com.example.akrar.invoices.model.CurrenciesData;
 import com.example.akrar.invoices.model.Invoice;
 import com.example.akrar.invoices.model.InvoiceDetailsData;
 import com.example.akrar.invoices.model.InvoicesData;
 import com.example.akrar.model.ResObj;
+import com.example.akrar.paymentobject;
 import com.example.akrar.products.model.Product;
 import com.example.akrar.products.model.ProductData;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -27,6 +30,9 @@ public interface InvoicesService {
 
     @GET("index_shipment_invoice")
     Call<ResObj<InvoicesData>> listInvoices(@Header("Authorization") String auth);
+
+    @GET("shipment_invoice")
+    Call<ResObj<InvoicesData>> listShipmentInvoicesForFinancialInvoice(@Header("Authorization") String auth);
 
     @FormUrlEncoded
     @POST("filter_shipment_invoice")
@@ -52,7 +58,7 @@ public interface InvoicesService {
     Call<ResObj<InvoiceDetailsData>> getInvoiceFinancialDetails(@Header("Authorization") String auth, @Path("index") long id);
 
     @GET("show_financial_payment/{index}")
-    Call<ResObj> getpaymentinvoice(@Header("Authorization") String auth, @Path("index") long id);
+    Call<ResObj<InvoicepaymentData>> getpaymentinvoice(@Header("Authorization") String auth, @Path("index") long id);
 
     @GET("index_financial_invoice")
     Call<ResObj<InvoicesData>> listFinancialInvoices(@Header("Authorization") String auth);
@@ -62,7 +68,8 @@ public interface InvoicesService {
     Call<ResObj> add_financial_invoice(@Header("Authorization") String auth,
                                        @Field("shipment_invoice_id") String invoice_id,
                                        @Field("pay_type") String paymentType,
-                                       @Field("description") String description);
+                                       @Field("description") String description,
+                                       @FieldMap Map<String,String> payments);
 
 //
 //    @FormUrlEncoded

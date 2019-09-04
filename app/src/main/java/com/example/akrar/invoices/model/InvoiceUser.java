@@ -1,7 +1,10 @@
 package com.example.akrar.invoices.model;
 
 import com.google.gson.annotations.SerializedName;
-public class InvoiceUser {
+
+import java.io.Serializable;
+
+public class InvoiceUser implements Serializable {
 
     @SerializedName("id")
     private int id;
