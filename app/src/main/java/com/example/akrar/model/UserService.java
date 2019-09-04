@@ -34,7 +34,8 @@ public interface UserService {
     Call<ResObj<LoginData>> user(@Header("Authorization") String auth);
 //                             @Header("national_id") String national_id,
 //                             @Header("mobile") String mobile);
-
+@GET("notification")
+Call<ResObj<LoginData>> notification(@Header("Authorization") String auth);
 
 @POST("logout")
 Call<ResObj> logout(@Header("Authorization") String auth);

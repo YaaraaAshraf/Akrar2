@@ -6,9 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.akrar.products.model.Product;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class NofificationAdapter extends RecyclerView.Adapter<NofificationAdapter.ViewHolder> {
     private MyListData[] listdata;
-
+    private List<NotificationObject> listdataa;
     // RecyclerView recyclerView;
     public NofificationAdapter(MyListData[] listdata) {
         this.listdata = listdata;
@@ -24,13 +30,19 @@ public class NofificationAdapter extends RecyclerView.Adapter<NofificationAdapte
     }
     @Override
     public void onBindViewHolder(@NonNull NofificationAdapter.ViewHolder holder, int position) {
-        final MyListData myListData = listdata[position];
-        holder.txt_notif.setText(listdata[position].getNotiname());
-        holder.txt_time.setText(listdata[position].getTime());
+        final NotificationObject notificationObject=listdataa.get(position);
+        holder.txt_notif.setText(notificationObject.getMsg());
+        holder.txt_time.setText(notificationObject.getCreated_at());
+//        holder.txt_notif.setText(listdata[position].getNotiname());
+//        holder.txt_time.setText(listdata[position].getTime());
     }
     @Override
     public int getItemCount() {
         return listdata.length;
+    }
+    public void setListdata(ArrayList<NotificationObject> productArrayList) {
+        this.listdataa = productArrayList;
+        notifyDataSetChanged();
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txt_notif,txt_time;

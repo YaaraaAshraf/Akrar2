@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +21,7 @@ import com.example.akrar.model.LoginData;
 import com.example.akrar.model.ResObj;
 import com.example.akrar.model.Responseclass;
 import com.example.akrar.model.UserService;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 
@@ -40,6 +42,9 @@ public class RegistrationActivity extends AppCompatActivity {
     ImageButton img_arrow;
     UserService userService;
     AlertDialog loadingDialog;
+
+    String device_id;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +122,19 @@ public class RegistrationActivity extends AppCompatActivity {
             }
 
         });
+
+        //FCM
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) {
+                        Log.w("FIREBASE_TOKEN", "getInstanceId failed", task.getException());
+                        return;
+                    }
+
+                    // Get new Instance ID token
+                    device_id = task.getResult().getToken();
+
+                });
     }
 
     private boolean validateregister(String firstname, String password, String lastname, String phone, String mail, String verifypass, String national_id) {
@@ -137,7 +155,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private void doreg(final String firstname, final String lastname, final String national_id, final String email, final String mobile, final String password, String password_confirmation) {
 
         loadingDialog.show();
-        Call call = userService.createuser(firstname, lastname, national_id, email, mobile, password, password_confirmation,"123456");
+        Call call = userService.createuser(firstname, lastname, national_id, email, mobile, password, password_confirmation,device_id);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {

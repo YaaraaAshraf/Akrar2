@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ import com.example.akrar.model.ApiUtils;
 import com.example.akrar.model.LoginData;
 import com.example.akrar.model.ResObj;
 import com.example.akrar.model.UserService;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -34,6 +36,9 @@ public class LoginActivity extends AppCompatActivity {
     UserService userService;
     AlertDialog loadingDialog;
     ImageButton img_arrow_back;
+
+    String device_id;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +99,20 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //FCM
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) {
+                        Log.w("FIREBASE_TOKEN", "getInstanceId failed", task.getException());
+                        return;
+                    }
+
+                    // Get new Instance ID token
+                    device_id = task.getResult().getToken();
+
+                });
+
     }
     private boolean validateLogin(String username, String password) {
         if (username == null || username.trim().length() == 0) {
@@ -109,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
     public void doLogin(final String national_id, final String password) {
 
         loadingDialog.show();
-        Call call = userService.login(national_id, password,"123456789");
+        Call call = userService.login(national_id, password,device_id);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
