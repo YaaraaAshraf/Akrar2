@@ -13,11 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NofificationAdapter extends RecyclerView.Adapter<NofificationAdapter.ViewHolder> {
-    private MyListData[] listdata;
+//    private MyListData[] listdata;
     private List<NotificationObject> listdataa;
     // RecyclerView recyclerView;
-    public NofificationAdapter(MyListData[] listdata) {
-        this.listdata = listdata;
+    public NofificationAdapter(List<NotificationObject> listdata) {
+        this.listdataa = listdata;
     }
 
     @NonNull
@@ -38,7 +38,7 @@ public class NofificationAdapter extends RecyclerView.Adapter<NofificationAdapte
     }
     @Override
     public int getItemCount() {
-        return listdata.length;
+        return listdataa.size();
     }
     public void setListdata(ArrayList<NotificationObject> productArrayList) {
         this.listdataa = productArrayList;

@@ -13,18 +13,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.akrar.MainActivity;
 import com.example.akrar.Mainpage_details;
 import com.example.akrar.NofificationAdapter;
 import com.example.akrar.MyListData;
 import com.example.akrar.NotificationData;
+import com.example.akrar.NotificationObject;
 import com.example.akrar.R;
 import com.example.akrar.UserSharedPreferencesManager;
 import com.example.akrar.model.ApiUtils;
 import com.example.akrar.model.LoginData;
 import com.example.akrar.model.ResObj;
 import com.example.akrar.model.UserService;
+import com.example.akrar.products.ProductsAdapter;
+import com.example.akrar.products.ProductsListActivity;
 import com.example.akrar.products.model.Product;
 
 import java.util.ArrayList;
@@ -61,20 +65,21 @@ public class NotifFragment extends Fragment {
         });
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler);
-        MyListData[] myListData = new MyListData[]{
-                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
-                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
-                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
-                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
-                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
-                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
-                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
-                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
-                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
-                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
-                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
-        };
-        NofificationAdapter adapter = new NofificationAdapter(myListData);
+//        MyListData[] myListData = new MyListData[]{
+//                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
+//                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
+//                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
+//                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
+//                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
+//                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
+//                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
+//                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
+//                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
+//                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
+//                new MyListData("محمد بعتلك سند من قبض عيني", "منذ 3 ساعات"),
+//        };
+//        NofificationAdapter adapter = new NofificationAdapter(myListData);
+        adapter = new NofificationAdapter(new ArrayList<NotificationObject>());
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
@@ -84,7 +89,7 @@ public class NotifFragment extends Fragment {
     private void getNotification() {
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getActivity().getApplicationContext());
         String token = userSharedPreferencesManager.getToken();
-        Call call = userService.user("Bearer " + token);
+        Call call = userService.notification("Bearer " + token);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -92,7 +97,9 @@ public class NotifFragment extends Fragment {
                 if (response.isSuccessful()) {
                     ResObj<NotificationData> resObj = (ResObj<NotificationData>) response.body();
                     if (resObj.getStatus().equals("success")) {
-                        adapter.setListdata((ArrayList<Product>) resObj.getData().getProducts());
+                        adapter.setListdata((ArrayList<NotificationObject>) resObj.getData().getProducts());
+                    }else {
+                        Toast.makeText(getActivity().getApplicationContext(), "Error! Please try again!", Toast.LENGTH_SHORT).show();
                     }
 
 //    private boolean back(Fragment fragment) {
@@ -111,7 +118,7 @@ public class NotifFragment extends Fragment {
 
             @Override
             public void onFailure(Call call, Throwable t) {
-
+                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
