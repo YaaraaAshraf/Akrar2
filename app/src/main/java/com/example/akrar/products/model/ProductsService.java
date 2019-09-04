@@ -29,7 +29,7 @@ public interface ProductsService {
     @POST("add_paid_payment/{index}")
     Call<ResObj> addPayment(@Header("Authorization") String auth,
                             @Field("date") String date,
-                            @Field("payment") String payment);
+                            @Field("com.example.akrar.paymentobject") String payment);
 
 
 

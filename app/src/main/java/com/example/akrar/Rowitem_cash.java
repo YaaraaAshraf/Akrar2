@@ -8,7 +8,7 @@ public class Rowitem_cash {
 
     @SerializedName("date")
     private String date;
-    @SerializedName("payment")
+    @SerializedName("com.example.akrar.paymentobject")
     private String payment;
     Rowitem_cash rowitem_cash;
 

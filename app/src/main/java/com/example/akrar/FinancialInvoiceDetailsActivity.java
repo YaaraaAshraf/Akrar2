@@ -1,17 +1,18 @@
 package com.example.akrar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-
 import com.example.akrar.invoices.InvoicesService;
 import com.example.akrar.invoices.model.Invoice;
 import com.example.akrar.invoices.model.InvoiceDetailsData;
@@ -34,7 +35,7 @@ public class FinancialInvoiceDetailsActivity extends AppCompatActivity {
 
     long selectedInvoiceID;
     boolean isSentInvoice;
-
+Button btn_payment;
 
     ImageView image_add_bond, img_arrow;
     //    ImageView fab;
@@ -58,7 +59,14 @@ public class FinancialInvoiceDetailsActivity extends AppCompatActivity {
         builder.setView(R.layout.loading_dialog_layout);
         loadingDialog = builder.create();
         invoicesService = ApiUtils.getInvoicesService();
-
+        btn_payment=(Button)findViewById(R.id.button_payment);
+        btn_payment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(FinancialInvoiceDetailsActivity.this, AddPayment.class);
+                startActivity(intent);
+            }
+        });
         nationalIDToggle = findViewById(R.id.national_id_toggle);
         nationalIDText = findViewById(R.id.national_id_finan);
 //        nationalIDLayout = findViewById(R.id.national_id_layout);
@@ -109,12 +117,12 @@ public class FinancialInvoiceDetailsActivity extends AppCompatActivity {
                 descriptionText.setVisibility(isChecked?View.VISIBLE:View.GONE);
             }
         });
-
         recyclerView = (RecyclerView) findViewById(R.id.products_recycler_view);
         adapter = new ViewInvoiceProductsAdapter(new ArrayList<Product>());
 ////        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+
 
         img_arrow = (ImageView) findViewById(R.id.img_arrow);
         img_arrow.setOnClickListener(new View.OnClickListener() {

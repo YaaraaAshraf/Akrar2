@@ -35,7 +35,6 @@ public class Product {
     private String price;
     @SerializedName("quantity")
     private String quantity;
-
     @SerializedName("status")
     private String status;
     @SerializedName("id")

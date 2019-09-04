@@ -17,4 +17,11 @@
     <string name="unit"> الوحدة: %1$s</string>
     <string name="price"> السعر: %1$s</string>
     <string name="product_number"> المنتج رقم: %1$d</string>
+
+    <string name="payment_number"> تاريخ: %1$d</string>
+
+    <string name="paymentName"> القيمة: %1$s</string>
+
+    <string name="paymentpaid"> القيمةالمدفوعة: %1$s</string>
+    <string name="paymentrest"> الباقي: %1$s</string>
 </resources>
