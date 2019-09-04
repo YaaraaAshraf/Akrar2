@@ -7,7 +7,8 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.example.akrar.NotificationObject.NotifFragment;
+
+import com.example.akrar.Notifications.NotifFragment;
 import com.example.akrar.profile.profile_Fragment;
 
 public class BottomAppBar extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {

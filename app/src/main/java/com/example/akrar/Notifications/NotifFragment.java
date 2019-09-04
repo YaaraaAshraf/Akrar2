@@ -32,6 +32,7 @@ import com.example.akrar.products.ProductsListActivity;
 import com.example.akrar.products.model.Product;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -93,7 +94,7 @@ public class NotifFragment extends Fragment {
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-                loadingDialog.dismiss();
+//                loadingDialog.dismiss();
                 if (response.isSuccessful()) {
                     ResObj<NotificationData> resObj = (ResObj<NotificationData>) response.body();
                     if (resObj.getStatus().equals("success")) {

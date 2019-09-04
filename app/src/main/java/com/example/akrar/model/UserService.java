@@ -1,4 +1,6 @@
 package com.example.akrar.model;
+import com.example.akrar.NotificationData;
+
 import retrofit2.Call;
         import retrofit2.http.Body;
         import retrofit2.http.Field;
@@ -35,7 +37,7 @@ public interface UserService {
 //                             @Header("national_id") String national_id,
 //                             @Header("mobile") String mobile);
 @GET("notification")
-Call<ResObj<LoginData>> notification(@Header("Authorization") String auth);
+Call<ResObj<NotificationData>> notification(@Header("Authorization") String auth);
 
 @POST("logout")
 Call<ResObj> logout(@Header("Authorization") String auth);
