@@ -13,7 +13,6 @@ public class InvoicepaymentData {
 //    private List<paymentobject> paypaymeny;
 
 
-
     public List<paymentobject> getPayment() {
         return payment;
     }
@@ -21,7 +20,6 @@ public class InvoicepaymentData {
     public void setPayment(List<paymentobject> payment) {
         this.payment = payment;
     }
-
 }
 
 

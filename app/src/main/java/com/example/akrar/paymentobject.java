@@ -13,6 +13,8 @@ package com.example.akrar;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class paymentobject {
     @SerializedName("id")
     private String id;
@@ -20,8 +22,9 @@ public class paymentobject {
     private String financial_invoice_id;
     @SerializedName("financial_payment_id")
     private String financial_payment_id;
-//    @SerializedName("paymentobject")
-//    private String payment;
+
+    @SerializedName("payment")
+    private String payment;
     @SerializedName("date")
     private String date;
     @SerializedName("status")
@@ -29,13 +32,10 @@ public class paymentobject {
     @SerializedName("paid")
     private String paid;
     @SerializedName("rest")
-    private String rest;
-
+    private int rest;
 
     @SerializedName("paid_payments")
-    private paymentobject product;
-
-
+    private List<paymentobject> paidPayments;
 
     public String getId() {
         return id;
@@ -45,6 +45,29 @@ public class paymentobject {
         this.id = id;
     }
 
+    public String getFinancial_invoice_id() {
+        return financial_invoice_id;
+    }
+
+    public void setFinancial_invoice_id(String financial_invoice_id) {
+        this.financial_invoice_id = financial_invoice_id;
+    }
+
+    public String getFinancial_payment_id() {
+        return financial_payment_id;
+    }
+
+    public void setFinancial_payment_id(String financial_payment_id) {
+        this.financial_payment_id = financial_payment_id;
+    }
+
+    public String getPayment() {
+        return payment;
+    }
+
+    public void setPayment(String payment) {
+        this.payment = payment;
+    }
 
     public String getDate() {
         return date;
@@ -70,35 +93,19 @@ public class paymentobject {
         this.paid = paid;
     }
 
-    public String getRest() {
+    public int getRest() {
         return rest;
     }
 
-    public void setRest(String rest) {
+    public void setRest(int rest) {
         this.rest = rest;
     }
 
-    public paymentobject getProduct() {
-        return product;
+    public List<paymentobject> getPaidPayments() {
+        return paidPayments;
     }
 
-    public void setProduct(paymentobject product) {
-        this.product = product;
-    }
-
-    public String getFinancial_invoice_id() {
-        return financial_invoice_id;
-    }
-
-    public void setFinancial_invoice_id(String financial_invoice_id) {
-        this.financial_invoice_id = financial_invoice_id;
-    }
-
-    public String getFinancial_payment_id() {
-        return financial_payment_id;
-    }
-
-    public void setFinancial_payment_id(String financial_payment_id) {
-        this.financial_payment_id = financial_payment_id;
+    public void setPaidPayments(List<paymentobject> paidPayments) {
+        this.paidPayments = paidPayments;
     }
 }

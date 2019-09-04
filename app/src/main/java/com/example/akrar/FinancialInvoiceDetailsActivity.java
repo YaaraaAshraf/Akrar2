@@ -64,7 +64,9 @@ Button btn_payment;
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(FinancialInvoiceDetailsActivity.this, AddPayment.class);
-                startActivity(intent);
+                intent.putExtra("Selected_invoice_id",selectedInvoiceID);
+                intent.putExtra("Selected_invoice_type_sent",isSentInvoice);
+                view.getContext().startActivity(intent);
             }
         });
         nationalIDToggle = findViewById(R.id.national_id_toggle);

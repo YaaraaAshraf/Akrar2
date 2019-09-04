@@ -3,7 +3,9 @@ package com.example.akrar.invoices.model;
 import com.example.akrar.model.Currency;
 import com.google.gson.annotations.SerializedName;
 
-public class Invoice {
+import java.io.Serializable;
+
+public class Invoice implements Serializable {
     @SerializedName("id")
     private int id;
 
@@ -51,6 +53,9 @@ public class Invoice {
 
     @SerializedName("shipment_invoice")
     private Invoice shipmentInvoice;
+
+    @SerializedName("financial_invoice")
+    private Invoice financialInvoice;
 
     public int getId() {
         return id;
@@ -175,5 +180,13 @@ public class Invoice {
 
     public void setShipmentInvoice(Invoice shipmentInvoice) {
         this.shipmentInvoice = shipmentInvoice;
+    }
+
+    public Invoice getFinancialInvoice() {
+        return financialInvoice;
+    }
+
+    public void setFinancialInvoice(Invoice financialInvoice) {
+        this.financialInvoice = financialInvoice;
     }
 }

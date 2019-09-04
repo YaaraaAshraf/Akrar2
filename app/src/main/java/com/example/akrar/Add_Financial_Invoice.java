@@ -67,31 +67,12 @@ public class Add_Financial_Invoice extends AppCompatActivity implements AdapterV
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(Add_Financial_Invoice.this, CashReceipts.class);
+                intent.putExtra("selectedShipmentInvoice",(Invoice)user_id.getSelectedItem());
+                intent.putExtra("description",desc.getText().toString());
                 startActivity(intent);
             }
         });
-//        edtext_value=(EditText)findViewById(R.id.text_value);
-//        text_date_deposite=(EditText)findViewById(R.id.edt_date);
-//        text_date_deposite.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                if(event.getAction() == MotionEvent.ACTION_UP) {
-//                    if(event.getRawX() <= text_date_deposite.getTotalPaddingLeft()) {
-//                        // your action for drawable click event
-//                        DatePickerDialog datePicker = new DatePickerDialog(getApplicationContext(), new DatePickerDialog.OnDateSetListener() {
-//                            @Override
-//                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-//                                text_date_deposite.setText(year + "/" + monthOfYear + "/" + dayOfMonth);
-//                            }
-//                        }, year, month, day);
-//                        datePicker.setTitle("Choose Date");
-//                        datePicker.show();
-//                        return true;
-//                    }
-//                }
-//                return false;
-//            }
-//        });
+
         image_document_arrow = (ImageView) findViewById(R.id.image_document_arrow);
         image_document_arrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,9 +86,6 @@ public class Add_Financial_Invoice extends AppCompatActivity implements AdapterV
             @Override
             public void onClick(View view) {
                 addFinancialinvoice();
-//                Intent intent = new Intent(getApplicationContext(), salary_documents.class);
-//                startActivity(intent);
-//                loadpage(new salary_documents());
             }
         });
         spinner_paytype = (Spinner) findViewById(R.id.spinner_paytype);
@@ -128,7 +106,7 @@ public class Add_Financial_Invoice extends AppCompatActivity implements AdapterV
         loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
         String token = userSharedPreferencesManager.getToken();
-        Call call = FinancialService.listInvoices("Bearer " + token);
+        Call call = FinancialService.listShipmentInvoicesForFinancialInvoice("Bearer " + token);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -139,10 +117,13 @@ public class Add_Financial_Invoice extends AppCompatActivity implements AdapterV
 
                         ShipmentInvoicesSpinnerAdapter currencySpinnerAdapter = new ShipmentInvoicesSpinnerAdapter(Add_Financial_Invoice.this,
                                 R.layout.spinner_item, "Dollar");
-                        ArrayList<Invoice> invoices = (ArrayList<Invoice>) data.getData().getInvoicesSent();
-                        invoices.addAll(data.getData().getInvoicesRecieved());
-
-                        currencySpinnerAdapter.setData(invoices);
+                        ArrayList<Invoice> invoices = (ArrayList<Invoice>) data.getData().getShipmentInvoices();
+                        ArrayList<Invoice> copiedInvoices = new ArrayList<>();
+                        for (Invoice invoice: invoices) {
+                            if(invoice.getFinancialInvoice() == null)
+                                copiedInvoices.add(invoice);
+                        }
+                        currencySpinnerAdapter.setData(copiedInvoices);
                         user_id.setAdapter(currencySpinnerAdapter);
                     } else {
                         Toast.makeText(Add_Financial_Invoice.this, "Failed to retrieve data", Toast.LENGTH_SHORT).show();
@@ -165,7 +146,7 @@ public class Add_Financial_Invoice extends AppCompatActivity implements AdapterV
         loadingDialog.show();
         UserSharedPreferencesManager userSharedPreferencesManager = UserSharedPreferencesManager.getInstance(this.getApplicationContext().getApplicationContext());
         String token = userSharedPreferencesManager.getToken();
-        Call call = FinancialService.add_financial_invoice("Bearer " + token,""+((Invoice)user_id.getSelectedItem()).getId(),""+spinner_paytype.getSelectedItemPosition(),desc.getText().toString());
+        Call call = FinancialService.add_financial_invoice("Bearer " + token,""+((Invoice)user_id.getSelectedItem()).getId(),""+spinner_paytype.getSelectedItemPosition(),desc.getText().toString(),null);
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
