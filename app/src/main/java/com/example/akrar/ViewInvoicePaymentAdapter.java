@@ -1,6 +1,7 @@
 package com.example.akrar;
 
 import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,7 @@ class ViewInvoicePaymentAdapter extends RecyclerView.Adapter<ViewInvoicePaymentA
         holder.txt_name.setText(holder.txt_name.getContext().getString(R.string.paymentName,products.get(position).getPayment()));
         holder.txt_amount.setText(holder.txt_name.getContext().getString(R.string.paymentpaid,products.get(position).getPaid()));
         holder.txt_unit.setText(holder.txt_name.getContext().getString(R.string.paymentrest,""+products.get(position).getRest()));
+        holder.amountAdapter.setData((ArrayList<paymentobject>) products.get(position).getPaidPayments());
 
         holder.productToggle.setTextOn(holder.txt_name.getContext().getString(R.string.payment_number,position+1));
         holder.productToggle.setTextOff(holder.txt_name.getContext().getString(R.string.payment_number,position+1));
@@ -51,11 +53,19 @@ class ViewInvoicePaymentAdapter extends RecyclerView.Adapter<ViewInvoicePaymentA
         TextView txt_name,txt_amount,txt_unit, txt_price;
         LinearLayout product_layout;
         ToggleButton nationalIDToggle;
+        RecyclerView amounts_recycler_view;
+        AmountAdapter amountAdapter;
         //        CircleImageView status;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 //            this.txt_price=itemView.findViewById(R.id.product_name_text_view);
             this.productToggle=itemView.findViewById(R.id.product_toggle);
+            this.amounts_recycler_view=itemView.findViewById(R.id.amounts_recycler_view);
+            this.amounts_recycler_view.setLayoutManager(new LinearLayoutManager(productToggle.getContext()));
+
+            this.amountAdapter = new AmountAdapter(new ArrayList<>());
+            this.amounts_recycler_view.setAdapter(this.amountAdapter);
+
             this.product_layout=itemView.findViewById(R.id.product_sub_layout);
             this.productToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override

@@ -19,6 +19,7 @@
     <string name="product_number"> المنتج رقم: %1$d</string>
 
     <string name="payment_number"> تاريخ: %1$d</string>
+    <string name="payment_number_text"> تاريخ: %1$s</string>
 
     <string name="paymentName"> القيمة: %1$s</string>
 
