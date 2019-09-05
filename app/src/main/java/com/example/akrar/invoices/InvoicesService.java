@@ -5,6 +5,7 @@ import com.example.akrar.invoices.model.CurrenciesData;
 import com.example.akrar.invoices.model.Invoice;
 import com.example.akrar.invoices.model.InvoiceDetailsData;
 import com.example.akrar.invoices.model.InvoicesData;
+import com.example.akrar.model.LoginData;
 import com.example.akrar.model.ResObj;
 import com.example.akrar.paymentobject;
 import com.example.akrar.products.model.Product;
@@ -51,6 +52,11 @@ public interface InvoicesService {
                                               @Field ("pay_type") String paytype,
                                               @Field ("to") String to);
 
+    @FormUrlEncoded
+    @POST("add_paid_payment/{index}")
+    Call<ResObj<InvoicesData>>addpaidpayment(@Header("Authorization") String auth,
+                                                       @Field ("date") String date,
+                                                       @Field ("payment") String payment);
     @GET("show_shipment_invoice/{index}")
     Call<ResObj<InvoiceDetailsData>> getInvoiceDetails(@Header("Authorization") String auth, @Path("index") long id);
 
@@ -63,6 +69,7 @@ public interface InvoicesService {
     @GET("index_financial_invoice")
     Call<ResObj<InvoicesData>> listFinancialInvoices(@Header("Authorization") String auth);
 
+
     @FormUrlEncoded
     @POST("add_financial_invoice")
     Call<ResObj> add_financial_invoice(@Header("Authorization") String auth,
@@ -71,13 +78,6 @@ public interface InvoicesService {
                                        @Field("description") String description,
                                        @FieldMap Map<String,String> payments);
 
-//
-//    @FormUrlEncoded
-//    @POST("filter_shipment_invoice")
-//    Call<ResObj> filterinvoice(@Header("Authorization") String auth,
-//                                        @Field("national_id") String invoice_id,
-//                                        @Field("from") String datefrom,
-//                                        @Field("to") String dateto);
 
 
     @FormUrlEncoded
@@ -98,5 +98,9 @@ public interface InvoicesService {
 
     @GET("show_financial_invoice/5")
     Call<ResObj<InvoicesData>> showfinancialpayment(@Header("Authorization") String auth);
+
+    @GET("confirm_financial_payment/2")
+    Call<ResObj<LoginData>> getconfirm (@Header("Authorization") String auth);
+
 }
 
